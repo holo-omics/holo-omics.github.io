@@ -1,4 +1,4 @@
-holo-omics
+part-holo-omics
 holofood
 laboratory
 extraction
