@@ -1,6 +1,6 @@
 holo-omics
-literature
-literature-1
+holofood
+laboratory
 bioinformatics
 statistics
 extraction
