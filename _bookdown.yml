@@ -1,4 +1,1 @@
 output_dir: "docs"
-rmd_files:
-  - "01-holo-omics.Rmd"
-  - "laboratory/01-example.Rmd"
