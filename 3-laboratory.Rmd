@@ -1,12 +1,3 @@
----
-title: Laboratory
-author: Antton Alberdi
-date: March 22, 2005
-output:
-  html_document:
-    number_sections: true
----
-
 # Laboratory
 
 Laboratory protocols
@@ -15,6 +6,6 @@ Laboratory protocols
 
 Test text
 
-## Library preparation{#library-preparation}
+## Library preparation {#library-preparation}
 
 Test text
