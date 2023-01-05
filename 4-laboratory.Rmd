@@ -1,0 +1,12 @@
+# (PART) LABORATORY PROCEDURES {-}
+# Introduction
+
+Laboratory protocols
+
+## Extraction {#extraction}
+
+Test text
+
+## Library preparation {#library-preparation}
+
+Test text
