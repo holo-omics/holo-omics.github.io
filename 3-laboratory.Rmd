@@ -11,6 +11,10 @@ output:
 
 Laboratory protocols
 
-## Extraction
+## Extraction {#extraction}
 
-## Library preparation
+Test text
+
+## Library preparation{#library-preparation}
+
+Test text
