@@ -1,6 +1,2 @@
----
-description: Testing
----
-
-# Page 2
+# First protocol
 
