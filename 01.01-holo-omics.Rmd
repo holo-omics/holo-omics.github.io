@@ -3,7 +3,7 @@
 
 Here is a review of existing methods @R-base.
 
-## Omic layers #{omic-layers}
+## Omic layers {#omic-layers}
 
 In this workbook we consider seven omic layers that require specific data generation and analysis strategies before integrating them into multi-omic statistical models:
 

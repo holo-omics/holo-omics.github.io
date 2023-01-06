@@ -1,5 +1,5 @@
 holo-omics
-omic-layers-omic-layers
+omic-layers
 holofood
 methodological_pov
 about-labwork
