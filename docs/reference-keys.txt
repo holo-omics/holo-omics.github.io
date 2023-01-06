@@ -10,11 +10,16 @@ meta-metabolomics
 holofood
 about-labwork
 dna-rna-extraction
-available-protocols
 protein-metabolite-extraction
 sequencing-library-preparation
 subheading
 about-bioinformatics
 sequencing-data-preprocessing
 about-statistics
+single-omic-analyses
 data-transformation
+supervised-analysis
+unsupervised-exploration
+multi-omic-integration
+multi-staged-integration
+meta-dimensional-integration
