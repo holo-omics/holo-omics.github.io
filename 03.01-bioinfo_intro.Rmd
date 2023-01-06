@@ -1,4 +1,6 @@
 # (PART) BIOINFORMATIC PROCEDURES {-}
 # About bioinformatics {#about-bioinformatics}
 
-Here is a review of existing methods.
+Content to be added.
+
+## Prepare your shell environment

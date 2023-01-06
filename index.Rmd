@@ -2,6 +2,7 @@
 bibliography: references.bib
 csl: biomed-central.csl
 link-citations: true
+highlight: tango
 ---
 # Holo-omics workbook {-}
 

@@ -30,7 +30,6 @@ bookdown::gitbook:
       whatsapp: false
       all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
     info: true
-  highlight: tango
 
 bookdown::html_book:
   split_by: section #split by 2nd level. alternatively chapter, to split by first level
