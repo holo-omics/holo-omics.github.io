@@ -1,6 +1,38 @@
 # (PART) BIOINFORMATIC PROCEDURES {-}
 # About bioinformatics {#about-bioinformatics}
 
+Bioinformatic processing of raw sequencing and mass spectrometry data is the  computational step that precedes statistical analyses and integration of multi-omic data. Through bioinformatic processing raw data are converted into meaningful bits of information, usually drastically decreasing the size of the data sets that are used for downstream analyses.
+
+Raw sequencing and mass spectrometry-based data files used in holo-omic analyses are typically in the realm of gigabytes (Gb) or even terabytes (Tb). Many of the performed operations require large amounts of memory (some more than 1Tb), which makes it impossible to process data in personal computers. Instead, most bioinformatics tasks are performed in computational clusters with access to large amounts of memory and many CPUs and GPUs, which enable parallelising computational tasks thus speeding up data processing time.
+
+However, for the sake of simplicity and practicality, the example datasets included in this Workbook have been considerably downscaled to enable reproducing the exercises in personal computers.
+
+> All bioinformatic analyses included in the **Holo-omics workbook** are conducted in a Unix command line Shell environment (BASH/SH). You can find the details to set-up your SHELL environment in the section [Prepare your R environment](#prepare-r)
+
+## Prepare your shell environment {#prepare-shell}
+
 Content to be added.
 
-## Prepare your shell environment
+### Required software {-}
+
+Content to be added.
+
+### Pipeline management {-}
+
+Content to be added.
+
+### Install software in conda environment {-}
+
+Content to be added.
+
+```
+#Example code goes here
+```
+
+## Example data for bioinformatics {#example-data-bioinformatics}
+
+Contents to be added here.
+
+```
+#Example code goes here
+```

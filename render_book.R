@@ -1,4 +1,13 @@
+#Install required libraries
+install.packages("bookdown")
+install.packages("webshot")
+
+#Load required linbra
 library(bookdown)
+library(webshot)
+
+#Install install_phantomjs
+webshot::install_phantomjs()
 
 #Render it as github pages ()
 render_book(input = "index.Rmd", output_format = "bookdown::gitbook")

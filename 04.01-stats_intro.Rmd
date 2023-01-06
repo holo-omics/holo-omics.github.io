@@ -69,3 +69,7 @@ install_github("github_repository_name_of_the_package")
 #e.g.
 install.package("anttonalberdi/distillR")
 ```
+
+## Example data for statistics {#example-data-statistics}
+
+Contents to be added here.

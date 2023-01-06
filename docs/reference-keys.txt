@@ -14,7 +14,8 @@ protein-metabolite-extraction
 sequencing-library-preparation
 subheading
 about-bioinformatics
-prepare-your-shell-environment
+prepare-shell
+example-data-bioinformatics
 sequencing-data-preprocessing
 host-genomics-data-processing
 host-reference-genome
@@ -29,6 +30,7 @@ host-proteomics-data-processing
 microbial-metaproteomics-data-processing
 about-statistics
 prepare-r
+example-data-statistics
 single-omic-analyses
 data-transformations
 unsupervised-exploration
