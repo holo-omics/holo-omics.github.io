@@ -1,3 +1,7 @@
+bibliography: references.bib
+csl: biomed-central.csl
+link-citations: true
+
 bookdown::gitbook:
   split_by: section #split by 2nd level. alternatively chapter, to split by first level
   config:
@@ -31,8 +35,6 @@ bookdown::gitbook:
       all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
     info: true
   highlight: tango
-  bibliography: references.bib
-  csl: biomed-central.csl
 
 bookdown::html_book:
   split_by: section #split by 2nd level. alternatively chapter, to split by first level
