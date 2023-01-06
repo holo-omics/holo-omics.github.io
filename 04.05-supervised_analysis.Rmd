@@ -1,3 +1,75 @@
 # Supervised analysis
 
-Here is a review of existing methods.
+The supervised analyses of omic layers, in contrast to unsupervised ones, incorporate information of experimental design, and can be divided into two types of problems: regression and classification. A regression problem is when the output of the model is a numeric variable or a matrix, such as the phenotypic characteristics of the host or the omic data sets themselves. These methods aim at testing and estimating the effects of the experimental factors (e.g., dietary treatment, drug administration) or variables of interest (e.g., age of the experimental subjects, geographic location of studied populations) on different omic layers, or associating the omic layers with host phenotypic features. A classification problem is when the output of the model is categorical. In the context of multi omic studies, classification methods aim at classifying observations into their experimental groups (e.g. health status, dietary treatment) based on their features on different omic layers.
+
+## Regression methods {#regression-methods}
+
+Independently testing the effects of the experimental factors of interest on different omic layers can be very informative to get an overall picture of how the host and the microbiome are responding to the environment and/or the experimental treatment.
+
+### PERMANOVA {#permanova}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### ANOSIM {#anosim}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### Redundancy analysis (RDA) {#redundancy-analysis}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### Canonical Correspondence Analysis (CCA) {#canonical-correspondence-analysis}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### Generalised linear modelling (GLM) {#generalised-linear-modelling}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### Generalised linear mixed modelling (GLMM) {#generalised-linear-mixed-modelling}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+## Classification methods {#classification-methods}
+
+It is in classification problems where ML algorithms have proven most useful.
+
+### Random Forests (RF) {#random-forests}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### Support Vector Machines (SVM) {#support-vector-machines}
+
+Content to be added here.
+
+```
+#Example code goes here
+```

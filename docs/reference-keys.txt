@@ -30,7 +30,7 @@ microbial-metaproteomics-data-processing
 about-statistics
 prepare-r
 single-omic-analyses
-data-transformation
+data-transformations
 unsupervised-exploration
 cluster-analysis
 hierarchical-clustering
@@ -43,6 +43,16 @@ t-sne
 umap
 phate
 supervised-analysis
+regression-methods
+permanova
+anosim
+redundancy-analysis
+canonical-correspondence-analysis
+generalised-linear-modelling
+generalised-linear-mixed-modelling
+classification-methods
+random-forests
+support-vector-machines
 multi-omic-integration
 multi-staged-integration
 meta-dimensional-integration

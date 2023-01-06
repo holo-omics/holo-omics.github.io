@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="dimension-reduction-ordination.html"/>
-<link rel="next" href="multi-omic-integration.html"/>
+<link rel="next" href="regression-methods.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -158,7 +158,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
-<li class="chapter" data-level="17" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>17</b> Data transformation</a></li>
+<li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a></li>
 <li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
 <ul>
 <li class="chapter" data-level="18.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html"><i class="fa fa-check"></i><b>18.1</b> Cluster analysis</a>
@@ -176,7 +176,23 @@ div.csl-indent {
 <li class="chapter" data-level="18.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>18.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a></li>
+<li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="regression-methods.html"><a href="regression-methods.html"><i class="fa fa-check"></i><b>19.1</b> Regression methods</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="regression-methods.html"><a href="regression-methods.html#permanova"><i class="fa fa-check"></i><b>19.1.1</b> PERMANOVA</a></li>
+<li class="chapter" data-level="19.1.2" data-path="regression-methods.html"><a href="regression-methods.html#anosim"><i class="fa fa-check"></i><b>19.1.2</b> ANOSIM</a></li>
+<li class="chapter" data-level="19.1.3" data-path="regression-methods.html"><a href="regression-methods.html#redundancy-analysis"><i class="fa fa-check"></i><b>19.1.3</b> Redundancy analysis (RDA)</a></li>
+<li class="chapter" data-level="19.1.4" data-path="regression-methods.html"><a href="regression-methods.html#canonical-correspondence-analysis"><i class="fa fa-check"></i><b>19.1.4</b> Canonical Correspondence Analysis (CCA)</a></li>
+<li class="chapter" data-level="19.1.5" data-path="regression-methods.html"><a href="regression-methods.html#generalised-linear-modelling"><i class="fa fa-check"></i><b>19.1.5</b> Generalised linear modelling (GLM)</a></li>
+<li class="chapter" data-level="19.1.6" data-path="regression-methods.html"><a href="regression-methods.html#generalised-linear-mixed-modelling"><i class="fa fa-check"></i><b>19.1.6</b> Generalised linear mixed modelling (GLMM)</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="classification-methods.html"><a href="classification-methods.html"><i class="fa fa-check"></i><b>19.2</b> Classification methods</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="classification-methods.html"><a href="classification-methods.html#random-forests"><i class="fa fa-check"></i><b>19.2.1</b> Random Forests (RF)</a></li>
+<li class="chapter" data-level="19.2.2" data-path="classification-methods.html"><a href="classification-methods.html#support-vector-machines"><i class="fa fa-check"></i><b>19.2.2</b> Support Vector Machines (SVM)</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="20" data-path="multi-omic-integration.html"><a href="multi-omic-integration.html"><i class="fa fa-check"></i><b>20</b> Multi-omic integration</a></li>
 <li class="chapter" data-level="21" data-path="multi-staged-integration.html"><a href="multi-staged-integration.html"><i class="fa fa-check"></i><b>21</b> Multi-staged integration</a></li>
 <li class="chapter" data-level="22" data-path="meta-dimensional-integration.html"><a href="meta-dimensional-integration.html"><i class="fa fa-check"></i><b>22</b> Meta-dimensional integration</a></li>
@@ -201,8 +217,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="supervised-analysis" class="section level1 hasAnchor" number="19">
 <h1><span class="header-section-number">19</span> Supervised analysis<a href="supervised-analysis.html#supervised-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Here is a review of existing methods.</p>
-
+<p>The supervised analyses of omic layers, in contrast to unsupervised ones, incorporate information of experimental design, and can be divided into two types of problems: regression and classification. A regression problem is when the output of the model is a numeric variable or a matrix, such as the phenotypic characteristics of the host or the omic data sets themselves. These methods aim at testing and estimating the effects of the experimental factors (e.g., dietary treatment, drug administration) or variables of interest (e.g., age of the experimental subjects, geographic location of studied populations) on different omic layers, or associating the omic layers with host phenotypic features. A classification problem is when the output of the model is categorical. In the context of multi omic studies, classification methods aim at classifying observations into their experimental groups (e.g. health status, dietary treatment) based on their features on different omic layers.</p>
 </div>
             </section>
 
@@ -210,7 +225,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="dimension-reduction-ordination.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multi-omic-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regression-methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
