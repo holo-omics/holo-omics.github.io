@@ -8,3 +8,10 @@ render_book(input = "index.Rmd", output_format = "bookdown::gitbook")
 
 #Render it as pdf
 render_book(input = "index.Rmd", output_format = "bookdown::pdf_book")
+
+######
+# USEFUL LINKS
+######
+
+https://bookdown.org/yihui/rmarkdown-cookbook/
+https://bookdown.org/yihui/bookdown/

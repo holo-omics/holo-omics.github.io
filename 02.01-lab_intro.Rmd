@@ -5,9 +5,9 @@ Laboratory protocols
 
 * Nucleic-acid sequencing-based approaches
     * DNA/RNA extraction for **[HG](#host-genomics)**, **[HT](#host-transcriptomics)**, **[MG](#microbial-metagenomics)** and **[MT](#microbial-metatranscriptomics)**
-    * Sequencing library preparation for **HG** and **MG**
-    * Sequencing library preparation for **HT**
-    * Sequencing library preparation for **MT**
+    * Sequencing library preparation for **[HG](#host-genomics)** and **[MG](#microbial-metagenomics)**
+    * Sequencing library preparation for **[HT](#host-transcriptomics)**
+    * Sequencing library preparation for **[MT](#microbial-metatranscriptomics)**
 * Mass spectrometry-based approaches
-    * Protein extraction for **HP** and **MP**
-    * Metabolite extraction for **ME**
+    * Protein extraction for **[HP](#host-proteomics)** and **[MP](#microbial-metaproteomics)**
+    * Metabolite extraction for **[ME](#meta-metabolomics)**

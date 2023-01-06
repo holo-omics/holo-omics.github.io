@@ -9,14 +9,14 @@ In this workbook we consider seven omic layers that require specific data genera
 
 * Nucleic acid sequencing-based
     * Host genomics - **[HG](#host-genomics)**
-    * Host transcriptomics **[HT](#host-transcriptomics)**
-    * Microbial metagenomics **[MG](#microbial-metagenomics)**
-    * Microbial metatranscriptomics **[MT](#microbial-metatranscriptomics)**
+    * Host transcriptomics - **[HT](#host-transcriptomics)**
+    * Microbial metagenomics - **[MG](#microbial-metagenomics)**
+    * Microbial metatranscriptomics - **[MT](#microbial-metatranscriptomics)**
 
 * Mass spectrometry-based
-    * Host proteomics **[HP](#host-proteomics)**
-    * Microbial metaproteomics **[HM](#microbial-metaproteomics)**
-    * (Meta)metabolomics **[ME](#meta-metabolomics)**
+    * Host proteomics - **[HP](#host-proteomics)**
+    * Microbial metaproteomics - **[MP](#microbial-metaproteomics)**
+    * (Meta)metabolomics - **[ME](#meta-metabolomics)**
 
 Acknowledging the distinct biological and structural characteristics of these seven omic layers is essential to design experiments and analytical pipelines for better solving the complex puzzle of host-microbiota interactions.
 
@@ -36,11 +36,11 @@ Contents to be added
 
 Contents to be added
 
-## Host proteomics (MT) {#host-proteomics}
+## Host proteomics (HP) {#host-proteomics}
 
 Contents to be added
 
-## Microbial metaproteomics (MT) {#microbial-metaproteomics}
+## Microbial metaproteomics (MP) {#microbial-metaproteomics}
 
 Contents to be added
 
