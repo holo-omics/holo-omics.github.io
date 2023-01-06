@@ -8,7 +8,7 @@ Holo-omics refers to the methodological approach that jointly generates and anal
 In this workbook we consider seven omic layers that require specific data generation and analysis strategies before integrating them into multi-omic statistical models:
 
 * Nucleic acid sequencing-based
-    * Host genomics **[(HG)][host-genomics]**
+    * Host genomics - **[HG](#host-genomics)**
     * Host transcriptomics **(HT)**
     * Microbial metagenomics **(MG)**
     * Microbial metatranscriptomics **(MT)**

@@ -1,0 +1,330 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\author{}
+\date{\vspace{-2.5em}}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{holo-omics-workbook}{%
+\section*{Holo-omics workbook}\label{holo-omics-workbook}}
+\addcontentsline{toc}{section}{Holo-omics workbook}
+
+The \textbf{Holo-omics workbook} is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities. This resource extends the contents of the article \textbf{``A practical introduction to holo-omics''}, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of the workbook is to compile protocols and pipelines to be implemented by researchers. The \textbf{Holo-omics Workbook} is presented in two formats:
+
+\begin{itemize}
+\tightlist
+\item
+  Website (\url{https://holo-omics.github.io/})
+\item
+  PDF document (\url{https://holo-omics.github.io/})
+\end{itemize}
+
+These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the \protect\hyperlink{holofood}{HoloFood section} in this workbook, the \href{http://www.holofood.eu}{HoloFood Website} and the \href{https://cordis.europa.eu/project/id/817729}{CORDIS website}.
+
+Methodologies are divided into laboratory procedures, bioinformatic procedures, and statistical procedures {[}\protect\hyperlink{ref-R-base}{1}{]}.
+
+\hypertarget{how-to-cite-this-work}{%
+\subsubsection*{How to cite this work}\label{how-to-cite-this-work}}
+\addcontentsline{toc}{subsubsection}{How to cite this work}
+
+Instructions to
+
+\hypertarget{acknowledgement}{%
+\subsubsection*{Acknowledgement}\label{acknowledgement}}
+\addcontentsline{toc}{subsubsection}{Acknowledgement}
+
+This project has received funding from the European Unionʼs Horizon 2020 research and innovation programme under grant agreement No 817729.
+
+\hypertarget{part-introduction}{%
+\part{INTRODUCTION}\label{part-introduction}}
+
+\hypertarget{holo-omics}{%
+\section{Holo-omics}\label{holo-omics}}
+
+Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities {[}\protect\hyperlink{ref-Nyholm-2020}{2}{]}.
+
+\hypertarget{omic-layers}{%
+\subsection{Omic layers}\label{omic-layers}}
+
+In this workbook we consider seven omic layers that require specific data generation and analysis strategies before integrating them into multi-omic statistical models:
+
+\begin{itemize}
+\tightlist
+\item
+  Nucleic acid sequencing-based
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Host genomics - \protect\hyperlink{host-genomics}{HG}
+  \item
+    Host transcriptomics \textbf{(HT)}
+  \item
+    Microbial metagenomics \textbf{(MG)}
+  \item
+    Microbial metatranscriptomics \textbf{(MT)}
+  \end{itemize}
+\item
+  Mass spectrometry-based
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Host proteomics \textbf{(HP)}
+  \item
+    Microbial metaproteomics \textbf{(MP)}
+  \item
+    (Meta)metabolomics \textbf{(ME)}
+  \end{itemize}
+\end{itemize}
+
+Acknowledging the distinct biological and structural characteristics of these seven omic layers is essential to design experiments and analytical pipelines for better solving the complex puzzle of host-microbiota interactions.
+
+\hypertarget{host-genomics}{%
+\subsection{Host genomics (HG)}\label{host-genomics}}
+
+Contents to be added
+
+\hypertarget{host-transcriptomics}{%
+\subsection{Host transcriptomics (HT)}\label{host-transcriptomics}}
+
+Contents to be added
+
+\hypertarget{microbial-metagenomics}{%
+\subsection{Microbial metagenomics (MG)}\label{microbial-metagenomics}}
+
+Contents to be added
+
+\hypertarget{microbial-metatranscriptomics}{%
+\subsection{Microbial metatranscriptomics (MT)}\label{microbial-metatranscriptomics}}
+
+Contents to be added
+
+\hypertarget{host-proteomics}{%
+\subsection{Host proteomics (MT)}\label{host-proteomics}}
+
+Contents to be added
+
+\hypertarget{microbial-metaproteomics}{%
+\subsection{Microbial metaproteomics (MT)}\label{microbial-metaproteomics}}
+
+Contents to be added
+
+\hypertarget{meta-metabolomics}{%
+\subsection{(Meta)metabolomics (ME)}\label{meta-metabolomics}}
+
+Contents to be added
+
+\hypertarget{holofood}{%
+\section{HoloFood}\label{holofood}}
+
+\includegraphics{https://www.holofood.eu/files/logo_only.png}
+HoloFood is a hologenomic approach that will improve the efficiency of food production systems by understanding the biomolecular and physiological processes affected by incorporating feed additives and novel sustainable feeds in farmed animals.
+
+The HoloFood consortium will showcase the potential of an innovative solution that holds enormous potential for optimising modern food production. Specifically, HoloFood is a framework that integrates a suite of recent analytical and technological developments, that is applicable to any major animal food production system, spanning the full production line.
+
+Thus it is as relevant for the farmers producing livestock, as it is to the associate industries such as those producing the feed and feed additives upon which the animal's growth, quality, health and wellbeing depends.
+
+\hypertarget{methodological-point-of-view}{%
+\subsubsection*{Methodological point of view}\label{methodological-point-of-view}}
+\addcontentsline{toc}{subsubsection}{Methodological point of view}
+
+With the planet's population rapidly increasing, one of the key global challenges of this century is to secure that the growing food production is performed in a sustainable fashion and with a low-carbon signature. Hence, optimising food production is thus not only of commercial interest for companies, but also of critical importance for humanity.
+
+In the last decades, and in particular since the 2006 ban of using antibiotics to promote animal growth in the European Union, different strategies are being developed to modulate gut microbiomes aiming to improve food production, such as functional feed components or feed additives.Feed additives have been proven effective at modulating microbiomes in many animal systems, although their efficiency often exhibits large variation. The likely reason underlying such inconsistency, is the very limited knowledge we have about the specific means of action of the additives.
+
+Understanding the effect of these additives is poorly understood, because the microorganisms of interest might interact with hundreds of other microbial taxa as well as the host organism. Consequently, the procedures to improve the feed additive products are not as efficient as they could be, and it is unlikely that any truly optimal product can be found without drastically modifying the approach taken.
+
+The holo-omic approach considers the holobiont (host animal and its associated microbiota) as a single unit of action, across multiple molecular levels. \hspace{0pt}To achieve this, HoloFood takes advantage of large variety of new technological developments that allow us to understand the interactions between the animal and their respective gut microbiome on numerous molecular levels. In addition to this genetic data, HoloFood also incorporates a lot more information to the dataset, such as physiological and health information.
+
+\hypertarget{part-laboratory-procedures}{%
+\part{LABORATORY PROCEDURES}\label{part-laboratory-procedures}}
+
+\hypertarget{about-labwork}{%
+\section{About labwork}\label{about-labwork}}
+
+Laboratory protocols
+
+\begin{itemize}
+\tightlist
+\item
+  Nucleic-acid sequencing-based approaches
+
+  \begin{itemize}
+  \tightlist
+  \item
+    DNA/RNA extraction for \textbf{HG}, \textbf{HT}, \textbf{MG} and \textbf{MT}
+  \item
+    Sequencing library preparation for \textbf{HG} and \textbf{MG}
+  \item
+    Sequencing library preparation for \textbf{HT}
+  \item
+    Sequencing library preparation for \textbf{MT}
+  \end{itemize}
+\item
+  Mass spectrometry-based approaches
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Protein extraction for \textbf{HP} and \textbf{MP}
+  \item
+    Metabolite extraction for \textbf{ME}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{dna-rna-extraction}{%
+\section{DNA/RNA extraction}\label{dna-rna-extraction}}
+
+Laboratory protocols for DNA/RNA extraction
+
+\hypertarget{protein-metabolite-extraction}{%
+\section{Protein/metabolite extraction}\label{protein-metabolite-extraction}}
+
+Laboratory protocols for protein/metabolite extraction
+
+\hypertarget{sequencing-library-preparation}{%
+\section{Sequencing library preparation}\label{sequencing-library-preparation}}
+
+Laboratory protocols
+
+\hypertarget{subheading}{%
+\subsection{Subheading}\label{subheading}}
+
+Test text
+
+\hypertarget{part-bioinformatic-procedures}{%
+\part{BIOINFORMATIC PROCEDURES}\label{part-bioinformatic-procedures}}
+
+\hypertarget{about-bioinformatics}{%
+\section{About bioinformatics}\label{about-bioinformatics}}
+
+Here is a review of existing methods.
+
+\hypertarget{sequencing-data-preprocessing}{%
+\section{Sequencing data preprocessing}\label{sequencing-data-preprocessing}}
+
+Here is a review of existing methods.
+
+\hypertarget{part-statistical-procedures}{%
+\part{STATISTICAL PROCEDURES}\label{part-statistical-procedures}}
+
+\hypertarget{about-statistics}{%
+\section{About statistics}\label{about-statistics}}
+
+Here is a review of existing methods.
+
+\hypertarget{data-transformation}{%
+\section{Data transformation}\label{data-transformation}}
+
+Here is a review of existing methods.
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
+1. R Core Team. R: A language and environment for statistical computing. Vienna, Austria: R Foundation for Statistical Computing; 2019.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Nyholm-2020}{}}%
+2. Nyholm L, Koziol A, Marcos S, Botnen AB, Aizpurua O, Gopalakrishnan S, et al. Holo-omics: Integrated host-microbiota multi-omics for basic and applied biological research. iScience. 2020;23:101414.
+
+\end{CSLReferences}
+
+\end{document}
