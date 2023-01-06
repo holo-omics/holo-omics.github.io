@@ -29,8 +29,6 @@ host-proteomics-data-processing
 microbial-metaproteomics-data-processing
 about-statistics
 prepare-your-r-environment
-required-packages
-package-installation
 single-omic-analyses
 data-transformation
 supervised-analysis

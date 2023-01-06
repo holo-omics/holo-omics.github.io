@@ -7,7 +7,7 @@ Content to be added.
 
 All statistical analyses included in the **Holo-omics workbook** are conducted in [R environment](https://en.wikipedia.org/wiki/R_(programming_language)) [@R-core-2022]. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, [R](https://cran.r-project.org/) or [RStudio](https://posit.co/downloads/) must be installed in your local computer or remote server.
 
-### Required packages
+### Required packages {-}
 
 In order to reproduce the analyses shown in the workbook, a rather long list of R packages must be installed. Packages are the fundamental units of reproducible R code, which include reusable R functions, the documentation that describes how to use them, and sample data.
 
@@ -19,7 +19,7 @@ In order to reproduce the analyses shown in the workbook, a rather long list of 
 * vegan
 * (...)
 
-### Package installation
+### Package installation {-}
 
 Packages are installed programatically using three main ways: through [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html), [Bioconductor](https://www.bioconductor.org/packages/release/bioc/) or [Github](https://github.com/).
 
