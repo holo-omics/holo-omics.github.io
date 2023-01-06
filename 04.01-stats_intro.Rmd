@@ -1,4 +1,4 @@
 # (PART) STATISTICAL PROCEDURES {-}
-# Statistics
+# About statistics
 
 Here is a review of existing methods.
