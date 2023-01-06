@@ -6,7 +6,7 @@ The HoloFood consortium will showcase the potential of an innovative solution th
 
 Thus it is as relevant for the farmers producing livestock, as it is to the associate industries such as those producing the feed and feed additives upon which the animal’s growth, quality, health and wellbeing depends.
 
-## Methodological point of view
+## Methodological point of view {#methodological_pov}
 
 With the planet’s population rapidly increasing, one of the key global challenges of this century is to secure that the growing food production is performed in a sustainable fashion and with a low-carbon signature. Hence, optimising food production is thus not only of commercial interest for companies, but also of critical importance for humanity.
 

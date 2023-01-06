@@ -2,3 +2,20 @@
 # Holo-omics
 
 Here is a review of existing methods.
+
+## Omic layers #{omic-layers}
+
+In this workbook we consider seven omic layers that require specific data generation and analysis strategies before integrating them into multi-omic statistical models:
+
+* Nucleic acid sequencing-based
+    * Host genomics **(HG)**
+    * Host transcriptomics **(HT)**
+    * Microbial metagenomics **(MG)**
+    * Microbial metatranscriptomics **(MT)**
+
+* Mass spectrometry-based
+    * Proteomics **(HP)**
+    * Microbial metaproteomics **(MP)**
+    * (Meta)metabolomics **(ME)**
+
+Acknowledging the distinct biological and structural characteristics of these seven omic layers is essential to design experiments and analytical pipelines for better solving the complex puzzle of host-microbiota interactions.
