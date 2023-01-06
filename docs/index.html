@@ -92,6 +92,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Holo-omics workbook</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-and-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
 </ul></li>
@@ -189,6 +190,37 @@ div.csl-indent {
 <li><strong><a href="about-bioinformatics.html#about-bioinformatics">Bioinformatic procedures</a></strong>: methods and procedures for processing raw omic data into quantitative datasets to be analysed through statistics.</li>
 <li><strong><a href="about-statistics.html#about-statistics">Statistical procedures</a></strong>: methods and procedures for analysing and integrating holo-omic data.</li>
 </ul>
+</div>
+<div id="protocols-exercises-and-tutorials" class="section level3 unnumbered hasAnchor">
+<h3>Protocols, exercises and tutorials<a href="index.html#protocols-exercises-and-tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The workbook contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:</p>
+<pre><code>shao4d_perm &lt;- shao4d %&gt;%
+  tax_transform(&quot;identity&quot;, rank = &quot;genus&quot;) %&gt;%
+  dist_calc(&quot;aitchison&quot;) %&gt;%
+  dist_permanova(
+    variables = c(&quot;birth_mode&quot;, &quot;sex&quot;, &quot;number_reads&quot;),
+    n_perms = 99, # you should use more permutations in your real analyses!
+    n_processes = 1
+  )
+#&gt; Dropping samples with missings: 15
+#&gt; 2022-11-24 01:15:20 - Starting PERMANOVA with 99 perms with 1 processes
+#&gt; 2022-11-24 01:15:21 - Finished PERMANOVA
+
+shao4d_perm %&gt;% perm_get()
+#&gt; Permutation test for adonis under reduced model
+#&gt; Marginal effects of terms
+#&gt; Permutation: free
+#&gt; Number of permutations: 99
+#&gt;
+#&gt; vegan::adonis2(formula = formula, data = metadata, permutations = n_perms, by = by, parallel = parall)
+#&gt;               Df SumOfSqs      R2       F Pr(&gt;F)   
+#&gt; birth_mode     1    10462 0.09055 29.3778   0.01 **
+#&gt; sex            1      402 0.00348  1.1296   0.31   
+#&gt; number_reads   1     1117 0.00967  3.1364   0.01 **
+#&gt; Residual     287   102209 0.88462                  
+#&gt; Total        290   115540 1.00000                  
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
 <div id="how-to-cite-this-work" class="section level3 unnumbered hasAnchor">
 <h3>How to cite this work<a href="index.html#how-to-cite-this-work" class="anchor-section" aria-label="Anchor link to header"></a></h3>
