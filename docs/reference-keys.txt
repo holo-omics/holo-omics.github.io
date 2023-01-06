@@ -28,7 +28,7 @@ microbial-metatranscriptomics-data-processing
 host-proteomics-data-processing
 microbial-metaproteomics-data-processing
 about-statistics
-prepare-your-r-environment
+prepare-r
 single-omic-analyses
 data-transformation
 unsupervised-exploration
