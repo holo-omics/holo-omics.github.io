@@ -1,5 +1,4 @@
 ---
-title: "Holo-omics workbook"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 ---

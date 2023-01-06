@@ -1,5 +1,6 @@
 holo-omics
 holofood
+methodological-point-of-view
 workbook
 about-labwork
 extraction
