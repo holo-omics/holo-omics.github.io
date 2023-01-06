@@ -2,32 +2,34 @@
 
 Hundreds or (probably) thousands of different protocols and variations exist for extracting and purifying nucleic acids. Protocols can be classified based on methodological (e.g., chemical vs. physical DNA/RNA isolation, column-based vs bead-based, commercial vs. open-access).
 
-### Sample preprocessing
+### Sample preprocessing {-}
 
-#### Bead-beating
-
-Contents to be added
-
-#### Freeze-heat shock
+#### Bead-beating {-}
 
 Contents to be added
 
-#### Tissue digestion
+#### Freeze-heat shock {-}
 
 Contents to be added
 
-### Chemical isolation
+#### Tissue digestion {-}
+
+Contents to be added
+
+### Chemical isolation {-}
 
 Based on chemical separation of nucleic acids from the rest of molecules.
 
-### Physicochemical isolation
+### Physicochemical isolation {-}
 
 Based on physical separation of nucleic acids from the rest of molecules.
 
-#### Column-based
+#### Column-based {-}
 
 Contents to be added
 
-#### Bead-based
+#### Bead-based {-}
 
 Contents to be added
+
+### Available protocols
