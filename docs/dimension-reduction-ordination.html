@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>19.2 Dimension reduction and ordination | _main.knit</title>
+  <title>18.2 Dimension reduction and ordination | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="19.2 Dimension reduction and ordination | _main.knit" />
+  <meta property="og:title" content="18.2 Dimension reduction and ordination | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="19.2 Dimension reduction and ordination | _main.knit" />
+  <meta name="twitter:title" content="18.2 Dimension reduction and ordination | _main.knit" />
   
   
   
@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="cluster-analysis.html"/>
-<link rel="next" href="multi-omic-integration.html"/>
+<link rel="next" href="supervised-analysis.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -150,6 +150,7 @@ div.csl-indent {
 <li class="part"><span><b>IV STATISTICAL PROCEDURES</b></span></li>
 <li class="chapter" data-level="15" data-path="about-statistics.html"><a href="about-statistics.html"><i class="fa fa-check"></i><b>15</b> About statistics</a>
 <ul>
+<li class="chapter" data-level="" data-path="about-statistics.html"><a href="about-statistics.html#a-step-by-step-approach"><i class="fa fa-check"></i>A step-by-step approach</a></li>
 <li class="chapter" data-level="15.1" data-path="prepare-your-r-environment.html"><a href="prepare-your-r-environment.html"><i class="fa fa-check"></i><b>15.1</b> Prepare your R environment</a>
 <ul>
 <li class="chapter" data-level="" data-path="prepare-your-r-environment.html"><a href="prepare-your-r-environment.html#required-packages"><i class="fa fa-check"></i>Required packages</a></li>
@@ -158,24 +159,24 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>17</b> Data transformation</a></li>
-<li class="chapter" data-level="18" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>18</b> Supervised analysis</a></li>
-<li class="chapter" data-level="19" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>19</b> Unsupervised exploration</a>
+<li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html"><i class="fa fa-check"></i><b>19.1</b> Cluster analysis</a>
+<li class="chapter" data-level="18.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html"><i class="fa fa-check"></i><b>18.1</b> Cluster analysis</a>
 <ul>
-<li class="chapter" data-level="19.1.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#hierarchical-clustering"><i class="fa fa-check"></i><b>19.1.1</b> Hierarchical clustering</a></li>
-<li class="chapter" data-level="19.1.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#disjoint-clustering"><i class="fa fa-check"></i><b>19.1.2</b> Disjoint clustering</a></li>
+<li class="chapter" data-level="18.1.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#hierarchical-clustering"><i class="fa fa-check"></i><b>18.1.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="18.1.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#disjoint-clustering"><i class="fa fa-check"></i><b>18.1.2</b> Disjoint clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html"><i class="fa fa-check"></i><b>19.2</b> Dimension reduction and ordination</a>
+<li class="chapter" data-level="18.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html"><i class="fa fa-check"></i><b>18.2</b> Dimension reduction and ordination</a>
 <ul>
-<li class="chapter" data-level="19.2.1" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pca"><i class="fa fa-check"></i><b>19.2.1</b> Principal Component Analysis (PCA)</a></li>
-<li class="chapter" data-level="19.2.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pcoa"><i class="fa fa-check"></i><b>19.2.2</b> Principal Coordinate Analysis (PCoA)</a></li>
-<li class="chapter" data-level="19.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>19.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
-<li class="chapter" data-level="19.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>19.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
-<li class="chapter" data-level="19.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>19.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
-<li class="chapter" data-level="19.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>19.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
+<li class="chapter" data-level="18.2.1" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pca"><i class="fa fa-check"></i><b>18.2.1</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="18.2.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pcoa"><i class="fa fa-check"></i><b>18.2.2</b> Principal Coordinate Analysis (PCoA)</a></li>
+<li class="chapter" data-level="18.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>18.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
+<li class="chapter" data-level="18.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>18.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
+<li class="chapter" data-level="18.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>18.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
+<li class="chapter" data-level="18.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>18.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a></li>
 <li class="chapter" data-level="20" data-path="multi-omic-integration.html"><a href="multi-omic-integration.html"><i class="fa fa-check"></i><b>20</b> Multi-omic integration</a></li>
 <li class="chapter" data-level="21" data-path="multi-staged-integration.html"><a href="multi-staged-integration.html"><i class="fa fa-check"></i><b>21</b> Multi-staged integration</a></li>
 <li class="chapter" data-level="22" data-path="meta-dimensional-integration.html"><a href="meta-dimensional-integration.html"><i class="fa fa-check"></i><b>22</b> Meta-dimensional integration</a></li>
@@ -198,37 +199,37 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dimension-reduction-ordination" class="section level2 hasAnchor" number="19.2">
-<h2><span class="header-section-number">19.2</span> Dimension reduction and ordination<a href="dimension-reduction-ordination.html#dimension-reduction-ordination" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="dimension-reduction-ordination" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Dimension reduction and ordination<a href="dimension-reduction-ordination.html#dimension-reduction-ordination" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ordination is a method complementary to data clustering, which enables displaying differences among samples graphically through reducing the dimensions of the original data set, so that similar objects are near and dissimilar objects are farther from each other.</p>
-<div id="pca" class="section level3 hasAnchor" number="19.2.1">
-<h3><span class="header-section-number">19.2.1</span> Principal Component Analysis (PCA)<a href="dimension-reduction-ordination.html#pca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pca" class="section level3 hasAnchor" number="18.2.1">
+<h3><span class="header-section-number">18.2.1</span> Principal Component Analysis (PCA)<a href="dimension-reduction-ordination.html#pca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.</p>
 <pre><code>#Example code goes here</code></pre>
 </div>
-<div id="pcoa" class="section level3 hasAnchor" number="19.2.2">
-<h3><span class="header-section-number">19.2.2</span> Principal Coordinate Analysis (PCoA)<a href="dimension-reduction-ordination.html#pcoa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pcoa" class="section level3 hasAnchor" number="18.2.2">
+<h3><span class="header-section-number">18.2.2</span> Principal Coordinate Analysis (PCoA)<a href="dimension-reduction-ordination.html#pcoa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Content to be added here.</p>
 <pre><code>#Example code goes here</code></pre>
 </div>
-<div id="nmds" class="section level3 hasAnchor" number="19.2.3">
-<h3><span class="header-section-number">19.2.3</span> Non-metric Multidimensional Scaling (NMDS)<a href="dimension-reduction-ordination.html#nmds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="nmds" class="section level3 hasAnchor" number="18.2.3">
+<h3><span class="header-section-number">18.2.3</span> Non-metric Multidimensional Scaling (NMDS)<a href="dimension-reduction-ordination.html#nmds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Content to be added here.</p>
 <pre><code>#Example code goes here</code></pre>
 </div>
-<div id="t-sne" class="section level3 hasAnchor" number="19.2.4">
-<h3><span class="header-section-number">19.2.4</span> t-Distributed Stochastic Neighbour Embedding (t-SNE)<a href="dimension-reduction-ordination.html#t-sne" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="t-sne" class="section level3 hasAnchor" number="18.2.4">
+<h3><span class="header-section-number">18.2.4</span> t-Distributed Stochastic Neighbour Embedding (t-SNE)<a href="dimension-reduction-ordination.html#t-sne" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Content to be added here.
 Requires many data points.</p>
 <pre><code>#Example code goes here</code></pre>
 </div>
-<div id="umap" class="section level3 hasAnchor" number="19.2.5">
-<h3><span class="header-section-number">19.2.5</span> Uniform manifold approximation and projection (UMAP)<a href="dimension-reduction-ordination.html#umap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="umap" class="section level3 hasAnchor" number="18.2.5">
+<h3><span class="header-section-number">18.2.5</span> Uniform manifold approximation and projection (UMAP)<a href="dimension-reduction-ordination.html#umap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Content to be added here.</p>
 <pre><code>#Example code goes here</code></pre>
 </div>
-<div id="phate" class="section level3 hasAnchor" number="19.2.6">
-<h3><span class="header-section-number">19.2.6</span> Potential of heat diffusion for affinity-based transition embedding (PHATE)<a href="dimension-reduction-ordination.html#phate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="phate" class="section level3 hasAnchor" number="18.2.6">
+<h3><span class="header-section-number">18.2.6</span> Potential of heat diffusion for affinity-based transition embedding (PHATE)<a href="dimension-reduction-ordination.html#phate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Content to be added here.</p>
 <pre><code>#Example code goes here</code></pre>
 
@@ -241,7 +242,7 @@ Requires many data points.</p>
         </div>
       </div>
 <a href="cluster-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multi-omic-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="supervised-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

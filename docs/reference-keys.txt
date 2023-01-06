@@ -31,7 +31,6 @@ about-statistics
 prepare-your-r-environment
 single-omic-analyses
 data-transformation
-supervised-analysis
 unsupervised-exploration
 cluster-analysis
 hierarchical-clustering
@@ -43,6 +42,7 @@ nmds
 t-sne
 umap
 phate
+supervised-analysis
 multi-omic-integration
 multi-staged-integration
 meta-dimensional-integration
