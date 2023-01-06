@@ -5,7 +5,7 @@ The **Holo-omics workbook** is a compilation of methodological procedures to gen
 * Website (https://holo-omics.github.io/)
 * PDF document (https://holo-omics.github.io/)
 
-These resources are presented as two of the main final outputs of the [H2020 project HoloFood](https://cordis.europa.eu/project/id/817729).  
+These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood section][HoloFood] in this workbook, the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
 
 Methodologies are divided into laboratory procedures, bioinformatic procedures, and statistical procedures.
 
