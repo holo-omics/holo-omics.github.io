@@ -1,5 +1,5 @@
 bookdown::gitbook:
-  split_by: section
+  split_by: section #split by 2nd level. alternatively chapter, to split by first level
   config:
     toc:
       collapse: subsection
@@ -32,6 +32,11 @@ bookdown::gitbook:
     info: true
   highlight: tango
 
-
+bookdown::html_book:
+  split_by: section #split by 2nd level. alternatively chapter, to split by first level
+  toc: true
+  toc_float: true
+  theme: "cerulean"
+  highlight: tango
 #Syntax highlighting styles:
   #default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, breezedark
