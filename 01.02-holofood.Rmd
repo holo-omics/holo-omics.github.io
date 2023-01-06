@@ -1,12 +1,13 @@
 # HoloFood
 
+![HF Logo](https://www.holofood.eu/files/logo_only.png)
 HoloFood is a hologenomic approach that will improve the efficiency of food production systems by understanding the biomolecular and physiological processes affected by incorporating feed additives and novel sustainable feeds in farmed animals.
 
 The HoloFood consortium will showcase the potential of an innovative solution that holds enormous potential for optimising modern food production. Specifically, HoloFood is a framework that integrates a suite of recent analytical and technological developments, that is applicable to any major animal food production system, spanning the full production line.
 
 Thus it is as relevant for the farmers producing livestock, as it is to the associate industries such as those producing the feed and feed additives upon which the animal’s growth, quality, health and wellbeing depends.
 
-## Methodological point of view {#methodological_pov}
+### Methodological point of view {-}
 
 With the planet’s population rapidly increasing, one of the key global challenges of this century is to secure that the growing food production is performed in a sustainable fashion and with a low-carbon signature. Hence, optimising food production is thus not only of commercial interest for companies, but also of critical importance for humanity.
 

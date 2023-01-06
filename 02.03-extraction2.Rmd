@@ -1,7 +1,3 @@
-# Protein/metabolite extraction
+# Protein/metabolite extraction {#protein-metabolite-extraction}
 
-Laboratory protocols
-
-## Subheading
-
-Test text
+Laboratory protocols for protein/metabolite extraction

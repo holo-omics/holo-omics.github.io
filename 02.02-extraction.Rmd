@@ -1,7 +1,3 @@
-# DNA extraction
+# DNA/RNA extraction {#dna-rna-extraction}
 
-Laboratory protocols
-
-## Subheading
-
-Test text
+Laboratory protocols for DNA/RNA extraction

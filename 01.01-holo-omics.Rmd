@@ -1,21 +1,49 @@
 # (PART) INTRODUCTION {-}
 # Holo-omics
 
-Here is a review of existing methods @R-base.
+Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities @Nyholm-2020.
 
 ## Omic layers {#omic-layers}
 
 In this workbook we consider seven omic layers that require specific data generation and analysis strategies before integrating them into multi-omic statistical models:
 
 * Nucleic acid sequencing-based
-    * Host genomics **(HG)**
+    * Host genomics **[(HG)][host-genomics]**
     * Host transcriptomics **(HT)**
     * Microbial metagenomics **(MG)**
     * Microbial metatranscriptomics **(MT)**
 
 * Mass spectrometry-based
-    * Proteomics **(HP)**
+    * Host proteomics **(HP)**
     * Microbial metaproteomics **(MP)**
     * (Meta)metabolomics **(ME)**
 
 Acknowledging the distinct biological and structural characteristics of these seven omic layers is essential to design experiments and analytical pipelines for better solving the complex puzzle of host-microbiota interactions.
+
+## Host genomics (HG) {#host-genomics}
+
+Contents to be added
+
+## Host transcriptomics (HT) {#host-transcriptomics}
+
+Contents to be added
+
+## Microbial metagenomics (MG) {#microbial-metagenomics}
+
+Contents to be added
+
+## Microbial metatranscriptomics (MT) {#microbial-metatranscriptomics}
+
+Contents to be added
+
+## Host proteomics (MT) {#host-proteomics}
+
+Contents to be added
+
+## Microbial metaproteomics (MT) {#microbial-metaproteomics}
+
+Contents to be added
+
+## (Meta)metabolomics (ME) {#meta-metabolomics}
+
+Contents to be added

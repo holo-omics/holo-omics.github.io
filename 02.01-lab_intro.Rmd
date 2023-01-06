@@ -1,8 +1,13 @@
 # (PART) LABORATORY PROCEDURES {-}
-# About labwork
+# About labwork {#about-labwork}
 
 Laboratory protocols
 
-## Extraction {#extraction}
-
-Test text
+* Nucleic-acid sequencing-based approaches
+    * DNA/RNA extraction for **HG**, **HT**, **MG** and **MT**
+    * Sequencing library preparation for **HG** and **MG**
+    * Sequencing library preparation for **HT**
+    * Sequencing library preparation for **MT**
+* Mass spectrometry-based approaches
+    * Protein extraction for **HP** and **MP**
+    * Metabolite extraction for **ME**
