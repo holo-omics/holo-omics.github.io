@@ -8,7 +8,7 @@ link-citations: true
 The **Holo-omics workbook** is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities [@Nyholm-2020; @Limborg-2018]. This resource extends the contents of the article **"A practical introduction to holo-omics"**, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of the workbook is to compile protocols and pipelines to be implemented by researchers. The **Holo-omics Workbook** is presented in two formats:
 
 * Website (https://holo-omics.github.io/)
-* PDF document (https://holo-omics.github.io/)
+* PDF document (https://holo-omics.github.io/holo-omics_workbook.pdf)
 
 These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood section][HoloFood] in this workbook, the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
 

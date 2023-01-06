@@ -1,5 +1,5 @@
 # (PART) INTRODUCTION {-}
-# Holo-omics {#holo-omics}
+# Introduction to holo-omics {#holo-omics}
 
 Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities @Nyholm-2020.
 
