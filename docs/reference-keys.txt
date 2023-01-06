@@ -1,5 +1,3 @@
-how-to-cite-this-work
-acknowledgement
 holo-omics
 omic-layers-omic-layers
 holofood
