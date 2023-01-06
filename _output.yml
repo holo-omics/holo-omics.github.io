@@ -2,7 +2,7 @@ bookdown::gitbook:
   split_by: section #split by 2nd level. alternatively chapter, to split by first level
   config:
     toc:
-      collapse: subsection
+      collapse: section
       scroll_highlight: true
       before: null
       after: null
@@ -21,7 +21,7 @@ bookdown::gitbook:
       size: 2
     sharing:
       facebook: true
-      github: false
+      github: true
       twitter: true
       linkedin: false
       weibo: false
