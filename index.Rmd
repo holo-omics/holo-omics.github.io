@@ -2,7 +2,9 @@
 bibliography: references.bib
 csl: biomed-central.csl
 link-citations: true
-highlight: tango
+output:
+  bookdown::gitbook:
+    highlight: tango
 ---
 # Holo-omics workbook {-}
 

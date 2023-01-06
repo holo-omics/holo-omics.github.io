@@ -1,3 +1,85 @@
 # Unsupervised exploration
 
-Here is a review of existing methods.
+Unsupervised methods include exploratory techniques, such as cluster analysis and ordination-based visualisation methods, which reveal the structure and main patterns of the omic datasets without prior information about experimental design. These procedures might reveal that the observations are structured into meaningful groups or that variables can be reduced to fewer dimensions. Researchers can then opt for using the outputs of these analyses, rather than the original multidimensional datasets, for the multi-omic data integration. Most clustering and ordination techniques are computed from association matrices, thus it is essential to do an appropriate pre-transformation of the data and choice of association coefficient, since this influences the final outcome of the analyses
+
+* [Cluster analysis](#cluster-analysis)
+* [Dimension reduction and ordination](#dimension-reduction-ordination)
+
+## Cluster analysis {#cluster-analysis}
+
+Clustering procedures group features or observations into homogeneous sets by minimising within-group and maximising among-group distances
+
+### Hierarchical clustering {#hierarchical-clustering}
+
+Hierarchical clustering produces a stratified organisation of features or observations where relatively similar objects are grouped together. The clustering can be performed using different criteria to measure the distance between clusters, which will affect the final outcome of the analysis (e.g., single linkage, complete linkage, average linkage and Ward’s minimum variance).
+
+```
+#Example code goes here
+```
+
+A useful exploratory analysis to reveal general patterns in an omic layer can be obtained by simultaneous application of hierarchical clustering to the rows and columns of the data matrix, and visualising the results in a heatmap.
+
+```
+#Example code goes here
+```
+
+### Disjoint clustering {#disjoint-clustering}
+
+Disjoint clustering techniques aim at separating the objects into individual, usually mutually exclusive, and in most cases, unconnected clusters. K-means clustering is one of the most typical algorithms where objects are assigned to k clusters using an iterative procedure that minimises the within-clusters sums of squares. Other available clustering methods include twinspan, self-organising maps, dbscan and Dirichlet multinomial mixtures (DMM). DMM were specifically developed to analyse MG data but can be equally useful for other sequencing-based omic datasets.
+
+```
+#Example code goes here
+```
+
+## Dimension reduction and ordination {#dimension-reduction-ordination}
+
+Ordination is a method complementary to data clustering, which enables displaying differences among samples graphically through reducing the dimensions of the original data set, so that similar objects are near and dissimilar objects are farther from each other.
+
+### Principal Component Analysis (PCA) {#pca}
+
+Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.
+
+```
+#Example code goes here
+```
+
+### Principal Coordinate Analysis (PCoA) {#pcoa}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### Non-metric Multidimensional Scaling (NMDS) {#nmds}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### t-Distributed Stochastic Neighbour Embedding (t-SNE) {#t-sne}
+
+Content to be added here.
+Requires many data points.
+
+```
+#Example code goes here
+```
+
+### Uniform manifold approximation and projection (UMAP) {#umap}
+
+Content to be added here.
+
+```
+#Example code goes here
+```
+
+### Potential of heat diffusion for affinity-based transition embedding (PHATE) {#phate}
+
+Content to be added here.
+
+```
+#Example code goes here
+```

@@ -33,6 +33,16 @@ single-omic-analyses
 data-transformation
 supervised-analysis
 unsupervised-exploration
+cluster-analysis
+hierarchical-clustering
+disjoint-clustering
+dimension-reduction-ordination
+pca
+pcoa
+nmds
+t-sne
+umap
+phate
 multi-omic-integration
 multi-staged-integration
 meta-dimensional-integration

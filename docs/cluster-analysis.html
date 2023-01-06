@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Introduction to holo-omics | _main.knit</title>
+  <title>19.1 Cluster analysis | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Introduction to holo-omics | _main.knit" />
+  <meta property="og:title" content="19.1 Cluster analysis | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Introduction to holo-omics | _main.knit" />
+  <meta name="twitter:title" content="19.1 Cluster analysis | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="omic-layers.html"/>
+<link rel="prev" href="unsupervised-exploration.html"/>
+<link rel="next" href="dimension-reduction-ordination.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,14 +198,20 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="holo-omics" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Introduction to holo-omics<a href="holo-omics.html#holo-omics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities <span class="citation">[<a href="#ref-Nyholm-2020" role="doc-biblioref">1</a>]</span>.</p>
+<div id="cluster-analysis" class="section level2 hasAnchor" number="19.1">
+<h2><span class="header-section-number">19.1</span> Cluster analysis<a href="cluster-analysis.html#cluster-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Clustering procedures group features or observations into homogeneous sets by minimising within-group and maximising among-group distances</p>
+<div id="hierarchical-clustering" class="section level3 hasAnchor" number="19.1.1">
+<h3><span class="header-section-number">19.1.1</span> Hierarchical clustering<a href="cluster-analysis.html#hierarchical-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hierarchical clustering produces a stratified organisation of features or observations where relatively similar objects are grouped together. The clustering can be performed using different criteria to measure the distance between clusters, which will affect the final outcome of the analysis (e.g., single linkage, complete linkage, average linkage and Ward’s minimum variance).</p>
+<pre><code>#Example code goes here</code></pre>
+<p>A useful exploratory analysis to reveal general patterns in an omic layer can be obtained by simultaneous application of hierarchical clustering to the rows and columns of the data matrix, and visualising the results in a heatmap.</p>
+<pre><code>#Example code goes here</code></pre>
 </div>
-<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body">
-<div id="ref-Nyholm-2020" class="csl-entry">
-1. Nyholm L, Koziol A, Marcos S, Botnen AB, Aizpurua O, Gopalakrishnan S, et al. Holo-omics: Integrated host-microbiota multi-omics for basic and applied biological research. iScience. 2020;23:101414.
+<div id="disjoint-clustering" class="section level3 hasAnchor" number="19.1.2">
+<h3><span class="header-section-number">19.1.2</span> Disjoint clustering<a href="cluster-analysis.html#disjoint-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Disjoint clustering techniques aim at separating the objects into individual, usually mutually exclusive, and in most cases, unconnected clusters. K-means clustering is one of the most typical algorithms where objects are assigned to k clusters using an iterative procedure that minimises the within-clusters sums of squares. Other available clustering methods include twinspan, self-organising maps, dbscan and Dirichlet multinomial mixtures (DMM). DMM were specifically developed to analyse MG data but can be equally useful for other sequencing-based omic datasets.</p>
+<pre><code>#Example code goes here</code></pre>
 </div>
 </div>
             </section>
@@ -213,8 +219,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="omic-layers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="unsupervised-exploration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dimension-reduction-ordination.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

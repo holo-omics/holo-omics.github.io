@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Introduction to holo-omics | _main.knit</title>
+  <title>19.2 Dimension reduction and ordination | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Introduction to holo-omics | _main.knit" />
+  <meta property="og:title" content="19.2 Dimension reduction and ordination | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Introduction to holo-omics | _main.knit" />
+  <meta name="twitter:title" content="19.2 Dimension reduction and ordination | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="omic-layers.html"/>
+<link rel="prev" href="cluster-analysis.html"/>
+<link rel="next" href="multi-omic-integration.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,23 +198,50 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="holo-omics" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Introduction to holo-omics<a href="holo-omics.html#holo-omics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities <span class="citation">[<a href="#ref-Nyholm-2020" role="doc-biblioref">1</a>]</span>.</p>
+<div id="dimension-reduction-ordination" class="section level2 hasAnchor" number="19.2">
+<h2><span class="header-section-number">19.2</span> Dimension reduction and ordination<a href="dimension-reduction-ordination.html#dimension-reduction-ordination" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ordination is a method complementary to data clustering, which enables displaying differences among samples graphically through reducing the dimensions of the original data set, so that similar objects are near and dissimilar objects are farther from each other.</p>
+<div id="pca" class="section level3 hasAnchor" number="19.2.1">
+<h3><span class="header-section-number">19.2.1</span> Principal Component Analysis (PCA)<a href="dimension-reduction-ordination.html#pca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.</p>
+<pre><code>#Example code goes here</code></pre>
 </div>
-<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body">
-<div id="ref-Nyholm-2020" class="csl-entry">
-1. Nyholm L, Koziol A, Marcos S, Botnen AB, Aizpurua O, Gopalakrishnan S, et al. Holo-omics: Integrated host-microbiota multi-omics for basic and applied biological research. iScience. 2020;23:101414.
+<div id="pcoa" class="section level3 hasAnchor" number="19.2.2">
+<h3><span class="header-section-number">19.2.2</span> Principal Coordinate Analysis (PCoA)<a href="dimension-reduction-ordination.html#pcoa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Content to be added here.</p>
+<pre><code>#Example code goes here</code></pre>
+</div>
+<div id="nmds" class="section level3 hasAnchor" number="19.2.3">
+<h3><span class="header-section-number">19.2.3</span> Non-metric Multidimensional Scaling (NMDS)<a href="dimension-reduction-ordination.html#nmds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Content to be added here.</p>
+<pre><code>#Example code goes here</code></pre>
+</div>
+<div id="t-sne" class="section level3 hasAnchor" number="19.2.4">
+<h3><span class="header-section-number">19.2.4</span> t-Distributed Stochastic Neighbour Embedding (t-SNE)<a href="dimension-reduction-ordination.html#t-sne" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Content to be added here.
+Requires many data points.</p>
+<pre><code>#Example code goes here</code></pre>
+</div>
+<div id="umap" class="section level3 hasAnchor" number="19.2.5">
+<h3><span class="header-section-number">19.2.5</span> Uniform manifold approximation and projection (UMAP)<a href="dimension-reduction-ordination.html#umap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Content to be added here.</p>
+<pre><code>#Example code goes here</code></pre>
+</div>
+<div id="phate" class="section level3 hasAnchor" number="19.2.6">
+<h3><span class="header-section-number">19.2.6</span> Potential of heat diffusion for affinity-based transition embedding (PHATE)<a href="dimension-reduction-ordination.html#phate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Content to be added here.</p>
+<pre><code>#Example code goes here</code></pre>
+
 </div>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="omic-layers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cluster-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multi-omic-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

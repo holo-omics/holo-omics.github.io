@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="supervised-analysis.html"/>
-<link rel="next" href="multi-omic-integration.html"/>
+<link rel="next" href="cluster-analysis.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,7 +159,23 @@ div.csl-indent {
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>17</b> Data transformation</a></li>
 <li class="chapter" data-level="18" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>18</b> Supervised analysis</a></li>
-<li class="chapter" data-level="19" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>19</b> Unsupervised exploration</a></li>
+<li class="chapter" data-level="19" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>19</b> Unsupervised exploration</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html"><i class="fa fa-check"></i><b>19.1</b> Cluster analysis</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#hierarchical-clustering"><i class="fa fa-check"></i><b>19.1.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="19.1.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#disjoint-clustering"><i class="fa fa-check"></i><b>19.1.2</b> Disjoint clustering</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html"><i class="fa fa-check"></i><b>19.2</b> Dimension reduction and ordination</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pca"><i class="fa fa-check"></i><b>19.2.1</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="19.2.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pcoa"><i class="fa fa-check"></i><b>19.2.2</b> Principal Coordinate Analysis (PCoA)</a></li>
+<li class="chapter" data-level="19.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>19.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
+<li class="chapter" data-level="19.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>19.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
+<li class="chapter" data-level="19.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>19.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
+<li class="chapter" data-level="19.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>19.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="20" data-path="multi-omic-integration.html"><a href="multi-omic-integration.html"><i class="fa fa-check"></i><b>20</b> Multi-omic integration</a></li>
 <li class="chapter" data-level="21" data-path="multi-staged-integration.html"><a href="multi-staged-integration.html"><i class="fa fa-check"></i><b>21</b> Multi-staged integration</a></li>
 <li class="chapter" data-level="22" data-path="meta-dimensional-integration.html"><a href="meta-dimensional-integration.html"><i class="fa fa-check"></i><b>22</b> Meta-dimensional integration</a></li>
@@ -184,8 +200,11 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="unsupervised-exploration" class="section level1 hasAnchor" number="19">
 <h1><span class="header-section-number">19</span> Unsupervised exploration<a href="unsupervised-exploration.html#unsupervised-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Here is a review of existing methods.</p>
-
+<p>Unsupervised methods include exploratory techniques, such as cluster analysis and ordination-based visualisation methods, which reveal the structure and main patterns of the omic datasets without prior information about experimental design. These procedures might reveal that the observations are structured into meaningful groups or that variables can be reduced to fewer dimensions. Researchers can then opt for using the outputs of these analyses, rather than the original multidimensional datasets, for the multi-omic data integration. Most clustering and ordination techniques are computed from association matrices, thus it is essential to do an appropriate pre-transformation of the data and choice of association coefficient, since this influences the final outcome of the analyses</p>
+<ul>
+<li><a href="cluster-analysis.html#cluster-analysis">Cluster analysis</a></li>
+<li><a href="dimension-reduction-ordination.html#dimension-reduction-ordination">Dimension reduction and ordination</a></li>
+</ul>
 </div>
             </section>
 
@@ -193,7 +212,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="supervised-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multi-omic-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cluster-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
