@@ -1,0 +1,378 @@
+---
+bibliography: references.bib
+csl: biomed-central.csl
+link-citations: true
+---
+# Holo-omics workbook {-}
+
+The **Holo-omics workbook** is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities [@Nyholm-2020; @Limborg-2018]. This resource extends the contents of the article **"A practical introduction to holo-omics"**, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of the workbook is to compile protocols and pipelines to be implemented by researchers. The **Holo-omics Workbook** is presented in two formats:
+
+* Website (https://holo-omics.github.io/)
+* PDF document (https://holo-omics.github.io/holo-omics_workbook.pdf)
+
+These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood section][HoloFood] in this workbook, the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
+
+### Contents {-}
+
+* **[Introduction](#holo-omics)**: general information about holo-omics, employed data types and study design considerations.
+* **[Laboratory procedures](#about-labwork)**: methods and procedures for generating raw omic data of hosts and microbial communities.
+* **[Bioinformatic procedures](#about-bioinformatics)**: methods and procedures for processing raw omic data into quantitative datasets to be analysed through statistics.
+* **[Statistical procedures](#about-statistics)**: methods and procedures for analysing and integrating holo-omic data.
+
+### Protocols, exercises and tutorials {-}
+
+The workbook contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
+
+```
+shao4d_perm <- shao4d %>%
+  tax_transform("identity", rank = "genus") %>%
+  dist_calc("aitchison") %>%
+  dist_permanova(
+    variables = c("birth_mode", "sex", "number_reads"),
+    n_perms = 99, # you should use more permutations in your real analyses!
+    n_processes = 1
+  )
+#> Dropping samples with missings: 15
+#> 2022-11-24 01:15:20 - Starting PERMANOVA with 99 perms with 1 processes
+#> 2022-11-24 01:15:21 - Finished PERMANOVA
+
+shao4d_perm %>% perm_get()
+#> Permutation test for adonis under reduced model
+#> Marginal effects of terms
+#> Permutation: free
+#> Number of permutations: 99
+#>
+#> vegan::adonis2(formula = formula, data = metadata, permutations = n_perms, by = by, parallel = parall)
+#>               Df SumOfSqs      R2       F Pr(>F)   
+#> birth_mode     1    10462 0.09055 29.3778   0.01 **
+#> sex            1      402 0.00348  1.1296   0.31   
+#> number_reads   1     1117 0.00967  3.1364   0.01 **
+#> Residual     287   102209 0.88462                  
+#> Total        290   115540 1.00000                  
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+### How to cite this work {-}
+Instructions to cite this work will be eventually added.
+
+### Acknowledgement {-}
+This project has received funding from the European Unionʼs Horizon 2020 research and innovation programme under grant agreement No 817729.
+
+<!--chapter:end:index.Rmd-->
+
+# (PART) INTRODUCTION {-}
+# Introduction to holo-omics {#holo-omics}
+
+Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities @Nyholm-2020.
+
+## Omic layers {#omic-layers}
+
+In this workbook we consider seven omic layers that require specific data generation and analysis strategies before integrating them into multi-omic statistical models:
+
+* Nucleic acid sequencing-based
+    * Host genomics - **[HG](#host-genomics)**
+    * Host transcriptomics - **[HT](#host-transcriptomics)**
+    * Microbial metagenomics - **[MG](#microbial-metagenomics)**
+    * Microbial metatranscriptomics - **[MT](#microbial-metatranscriptomics)**
+
+* Mass spectrometry-based
+    * Host proteomics - **[HP](#host-proteomics)**
+    * Microbial metaproteomics - **[MP](#microbial-metaproteomics)**
+    * (Meta)metabolomics - **[ME](#meta-metabolomics)**
+
+Acknowledging the distinct biological and structural characteristics of these seven omic layers is essential to design experiments and analytical pipelines for better solving the complex puzzle of host-microbiota interactions.
+
+## Host genomics (HG) {#host-genomics}
+
+Contents to be added
+
+## Host transcriptomics (HT) {#host-transcriptomics}
+
+Contents to be added
+
+## Microbial metagenomics (MG) {#microbial-metagenomics}
+
+Contents to be added
+
+## Microbial metatranscriptomics (MT) {#microbial-metatranscriptomics}
+
+Contents to be added
+
+## Host proteomics (HP) {#host-proteomics}
+
+Contents to be added
+
+## Microbial metaproteomics (MP) {#microbial-metaproteomics}
+
+Contents to be added
+
+## (Meta)metabolomics (ME) {#meta-metabolomics}
+
+Contents to be added
+
+<!--chapter:end:01.01-holo-omics.Rmd-->
+
+# HoloFood
+
+![HF Logo](https://www.holofood.eu/files/logo_only.png)
+HoloFood is a hologenomic approach that will improve the efficiency of food production systems by understanding the biomolecular and physiological processes affected by incorporating feed additives and novel sustainable feeds in farmed animals.
+
+The HoloFood consortium will showcase the potential of an innovative solution that holds enormous potential for optimising modern food production. Specifically, HoloFood is a framework that integrates a suite of recent analytical and technological developments, that is applicable to any major animal food production system, spanning the full production line.
+
+Thus it is as relevant for the farmers producing livestock, as it is to the associate industries such as those producing the feed and feed additives upon which the animal’s growth, quality, health and wellbeing depends.
+
+### Methodological point of view {-}
+
+With the planet’s population rapidly increasing, one of the key global challenges of this century is to secure that the growing food production is performed in a sustainable fashion and with a low-carbon signature. Hence, optimising food production is thus not only of commercial interest for companies, but also of critical importance for humanity.
+
+In the last decades, and in particular since the 2006 ban of using antibiotics to promote animal growth in the European Union, different strategies are being developed to modulate gut microbiomes aiming to improve food production, such as functional feed components or feed additives.Feed additives have been proven effective at modulating microbiomes in many animal systems, although their efficiency often exhibits large variation. The likely reason underlying such inconsistency, is the very limited knowledge we have about the specific means of action of the additives.
+
+Understanding the effect of these additives is poorly understood, because the microorganisms of interest might interact with hundreds of other microbial taxa as well as the host organism. Consequently, the procedures to improve the feed additive products are not as efficient as they could be, and it is unlikely that any truly optimal product can be found without drastically modifying the approach taken.
+
+The holo-omic approach considers the holobiont (host animal and its associated microbiota) as a single unit of action, across multiple molecular levels. ​To achieve this, HoloFood takes advantage of large variety of new technological developments that allow us to understand the interactions between the animal and their respective gut microbiome on numerous molecular levels. In addition to this genetic data, HoloFood also incorporates a lot more information to the dataset, such as physiological and health information.
+
+<!--chapter:end:01.02-holofood.Rmd-->
+
+# (PART) LABORATORY PROCEDURES {-}
+# About labwork {#about-labwork}
+
+Laboratory protocols
+
+* Nucleic-acid sequencing-based approaches
+    * DNA/RNA extraction for **[HG](#host-genomics)**, **[HT](#host-transcriptomics)**, **[MG](#microbial-metagenomics)** and **[MT](#microbial-metatranscriptomics)**
+    * Sequencing library preparation for **[HG](#host-genomics)** and **[MG](#microbial-metagenomics)**
+    * Sequencing library preparation for **[HT](#host-transcriptomics)**
+    * Sequencing library preparation for **[MT](#microbial-metatranscriptomics)**
+* Mass spectrometry-based approaches
+    * Protein extraction for **[HP](#host-proteomics)** and **[MP](#microbial-metaproteomics)**
+    * Metabolite extraction for **[ME](#meta-metabolomics)**
+
+<!--chapter:end:02.01-lab_intro.Rmd-->
+
+# DNA/RNA extraction {#dna-rna-extraction}
+
+Hundreds or (probably) thousands of different protocols and variations exist for extracting and purifying nucleic acids. Protocols can be classified based on methodological (e.g., chemical vs. physical DNA/RNA isolation, column-based vs bead-based, commercial vs. open-access).
+
+### Sample preprocessing {-}
+
+#### Bead-beating {-}
+
+Contents to be added
+
+#### Freeze-heat shock {-}
+
+Contents to be added
+
+#### Tissue digestion {-}
+
+Contents to be added
+
+### Chemical isolation {-}
+
+Based on chemical separation of nucleic acids from the rest of molecules.
+
+### Physicochemical isolation {-}
+
+Based on physical separation of nucleic acids from the rest of molecules.
+
+#### Column-based {-}
+
+Contents to be added
+
+#### Bead-based {-}
+
+Contents to be added
+
+### Available protocols {-}
+
+Contents to be added
+
+<!--chapter:end:02.02-extraction.Rmd-->
+
+# Protein/metabolite extraction {#protein-metabolite-extraction}
+
+Laboratory protocols for protein/metabolite extraction
+
+<!--chapter:end:02.03-extraction2.Rmd-->
+
+# Sequencing library preparation
+
+Laboratory protocols
+
+## Subheading
+
+Test text
+
+<!--chapter:end:02.04-sequencing_libraries.Rmd-->
+
+# (PART) BIOINFORMATIC PROCEDURES {-}
+# About bioinformatics {#about-bioinformatics}
+
+Here is a review of existing methods.
+
+<!--chapter:end:03.01-bioinfo_intro.Rmd-->
+
+# Sequencing data preprocessing {#sequencing-data-preprocessing}
+
+Here is a review of existing methods.
+
+<!--chapter:end:03.02-sequence_preprocessing.Rmd-->
+
+# Host genomics (HG) data processing {#host-genomics-data-processing}
+
+Contents to be added.
+
+## Host reference genome
+
+Contents to be added.
+
+## Host genome resequencing
+
+Contents to be added.
+
+<!--chapter:end:03.03-host_genomics.Rmd-->
+
+# Microbial metagenomics (MG) data processing {#microbial-metagenomics-data-processing}
+
+Contents to be added.
+
+## Reference-based
+
+Assembly-based.
+
+## Genome-resolved
+
+Contents to be added.
+
+## Genome-resolved
+
+Contents to be added.
+
+<!--chapter:end:03.04-microbial_metagenomics.Rmd-->
+
+# Host transcriptomics (HT) data processing {#host-transcriptomics-data-processing}
+
+Contents to be added.
+
+<!--chapter:end:03.05-host_transcriptomics.Rmd-->
+
+# Microbial metatranscriptomics (HT) data processing {#microbial-metatranscriptomics-data-processing}
+
+Contents to be added.
+
+<!--chapter:end:03.06-microbial_metatranscriptomics.Rmd-->
+
+# Host proteomics (HP) data processing {#host-proteomics-data-processing}
+
+Contents to be added.
+
+<!--chapter:end:03.07-host_proteomics.Rmd-->
+
+# Microbial metaproteomics (MP) data processing {#microbial-metaproteomics-data-processing}
+
+Contents to be added.
+
+<!--chapter:end:03.08-microbial_metaproteomics.Rmd-->
+
+# (PART) STATISTICAL PROCEDURES {-}
+# About statistics {#about-statistics}
+
+Content to be added.
+
+## Prepare your R environment
+
+All statistical analyses included in the **Holo-omics workbook** are conducted in [R environment](https://en.wikipedia.org/wiki/R_(programming_language)) [@R-core-2022]. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, [R](https://cran.r-project.org/) or [RStudio](https://posit.co/downloads/) must be installed in your local computer or remote server.
+
+### Required packages
+
+In order to reproduce the analyses shown in the workbook, a rather long list of R packages must be installed. Packages are the fundamental units of reproducible R code, which include reusable R functions, the documentation that describes how to use them, and sample data.
+
+* ape
+* DESeq2
+* distillR
+* ggplot2
+* tidyverse
+* vegan
+* (...)
+
+### Package installation
+
+Packages are installed programatically using three main ways: through [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html), [Bioconductor](https://www.bioconductor.org/packages/release/bioc/) or [Github](https://github.com/).
+
+#### Install package from CRAN {-}
+CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R. Packages stored in CRAN can be installed using the following code:
+```
+install.package("package_name")
+#e.g.
+install.package("vegan")
+```
+
+#### Install package from Bioconductor {-}
+Bioconductor is a free, open source and open development software project for the analysis and comprehension of genomic data generated by wet lab experiments in molecular biology. Packages included in Bioconductor can be installed using the following code:
+```
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("package_name")
+#e.g.
+BiocManager::install("DESeq2")
+```
+
+#### Install package from Github {-}
+GitHub is a code hosting platform for version control and collaboration. Packages stored in R can be installed using the following code after installing the package devtools:
+```
+library(devtools)
+install_github("github_repository_name_of_the_package")
+#e.g.
+install.package("anttonalberdi/distillR")
+```
+
+<!--chapter:end:04.01-stats_intro.Rmd-->
+
+# Single omic analyses
+
+Here is a review of existing methods.
+
+<!--chapter:end:04.02-single-omic-analyses.Rmd-->
+
+# Data transformation
+
+Here is a review of existing methods.
+
+<!--chapter:end:04.03-data_transformation.Rmd-->
+
+# Supervised analysis
+
+Here is a review of existing methods.
+
+<!--chapter:end:04.04-supervised_analysis.Rmd-->
+
+# Unsupervised exploration
+
+Here is a review of existing methods.
+
+<!--chapter:end:04.05-unsupervised_exploration.Rmd-->
+
+# Multi-omic integration
+
+Here is a review of existing methods.
+
+<!--chapter:end:04.06-multi-omic_integration.Rmd-->
+
+# Multi-staged integration
+
+Here is a review of existing methods.
+
+<!--chapter:end:04.07-multi-staged_integration.Rmd-->
+
+# Meta-dimensional integration
+
+Here is a review of existing methods.
+
+<!--chapter:end:04.08-meta-dimensional_integration.Rmd-->
+
+# (PART) RESOURCES {-}
+# References
+
+<!--chapter:end:05.01-references.Rmd-->
+
