@@ -1,7 +1,3 @@
-bibliography: references.bib
-csl: biomed-central.csl
-link-citations: true
-
 bookdown::gitbook:
   split_by: section #split by 2nd level. alternatively chapter, to split by first level
   config:
