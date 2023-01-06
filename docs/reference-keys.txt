@@ -15,6 +15,17 @@ sequencing-library-preparation
 subheading
 about-bioinformatics
 sequencing-data-preprocessing
+host-genomics-data-processing
+host-reference-genome
+host-genome-resequencing
+microbial-metagenomics-data-processing
+reference-based
+genome-resolved
+genome-resolved-1
+host-transcriptomics-data-processing
+microbial-metatranscriptomics-data-processing
+host-proteomics-data-processing
+microbial-metaproteomics-data-processing
 about-statistics
 single-omic-analyses
 data-transformation

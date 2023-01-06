@@ -1,0 +1,15 @@
+# Microbial metagenomics (MG) data processing {#microbial-metagenomics-data-processing}
+
+Contents to be added.
+
+## Reference-based
+
+Assembly-based.
+
+## Genome-resolved
+
+Contents to be added.
+
+## Genome-resolved
+
+Contents to be added.

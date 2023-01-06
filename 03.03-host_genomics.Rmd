@@ -1,0 +1,11 @@
+# Host genomics (HG) data processing {#host-genomics-data-processing}
+
+Contents to be added.
+
+## Host reference genome
+
+Contents to be added.
+
+## Host genome resequencing
+
+Contents to be added.
