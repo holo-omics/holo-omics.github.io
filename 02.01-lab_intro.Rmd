@@ -4,7 +4,7 @@
 Laboratory protocols
 
 * Nucleic-acid sequencing-based approaches
-    * DNA/RNA extraction for **HG**, **HT**, **MG** and **MT**
+    * DNA/RNA extraction for **[HG](#host-genomics)**, **[HT](#host-transcriptomics)**, **[MG](#microbial-metagenomics)** and **[MT](#microbial-metatranscriptomics)**
     * Sequencing library preparation for **HG** and **MG**
     * Sequencing library preparation for **HT**
     * Sequencing library preparation for **MT**
