@@ -1,4 +1,4 @@
 # (PART) BIOINFORMATIC PROCEDURES {-}
-# About bioinformatics
+# About bioinformatics {#about-bioinformatics}
 
 Here is a review of existing methods.

@@ -12,10 +12,15 @@ The **Holo-omics workbook** is a compilation of methodological procedures to gen
 
 These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood section][HoloFood] in this workbook, the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
 
-Methodologies are divided into laboratory procedures, bioinformatic procedures, and statistical procedures [@R-base].
+### Contents {-}
+
+* **[Introduction](#holo-omics)**: general information about holo-omics, employed data types and study design considerations.
+* **[Laboratory procedures](#about-labwork)**: methods and procedures for generating raw omic data of hosts and microbial communities.
+* **[Bioinformatic procedures](#about-bioinformatics)**: methods and procedures for processing raw omic data into quantitative datasets to be analysed through statistics.
+* **[Statistical procedures](#about-statistics)**: methods and procedures for analysing and integrating holo-omic data.
 
 ### How to cite this work {-}
-Instructions to
+Instructions to cite this work will be eventually added.
 
 ### Acknowledgement {-}
 This project has received funding from the European Unionʼs Horizon 2020 research and innovation programme under grant agreement No 817729.
