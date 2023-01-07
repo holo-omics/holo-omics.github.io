@@ -201,8 +201,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
+<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a></li>
+<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#preprocess-the-reads-using-fastp"><i class="fa fa-check"></i>Preprocess the reads using fastp</a></li>
+<li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#splitting-host-and-non-host-data"><i class="fa fa-check"></i>Splitting host and non-host data</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="host-genomics-data-processing.html"><a href="host-genomics-data-processing.html"><i class="fa fa-check"></i><b>9</b> Host genomics (HG) data processing</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a></li>
@@ -211,8 +216,12 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="microbial-metagenomics-data-processing.html"><a href="microbial-metagenomics-data-processing.html"><i class="fa fa-check"></i><b>10</b> Microbial metagenomics (MG) data processing</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="reference-based.html"><a href="reference-based.html"><i class="fa fa-check"></i><b>10.1</b> Reference-based</a></li>
-<li class="chapter" data-level="10.2" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.2</b> Genome-resolved</a></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved-1.html"><a href="genome-resolved-1.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.2" data-path="assembly-based.html"><a href="assembly-based.html"><i class="fa fa-check"></i><b>10.2</b> Assembly-based</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
+<li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a></li>
 <li class="chapter" data-level="12" data-path="microbial-metatranscriptomics-data-processing.html"><a href="microbial-metatranscriptomics-data-processing.html"><i class="fa fa-check"></i><b>12</b> Microbial metatranscriptomics (HT) data processing</a></li>
@@ -296,7 +305,12 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="microbial-metagenomics-data-processing" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">10</span> Microbial metagenomics (MG) data processing<a href="microbial-metagenomics-data-processing.html#microbial-metagenomics-data-processing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Contents to be added.</p>
+<p>Microbial metagenomic data processing can be conducted following different strategies. Decision on which approach to use should be based on the aims of the study, available reference data, amount of generated data, and many other criteria. In this workbook we consider three main approaches that require different bioinformatic pipelines to be implemented.</p>
+<ul>
+<li><strong><a href="reference-based.html#reference-based">Reference-based approach</a>:</strong> it relies on a reference database of microbial genomes to which sequencing reads can be mapped to obtain estimations of relative proportion of reads belonging to each of the genomes available in the reference database. It is the simplest and computationally less expensive approach, yet it completely relies on a complete and representative reference database.</li>
+<li><strong><a href="assembly-based.html#assembly-based">Assembly-based approach</a>:</strong> it is based on assembling sequencing reads into longer DNA sequences known as contigs, which can then be used to predict genes and perform functional analyses. The main limitation of this approach is that the entire metagenome (set of contigs) in each sample is considered as a single unit, thus overlooking which bacterial genome each detected gene belongs to.</li>
+<li><strong><a href="genome-resolved.html#genome-resolved">Genome-resolved approach</a>:</strong> it is the most advanced of the three approaches, and the strategy that provides the largest amount of information, as the aim of this approach is to directly reconstruct all the genomes in a metagenome. This is achieved by binning contigs into Metagenome-Assembled Genomes (MAGs), which can then be taxonomically and functionally annotated to perform sounds community-level analyses.</li>
+</ul>
 </div>
             </section>
 

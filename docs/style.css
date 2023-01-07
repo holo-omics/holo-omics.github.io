@@ -10,14 +10,16 @@
   color: black;
   border-left: 10px solid #b84242;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .tipbox {
-  padding: 5px;
+  padding: 8px;
   background: #e5f6fa;
-  color: black;
+  color: #175788;
   border-left: 10px solid #2f68a3;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .graybox {
@@ -26,4 +28,5 @@
   color: #55555;
   border-left: 10px solid #b1aeae;
   border-radius: 5px;
+  margin-bottom: 10px;
 }

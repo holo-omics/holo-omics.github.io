@@ -17,7 +17,16 @@ Content to be added.
 
 ### Required software {-}
 
-Content to be added.
+Bioinformatic pipelines for processing omic data require the use of dozens of software. 
+
+* bbmap
+* bowtie2
+* coverm
+* fastp
+* nonpareil
+* samtools
+* pigz
+
 
 ### Pipeline management {-}
 
@@ -32,6 +41,14 @@ Content to be added.
 ```
 
 ## Example data for bioinformatics {#example-data-bioinformatics}
+
+Contents to be added here.
+
+```
+#Example code goes here
+```
+
+## Using snakemake for workflow management {#using-snakemake}
 
 Contents to be added here.
 

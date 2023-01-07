@@ -201,8 +201,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
+<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a></li>
+<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#preprocess-the-reads-using-fastp"><i class="fa fa-check"></i>Preprocess the reads using fastp</a></li>
+<li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#splitting-host-and-non-host-data"><i class="fa fa-check"></i>Splitting host and non-host data</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="host-genomics-data-processing.html"><a href="host-genomics-data-processing.html"><i class="fa fa-check"></i><b>9</b> Host genomics (HG) data processing</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a></li>
@@ -211,8 +216,12 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="microbial-metagenomics-data-processing.html"><a href="microbial-metagenomics-data-processing.html"><i class="fa fa-check"></i><b>10</b> Microbial metagenomics (MG) data processing</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="reference-based.html"><a href="reference-based.html"><i class="fa fa-check"></i><b>10.1</b> Reference-based</a></li>
-<li class="chapter" data-level="10.2" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.2</b> Genome-resolved</a></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved-1.html"><a href="genome-resolved-1.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.2" data-path="assembly-based.html"><a href="assembly-based.html"><i class="fa fa-check"></i><b>10.2</b> Assembly-based</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
+<li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a></li>
 <li class="chapter" data-level="12" data-path="microbial-metatranscriptomics-data-processing.html"><a href="microbial-metatranscriptomics-data-processing.html"><i class="fa fa-check"></i><b>12</b> Microbial metatranscriptomics (HT) data processing</a></li>
@@ -299,7 +308,16 @@ div.csl-indent {
 <p>Content to be added.</p>
 <div id="required-software" class="section level3 unnumbered hasAnchor">
 <h3>Required software<a href="prepare-shell.html#required-software" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added.</p>
+<p>Bioinformatic pipelines for processing omic data require the use of dozens of software.</p>
+<ul>
+<li>bbmap</li>
+<li>bowtie2</li>
+<li>coverm</li>
+<li>fastp</li>
+<li>nonpareil</li>
+<li>samtools</li>
+<li>pigz</li>
+</ul>
 </div>
 <div id="pipeline-management" class="section level3 unnumbered hasAnchor">
 <h3>Pipeline management<a href="prepare-shell.html#pipeline-management" class="anchor-section" aria-label="Anchor link to header"></a></h3>

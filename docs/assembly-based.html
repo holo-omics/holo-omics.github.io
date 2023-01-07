@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>23 Useful links | _main.knit</title>
+  <title>10.2 Assembly-based | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="23 Useful links | _main.knit" />
+  <meta property="og:title" content="10.2 Assembly-based | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="23 Useful links | _main.knit" />
+  <meta name="twitter:title" content="10.2 Assembly-based | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="meta-dimensional-integration.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="reference-based.html"/>
+<link rel="next" href="genome-resolved.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -303,36 +303,53 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="useful-links" class="section level1 hasAnchor" number="23">
-<h1><span class="header-section-number">23</span> Useful links<a href="useful-links.html#useful-links" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="genomics" class="section level3 unnumbered hasAnchor">
-<h3>Genomics<a href="useful-links.html#genomics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="assembly-based" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Assembly-based<a href="assembly-based.html#assembly-based" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Assembly-based approaches can be divided in two main strategies:</p>
 <ul>
-<li><strong><a href="https://datacarpentry.org/wrangling-genomics/">Data Wrangling and Processing for Genomics</a> (website):</strong></li>
+<li>Individual assembly-based</li>
+<li>Coassembly-based</li>
 </ul>
+<div id="individual-assembly-based" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Individual assembly-based<a href="assembly-based.html#individual-assembly-based" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Two of the most popular metagenome assemblers are <strong>Megahit</strong> and <strong>MetaSpades</strong>. Metaspades is considered superior in therms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g. bbmap) to get rid off barely informative yet often abundant short contigs.</p>
+<div id="individual-assembly-using-megahit" class="section level4 hasAnchor" number="10.2.1.1">
+<h4><span class="header-section-number">10.2.1.1</span> Individual assembly using Megahit<a href="assembly-based.html#individual-assembly-using-megahit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="assembly-based.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">megahit</span> <span class="dt">\</span></span>
+<span id="cb8-2"><a href="assembly-based.html#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb8-3"><a href="assembly-based.html#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--verbose</span> <span class="dt">\</span></span>
+<span id="cb8-4"><a href="assembly-based.html#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--min-contig-len</span> 1500 <span class="dt">\</span></span>
+<span id="cb8-5"><a href="assembly-based.html#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1} <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
+<span id="cb8-6"><a href="assembly-based.html#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {params.workdir}</span>
+<span id="cb8-7"><a href="assembly-based.html#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span><span class="op">&gt;</span> {log}</span></code></pre></div>
 </div>
-<div id="shell-command-line-usage" class="section level3 unnumbered hasAnchor">
-<h3>Shell command line usage<a href="useful-links.html#shell-command-line-usage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><strong><a href="https://datacarpentry.org/shell-genomics/">Introduction to the Command Line for Genomics</a> (website):</strong> general overview of basic command line usage.</li>
-</ul>
+<div id="individual-assembly-using-metaspades" class="section level4 hasAnchor" number="10.2.1.2">
+<h4><span class="header-section-number">10.2.1.2</span> Individual assembly using MetaSpades<a href="assembly-based.html#individual-assembly-using-metaspades" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="assembly-based.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metaspades.py</span> <span class="dt">\</span></span>
+<span id="cb9-2"><a href="assembly-based.html#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb9-3"><a href="assembly-based.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-k</span> 21,33,55,77,99 <span class="dt">\</span></span>
+<span id="cb9-4"><a href="assembly-based.html#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1} <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
+<span id="cb9-5"><a href="assembly-based.html#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {params.workdir}</span>
+<span id="cb9-6"><a href="assembly-based.html#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span><span class="op">&gt;</span> {log}</span>
+<span id="cb9-7"><a href="assembly-based.html#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="assembly-based.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove contigs shorter than 1,500 bp using bbmap</span></span>
+<span id="cb9-9"><a href="assembly-based.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ex">reformat.sh</span> <span class="dt">\</span></span>
+<span id="cb9-10"><a href="assembly-based.html#cb9-10" aria-hidden="true" tabindex="-1"></a>    in={params.workdir}/scaffolds.fasta <span class="dt">\</span></span>
+<span id="cb9-11"><a href="assembly-based.html#cb9-11" aria-hidden="true" tabindex="-1"></a>    out={output.assembly} <span class="dt">\</span></span>
+<span id="cb9-12"><a href="assembly-based.html#cb9-12" aria-hidden="true" tabindex="-1"></a>    minlength=1500</span></code></pre></div>
 </div>
-<div id="r-usage" class="section level3 unnumbered hasAnchor">
-<h3>R usage<a href="useful-links.html#r-usage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><strong><a href="https://datacarpentry.org/genomics-r-intro/">Intro to R and RStudio for Genomics</a> (website):</strong></li>
-<li><strong><a href="https://csgillespie.github.io/efficientR/index.html">Efficient R programming</a> (website):</strong> best practices for programming in R.</li>
-<li><strong><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a> (website):</strong> guide to making visualisations that accurately reflect the data, tell a story, and look professional.</li>
-<li><strong><a href="https://r-graphics.org/index.html">R Graphics Cookbook</a> (website):</strong> a practical guide that provides more than 150 recipes to generate high-quality graphs using ggplot2.</li>
-</ul>
+<div id="get-assembly-statistics-using-quast" class="section level4 hasAnchor" number="10.2.1.3">
+<h4><span class="header-section-number">10.2.1.3</span> Get assembly statistics using Quast<a href="assembly-based.html#get-assembly-statistics-using-quast" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software <strong>Quast</strong>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="assembly-based.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quast</span> <span class="dt">\</span></span>
+<span id="cb10-2"><a href="assembly-based.html#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {output.report} <span class="dt">\</span></span>
+<span id="cb10-3"><a href="assembly-based.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
+<span id="cb10-4"><a href="assembly-based.html#cb10-4" aria-hidden="true" tabindex="-1"></a>    {input.assembly}</span></code></pre></div>
+<p>TO BE CONTINUED FROM HERE: <a href="https://github.com/earthhologenome/EHI_bioinformatics/blob/main/0_Code/2_Individual_Assembly_Binning.snakefile" class="uri">https://github.com/earthhologenome/EHI_bioinformatics/blob/main/0_Code/2_Individual_Assembly_Binning.snakefile</a></p>
 </div>
-<div id="statistics" class="section level3 unnumbered hasAnchor">
-<h3>Statistics<a href="useful-links.html#statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><strong><a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a> (book):</strong> freely available book about general statistical learning covering regression and classification problems through linear modelling and machine learning.</li>
-<li><strong><a href="https://carpentries-incubator.github.io/high-dimensional-stats-r/">High dimensional statistics with R</a> (website):</strong> virtual lesson specialised in dealing with high dimensional data.</li>
-</ul>
-
+</div>
+<div id="coassembly-based" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Coassembly-based<a href="assembly-based.html#coassembly-based" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
             </section>
@@ -340,8 +357,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="meta-dimensional-integration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reference-based.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="genome-resolved.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

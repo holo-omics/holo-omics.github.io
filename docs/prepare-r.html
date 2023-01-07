@@ -201,8 +201,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
+<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a></li>
+<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#preprocess-the-reads-using-fastp"><i class="fa fa-check"></i>Preprocess the reads using fastp</a></li>
+<li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#splitting-host-and-non-host-data"><i class="fa fa-check"></i>Splitting host and non-host data</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="host-genomics-data-processing.html"><a href="host-genomics-data-processing.html"><i class="fa fa-check"></i><b>9</b> Host genomics (HG) data processing</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a></li>
@@ -211,8 +216,12 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="microbial-metagenomics-data-processing.html"><a href="microbial-metagenomics-data-processing.html"><i class="fa fa-check"></i><b>10</b> Microbial metagenomics (MG) data processing</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="reference-based.html"><a href="reference-based.html"><i class="fa fa-check"></i><b>10.1</b> Reference-based</a></li>
-<li class="chapter" data-level="10.2" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.2</b> Genome-resolved</a></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved-1.html"><a href="genome-resolved-1.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.2" data-path="assembly-based.html"><a href="assembly-based.html"><i class="fa fa-check"></i><b>10.2</b> Assembly-based</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
+<li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a></li>
 <li class="chapter" data-level="12" data-path="microbial-metatranscriptomics-data-processing.html"><a href="microbial-metatranscriptomics-data-processing.html"><i class="fa fa-check"></i><b>12</b> Microbial metatranscriptomics (HT) data processing</a></li>
@@ -316,26 +325,26 @@ div.csl-indent {
 <div id="install-package-from-cran" class="section level4 unnumbered hasAnchor">
 <h4>Install package from CRAN<a href="prepare-r.html#install-package-from-cran" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R. Packages stored in CRAN can be installed using the following code:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="prepare-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;package_name&quot;</span>)</span>
-<span id="cb4-2"><a href="prepare-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb4-3"><a href="prepare-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="prepare-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;package_name&quot;</span>)</span>
+<span id="cb11-2"><a href="prepare-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb11-3"><a href="prepare-r.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
 </div>
 <div id="install-package-from-bioconductor" class="section level4 unnumbered hasAnchor">
 <h4>Install package from Bioconductor<a href="prepare-r.html#install-package-from-bioconductor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Bioconductor is a free, open source and open development software project for the analysis and comprehension of genomic data generated by wet lab experiments in molecular biology. Packages included in Bioconductor can be installed using the following code:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="prepare-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb5-2"><a href="prepare-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb5-3"><a href="prepare-r.html#cb5-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;package_name&quot;</span>)</span>
-<span id="cb5-4"><a href="prepare-r.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb5-5"><a href="prepare-r.html#cb5-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="prepare-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb12-2"><a href="prepare-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb12-3"><a href="prepare-r.html#cb12-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;package_name&quot;</span>)</span>
+<span id="cb12-4"><a href="prepare-r.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb12-5"><a href="prepare-r.html#cb12-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="install-package-from-github" class="section level4 unnumbered hasAnchor">
 <h4>Install package from Github<a href="prepare-r.html#install-package-from-github" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>GitHub is a code hosting platform for version control and collaboration. Packages stored in R can be installed using the following code after installing the package devtools:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="prepare-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb6-2"><a href="prepare-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;github_repository_name_of_the_package&quot;</span>)</span>
-<span id="cb6-3"><a href="prepare-r.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb6-4"><a href="prepare-r.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;anttonalberdi/distillR&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="prepare-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb13-2"><a href="prepare-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;github_repository_name_of_the_package&quot;</span>)</span>
+<span id="cb13-3"><a href="prepare-r.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb13-4"><a href="prepare-r.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;anttonalberdi/distillR&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>

@@ -1,3 +1,62 @@
 # Sequencing data preprocessing {#sequencing-data-preprocessing}
 
-Here is a review of existing methods.
+The first step of the bioinformatic pipeline is to pre-process the raw sequencing data to prepare them for downstream analyses.
+
+### Preprocess the reads using fastp {-}
+
+Raw sequencing data require an initial preprocessing to get rid off low-quality nucleotides and reads, as well as any remains of sequencing adaptors that can mess around in the downstream analyses. An efficient way to do so is to use the software **fastp**, which can perform all above-mentioned operations in a single go and directly on compressed files.
+
+:::: {.tipbox}
+**fastP** documentation [can be found here](https://github.com/OpenGene/fastp).
+:::
+
+```{sh eval=FALSE}
+fastp \
+    --in1 {input.r1i} --in2 {input.r2i} \
+    --out1 {output.r1o} --out2 {output.r2o} \
+    --trim_poly_g \
+    --trim_poly_x \
+    --low_complexity_filter \
+    --n_base_limit 5 \
+    --qualified_quality_phred 20 \
+    --length_required 60 \
+    --thread {threads} \
+    --html {output.fastp_html} \
+    --json {output.fastp_json} \
+    --adapter_sequence {params.adapter1} \
+    --adapter_sequence_r2 {params.adapter2}
+```
+
+### Splitting host and non-host data {-}
+
+Depending on the sample type employed for data generation, sequencing data might contain only host reads, only microbial reads, or a mixture of both. For example, blood sampled from an animal is expected to only contain host DNA/RNA reads (unless an infection is ongoing), while DNA extracted from a microbial culture is only expected to contain microbial DNA/RNA reads (unless human contamination has happened). In contrast, intestinal content samples, faecal samples, leave samples or root samples can contain both host and microbial nucleic acids.
+
+#### Index host genome {-}
+
+```{sh eval=FALSE}
+bowtie2-build \
+    --large-index \
+    --threads {threads} \
+        {output.rn_catted_ref} {output.rn_catted_ref}
+```
+
+#### Map samples to host genomes {-}
+
+```{sh eval=FALSE}
+# Map reads to catted reference using Bowtie2
+bowtie2 \
+    --time \
+    --threads {threads} \
+    -x {input.catted_ref} \
+    -1 {input.r1i} \
+    -2 {input.r2i} \
+| samtools view -b -@ {threads} - | samtools sort -@ {threads} -o {output.all_bam} - &&
+
+# Extract non-host reads (note we're not compressing for nonpareil)
+samtools view -b -f12 -@ {threads} {output.all_bam} \
+| samtools fastq -@ {threads} -1 {output.non_host_r1} -2 {output.non_host_r2} - &&
+
+# Send host reads to BAM
+samtools view -b -F12 -@ {threads} {output.all_bam} \
+| samtools sort -@ {threads} -o {output.host_bam} -
+```

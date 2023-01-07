@@ -1,15 +1,72 @@
 # Microbial metagenomics (MG) data processing {#microbial-metagenomics-data-processing}
 
-Contents to be added.
+Microbial metagenomic data processing can be conducted following different strategies. Decision on which approach to use should be based on the aims of the study, available reference data, amount of generated data, and many other criteria. In this workbook we consider three main approaches that require different bioinformatic pipelines to be implemented.
 
-## Reference-based
+* **[Reference-based approach](#reference-based):** it relies on a reference database of microbial genomes to which sequencing reads can be mapped to obtain estimations of relative proportion of reads belonging to each of the genomes available in the reference database. It is the simplest and computationally less expensive approach, yet it completely relies on a complete and representative reference database.
+* **[Assembly-based approach](#assembly-based):** it is based on assembling sequencing reads into longer DNA sequences known as contigs, which can then be used to predict genes and perform functional analyses. The main limitation of this approach is that the entire metagenome (set of contigs) in each sample is considered as a single unit, thus overlooking which bacterial genome each detected gene belongs to.
+* **[Genome-resolved approach](#genome-resolved):** it is the most advanced of the three approaches, and the strategy that provides the largest amount of information, as the aim of this approach is to directly reconstruct all the genomes in a metagenome. This is achieved by binning contigs into Metagenome-Assembled Genomes (MAGs), which can then be taxonomically and functionally annotated to perform sounds community-level analyses.
+
+## Reference-based {#reference-based}
 
 Assembly-based.
 
-## Genome-resolved
+## Assembly-based {#assembly-based}
 
-Contents to be added.
+Assembly-based approaches can be divided in two main strategies:
 
-## Genome-resolved
+* Individual assembly-based
+* Coassembly-based
+
+### Individual assembly-based {#individual-assembly-based}
+
+Two of the most popular metagenome assemblers are **Megahit** and **MetaSpades**. Metaspades is considered superior in therms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g. bbmap) to get rid off barely informative yet often abundant short contigs.
+
+#### Individual assembly using Megahit
+
+```{sh eval=FALSE}
+megahit \
+    -t {threads} \
+    --verbose \
+    --min-contig-len 1500 \
+    -1 {input.r1} -2 {input.r2} \
+    -o {params.workdir}
+    2> {log}
+```
+
+#### Individual assembly using MetaSpades
+
+```{sh eval=FALSE}
+metaspades.py \
+    -t {threads} \
+    -k 21,33,55,77,99 \
+    -1 {input.r1} -2 {input.r2} \
+    -o {params.workdir}
+    2> {log}
+
+# Remove contigs shorter than 1,500 bp using bbmap
+reformat.sh \
+    in={params.workdir}/scaffolds.fasta \
+    out={output.assembly} \
+    minlength=1500
+```
+
+#### Get assembly statistics using Quast
+
+The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software **Quast**.
+
+```{sh eval=FALSE}
+quast \
+    -o {output.report} \
+    --threads {threads} \
+    {input.assembly}
+```
+
+TO BE CONTINUED FROM HERE: https://github.com/earthhologenome/EHI_bioinformatics/blob/main/0_Code/2_Individual_Assembly_Binning.snakefile
+
+### Coassembly-based {#coassembly-based}
+
+
+
+## Genome-resolved {#genome-resolved}
 
 Contents to be added.

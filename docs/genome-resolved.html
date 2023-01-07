@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10.2 Genome-resolved | _main.knit</title>
+  <title>10.3 Genome-resolved | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10.2 Genome-resolved | _main.knit" />
+  <meta property="og:title" content="10.3 Genome-resolved | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10.2 Genome-resolved | _main.knit" />
+  <meta name="twitter:title" content="10.3 Genome-resolved | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="reference-based.html"/>
-<link rel="next" href="genome-resolved-1.html"/>
+<link rel="prev" href="assembly-based.html"/>
+<link rel="next" href="host-transcriptomics-data-processing.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -201,8 +201,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
+<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a></li>
+<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
+<ul>
+<li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#preprocess-the-reads-using-fastp"><i class="fa fa-check"></i>Preprocess the reads using fastp</a></li>
+<li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#splitting-host-and-non-host-data"><i class="fa fa-check"></i>Splitting host and non-host data</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="host-genomics-data-processing.html"><a href="host-genomics-data-processing.html"><i class="fa fa-check"></i><b>9</b> Host genomics (HG) data processing</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a></li>
@@ -211,8 +216,12 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="microbial-metagenomics-data-processing.html"><a href="microbial-metagenomics-data-processing.html"><i class="fa fa-check"></i><b>10</b> Microbial metagenomics (MG) data processing</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="reference-based.html"><a href="reference-based.html"><i class="fa fa-check"></i><b>10.1</b> Reference-based</a></li>
-<li class="chapter" data-level="10.2" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.2</b> Genome-resolved</a></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved-1.html"><a href="genome-resolved-1.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.2" data-path="assembly-based.html"><a href="assembly-based.html"><i class="fa fa-check"></i><b>10.2</b> Assembly-based</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
+<li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a></li>
 <li class="chapter" data-level="12" data-path="microbial-metatranscriptomics-data-processing.html"><a href="microbial-metatranscriptomics-data-processing.html"><i class="fa fa-check"></i><b>12</b> Microbial metatranscriptomics (HT) data processing</a></li>
@@ -294,17 +303,19 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="genome-resolved" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Genome-resolved<a href="genome-resolved.html#genome-resolved" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="genome-resolved" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Genome-resolved<a href="genome-resolved.html#genome-resolved" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Contents to be added.</p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="reference-based.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="genome-resolved-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="assembly-based.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="host-transcriptomics-data-processing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
