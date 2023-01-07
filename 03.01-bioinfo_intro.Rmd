@@ -7,7 +7,9 @@ Raw sequencing and mass spectrometry-based data files used in holo-omic analyses
 
 However, for the sake of simplicity and practicality, the example datasets included in this Workbook have been considerably downscaled to enable reproducing the exercises in personal computers.
 
-> All bioinformatic analyses included in the **Holo-omics workbook** are conducted in a Unix command line Shell environment (BASH/SH). You can find the details to set-up your SHELL environment in the section [Prepare your R environment](#prepare-r)
+:::: {.graybox}
+All bioinformatic analyses included in the **Holo-omics workbook** are conducted in a Unix command line Shell environment (BASH/SH). You can find the details to set-up your SHELL environment in the section [Prepare your R environment](#prepare-r).
+:::
 
 ## Prepare your shell environment {#prepare-shell}
 

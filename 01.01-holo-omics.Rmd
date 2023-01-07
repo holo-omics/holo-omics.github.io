@@ -1,9 +1,15 @@
 # (PART) INTRODUCTION {-}
 # Introduction to holo-omics {#holo-omics}
 
-Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities @Nyholm-2020.
+Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities [@Nyholm-2020]. The holo-omic approach to host-microbiota interactions relies on three major assumptions:
+
+1. Host-associated microorganisms interact not only with each other but also with their host [@Fischer-2017].
+2. These interactions affect, either positively or negatively, central biological processes of hosts and microorganisms [@Wu-2012].
+3. The interplay can be traced using biomolecular tools.
 
 ## Omic layers {#omic-layers}
+
+Nucleic acid sequencing and mass spectrometry technologies that enable tracking the biomolecular pathways linking host and mi- crobial genomic sequences with biomolecular phenotypes by generating (meta)transcriptomes, (meta) proteomes, and (meta)metabolomes. The same technologies also enable epigenomic and exposomic profiling, which can further contribute to disentangling the biochemical associations between host-micro- biota-environment interactions and their effect on host phenotypes
 
 In this workbook we consider seven omic layers that require specific data generation and analysis strategies before integrating them into multi-omic statistical models:
 
