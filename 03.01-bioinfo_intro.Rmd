@@ -25,21 +25,43 @@ conda -V
 #> conda 22.11.1 #or whatever version you have installed
 ```
 
-### Install mamba {-}
+### Install mamba (optional) {-}
 
-The next step is to install **mamba**, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the `conda installB option.
+An optional  step is to install **mamba**, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the `conda install` option.
 
 ``` {sh eval=FALSE}
 conda install mamba -n base -c conda-forge
 ```
 
-### Create a mamba environment {-}
+### Create a conda environment {-}
+
+All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available [here](https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml), and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don't forget to provide the absolut path to the 'holo-omics-env.yaml' file in the `mamba create` command.
 
 ``` {sh eval=FALSE}
-wget https://holo-omics.github.io/bin/holo-omics-env.yaml #download installer file
-mamba create -n holo-omics -f holo-omics-env.yaml #create environment
+wget https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml #download installer file
+conda update conda
+conda deactivate
+conda env create -f holo-omics-env.yml
 rm holo-omics-env.yaml #remove installer file
 ```
+
+As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can doublecheck whether the environment has been succesfully created using the following script:
+
+``` {sh eval=FALSE}
+conda activate holo-omics
+#> (holo-omics) anttonalberdi@Anttons-MBP ~ %
+```
+
+The (holo-omics) specifies the environment you are at. To get out of the environment use:
+
+``` {sh eval=FALSE}
+conda deactivate
+#> anttonalberdi@Anttons-MBP ~ %
+```
+
+### Activate the holo-omics conda environment {-}
+
+Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command
 
 ### Required software {-}
 

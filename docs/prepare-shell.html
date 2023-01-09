@@ -197,8 +197,9 @@ div.csl-indent {
 <li class="chapter" data-level="7.1" data-path="prepare-shell.html"><a href="prepare-shell.html"><i class="fa fa-check"></i><b>7.1</b> Prepare your shell environment</a>
 <ul>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-miniconda"><i class="fa fa-check"></i>Install miniconda</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba"><i class="fa fa-check"></i>Install mamba</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-a-mamba-environment"><i class="fa fa-check"></i>Create a mamba environment</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba-optional"><i class="fa fa-check"></i>Install mamba (optional)</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-a-conda-environment"><i class="fa fa-check"></i>Create a conda environment</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#required-software"><i class="fa fa-check"></i>Required software</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#pipeline-management"><i class="fa fa-check"></i>Pipeline management</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
@@ -317,16 +318,29 @@ div.csl-indent {
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="prepare-shell.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">-V</span></span>
 <span id="cb2-2"><a href="prepare-shell.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; conda 22.11.1 #or whatever version you have installed</span></span></code></pre></div>
 </div>
-<div id="install-mamba" class="section level3 unnumbered hasAnchor">
-<h3>Install mamba<a href="prepare-shell.html#install-mamba" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The next step is to install <strong>mamba</strong>, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the `conda installB option.</p>
+<div id="install-mamba-optional" class="section level3 unnumbered hasAnchor">
+<h3>Install mamba (optional)<a href="prepare-shell.html#install-mamba-optional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An optional step is to install <strong>mamba</strong>, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the <code>conda install</code> option.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="prepare-shell.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install mamba <span class="at">-n</span> base <span class="at">-c</span> conda-forge</span></code></pre></div>
 </div>
-<div id="create-a-mamba-environment" class="section level3 unnumbered hasAnchor">
-<h3>Create a mamba environment<a href="prepare-shell.html#create-a-mamba-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="prepare-shell.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://holo-omics.github.io/bin/holo-omics-env.yaml <span class="co">#download installer file</span></span>
-<span id="cb4-2"><a href="prepare-shell.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-n</span> holo-omics <span class="at">-f</span> holo-omics-env.yaml <span class="co">#create environment</span></span>
-<span id="cb4-3"><a href="prepare-shell.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> holo-omics-env.yaml <span class="co">#remove installer file</span></span></code></pre></div>
+<div id="create-a-conda-environment" class="section level3 unnumbered hasAnchor">
+<h3>Create a conda environment<a href="prepare-shell.html#create-a-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>, and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don’t forget to provide the absolut path to the ‘holo-omics-env.yaml’ file in the <code>mamba create</code> command.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="prepare-shell.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml <span class="co">#download installer file</span></span>
+<span id="cb4-2"><a href="prepare-shell.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda</span>
+<span id="cb4-3"><a href="prepare-shell.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span>
+<span id="cb4-4"><a href="prepare-shell.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> holo-omics-env.yml</span>
+<span id="cb4-5"><a href="prepare-shell.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> holo-omics-env.yaml <span class="co">#remove installer file</span></span></code></pre></div>
+<p>As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can doublecheck whether the environment has been succesfully created using the following script:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="prepare-shell.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
+<span id="cb5-2"><a href="prepare-shell.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
+<p>The (holo-omics) specifies the environment you are at. To get out of the environment use:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="prepare-shell.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span>
+<span id="cb6-2"><a href="prepare-shell.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
+</div>
+<div id="activate-the-holo-omics-conda-environment" class="section level3 unnumbered hasAnchor">
+<h3>Activate the holo-omics conda environment<a href="prepare-shell.html#activate-the-holo-omics-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command</p>
 </div>
 <div id="required-software" class="section level3 unnumbered hasAnchor">
 <h3>Required software<a href="prepare-shell.html#required-software" class="anchor-section" aria-label="Anchor link to header"></a></h3>

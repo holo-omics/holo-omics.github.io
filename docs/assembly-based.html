@@ -197,8 +197,9 @@ div.csl-indent {
 <li class="chapter" data-level="7.1" data-path="prepare-shell.html"><a href="prepare-shell.html"><i class="fa fa-check"></i><b>7.1</b> Prepare your shell environment</a>
 <ul>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-miniconda"><i class="fa fa-check"></i>Install miniconda</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba"><i class="fa fa-check"></i>Install mamba</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-a-mamba-environment"><i class="fa fa-check"></i>Create a mamba environment</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba-optional"><i class="fa fa-check"></i>Install mamba (optional)</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-a-conda-environment"><i class="fa fa-check"></i>Create a conda environment</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#required-software"><i class="fa fa-check"></i>Required software</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#pipeline-management"><i class="fa fa-check"></i>Pipeline management</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
@@ -319,36 +320,36 @@ div.csl-indent {
 <p>Two of the most popular metagenome assemblers are <strong>Megahit</strong> and <strong>MetaSpades</strong>. Metaspades is considered superior in therms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g. bbmap) to get rid off barely informative yet often abundant short contigs.</p>
 <div id="individual-assembly-using-megahit" class="section level4 hasAnchor" number="10.2.1.1">
 <h4><span class="header-section-number">10.2.1.1</span> Individual assembly using Megahit<a href="assembly-based.html#individual-assembly-using-megahit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="assembly-based.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">megahit</span> <span class="dt">\</span></span>
-<span id="cb11-2"><a href="assembly-based.html#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
-<span id="cb11-3"><a href="assembly-based.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--verbose</span> <span class="dt">\</span></span>
-<span id="cb11-4"><a href="assembly-based.html#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--min-contig-len</span> 1500 <span class="dt">\</span></span>
-<span id="cb11-5"><a href="assembly-based.html#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1} <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
-<span id="cb11-6"><a href="assembly-based.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {params.workdir}</span>
-<span id="cb11-7"><a href="assembly-based.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span><span class="op">&gt;</span> {log}</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="assembly-based.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">megahit</span> <span class="dt">\</span></span>
+<span id="cb13-2"><a href="assembly-based.html#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb13-3"><a href="assembly-based.html#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--verbose</span> <span class="dt">\</span></span>
+<span id="cb13-4"><a href="assembly-based.html#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--min-contig-len</span> 1500 <span class="dt">\</span></span>
+<span id="cb13-5"><a href="assembly-based.html#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1} <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
+<span id="cb13-6"><a href="assembly-based.html#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {params.workdir}</span>
+<span id="cb13-7"><a href="assembly-based.html#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span><span class="op">&gt;</span> {log}</span></code></pre></div>
 </div>
 <div id="individual-assembly-using-metaspades" class="section level4 hasAnchor" number="10.2.1.2">
 <h4><span class="header-section-number">10.2.1.2</span> Individual assembly using MetaSpades<a href="assembly-based.html#individual-assembly-using-metaspades" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="assembly-based.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metaspades.py</span> <span class="dt">\</span></span>
-<span id="cb12-2"><a href="assembly-based.html#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
-<span id="cb12-3"><a href="assembly-based.html#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-k</span> 21,33,55,77,99 <span class="dt">\</span></span>
-<span id="cb12-4"><a href="assembly-based.html#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1} <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
-<span id="cb12-5"><a href="assembly-based.html#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {params.workdir}</span>
-<span id="cb12-6"><a href="assembly-based.html#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span><span class="op">&gt;</span> {log}</span>
-<span id="cb12-7"><a href="assembly-based.html#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="assembly-based.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove contigs shorter than 1,500 bp using bbmap</span></span>
-<span id="cb12-9"><a href="assembly-based.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">reformat.sh</span> <span class="dt">\</span></span>
-<span id="cb12-10"><a href="assembly-based.html#cb12-10" aria-hidden="true" tabindex="-1"></a>    in={params.workdir}/scaffolds.fasta <span class="dt">\</span></span>
-<span id="cb12-11"><a href="assembly-based.html#cb12-11" aria-hidden="true" tabindex="-1"></a>    out={output.assembly} <span class="dt">\</span></span>
-<span id="cb12-12"><a href="assembly-based.html#cb12-12" aria-hidden="true" tabindex="-1"></a>    minlength=1500</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="assembly-based.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metaspades.py</span> <span class="dt">\</span></span>
+<span id="cb14-2"><a href="assembly-based.html#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb14-3"><a href="assembly-based.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-k</span> 21,33,55,77,99 <span class="dt">\</span></span>
+<span id="cb14-4"><a href="assembly-based.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1} <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
+<span id="cb14-5"><a href="assembly-based.html#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {params.workdir}</span>
+<span id="cb14-6"><a href="assembly-based.html#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span><span class="op">&gt;</span> {log}</span>
+<span id="cb14-7"><a href="assembly-based.html#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="assembly-based.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove contigs shorter than 1,500 bp using bbmap</span></span>
+<span id="cb14-9"><a href="assembly-based.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="ex">reformat.sh</span> <span class="dt">\</span></span>
+<span id="cb14-10"><a href="assembly-based.html#cb14-10" aria-hidden="true" tabindex="-1"></a>    in={params.workdir}/scaffolds.fasta <span class="dt">\</span></span>
+<span id="cb14-11"><a href="assembly-based.html#cb14-11" aria-hidden="true" tabindex="-1"></a>    out={output.assembly} <span class="dt">\</span></span>
+<span id="cb14-12"><a href="assembly-based.html#cb14-12" aria-hidden="true" tabindex="-1"></a>    minlength=1500</span></code></pre></div>
 </div>
 <div id="get-assembly-statistics-using-quast" class="section level4 hasAnchor" number="10.2.1.3">
 <h4><span class="header-section-number">10.2.1.3</span> Get assembly statistics using Quast<a href="assembly-based.html#get-assembly-statistics-using-quast" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software <strong>Quast</strong>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="assembly-based.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quast</span> <span class="dt">\</span></span>
-<span id="cb13-2"><a href="assembly-based.html#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {output.report} <span class="dt">\</span></span>
-<span id="cb13-3"><a href="assembly-based.html#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
-<span id="cb13-4"><a href="assembly-based.html#cb13-4" aria-hidden="true" tabindex="-1"></a>    {input.assembly}</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="assembly-based.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quast</span> <span class="dt">\</span></span>
+<span id="cb15-2"><a href="assembly-based.html#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {output.report} <span class="dt">\</span></span>
+<span id="cb15-3"><a href="assembly-based.html#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
+<span id="cb15-4"><a href="assembly-based.html#cb15-4" aria-hidden="true" tabindex="-1"></a>    {input.assembly}</span></code></pre></div>
 <p>TO BE CONTINUED FROM HERE: <a href="https://github.com/earthhologenome/EHI_bioinformatics/blob/main/0_Code/2_Individual_Assembly_Binning.snakefile" class="uri">https://github.com/earthhologenome/EHI_bioinformatics/blob/main/0_Code/2_Individual_Assembly_Binning.snakefile</a></p>
 </div>
 </div>
