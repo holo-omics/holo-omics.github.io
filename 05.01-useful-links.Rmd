@@ -9,10 +9,13 @@
 
 * **[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/) (website):** general overview of basic command line usage.
 
-### R usage {-}
+### R usage (General usage and programming) {-}
 
 * **[Intro to R and RStudio for Genomics](https://datacarpentry.org/genomics-r-intro/) (website):**
 * **[Efficient R programming](https://csgillespie.github.io/efficientR/index.html) (website):** best practices for programming in R.
+
+### R usage (Graphics and visualisation) {-}
+
 * **[Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) (website):** guide to making visualisations that accurately reflect the data, tell a story, and look professional.
 * **[R Graphics Cookbook](https://r-graphics.org/index.html) (website):** a practical guide that provides more than 150 recipes to generate high-quality graphs using ggplot2.
 

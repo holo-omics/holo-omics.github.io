@@ -1,9 +1,11 @@
 #Install required libraries
 install.packages("bookdown")
+install.packages("htmlwidgets")
 install.packages("webshot")
 
 #Load required linbra
 library(bookdown)
+library(htmlwidgets)
 library(webshot)
 
 #Install install_phantomjs

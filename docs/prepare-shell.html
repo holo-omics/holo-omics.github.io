@@ -196,6 +196,9 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.1" data-path="prepare-shell.html"><a href="prepare-shell.html"><i class="fa fa-check"></i><b>7.1</b> Prepare your shell environment</a>
 <ul>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-miniconda"><i class="fa fa-check"></i>Install miniconda</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba"><i class="fa fa-check"></i>Install mamba</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-a-mamba-environment"><i class="fa fa-check"></i>Create a mamba environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#required-software"><i class="fa fa-check"></i>Required software</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#pipeline-management"><i class="fa fa-check"></i>Pipeline management</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
@@ -282,7 +285,8 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#genomics"><i class="fa fa-check"></i>Genomics</a></li>
 <li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#shell-command-line-usage"><i class="fa fa-check"></i>Shell command line usage</a></li>
-<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#r-usage"><i class="fa fa-check"></i>R usage</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#r-usage-general-usage-and-programming"><i class="fa fa-check"></i>R usage (General usage and programming)</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#r-usage-graphics-and-visualisation"><i class="fa fa-check"></i>R usage (Graphics and visualisation)</a></li>
 <li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#statistics"><i class="fa fa-check"></i>Statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
@@ -305,7 +309,25 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="prepare-shell" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Prepare your shell environment<a href="prepare-shell.html#prepare-shell" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Content to be added.</p>
+<div id="install-miniconda" class="section level3 unnumbered hasAnchor">
+<h3>Install miniconda<a href="prepare-shell.html#install-miniconda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If <strong>conda</strong> is not installed in your system, the first step is to install <strong>miniconda</strong> (a free minimal installer for conda, enough to run the bioinformatic analyses explained in the workbook). Miniconda installers for Linux, Mac and Windows operating systems can be found in the following website:
+<a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></p>
+<p>Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="prepare-shell.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">-V</span></span>
+<span id="cb2-2"><a href="prepare-shell.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; conda 22.11.1 #or whatever version you have installed</span></span></code></pre></div>
+</div>
+<div id="install-mamba" class="section level3 unnumbered hasAnchor">
+<h3>Install mamba<a href="prepare-shell.html#install-mamba" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The next step is to install <strong>mamba</strong>, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the `conda installB option.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="prepare-shell.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install mamba <span class="at">-n</span> base <span class="at">-c</span> conda-forge</span></code></pre></div>
+</div>
+<div id="create-a-mamba-environment" class="section level3 unnumbered hasAnchor">
+<h3>Create a mamba environment<a href="prepare-shell.html#create-a-mamba-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="prepare-shell.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://holo-omics.github.io/bin/holo-omics-env.yaml <span class="co">#download installer file</span></span>
+<span id="cb4-2"><a href="prepare-shell.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> create <span class="at">-n</span> holo-omics <span class="at">-f</span> holo-omics-env.yaml <span class="co">#create environment</span></span>
+<span id="cb4-3"><a href="prepare-shell.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> holo-omics-env.yaml <span class="co">#remove installer file</span></span></code></pre></div>
+</div>
 <div id="required-software" class="section level3 unnumbered hasAnchor">
 <h3>Required software<a href="prepare-shell.html#required-software" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Bioinformatic pipelines for processing omic data require the use of dozens of software.</p>

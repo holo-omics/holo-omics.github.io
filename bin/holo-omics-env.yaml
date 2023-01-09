@@ -1,0 +1,18 @@
+ name: holo-omics-env
+ channels:
+    - conda-forge
+    - bioconda
+    - defaults
+ dependencies:
+    - fastp=0.23.1
+    - bowtie2=2.4.4
+    - coverm=0.6.1
+    - nonpareil=3.4.1
+    - pigz=2.6
+    - bbmap=38.93
+    - spades=3.15.3
+    - megahit=1.2.9
+    - bowtie2=2.4.4
+    - quast=5.2.0
+    - coverm=0.6.1
+    - samtools=1.14
