@@ -1,0 +1,75 @@
+# Study design considerations {#study-design-considerations}
+
+:::: {.graybox}
+The contents of this section have been extracted and modified from the article [Disentangling host–microbiota complexity through hologenomics](https://www.nature.com/articles/s41576-021-00421-0) published in ***Nature Reviews Genetics*** in 2022 by the authors of the **Holo-omics Workbook**.
+:::
+
+Holo-omic approaches can be used to understand how the combined features of hosts and microorganisms shape biological processes relevant for hosts (such as adaptation), for microorganisms (such as meta-community dynamics) or both [@Alberdi-2022].
+
+Depending on the aims and features of the study system, holo-omics can be implemented using different study designs, model systems and techniques. This landscape of possibilities is shaped around five essential questions that need to be considered when designing and interpreting hologenomic studies, which relate to five core topics:
+
+1. **[Hologenomic complexity](#hologenomic-complexity)**
+2. **[Control of variables](#control-of-variables)**
+3. **[Molecular resolution](#molecular-resolution)**
+4. **[Spatiotemporal factors](#spatiotemporal-factors)**
+5. **[Explanatory and response variables](#explanatory-and-response-variables)**
+
+![](images/holo-omics_five_questions.png "Author: Antton Alberdi")
+
+## Hologenomic complexity {#hologenomic-complexity}
+
+:::: {.graybox}
+The contents of this section have been extracted and modified from the article [Disentangling host–microbiota complexity through hologenomics](https://www.nature.com/articles/s41576-021-00421-0) published in ***Nature Reviews Genetics*** in 2022 by the authors of the **Holo-omics Workbook**.
+:::
+
+Hologenomic complexity can be broadly defined as the amount of information relevant to the study that the biological system under analysis contains and it can be decomposed into three major elements: host genomic, microbial metagenomic and environmental complexity [@Alberdi-2022]. Within each of these elements, two sources of complexity can be defined: the intrinsic complexity of the system under study, including host genome size and number of bacterial genomes, and the complexity introduced by the degree of difference between the organisms under comparison such as gene expression differences versus distinct genomes.
+
+![](images/holo-omics_complexity.png "Author: Antton Alberdi")
+
+:::: {.imagenote}
+**Decomposition of hologenomic complexity.** **(a-c)** The design and interpretation of hologenomic studies depend on the host genomic (part a), microbial metagenomic (part b) and environmental (part c) complexity of the system under study. Within each axis of complexity, two types of gradients can be defined based on whether the features are intrinsic to the system or introduced by the researcher through the selection of groups under comparison. **(d)** Six examples of study systems with different levels of genomic, metagenomic and environmental complexity. **(e)** Three-dimensional representation of the complexity of the examples. The area of the plain represents the combined host genomic and microbial metagenomic complexity of the system, while the height represents the environmental complexity. The combined three-dimensional volume represents the overall hologenomic complexity of the system. HMP: Human Microbiome Project.
+:::
+
+## Control of variables {#control-of-variables}
+
+:::: {.graybox}
+The contents of this section have been extracted and modified from the article [Disentangling host–microbiota complexity through hologenomics](https://www.nature.com/articles/s41576-021-00421-0) published in ***Nature Reviews Genetics*** in 2022 by the authors of the **Holo-omics Workbook**.
+:::
+
+Controlling the complexity of hologenomic variables is essential for addressing specific research questions. Broadly speaking, the more detailed and mechanistic the question under study, the greater the required control. For instance, research on specific biomolecular processes using laboratory models will require a higher level of control than studying biogeographical patterns of host–microbiota interactions in wild organisms. The control of hologenomic variables can be achieved through a number of strategies.
+
+### Controlling host genomes {#controlling-host-genomes}
+
+To be added.
+
+### Controlling microbial metagenomes {#controlling-microbial-metagenomes}
+
+To be added.
+
+### Controlling the environment {#controlling-environment}
+To be added.
+
+
+## Molecular resolution {#molecular-resolution}
+
+:::: {.graybox}
+The contents of this section have been extracted and modified from the article [Disentangling host–microbiota complexity through hologenomics](https://www.nature.com/articles/s41576-021-00421-0) published in ***Nature Reviews Genetics*** in 2022 by the authors of the **Holo-omics Workbook**.
+:::
+
+To be added.
+
+## Spatiotemporal factors {#spatiotemporal-factors}
+
+:::: {.graybox}
+The contents of this section have been extracted and modified from the article [Disentangling host–microbiota complexity through hologenomics](https://www.nature.com/articles/s41576-021-00421-0) published in ***Nature Reviews Genetics*** in 2022 by the authors of the **Holo-omics Workbook**.
+:::
+
+To be added.
+
+## Explanatory and response variables {#explanatory-and-response-variables}
+
+:::: {.graybox}
+The contents of this section have been extracted and modified from the article [Disentangling host–microbiota complexity through hologenomics](https://www.nature.com/articles/s41576-021-00421-0) published in ***Nature Reviews Genetics*** in 2022 by the authors of the **Holo-omics Workbook**.
+:::
+
+To be added.

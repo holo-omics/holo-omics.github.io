@@ -86,4 +86,5 @@ shao4d_perm %>% perm_get()
 Instructions to cite this work will be eventually added.
 
 ### Acknowledgement {-}
+![HF Logo](https://www.holofood.eu/files/logo_only.png)
 This project has received funding from the European Unionʼs Horizon 2020 research and innovation programme under grant agreement No 817729.

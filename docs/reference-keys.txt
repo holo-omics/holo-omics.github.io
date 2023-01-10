@@ -7,7 +7,15 @@ microbial-metatranscriptomics
 host-proteomics
 microbial-metaproteomics
 meta-metabolomics
-holofood
+study-design-considerations
+hologenomic-complexity
+control-of-variables
+controlling-host-genomes
+controlling-microbial-metagenomes
+controlling-environment
+molecular-resolution
+spatiotemporal-factors
+explanatory-and-response-variables
 about-labwork
 dna-rna-extraction
 protein-metabolite-extraction

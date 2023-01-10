@@ -173,9 +173,18 @@ div.csl-indent {
 <li class="chapter" data-level="1.7" data-path="microbial-metaproteomics.html"><a href="microbial-metaproteomics.html"><i class="fa fa-check"></i><b>1.7</b> Microbial metaproteomics (MP)</a></li>
 <li class="chapter" data-level="1.8" data-path="meta-metabolomics.html"><a href="meta-metabolomics.html"><i class="fa fa-check"></i><b>1.8</b> (Meta)metabolomics (ME)</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="holofood.html"><a href="holofood.html"><i class="fa fa-check"></i><b>2</b> HoloFood</a>
+<li class="chapter" data-level="2" data-path="study-design-considerations.html"><a href="study-design-considerations.html"><i class="fa fa-check"></i><b>2</b> Study design considerations</a>
 <ul>
-<li class="chapter" data-level="" data-path="holofood.html"><a href="holofood.html#methodological-point-of-view"><i class="fa fa-check"></i>Methodological point of view</a></li>
+<li class="chapter" data-level="2.1" data-path="hologenomic-complexity.html"><a href="hologenomic-complexity.html"><i class="fa fa-check"></i><b>2.1</b> Hologenomic complexity</a></li>
+<li class="chapter" data-level="2.2" data-path="control-of-variables.html"><a href="control-of-variables.html"><i class="fa fa-check"></i><b>2.2</b> Control of variables</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="control-of-variables.html"><a href="control-of-variables.html#controlling-host-genomes"><i class="fa fa-check"></i><b>2.2.1</b> Controlling host genomes</a></li>
+<li class="chapter" data-level="2.2.2" data-path="control-of-variables.html"><a href="control-of-variables.html#controlling-microbial-metagenomes"><i class="fa fa-check"></i><b>2.2.2</b> Controlling microbial metagenomes</a></li>
+<li class="chapter" data-level="2.2.3" data-path="control-of-variables.html"><a href="control-of-variables.html#controlling-environment"><i class="fa fa-check"></i><b>2.2.3</b> Controlling the environment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="molecular-resolution.html"><a href="molecular-resolution.html"><i class="fa fa-check"></i><b>2.3</b> Molecular resolution</a></li>
+<li class="chapter" data-level="2.4" data-path="spatiotemporal-factors.html"><a href="spatiotemporal-factors.html"><i class="fa fa-check"></i><b>2.4</b> Spatiotemporal factors</a></li>
+<li class="chapter" data-level="2.5" data-path="explanatory-and-response-variables.html"><a href="explanatory-and-response-variables.html"><i class="fa fa-check"></i><b>2.5</b> Explanatory and response variables</a></li>
 </ul></li>
 <li class="part"><span><b>II LABORATORY PROCEDURES</b></span></li>
 <li class="chapter" data-level="3" data-path="about-labwork.html"><a href="about-labwork.html"><i class="fa fa-check"></i><b>3</b> About labwork</a></li>
@@ -196,12 +205,11 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.1" data-path="prepare-shell.html"><a href="prepare-shell.html"><i class="fa fa-check"></i><b>7.1</b> Prepare your shell environment</a>
 <ul>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#required-software"><i class="fa fa-check"></i>Required software</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-miniconda"><i class="fa fa-check"></i>Install miniconda</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba-optional"><i class="fa fa-check"></i>Install mamba (optional)</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-a-conda-environment"><i class="fa fa-check"></i>Create a conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#required-software"><i class="fa fa-check"></i>Required software</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#pipeline-management"><i class="fa fa-check"></i>Pipeline management</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
@@ -310,7 +318,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="prepare-r" class="section level2 hasAnchor" number="15.1">
 <h2><span class="header-section-number">15.1</span> Prepare your R environment<a href="prepare-r.html#prepare-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>All statistical analyses included in the <strong>Holo-omics workbook</strong> are conducted in <a href="https://en.wikipedia.org/wiki/R_(programming_language)">R environment</a> <span class="citation">[<a href="#ref-R-core-2022" role="doc-biblioref">5</a>]</span>. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, <a href="https://cran.r-project.org/">R</a> or <a href="https://posit.co/downloads/">RStudio</a> must be installed in your local computer or remote server.</p>
+<p>All statistical analyses included in the <strong>Holo-omics workbook</strong> are conducted in <a href="https://en.wikipedia.org/wiki/R_(programming_language)">R environment</a> <span class="citation">[<a href="#ref-R-core-2022" role="doc-biblioref">6</a>]</span>. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, <a href="https://cran.r-project.org/">R</a> or <a href="https://posit.co/downloads/">RStudio</a> must be installed in your local computer or remote server.</p>
 <div id="required-packages" class="section level3 unnumbered hasAnchor">
 <h3>Required packages<a href="prepare-r.html#required-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to reproduce the analyses shown in the workbook, a rather long list of R packages must be installed. Packages are the fundamental units of reproducible R code, which include reusable R functions, the documentation that describes how to use them, and sample data.</p>
@@ -330,33 +338,33 @@ div.csl-indent {
 <div id="install-package-from-cran" class="section level4 unnumbered hasAnchor">
 <h4>Install package from CRAN<a href="prepare-r.html#install-package-from-cran" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R. Packages stored in CRAN can be installed using the following code:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="prepare-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;package_name&quot;</span>)</span>
-<span id="cb16-2"><a href="prepare-r.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb16-3"><a href="prepare-r.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="prepare-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;package_name&quot;</span>)</span>
+<span id="cb18-2"><a href="prepare-r.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb18-3"><a href="prepare-r.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
 </div>
 <div id="install-package-from-bioconductor" class="section level4 unnumbered hasAnchor">
 <h4>Install package from Bioconductor<a href="prepare-r.html#install-package-from-bioconductor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Bioconductor is a free, open source and open development software project for the analysis and comprehension of genomic data generated by wet lab experiments in molecular biology. Packages included in Bioconductor can be installed using the following code:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="prepare-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-2"><a href="prepare-r.html#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb17-3"><a href="prepare-r.html#cb17-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;package_name&quot;</span>)</span>
-<span id="cb17-4"><a href="prepare-r.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb17-5"><a href="prepare-r.html#cb17-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="prepare-r.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb19-2"><a href="prepare-r.html#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb19-3"><a href="prepare-r.html#cb19-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;package_name&quot;</span>)</span>
+<span id="cb19-4"><a href="prepare-r.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb19-5"><a href="prepare-r.html#cb19-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="install-package-from-github" class="section level4 unnumbered hasAnchor">
 <h4>Install package from Github<a href="prepare-r.html#install-package-from-github" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>GitHub is a code hosting platform for version control and collaboration. Packages stored in R can be installed using the following code after installing the package devtools:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="prepare-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb18-2"><a href="prepare-r.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;github_repository_name_of_the_package&quot;</span>)</span>
-<span id="cb18-3"><a href="prepare-r.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb18-4"><a href="prepare-r.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;anttonalberdi/distillR&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="prepare-r.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb20-2"><a href="prepare-r.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;github_repository_name_of_the_package&quot;</span>)</span>
+<span id="cb20-3"><a href="prepare-r.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb20-4"><a href="prepare-r.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;anttonalberdi/distillR&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-R-core-2022" class="csl-entry">
-5. R Core Team. R: A language and environment for statistical computing. Vienna, Austria: R Foundation for Statistical Computing; 2022.
+6. R Core Team. R: A language and environment for statistical computing. Vienna, Austria: R Foundation for Statistical Computing; 2022.
 </div>
 </div>
             </section>

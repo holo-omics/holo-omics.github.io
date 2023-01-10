@@ -8,10 +8,20 @@ Raw sequencing and mass spectrometry-based data files used in holo-omic analyses
 However, for the sake of simplicity and practicality, the example datasets included in this Workbook have been considerably downscaled to enable reproducing the exercises in personal computers.
 
 :::: {.graybox}
-All bioinformatic analyses included in the **Holo-omics workbook** are conducted in a Unix command line Shell environment (BASH/SH). You can find the details to set-up your SHELL environment in the section [Prepare your R environment](#prepare-r).
+All bioinformatic analyses included in the **Holo-omics workbook** are conducted in a Unix command line Shell environment (BASH/SH). You can find the details to set-up your SHELL environment in the section [Prepare your Shell environment](#prepare-shell).
 :::
 
 ## Prepare your shell environment {#prepare-shell}
+
+If the comment chunks of the code (text after #) is creating you problems, use the following code to disable interactive comments and avoid issues when copy-pasting code:
+
+``` {sh eval=FALSE}
+setopt interactivecomments
+```
+
+### Required software {-}
+
+Bioinformatic pipelines for processing omic data require the use of dozens of software. All the required software are listed in the conda environment installation file available [here](https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml).
 
 ### Install miniconda {-}
 
@@ -39,13 +49,13 @@ All the bioinformatic analyses explained in this workbook will be run within an 
 
 ``` {sh eval=FALSE}
 wget https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml #download installer file
-conda update conda
-conda deactivate
+conda update conda #to ensure everything is updated
+conda deactivate #deactivate any conda environment before creating a new one
 conda env create -f holo-omics-env.yml
 rm holo-omics-env.yaml #remove installer file
 ```
 
-As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can doublecheck whether the environment has been succesfully created using the following script:
+As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can double-check whether the environment has been successfully created using the following script:
 
 ``` {sh eval=FALSE}
 conda activate holo-omics
@@ -55,30 +65,19 @@ conda activate holo-omics
 The (holo-omics) specifies the environment you are at. To get out of the environment use:
 
 ``` {sh eval=FALSE}
-conda deactivate
-#> anttonalberdi@Anttons-MBP ~ %
+conda env list
+#> base                  *  /Users/anttonalberdi/miniconda3
+#> holo-omics               /Users/anttonalberdi/miniconda3/envs/holo-omics
 ```
 
 ### Activate the holo-omics conda environment {-}
 
-Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command
+Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command:
 
-### Required software {-}
-
-Bioinformatic pipelines for processing omic data require the use of dozens of software.
-
-* bbmap
-* bowtie2
-* coverm
-* fastp
-* nonpareil
-* samtools
-* pigz
-
-
-### Pipeline management {-}
-
-Content to be added.
+``` {sh eval=FALSE}
+conda activate holo-omics
+#> (holo-omics) anttonalberdi@Anttons-MBP ~ %
+```
 
 ### Install software in conda environment {-}
 
