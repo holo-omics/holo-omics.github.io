@@ -14,7 +14,7 @@ Sequencing enterprises, as well as auxiliary biotechnological companies, provide
 |Combinatorial probe-anchor synthesis (cPAS)|DNBSeq|Short-read sequencing|[BGI](https://www.bgi.com/global)|
 |Sequencing by binding (SBB) technology|Onso|Short-read sequencing|[PacBio](https://www.pacb.com/)|
 |Single Molecule Real-Time sequencing (SMRT)|Sequel, Revio|Long-read sequencing|[PacBio](https://www.pacb.com/)|
-|Nanopore sequencing|MinION, GridION, PromethION|Long-read sequencing|[[Oxford Nanopore](https://nanoporetech.com/)|
+|Nanopore sequencing|MinION, GridION, PromethION|Long-read sequencing|[Oxford Nanopore](https://nanoporetech.com/)|
 :::: {.imagenote}
 Some of the most widely used sequencing technologies and platforms.
 :::
@@ -84,13 +84,28 @@ An example of a sticky-end molecule:
 
 Library preparation for host transcriptomics (HT) requires some extra steps to the already described procedures for [host genomics and microbial metagenomics](##library-meta-genomics). This is due to two main reasons. First, because RNA molecules cannot be directly built into sequencing libraries, and require instead to generate complementary DNA (cDNA) before library preparation. Second, because gene transcripts tend to be overwhelmingly dominated by rRNA and mtDNA genes, which are often not of interest for the researcher.
 
+#### Sample quality assessment {- #rrna-sample-quality-assessment}
+
+Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended.
+
+The poly(A) enrichment procedires explained below require high quality RNA (RIN / RQN > 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3’ ends are enriched while the more 5’ sequences would not be captured, leading to a strong 3′ bias for degraded RNA inputs.
+
 #### cDNA conversion {- #cDNA-convertion}
 
 Text to be added.
 
-#### rRNA depletion {- #rrna-depletion}
+#### rRNA depletion through poly-A enrichment {- #rrna-depletion-polya}
 
-Text to be added.
+Ribosomal RNA (rRNA) helps translate the information in messenger RNA (mRNA) into protein. It is the predominant form of RNA found in most cells, which can make over 80% of cellular RNA despite never being translated into proteins itself. In consequence, most reads derived from RNA belong to rRNAs, unless depletion strategies are implemented.
+
+Excessively abundant rRNA sequences can be depleted using multiple strategies, which are covered in the [Microbial metatranscriptomics](#library-microbial-metatranscriptomics). The most broadly employed enrichment strategy when dealing with eukaryotic organisms is rRNA depletion through poly-A enrichment. This strategy relies on the fact that mature coding mRNAs of eukaryotic organisms contain polyA tails, long chains (tens to hundreds) of adenine nucleotides that are added to primary RNA transcripts to increase the stability of the molecule. However, not all transcripts contain poly(A) tails. microRNAs, small nucleolar RNAs (snoRNAs), transfer RNAs (tRNAs), some long non-coding RNAs (lncRNAs), and even protein-coding mRNAs such as histone mRNAs do not contail poly(A) tails, thus will be removed together with rRNA during poly(A) selection. If interested in quantifying expression of such transcripts the use of [alternative methods](#library-microbial-metatranscriptomics) is recommended.
+
+The most broadly employed strategies to deplete rRNA through poly-A enrichment rely either on hybridisation with Oligo(dT)-attached magnetic beads or oligo(dT) priming during cDNA conversion step. In the former strategy, poly(A)-containing RNA molecules hybridise with Oligo(dT) stretches attached to magnetic beads. Following hybridisation, the supernatant consisting of non-polyadenylated molecules is removed. The beads are washed prior to elution of the poly(A)-selected RNA in water or buffer .  
+
+|Type|Name|Author/owner|Protocol/Article|
+|---|---|---|---|
+|oligo(dT) hybridisation|Dynabeads Oligo (dT)25-61005|Thermo Fisher|[Protocol](https://www.thermofisher.com/dk/en/home/references/protocols/nucleic-acid-purification-and-analysis/mrna-protocols/dynabeads-oligo-dt-25-61002.html)|
+|oligo(dT) priming| | | |
 
 :::: {.authorbox}
 Contents of this section were created by [Antton Alberdi](#antton-alberdi).  
