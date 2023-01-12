@@ -7,10 +7,10 @@ output:
     highlight: tango
     css: style.css
 ---
-# Holo-omics workbook {-}
+# A Practical Guide to Holo-Omics {-}
 
 :::: {.warningbox}
-**The Holo-omics workbook is under construction, and its contents are still preliminary. We expect to have an initial complete version by May 2023.**
+**The practical guide to holo-omics is under construction, and its contents are still preliminary. We expect to have an initial complete version by May 2023.**
 :::
 
 ![](images/holo-omics_overview_nyholm.png "Author: Lasse Nyholm")
@@ -19,13 +19,13 @@ output:
 Holo-omics overview. Modified from Nyholm et al. 2020 [@Nyholm-2020]
 :::
 
-The **Holo-omics workbook** is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities [@Nyholm-2020; @Limborg-2018]. This resource extends the contents of the article **"A practical introduction to holo-omics"**, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of the workbook is to compile protocols and pipelines to be implemented by researchers. The **Holo-omics Workbook** is presented in two formats:
+The **practical guide to holo-omics** is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities [@Nyholm-2020; @Limborg-2018]. This resource extends the contents of the article **"A practical introduction to holo-omics"**, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of this guide is to compile protocols and pipelines to be implemented by researchers. The **practical guide to holo-omics** is presented in two formats:
 
 * Website (https://holo-omics.github.io/)
 * PDF document (https://holo-omics.github.io/holo-omics_workbook.pdf)
 
 :::: {.graybox}
-These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood section][HoloFood] in this workbook, the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
+These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood section][HoloFood] in this guide, the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
 :::
 
 ### Contents {-}
@@ -37,7 +37,7 @@ These resources are presented as two of the main final outputs of the H2020 proj
 
 ### Protocols, exercises and tutorials {-}
 
-The workbook contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
+Thhis guide contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
 
 ```{r eval=FALSE}
 shao4d_perm <- shao4d %>%
@@ -71,7 +71,7 @@ shao4d_perm %>% perm_get()
 ### Authors {-}
 
 #### Antton Alberdi {- #antton-alberdi}
-Antton is an Associate Professor at the University of Copenhagen whose research is focused on understanding how animal-microbiota interactions shape basic and applied biological processes. Antton is the corresponding author of the Holo-omics Workbook.
+Antton is an Associate Professor at the University of Copenhagen whose research is focused on understanding how animal-microbiota interactions shape basic and applied biological processes. Antton is the corresponding author of the **Practical Guide to Holo-omics**.
 
 :::: {.tipbox}
 [antton.alberdi@sund.ku.dk](antton.alberdi@sund.ku.dk) | [www.alberdilab.dk](www.alberdilab.dk)
