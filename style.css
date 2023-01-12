@@ -5,7 +5,7 @@
 }
 
 .warningbox {
-  padding: 5px;
+  padding: 8px 8px 1px 10px;
   background: #ffe8e8;
   color: black;
   border-left: 10px solid #b84242;
@@ -23,7 +23,7 @@
 }
 
 .graybox {
-  padding: 8px;
+  padding: 8px 8px 1px 10px;
   background: #f4f4f4;
   color: #55555;
   border-left: 10px solid #b1aeae;
