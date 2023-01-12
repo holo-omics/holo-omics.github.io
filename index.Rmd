@@ -9,6 +9,10 @@ output:
 ---
 # Holo-omics workbook {-}
 
+:::: {.warningbox}
+The Holo-omics workbook is under construction, and its contents are still preliminary. We expect to have an initial complete version by May 2023.
+:::
+
 ![](images/holo-omics_overview_nyholm.png "Author: Lasse Nyholm")
 
 :::: {.imagenote}

@@ -328,13 +328,44 @@ div.csl-indent {
 <div id="library-host-transcriptomics" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Host transcriptomics<a href="library-host-transcriptomics.html#library-host-transcriptomics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Library preparation for host transcriptomics (HT) requires some extra steps to the already described procedures for <a href="##library-meta-genomics">host genomics and microbial metagenomics</a>. This is due to two main reasons. First, because RNA molecules cannot be directly built into sequencing libraries, and require instead to generate complementary DNA (cDNA) before library preparation. Second, because gene transcripts tend to be overwhelmingly dominated by rRNA and mtDNA genes, which are often not of interest for the researcher.</p>
+<div id="rrna-sample-quality-assessment" class="section level4 unnumbered hasAnchor">
+<h4>Sample quality assessment<a href="library-host-transcriptomics.html#rrna-sample-quality-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended.</p>
+<p>The poly(A) enrichment procedires explained below require high quality RNA (RIN / RQN &gt; 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3’ ends are enriched while the more 5’ sequences would not be captured, leading to a strong 3′ bias for degraded RNA inputs.</p>
+</div>
 <div id="cDNA-convertion" class="section level4 unnumbered hasAnchor">
 <h4>cDNA conversion<a href="library-host-transcriptomics.html#cDNA-convertion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Text to be added.</p>
 </div>
-<div id="rrna-depletion" class="section level4 unnumbered hasAnchor">
-<h4>rRNA depletion<a href="library-host-transcriptomics.html#rrna-depletion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Text to be added.</p>
+<div id="rrna-depletion-polya" class="section level4 unnumbered hasAnchor">
+<h4>rRNA depletion through poly-A enrichment<a href="library-host-transcriptomics.html#rrna-depletion-polya" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Ribosomal RNA (rRNA) helps translate the information in messenger RNA (mRNA) into protein. It is the predominant form of RNA found in most cells, which can make over 80% of cellular RNA despite never being translated into proteins itself. In consequence, most reads derived from RNA belong to rRNAs, unless depletion strategies are implemented.</p>
+<p>Excessively abundant rRNA sequences can be depleted using multiple strategies, which are covered in the <a href="library-microbial-metatranscriptomics.html#library-microbial-metatranscriptomics">Microbial metatranscriptomics</a>. The most broadly employed enrichment strategy when dealing with eukaryotic organisms is rRNA depletion through poly-A enrichment. This strategy relies on the fact that mature coding mRNAs of eukaryotic organisms contain polyA tails, long chains (tens to hundreds) of adenine nucleotides that are added to primary RNA transcripts to increase the stability of the molecule. However, not all transcripts contain poly(A) tails. microRNAs, small nucleolar RNAs (snoRNAs), transfer RNAs (tRNAs), some long non-coding RNAs (lncRNAs), and even protein-coding mRNAs such as histone mRNAs do not contail poly(A) tails, thus will be removed together with rRNA during poly(A) selection. If interested in quantifying expression of such transcripts the use of <a href="library-microbial-metatranscriptomics.html#library-microbial-metatranscriptomics">alternative methods</a> is recommended.</p>
+<p>The most broadly employed strategies to deplete rRNA through poly-A enrichment rely either on hybridisation with Oligo(dT)-attached magnetic beads or oligo(dT) priming during cDNA conversion step. In the former strategy, poly(A)-containing RNA molecules hybridise with Oligo(dT) stretches attached to magnetic beads. Following hybridisation, the supernatant consisting of non-polyadenylated molecules is removed. The beads are washed prior to elution of the poly(A)-selected RNA in water or buffer .</p>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Author/owner</th>
+<th>Protocol/Article</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>oligo(dT) hybridisation</td>
+<td>Dynabeads Oligo (dT)25-61005</td>
+<td>Thermo Fisher</td>
+<td><a href="https://www.thermofisher.com/dk/en/home/references/protocols/nucleic-acid-purification-and-analysis/mrna-protocols/dynabeads-oligo-dt-25-61002.html">Protocol</a></td>
+</tr>
+<tr class="even">
+<td>oligo(dT) priming</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <div class="authorbox">
 <p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
 </div>
