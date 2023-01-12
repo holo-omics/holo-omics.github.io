@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.5 Microbial metatranscriptomics (MT) | _main.knit</title>
+  <title>6.1 Host genomics and microbial metagenomics | _main.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.5 Microbial metatranscriptomics (MT) | _main.knit" />
+  <meta property="og:title" content="6.1 Host genomics and microbial metagenomics | _main.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.5 Microbial metatranscriptomics (MT) | _main.knit" />
+  <meta name="twitter:title" content="6.1 Host genomics and microbial metagenomics | _main.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="microbial-metagenomics.html"/>
-<link rel="next" href="host-proteomics.html"/>
+<link rel="prev" href="sequencing-library-preparation.html"/>
+<link rel="next" href="library-host-transcriptomics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -325,17 +325,76 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="microbial-metatranscriptomics" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Microbial metatranscriptomics (MT)<a href="microbial-metatranscriptomics.html#microbial-metatranscriptomics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Contents to be added</p>
+<div id="library-meta-genomics" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Host genomics and microbial metagenomics<a href="library-meta-genomics.html#library-meta-genomics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The library preparation strategies for generating host genomic (HG) and microbial metagenomic (MG) data are generally the same.</p>
+<div id="dna-fragmentation" class="section level4 unnumbered hasAnchor">
+<h4>DNA fragmentation<a href="library-meta-genomics.html#dna-fragmentation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Short-read sequencing libraries requires DNA to be sheared to the desired fragment-length (usually 400-500 nucleotides), which can be achieved using either chemical (e.g., restriction enzymes) or physical (e.g. ultrasonication) procedures. Some long-read sequencing libraries intend to keep the largest DNA molecules possible, although some others recommend fragmenting to optimal mid-length molecules (e.g., around 10,000 nucleotides for Pacbio HiFi). After fragmentation, many library preparation protocols require repairing molecule ends by converting 5′-protruding and/or 3′-protruding ends to 5′-phosphorylated, blunt-end (see below) molecules.</p>
+</div>
+<div id="adaptor-ligation" class="section level4 unnumbered hasAnchor">
+<h4>Adaptor ligation<a href="library-meta-genomics.html#adaptor-ligation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In shotgun libraries adaptors are merged to DNA template molecules through chemical ligation (e.g., using a ligase enzyme). The ligation process is slightly different depending on whether the DNA template has blunt- or sticky-ends . In blunt ends, both strands are of equal length – i.e. they end at the same base position, leaving no unpaired bases on either strand, while in sticky ends, one strand is longer than the other. Some protocols deliverately create sticky-ends from blunt-end fragmended DNA molecules by adding a single adenine base to form an overhang by an A-tailing reaction. This A overhang allows adapters containing a single thymine overhanging base to pair with the DNA fragments.</p>
+<p>An example of a blunt-end molecule:</p>
+<pre><code>5&#39;-GATCTGACTGATGCGTATGCTAGT-3&#39;
+3&#39;-CTAGACTGACTACGCATACGATCA-5&#39;</code></pre>
+<p>An example of a sticky-end molecule:</p>
+<pre><code>5&#39;-GATCTGACTGATGCGTATGCTAGT-3&#39;
+3&#39;-CTAGACTGACTACGCATACGATC-5&#39;</code></pre>
+</div>
+<div id="library-meta-genomics-protocols" class="section level3 unnumbered hasAnchor">
+<h3>List of available protocols<a href="library-meta-genomics.html#library-meta-genomics-protocols" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Author/owner</th>
+<th>Protocol/Article</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SRS</td>
+<td>Blunt-End Single-Tube (BEST) library prep protocol</td>
+<td>Open access</td>
+<td><a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12871">Article</a></td>
+</tr>
+<tr class="even">
+<td>SRS</td>
+<td>Santa Cruz Reaction (SCR) single-stranded library prep protocol</td>
+<td>Open access</td>
+<td><a href="https://academic.oup.com/jhered/article/112/3/241/6188529?login=true">Article</a></td>
+</tr>
+<tr class="odd">
+<td>SRS</td>
+<td></td>
+<td>Illumina</td>
+<td><a href="#">Protocol</a></td>
+</tr>
+<tr class="even">
+<td>LRS</td>
+<td>SMRTbell prep kit 3.0 for PacBio HiFi Sequencing</td>
+<td>Pacbio</td>
+<td><a href="https://www.pacb.com/wp-content/uploads/Procedure-checklist-Preparing-whole-genome-and-metagenome-libraries-using-SMRTbell-prep-kit-3.0.pdf">Protocol</a></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="microbial-metagenomics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="host-proteomics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sequencing-library-preparation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="library-host-transcriptomics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

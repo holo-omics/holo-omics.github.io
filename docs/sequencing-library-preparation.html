@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="protein-metabolite-extraction.html"/>
-<link rel="next" href="subheading.html"/>
+<link rel="next" href="library-meta-genomics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,7 +198,16 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="protein-metabolite-extraction.html"><a href="protein-metabolite-extraction.html"><i class="fa fa-check"></i><b>5</b> Protein/metabolite extraction</a></li>
 <li class="chapter" data-level="6" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html"><i class="fa fa-check"></i><b>6</b> Sequencing library preparation</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="subheading.html"><a href="subheading.html"><i class="fa fa-check"></i><b>6.1</b> Subheading</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#sequencing-strategies-platforms"><i class="fa fa-check"></i>Sequencing strategies and platforms</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#pcr-library"><i class="fa fa-check"></i>PCR-based vs. PCR-free library preparation</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#indices-multiplexing"><i class="fa fa-check"></i>Indices and multiplexing</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#unique-molecular-identifiers"><i class="fa fa-check"></i>Unique molecular identifiers (UMIs)</a></li>
+<li class="chapter" data-level="6.1" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html"><i class="fa fa-check"></i><b>6.1</b> Host genomics and microbial metagenomics</a>
+<ul>
+<li class="chapter" data-level="" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html#library-meta-genomics-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html"><i class="fa fa-check"></i><b>6.2</b> Host transcriptomics</a></li>
+<li class="chapter" data-level="6.3" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html"><i class="fa fa-check"></i><b>6.3</b> Microbial metatranscriptomics</a></li>
 </ul></li>
 <li class="part"><span><b>III BIOINFORMATIC PROCEDURES</b></span></li>
 <li class="chapter" data-level="7" data-path="about-bioinformatics.html"><a href="about-bioinformatics.html"><i class="fa fa-check"></i><b>7</b> About bioinformatics</a>
@@ -318,7 +327,99 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="sequencing-library-preparation" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">6</span> Sequencing library preparation<a href="sequencing-library-preparation.html#sequencing-library-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Laboratory protocols</p>
+<p>Sequencing of DNA and RNA molecules require sequencing libraries to be prepared, which entails modifying original nucleic acid molecules to allow sequencing platforms to identify the target molecules and perform the sequencing.</p>
+<div id="sequencing-strategies-platforms" class="section level3 unnumbered hasAnchor">
+<h3>Sequencing strategies and platforms<a href="sequencing-library-preparation.html#sequencing-strategies-platforms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Library features are specific to each sequencing platform, which requires selecting in advance the sequencing strategy to be employed. Pure nucleic acid sequencing-based strategies can be broadly divided in two groups. Short-read sequencing (SRS) platforms provide large amounts of data yet with short sequencing reads (typically 150 nucleotides). In contrast, long-read sequencing (LRS) platforms yield much longer sequences (thousands or even million of nucleotides), yet with a lower throughput, and typically lower sequence quality. The SRS market is dominated by two main companies with propietary platforms, namely Illumina and BGI, although PacBio recently released their own SRS platform called ONSO. The LRS market is also dominated by two different companies with propietary technologies, which are Oxford Nanopore (ONT) and Pacific Biosciences (Pacbio).</p>
+<p>Sequencing enterprises, as well as auxiliary biotechnological companies, provide library preparation kits that can be more or less customised for different purposes.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Technology</th>
+<th>Platforms</th>
+<th>Sequencing type</th>
+<th>Company</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sequencing by synthesis (SBS)</td>
+<td>MiSeq, NovaSeq</td>
+<td>Short-read sequencing</td>
+<td><a href="https://www.illumina.com/">Illumina</a></td>
+</tr>
+<tr class="even">
+<td>Combinatorial probe-anchor synthesis (cPAS)</td>
+<td>DNBSeq</td>
+<td>Short-read sequencing</td>
+<td><a href="https://www.bgi.com/global">BGI</a></td>
+</tr>
+<tr class="odd">
+<td>Sequencing by binding (SBB) technology</td>
+<td>Onso</td>
+<td>Short-read sequencing</td>
+<td><a href="https://www.pacb.com/">PacBio</a></td>
+</tr>
+<tr class="even">
+<td>Single Molecule Real-Time sequencing (SMRT)</td>
+<td>Sequel, Revio</td>
+<td>Long-read sequencing</td>
+<td><a href="https://www.pacb.com/">PacBio</a></td>
+</tr>
+<tr class="odd">
+<td>Nanopore sequencing</td>
+<td>MinION, GridION, PromethION</td>
+<td>Long-read sequencing</td>
+<td>[<a href="https://nanoporetech.com/">Oxford Nanopore</a></td>
+</tr>
+</tbody>
+</table>
+<div class="imagenote">
+<p>Some of the most widely used sequencing technologies and platforms.</p>
+</div>
+</div>
+<div id="pcr-library" class="section level3 unnumbered hasAnchor">
+<h3>PCR-based vs. PCR-free library preparation<a href="sequencing-library-preparation.html#pcr-library" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sequencing library preparation procedures can be split into two main groups depending on whether they PCR-amplify or not the DNA templates. Unlike in the case of targeted amplicon sequencing, in which the objective is to amplify a specific target region, the aim of including a PCR step in shotgun-based library preparation is to increase the molarity of the library and/or to attach indices (see below) to the adaptors.</p>
+<div class="tipbox">
+<p>Learn more about PCR-based and PCR-free library preparation in <a href="https://www.pnas.org/doi/abs/10.1073/pnas.1519288112">this article</a> by Jones et al. <span class="citation">[<a href="#ref-Jones-2015" role="doc-biblioref">7</a>]</span>.</p>
+</div>
+</div>
+<div id="indices-multiplexing" class="section level3 unnumbered hasAnchor">
+<h3>Indices and multiplexing<a href="sequencing-library-preparation.html#indices-multiplexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Usually, library preparation also entails tagging molecules with unique sample idenifiers known as indices, which enable pooling molecules derived from multiple samples in a single sequencing run. This can be achieved in PCR-free protocols by using adaptors containing unique indices per sample, or by using indexed amplification primers in PCR-based library preparation protocols.</p>
+<div class="tipbox">
+<p>Learn more about indices and multiplexing in <a href="https://academic.oup.com/nar/article/40/1/e3/1287690">this article</a> by Kircher et al. <span class="citation">[<a href="#ref-Kircher-2011" role="doc-biblioref">8</a>]</span>.</p>
+</div>
+</div>
+<div id="unique-molecular-identifiers" class="section level3 unnumbered hasAnchor">
+<h3>Unique molecular identifiers (UMIs)<a href="sequencing-library-preparation.html#unique-molecular-identifiers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Unique molecular identifiers (UMIs) are a type of molecular barcoding that provides error correction and increased accuracy during sequencing by uniquely tag each molecule (rather than each pool of molecules derived from a sample) in a sample library. UMIs are used for a wide range of sequencing applications, many around PCR duplicates in DNA and cDNA. UMI deduplication is also useful for RNA-seq gene expression analysis and other quantitative sequencing methods.</p>
+<div class="tipbox">
+<p>Learn more about unique molecular identifiers in <a href="https://www.nature.com/articles/nmeth.1778">this article</a> by Kivioja et al. <span class="citation">[<a href="#ref-Kivioja-2012" role="doc-biblioref">9</a>]</span>.</p>
+</div>
+<div class="authorbox">
+<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
+</div>
+</div>
+</div>
+<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Jones-2015" class="csl-entry">
+7. Jones MB, Highlander SK, Anderson EL, Li W, Dayrit M, Klitgord N, et al. Library preparation methodology can influence genomic and functional predictions in human microbiome research. Proceedings of the National Academy of Sciences. 2015;112:14024–9.
+</div>
+<div id="ref-Kircher-2011" class="csl-entry">
+8. Kircher M, Sawyer S, Meyer M. Double indexing overcomes inaccuracies in multiplex sequencing on the illumina platform. Nucleic Acids Research. 2011;40:e3–3.
+</div>
+<div id="ref-Kivioja-2012" class="csl-entry">
+9. Kivioja T, Vähärautio A, Karlsson K, Bonke M, Enge M, Linnarsson S, et al. Counting absolute numbers of molecules using unique molecular identifiers. Nature Methods. 2012;9:72–4.
+</div>
 </div>
             </section>
 
@@ -326,7 +427,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="protein-metabolite-extraction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="subheading.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="library-meta-genomics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

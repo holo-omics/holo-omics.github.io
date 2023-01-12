@@ -40,7 +40,7 @@ Controlling the complexity of hologenomic variables is essential for addressing 
 
 ### Controlling host genomes {#controlling-host-genomes}
 
-To be added.
+The control over host genomic complexity largely depends on the model organisms studied and the technical approaches employed. In laboratory organisms that can reproduce asexually, such as water fleas (Daphnia, Crustacea) and Lamiaceae plants, absolute control over host genotypes can be achieved by using clonal organisms [@Mushegian-2019]. When clones cannot be used, inbred laboratory animals can provide a high level of genomic homogeneity. The use of groups of genetically homogeneous hosts allows the effects of contrasting environmental conditions or specific microbial comunities to be compared59,60. Clonal and inbred models also enable the effects of a specific host genetic factor to be studied in a controlled genomic background through the application of targeted techniques for modulating gene expression (such as RNA-mediated interference) or for genomic engineering (such as CRISPR–Cas9)60,61. Working with humans and wild organisms does not enable such a degree of control over the genotypes studied unless in vitro models, such as organ-on-a-chip co- cultures of animal tissues and microbial communities, are generated62. When this level of control is not possible, coarse control over host genotypes can be achieved through contrasting animals from different populations or from closely related species63, while greater control can be achieved through comparing individuals across different degrees of kinship, such as monozygotic versus dizygotic twins38, and family members to other individuals64.
 
 ### Controlling microbial metagenomes {#controlling-microbial-metagenomes}
 

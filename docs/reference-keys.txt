@@ -20,7 +20,9 @@ about-labwork
 dna-rna-extraction
 protein-metabolite-extraction
 sequencing-library-preparation
-subheading
+library-meta-genomics
+library-host-transcriptomics
+library-microbial-metatranscriptomics
 about-bioinformatics
 prepare-shell
 example-data-bioinformatics

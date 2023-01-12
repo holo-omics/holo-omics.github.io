@@ -198,7 +198,16 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="protein-metabolite-extraction.html"><a href="protein-metabolite-extraction.html"><i class="fa fa-check"></i><b>5</b> Protein/metabolite extraction</a></li>
 <li class="chapter" data-level="6" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html"><i class="fa fa-check"></i><b>6</b> Sequencing library preparation</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="subheading.html"><a href="subheading.html"><i class="fa fa-check"></i><b>6.1</b> Subheading</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#sequencing-strategies-platforms"><i class="fa fa-check"></i>Sequencing strategies and platforms</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#pcr-library"><i class="fa fa-check"></i>PCR-based vs. PCR-free library preparation</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#indices-multiplexing"><i class="fa fa-check"></i>Indices and multiplexing</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#unique-molecular-identifiers"><i class="fa fa-check"></i>Unique molecular identifiers (UMIs)</a></li>
+<li class="chapter" data-level="6.1" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html"><i class="fa fa-check"></i><b>6.1</b> Host genomics and microbial metagenomics</a>
+<ul>
+<li class="chapter" data-level="" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html#library-meta-genomics-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html"><i class="fa fa-check"></i><b>6.2</b> Host transcriptomics</a></li>
+<li class="chapter" data-level="6.3" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html"><i class="fa fa-check"></i><b>6.3</b> Microbial metatranscriptomics</a></li>
 </ul></li>
 <li class="part"><span><b>III BIOINFORMATIC PROCEDURES</b></span></li>
 <li class="chapter" data-level="7" data-path="about-bioinformatics.html"><a href="about-bioinformatics.html"><i class="fa fa-check"></i><b>7</b> About bioinformatics</a>
@@ -319,7 +328,7 @@ div.csl-indent {
 <div id="prepare-shell" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Prepare your shell environment<a href="prepare-shell.html#prepare-shell" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If the comment chunks of the code (text after #) is creating you problems, use the following code to disable interactive comments and avoid issues when copy-pasting code:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="prepare-shell.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">setopt</span> interactivecomments</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="prepare-shell.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">setopt</span> interactivecomments</span></code></pre></div>
 <div id="required-software" class="section level3 unnumbered hasAnchor">
 <h3>Required software<a href="prepare-shell.html#required-software" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Bioinformatic pipelines for processing omic data require the use of dozens of software. All the required software are listed in the conda environment installation file available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>.</p>
@@ -329,35 +338,35 @@ div.csl-indent {
 <p>If <strong>conda</strong> is not installed in your system, the first step is to install <strong>miniconda</strong> (a free minimal installer for conda, enough to run the bioinformatic analyses explained in the workbook). Miniconda installers for Linux, Mac and Windows operating systems can be found in the following website:
 <a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></p>
 <p>Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="prepare-shell.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">-V</span></span>
-<span id="cb3-2"><a href="prepare-shell.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; conda 22.11.1 #or whatever version you have installed</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="prepare-shell.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">-V</span></span>
+<span id="cb5-2"><a href="prepare-shell.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; conda 22.11.1 #or whatever version you have installed</span></span></code></pre></div>
 </div>
 <div id="install-mamba-optional" class="section level3 unnumbered hasAnchor">
 <h3>Install mamba (optional)<a href="prepare-shell.html#install-mamba-optional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>An optional step is to install <strong>mamba</strong>, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the <code>conda install</code> option.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="prepare-shell.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install mamba <span class="at">-n</span> base <span class="at">-c</span> conda-forge</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="prepare-shell.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install mamba <span class="at">-n</span> base <span class="at">-c</span> conda-forge</span></code></pre></div>
 </div>
 <div id="create-a-conda-environment" class="section level3 unnumbered hasAnchor">
 <h3>Create a conda environment<a href="prepare-shell.html#create-a-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>, and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don’t forget to provide the absolut path to the ‘holo-omics-env.yaml’ file in the <code>mamba create</code> command.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="prepare-shell.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml <span class="co">#download installer file</span></span>
-<span id="cb5-2"><a href="prepare-shell.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda <span class="co">#to ensure everything is updated</span></span>
-<span id="cb5-3"><a href="prepare-shell.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate <span class="co">#deactivate any conda environment before creating a new one</span></span>
-<span id="cb5-4"><a href="prepare-shell.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> holo-omics-env.yml</span>
-<span id="cb5-5"><a href="prepare-shell.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> holo-omics-env.yaml <span class="co">#remove installer file</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="prepare-shell.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml <span class="co">#download installer file</span></span>
+<span id="cb7-2"><a href="prepare-shell.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda <span class="co">#to ensure everything is updated</span></span>
+<span id="cb7-3"><a href="prepare-shell.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate <span class="co">#deactivate any conda environment before creating a new one</span></span>
+<span id="cb7-4"><a href="prepare-shell.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> holo-omics-env.yml</span>
+<span id="cb7-5"><a href="prepare-shell.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> holo-omics-env.yaml <span class="co">#remove installer file</span></span></code></pre></div>
 <p>As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can double-check whether the environment has been successfully created using the following script:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="prepare-shell.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb6-2"><a href="prepare-shell.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="prepare-shell.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
+<span id="cb8-2"><a href="prepare-shell.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
 <p>The (holo-omics) specifies the environment you are at. To get out of the environment use:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="prepare-shell.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span>
-<span id="cb7-2"><a href="prepare-shell.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; base                  *  /Users/anttonalberdi/miniconda3</span></span>
-<span id="cb7-3"><a href="prepare-shell.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; holo-omics               /Users/anttonalberdi/miniconda3/envs/holo-omics</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="prepare-shell.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span>
+<span id="cb9-2"><a href="prepare-shell.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; base                  *  /Users/anttonalberdi/miniconda3</span></span>
+<span id="cb9-3"><a href="prepare-shell.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; holo-omics               /Users/anttonalberdi/miniconda3/envs/holo-omics</span></span></code></pre></div>
 </div>
 <div id="activate-the-holo-omics-conda-environment" class="section level3 unnumbered hasAnchor">
 <h3>Activate the holo-omics conda environment<a href="prepare-shell.html#activate-the-holo-omics-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="prepare-shell.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb8-2"><a href="prepare-shell.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="prepare-shell.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
+<span id="cb10-2"><a href="prepare-shell.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
 </div>
 <div id="install-software-in-conda-environment" class="section level3 unnumbered hasAnchor">
 <h3>Install software in conda environment<a href="prepare-shell.html#install-software-in-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>

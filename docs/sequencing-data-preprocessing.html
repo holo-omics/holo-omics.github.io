@@ -198,7 +198,16 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="protein-metabolite-extraction.html"><a href="protein-metabolite-extraction.html"><i class="fa fa-check"></i><b>5</b> Protein/metabolite extraction</a></li>
 <li class="chapter" data-level="6" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html"><i class="fa fa-check"></i><b>6</b> Sequencing library preparation</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="subheading.html"><a href="subheading.html"><i class="fa fa-check"></i><b>6.1</b> Subheading</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#sequencing-strategies-platforms"><i class="fa fa-check"></i>Sequencing strategies and platforms</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#pcr-library"><i class="fa fa-check"></i>PCR-based vs. PCR-free library preparation</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#indices-multiplexing"><i class="fa fa-check"></i>Indices and multiplexing</a></li>
+<li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#unique-molecular-identifiers"><i class="fa fa-check"></i>Unique molecular identifiers (UMIs)</a></li>
+<li class="chapter" data-level="6.1" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html"><i class="fa fa-check"></i><b>6.1</b> Host genomics and microbial metagenomics</a>
+<ul>
+<li class="chapter" data-level="" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html#library-meta-genomics-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html"><i class="fa fa-check"></i><b>6.2</b> Host transcriptomics</a></li>
+<li class="chapter" data-level="6.3" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html"><i class="fa fa-check"></i><b>6.3</b> Microbial metatranscriptomics</a></li>
 </ul></li>
 <li class="part"><span><b>III BIOINFORMATIC PROCEDURES</b></span></li>
 <li class="chapter" data-level="7" data-path="about-bioinformatics.html"><a href="about-bioinformatics.html"><i class="fa fa-check"></i><b>7</b> About bioinformatics</a>
@@ -325,49 +334,49 @@ div.csl-indent {
 <div class="tipbox">
 <p><strong>fastP</strong> documentation <a href="https://github.com/OpenGene/fastp">can be found here</a>.</p>
 </div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="sequencing-data-preprocessing.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="dt">\</span></span>
-<span id="cb12-2"><a href="sequencing-data-preprocessing.html#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--in1</span> {input.r1i} <span class="at">--in2</span> {input.r2i} <span class="dt">\</span></span>
-<span id="cb12-3"><a href="sequencing-data-preprocessing.html#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--out1</span> {output.r1o} <span class="at">--out2</span> {output.r2o} <span class="dt">\</span></span>
-<span id="cb12-4"><a href="sequencing-data-preprocessing.html#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--trim_poly_g</span> <span class="dt">\</span></span>
-<span id="cb12-5"><a href="sequencing-data-preprocessing.html#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">--trim_poly_x</span> <span class="dt">\</span></span>
-<span id="cb12-6"><a href="sequencing-data-preprocessing.html#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--low_complexity_filter</span> <span class="dt">\</span></span>
-<span id="cb12-7"><a href="sequencing-data-preprocessing.html#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--n_base_limit</span> 5 <span class="dt">\</span></span>
-<span id="cb12-8"><a href="sequencing-data-preprocessing.html#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">--qualified_quality_phred</span> 20 <span class="dt">\</span></span>
-<span id="cb12-9"><a href="sequencing-data-preprocessing.html#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">--length_required</span> 60 <span class="dt">\</span></span>
-<span id="cb12-10"><a href="sequencing-data-preprocessing.html#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">--thread</span> {threads} <span class="dt">\</span></span>
-<span id="cb12-11"><a href="sequencing-data-preprocessing.html#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">--html</span> {output.fastp_html} <span class="dt">\</span></span>
-<span id="cb12-12"><a href="sequencing-data-preprocessing.html#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">--json</span> {output.fastp_json} <span class="dt">\</span></span>
-<span id="cb12-13"><a href="sequencing-data-preprocessing.html#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">--adapter_sequence</span> {params.adapter1} <span class="dt">\</span></span>
-<span id="cb12-14"><a href="sequencing-data-preprocessing.html#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">--adapter_sequence_r2</span> {params.adapter2}</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="sequencing-data-preprocessing.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="dt">\</span></span>
+<span id="cb14-2"><a href="sequencing-data-preprocessing.html#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--in1</span> {input.r1i} <span class="at">--in2</span> {input.r2i} <span class="dt">\</span></span>
+<span id="cb14-3"><a href="sequencing-data-preprocessing.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--out1</span> {output.r1o} <span class="at">--out2</span> {output.r2o} <span class="dt">\</span></span>
+<span id="cb14-4"><a href="sequencing-data-preprocessing.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--trim_poly_g</span> <span class="dt">\</span></span>
+<span id="cb14-5"><a href="sequencing-data-preprocessing.html#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">--trim_poly_x</span> <span class="dt">\</span></span>
+<span id="cb14-6"><a href="sequencing-data-preprocessing.html#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--low_complexity_filter</span> <span class="dt">\</span></span>
+<span id="cb14-7"><a href="sequencing-data-preprocessing.html#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--n_base_limit</span> 5 <span class="dt">\</span></span>
+<span id="cb14-8"><a href="sequencing-data-preprocessing.html#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">--qualified_quality_phred</span> 20 <span class="dt">\</span></span>
+<span id="cb14-9"><a href="sequencing-data-preprocessing.html#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">--length_required</span> 60 <span class="dt">\</span></span>
+<span id="cb14-10"><a href="sequencing-data-preprocessing.html#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">--thread</span> {threads} <span class="dt">\</span></span>
+<span id="cb14-11"><a href="sequencing-data-preprocessing.html#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">--html</span> {output.fastp_html} <span class="dt">\</span></span>
+<span id="cb14-12"><a href="sequencing-data-preprocessing.html#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">--json</span> {output.fastp_json} <span class="dt">\</span></span>
+<span id="cb14-13"><a href="sequencing-data-preprocessing.html#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">--adapter_sequence</span> {params.adapter1} <span class="dt">\</span></span>
+<span id="cb14-14"><a href="sequencing-data-preprocessing.html#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">--adapter_sequence_r2</span> {params.adapter2}</span></code></pre></div>
 </div>
 <div id="splitting-host-and-non-host-data" class="section level3 unnumbered hasAnchor">
 <h3>Splitting host and non-host data<a href="sequencing-data-preprocessing.html#splitting-host-and-non-host-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Depending on the sample type employed for data generation, sequencing data might contain only host reads, only microbial reads, or a mixture of both. For example, blood sampled from an animal is expected to only contain host DNA/RNA reads (unless an infection is ongoing), while DNA extracted from a microbial culture is only expected to contain microbial DNA/RNA reads (unless human contamination has happened). In contrast, intestinal content samples, faecal samples, leave samples or root samples can contain both host and microbial nucleic acids.</p>
 <div id="index-host-genome" class="section level4 unnumbered hasAnchor">
 <h4>Index host genome<a href="sequencing-data-preprocessing.html#index-host-genome" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="sequencing-data-preprocessing.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2-build</span> <span class="dt">\</span></span>
-<span id="cb13-2"><a href="sequencing-data-preprocessing.html#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--large-index</span> <span class="dt">\</span></span>
-<span id="cb13-3"><a href="sequencing-data-preprocessing.html#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
-<span id="cb13-4"><a href="sequencing-data-preprocessing.html#cb13-4" aria-hidden="true" tabindex="-1"></a>        {output.rn_catted_ref} {output.rn_catted_ref}</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="sequencing-data-preprocessing.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2-build</span> <span class="dt">\</span></span>
+<span id="cb15-2"><a href="sequencing-data-preprocessing.html#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--large-index</span> <span class="dt">\</span></span>
+<span id="cb15-3"><a href="sequencing-data-preprocessing.html#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
+<span id="cb15-4"><a href="sequencing-data-preprocessing.html#cb15-4" aria-hidden="true" tabindex="-1"></a>        {output.rn_catted_ref} {output.rn_catted_ref}</span></code></pre></div>
 </div>
 <div id="map-samples-to-host-genomes" class="section level4 unnumbered hasAnchor">
 <h4>Map samples to host genomes<a href="sequencing-data-preprocessing.html#map-samples-to-host-genomes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="sequencing-data-preprocessing.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map reads to catted reference using Bowtie2</span></span>
-<span id="cb14-2"><a href="sequencing-data-preprocessing.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="dt">\</span></span>
-<span id="cb14-3"><a href="sequencing-data-preprocessing.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--time</span> <span class="dt">\</span></span>
-<span id="cb14-4"><a href="sequencing-data-preprocessing.html#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
-<span id="cb14-5"><a href="sequencing-data-preprocessing.html#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-x</span> {input.catted_ref} <span class="dt">\</span></span>
-<span id="cb14-6"><a href="sequencing-data-preprocessing.html#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1i} <span class="dt">\</span></span>
-<span id="cb14-7"><a href="sequencing-data-preprocessing.html#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">-2</span> {input.r2i} <span class="dt">\</span></span>
-<span id="cb14-8"><a href="sequencing-data-preprocessing.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-@</span> {threads} <span class="at">-</span> <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output.all_bam} <span class="at">-</span> <span class="kw">&amp;&amp;</span></span>
-<span id="cb14-9"><a href="sequencing-data-preprocessing.html#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="sequencing-data-preprocessing.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract non-host reads (note we&#39;re not compressing for nonpareil)</span></span>
-<span id="cb14-11"><a href="sequencing-data-preprocessing.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-f12</span> <span class="at">-@</span> {threads} {output.all_bam} <span class="dt">\</span></span>
-<span id="cb14-12"><a href="sequencing-data-preprocessing.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> fastq <span class="at">-@</span> {threads} <span class="at">-1</span> {output.non_host_r1} <span class="at">-2</span> {output.non_host_r2} <span class="at">-</span> <span class="kw">&amp;&amp;</span></span>
-<span id="cb14-13"><a href="sequencing-data-preprocessing.html#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="sequencing-data-preprocessing.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Send host reads to BAM</span></span>
-<span id="cb14-15"><a href="sequencing-data-preprocessing.html#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-F12</span> <span class="at">-@</span> {threads} {output.all_bam} <span class="dt">\</span></span>
-<span id="cb14-16"><a href="sequencing-data-preprocessing.html#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output.host_bam} <span class="at">-</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="sequencing-data-preprocessing.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map reads to catted reference using Bowtie2</span></span>
+<span id="cb16-2"><a href="sequencing-data-preprocessing.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="dt">\</span></span>
+<span id="cb16-3"><a href="sequencing-data-preprocessing.html#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--time</span> <span class="dt">\</span></span>
+<span id="cb16-4"><a href="sequencing-data-preprocessing.html#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
+<span id="cb16-5"><a href="sequencing-data-preprocessing.html#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-x</span> {input.catted_ref} <span class="dt">\</span></span>
+<span id="cb16-6"><a href="sequencing-data-preprocessing.html#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1i} <span class="dt">\</span></span>
+<span id="cb16-7"><a href="sequencing-data-preprocessing.html#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">-2</span> {input.r2i} <span class="dt">\</span></span>
+<span id="cb16-8"><a href="sequencing-data-preprocessing.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-@</span> {threads} <span class="at">-</span> <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output.all_bam} <span class="at">-</span> <span class="kw">&amp;&amp;</span></span>
+<span id="cb16-9"><a href="sequencing-data-preprocessing.html#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="sequencing-data-preprocessing.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract non-host reads (note we&#39;re not compressing for nonpareil)</span></span>
+<span id="cb16-11"><a href="sequencing-data-preprocessing.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-f12</span> <span class="at">-@</span> {threads} {output.all_bam} <span class="dt">\</span></span>
+<span id="cb16-12"><a href="sequencing-data-preprocessing.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> fastq <span class="at">-@</span> {threads} <span class="at">-1</span> {output.non_host_r1} <span class="at">-2</span> {output.non_host_r2} <span class="at">-</span> <span class="kw">&amp;&amp;</span></span>
+<span id="cb16-13"><a href="sequencing-data-preprocessing.html#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="sequencing-data-preprocessing.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Send host reads to BAM</span></span>
+<span id="cb16-15"><a href="sequencing-data-preprocessing.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-F12</span> <span class="at">-@</span> {threads} {output.all_bam} <span class="dt">\</span></span>
+<span id="cb16-16"><a href="sequencing-data-preprocessing.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output.host_bam} <span class="at">-</span></span></code></pre></div>
 
 </div>
 </div>

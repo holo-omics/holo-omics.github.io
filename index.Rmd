@@ -66,7 +66,14 @@ shao4d_perm %>% perm_get()
 ```
 ### Authors {-}
 
-* Antton Alberdi (*corresponding author), University of Copenhagen
+#### Antton Alberdi {- #antton-alberdi}
+Antton is an Associate Professor at the University of Copenhagen whose research is focused on understanding how animal-microbiota interactions shape basic and applied biological processes. Antton is the corresponding author of the Holo-omics Workbook.
+
+:::: {.tipbox}
+[antton.alberdi@sund.ku.dk](antton.alberdi@sund.ku.dk) | [www.alberdilab.dk](www.alberdilab.dk)
+:::
+
+
 * Morten T Limborg, University of Copenhagen
 * Iñaki Odriozola, University of Copenhagen
 * Jacob A Rasmussen, University of Copenhagen

@@ -1,7 +1,7 @@
 .imagenote {
   font-size: 80%;
   color: #8d8d8d;
-  text-align: center;
+  text-align: left;
 }
 
 .warningbox {
@@ -14,7 +14,7 @@
 }
 
 .tipbox {
-  padding: 8px;
+  padding: 8px 8px 1px 10px;
   background: #e5f6fa;
   color: #175788;
   border-left: 10px solid #2f68a3;
@@ -27,6 +27,15 @@
   background: #f4f4f4;
   color: #55555;
   border-left: 10px solid #b1aeae;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.authorbox {
+  padding: 8px 8px 1px 10px;
+  background: #f4f4f4;
+  color: #55555;
+  border-top: 5px solid #b1aeae;
   border-radius: 5px;
   margin-bottom: 10px;
 }

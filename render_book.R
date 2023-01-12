@@ -34,3 +34,8 @@ https://bookdown.org/yihui/bookdown/
 ######
 
 https://www.doi2bib.org/
+
+######
+# Generating Markdown table structures
+######
+https://www.tablesgenerator.com/markdown_tables
