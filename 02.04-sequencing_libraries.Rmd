@@ -82,17 +82,19 @@ An example of a sticky-end molecule:
 
 ## Host transcriptomics {#library-host-transcriptomics}
 
-Library preparation for host transcriptomics (HT) requires some extra steps to the already described procedures for [host genomics and microbial metagenomics](##library-meta-genomics). This is due to two main reasons. First, because RNA molecules cannot be directly built into sequencing libraries, and require instead to generate complementary DNA (cDNA) before library preparation. Second, because gene transcripts tend to be overwhelmingly dominated by rRNA and mtDNA genes, which are often not of interest for the researcher.
+Library preparation for host transcriptomics (HT) requires some extra steps to the already described procedures for [host genomics and microbial metagenomics](##library-meta-genomics). This is due to two main reasons. First, because RNA molecules cannot be directly built into most sequencing libraries, and require instead to generate complementary DNA (cDNA) before library preparation. Second, because gene transcripts tend to be overwhelmingly dominated by rRNA and mtDNA genes, which are often not of interest for the researcher.
 
 #### Sample quality assessment {- #rrna-sample-quality-assessment}
 
-Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended.
+Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended. While traditionally assessed through agarose gel electrophoresis, nowadays RNA quality assessment is performed on electropherogram profiles, which are produced by nucleic acid fragment analysis instruments (e.g. Bioanalyzer, Fragment Analyzer). Traditionally, a simple model evaluating the 28S to 18S rRNA ratio was used as a criterion for RNA quality. However, the most common metric currently employed for assessing the preservation quality of RNA is the RNA integrity number (RIN), which accounts for more RNA features for assessing sample quality [@Schroeder2006]. RIN values range from 10 (intact RNA) to 1 (totally degraded RNA). For example, the poly(A) enrichment procedures explained below require high quality RNA (RIN > 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3’ ends are enriched while the more 5’ sequences would not be captured, leading to a strong 3′ bias for degraded RNA inputs.
 
-The poly(A) enrichment procedires explained below require high quality RNA (RIN / RQN > 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3’ ends are enriched while the more 5’ sequences would not be captured, leading to a strong 3′ bias for degraded RNA inputs.
+#### DNA removal {- #DNA-removal}
+
+Depending on the RNA extraction method employed, it is not rare trace amounts of genomic DNA (gDNA) to be co-purified with RNA. Contaminating gDNA can interfere with reverse transcription and may lead to false positives, higher background, or lower detection in sensitive applications such as RT-qPCR. The traditional method of gDNA removal is the addition of DNase I to RNA extracts. DNase I must be removed prior to cDNA synthesis since any residual enzyme would degrade single-stranded DNA. Unfortunately, RNA loss or damage can occur during DNase I inactivation treatment. As an alternative to DNase I, double-strand–specific DNases are available to eliminate contaminating gDNA without affecting RNA or single-stranded DNAs.
 
 #### cDNA conversion {- #cDNA-convertion}
 
-Text to be added.
+Most RNA-Seq experiments are carried out on instruments that sequence DNA molecules, rather than RNA. This implies that RNA conversion to cDNA is a required step before library preparation. The synthesis of cDNA from an RNA template is carried out via reverse transcription using reverse transcriptases.
 
 #### rRNA depletion through poly-A enrichment {- #rrna-depletion-polya}
 
