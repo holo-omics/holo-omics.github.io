@@ -92,9 +92,27 @@ Before starting any library preparation protocol assessing the quality of RNA sa
 
 Depending on the RNA extraction method employed, it is not rare trace amounts of genomic DNA (gDNA) to be co-purified with RNA. Contaminating gDNA can interfere with reverse transcription and may lead to false positives, higher background, or lower detection in sensitive applications such as RT-qPCR. The traditional method of gDNA removal is the addition of DNase I to RNA extracts. DNase I must be removed prior to cDNA synthesis since any residual enzyme would degrade single-stranded DNA. Unfortunately, RNA loss or damage can occur during DNase I inactivation treatment. As an alternative to DNase I, double-strand–specific DNases are available to eliminate contaminating gDNA without affecting RNA or single-stranded DNAs.
 
-#### cDNA conversion {- #cDNA-convertion}
+#### cDNA conversion {- #cDNA-conversion}
 
-Most RNA-Seq experiments are carried out on instruments that sequence DNA molecules, rather than RNA. This implies that RNA conversion to cDNA is a required step before library preparation. The synthesis of cDNA from an RNA template is carried out via reverse transcription using reverse transcriptases.
+Most RNA-Seq experiments are carried out on instruments that sequence DNA molecules, rather than RNA. This implies that RNA conversion to cDNA is a required step before library preparation. The synthesis of cDNA from an RNA template is carried out via reverse transcription using reverse transcriptases. In nature, these enzymes convert the viral RNA genome into a complementary DNA (cDNA) molecule, which can integrate into the host’s genome, among other processes.
+
+Reverse transcription, similar to PCR, requires the use of primers. Two main types of primers:
+
+* **Random primers**: this type of primers are oligonucleotides with random base sequences. They are often six nucleotides long and are usually referred to as random hexamers. While random primers help improve cDNA synthesis for detection, they are not suitable for full-length reverse transcription of long RNA. Increasing the concentration of random hexamers in reverse transcription reactions improves cDNA yield but results in shorter cDNA fragments due to increased binding at multiple sites on the same template
+
+* **oligo(dT) primers**: this type of primers consist of a stretch of 12–18 deoxythymidines that anneal to poly(A) tails of eukaryotic mRNAs (see the section below for further details).
+
+Reverse transcription reactions for cDNA library construction and sequencing involve two main steps: first-strand cDNA synthesis and second-strand cDNA synthesis.
+
+* **First-strand cDNA synthesis**: this initial step generates a cDNA:RNA hybrid through the below-described three-step process.
+
+    * **Primer annealing**: in this step primers are attached to the RNA template, which usually happens before reverse transcriptase and necessary components (e.g., buffer, dNTPs, RNase inhibitor) are added.
+
+    * **DNA polymerisation**: in this step the complementary DNA is polymerised by the reverse transcriptase enzyme. With oligo(dT) primers (Tm ~35–50°C), the reaction is often incubated directly at the optimal temperature of the reverse transcriptase (37–50°C), while random hexamers typically have lower Tm (~10–15°C) due to their shorter length. Using a thermostable reverse transcriptase allows, a higher reaction temperature (e.g., 50°C), to help denature RNA with high GC content or secondary structures without impacting enzyme activity. With such enzymes, high-temperature incubation can result in an increase in cDNA yield, length, and representation.
+
+    * **Enzyme deactivation**: in this final step temperature is increased to 70–85°C, depending upon the thermostability of the enzyme, to deactivate the reverse transcriptase.
+
+* **Second-strand cDNA synthesis**: in this second step the first-strand cDNA is used as a template to generate double-stranded cDNA representing the RNA targets. Synthesis of double-stranded cDNA often employs a different DNA polymerase to produce the complementary strand of the first cDNA strand.
 
 #### rRNA depletion through poly-A enrichment {- #rrna-depletion-polya}
 
