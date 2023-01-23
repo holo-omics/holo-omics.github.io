@@ -16,7 +16,7 @@ The risk of external contamination is a relevant issue that must be actively tac
 
 #### Internal cross-contamination {- #internal-cross-contamination}
 
-Another common type of contamination is that happening among samples. During the many pipetting actions laboratory protocols entail, is not uncommon to transfer small amounts of samples to adjacent tubes or wells. This can obviously distort the sample, and lead researchers into incorrect conclusions. The following measures contribute to minimise internal cross-contamination [@Alberdi2022-ay]:
+Another common type of contamination is that happening among samples. During the many pipetting actions laboratory protocols entail, is not uncommon to transfer small amounts of samples to adjacent tubes or wells. This can obviously distort the sample, and lead researchers into incorrect conclusions. The following measures contribute to minimise internal cross-contamination:
 
 * Process all batches in an identical way for errors to be detectable.
 * Avoid pipetting from the top of the tube to minimise sprays.

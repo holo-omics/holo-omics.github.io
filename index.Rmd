@@ -1,4 +1,5 @@
 ---
+title: "A Practical Guide to Holo-Omics"
 bibliography: references.bib
 csl: biomed-central.csl
 link-citations: true
