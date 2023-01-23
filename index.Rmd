@@ -25,7 +25,7 @@ The **practical guide to holo-omics** is a compilation of methodological procedu
 * PDF document (https://holo-omics.github.io/holo-omics_workbook.pdf)
 
 :::: {.graybox}
-These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood section][HoloFood] in this guide, the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
+These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
 :::
 
 ### Contents {-}
@@ -35,7 +35,7 @@ These resources are presented as two of the main final outputs of the H2020 proj
 * **[Bioinformatic procedures](#about-bioinformatics)**: methods and procedures for processing raw omic data into quantitative datasets to be analysed through statistics.
 * **[Statistical procedures](#about-statistics)**: methods and procedures for analysing and integrating holo-omic data.
 
-### Protocols, exercises and tutorials {-}
+### Protocols, exercises and tutorials {- #protocols-exercises-tutorials}
 
 Thhis guide contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
 

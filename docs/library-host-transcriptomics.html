@@ -156,7 +156,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>A Practical Guide to Holo-Omics</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-and-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
@@ -189,8 +189,8 @@ div.csl-indent {
 <li class="part"><span><b>II LABORATORY PROCEDURES</b></span></li>
 <li class="chapter" data-level="3" data-path="about-labwork.html"><a href="about-labwork.html"><i class="fa fa-check"></i><b>3</b> About labwork</a>
 <ul>
-<li class="chapter" data-level="" data-path="about-labwork.html"><a href="about-labwork.html#general-considerations"><i class="fa fa-check"></i>General considerations</a></li>
-<li class="chapter" data-level="3.0.1" data-path="about-labwork.html"><a href="about-labwork.html#laboratory-procedures"><i class="fa fa-check"></i><b>3.0.1</b> Procedures for generating multi-omic data</a></li>
+<li class="chapter" data-level="" data-path="about-labwork.html"><a href="about-labwork.html#laboratory-general-considerations"><i class="fa fa-check"></i>General considerations</a></li>
+<li class="chapter" data-level="" data-path="about-labwork.html"><a href="about-labwork.html#laboratory-procedures"><i class="fa fa-check"></i>Procedures for generating multi-omic data</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="dna-rna-extraction.html"><a href="dna-rna-extraction.html"><i class="fa fa-check"></i><b>4</b> DNA/RNA extraction</a>
 <ul>
@@ -210,8 +210,17 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html#library-meta-genomics-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html"><i class="fa fa-check"></i><b>6.2</b> Host transcriptomics</a></li>
-<li class="chapter" data-level="6.3" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html"><i class="fa fa-check"></i><b>6.3</b> Microbial metatranscriptomics</a></li>
+<li class="chapter" data-level="6.2" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html"><i class="fa fa-check"></i><b>6.2</b> Host transcriptomics</a>
+<ul>
+<li class="chapter" data-level="" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html#rrna-polya-depletion-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html"><i class="fa fa-check"></i><b>6.3</b> Microbial metatranscriptomics</a>
+<ul>
+<li class="chapter" data-level="" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html#capture-based-rrna-depletion"><i class="fa fa-check"></i>Capture-based rRNA depletion</a></li>
+<li class="chapter" data-level="" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html#rnase-based-rrna-depletion"><i class="fa fa-check"></i>RNAse-based rRNA depletion</a></li>
+<li class="chapter" data-level="" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html#cas9-based-rrna-depletion"><i class="fa fa-check"></i>CRISPR/Cas9-based rRNA depletion</a></li>
+<li class="chapter" data-level="" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html#rrna-depletion-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>III BIOINFORMATIC PROCEDURES</b></span></li>
 <li class="chapter" data-level="7" data-path="about-bioinformatics.html"><a href="about-bioinformatics.html"><i class="fa fa-check"></i><b>7</b> About bioinformatics</a>
@@ -340,6 +349,10 @@ div.csl-indent {
 <h4>DNA removal<a href="library-host-transcriptomics.html#DNA-removal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Depending on the RNA extraction method employed, it is not rare trace amounts of genomic DNA (gDNA) to be co-purified with RNA. Contaminating gDNA can interfere with reverse transcription and may lead to false positives, higher background, or lower detection in sensitive applications such as RT-qPCR. The traditional method of gDNA removal is the addition of DNase I to RNA extracts. DNase I must be removed prior to cDNA synthesis since any residual enzyme would degrade single-stranded DNA. Unfortunately, RNA loss or damage can occur during DNase I inactivation treatment. As an alternative to DNase I, double-strand–specific DNases are available to eliminate contaminating gDNA without affecting RNA or single-stranded DNAs.</p>
 </div>
+<div id="stranded-transcriptomics" class="section level4 unnumbered hasAnchor">
+<h4>Stranded vs. non-stranded transcriptomics<a href="library-host-transcriptomics.html#stranded-transcriptomics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>RNA-Seq libraries can be stranded or non-stranded (unstranded), a decision that affects data analysis and interpretation. Stranded RNA-Seq (also referred to as strand-specific or directional RNA-Seq) enables researchers to determine the orientation of the transcript, whereas this information is lost in non-stranded, or standard, RNA-Seq. Non-stranded RNA-Seq is often sufficient for measuring gene expression in organisms with well-annotated genomes, as with a reference transcriptome, it is possible to infer orientation for most of the sequencing reads. As there are fewer steps than stranded library preparation, the benefits of this approach are lower cost, simpler execution, and greater recovery of material, which renders non-stranded RNA-Seq the prefered option for holo-omic analyses. In contrast, stranded RNA-Seq is useful if the aims include annotating genomes, identifying antisense transcripts or discovering novel transcripts.</p>
+</div>
 <div id="cDNA-conversion" class="section level4 unnumbered hasAnchor">
 <h4>cDNA conversion<a href="library-host-transcriptomics.html#cDNA-conversion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Most RNA-Seq experiments are carried out on instruments that sequence DNA molecules, rather than RNA. This implies that RNA conversion to cDNA is a required step before library preparation. The synthesis of cDNA from an RNA template is carried out via reverse transcription using reverse transcriptases. In nature, these enzymes convert the viral RNA genome into a complementary DNA (cDNA) molecule, which can integrate into the host’s genome, among other processes.</p>
@@ -363,7 +376,10 @@ div.csl-indent {
 <h4>rRNA depletion through poly-A enrichment<a href="library-host-transcriptomics.html#rrna-depletion-polya" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Ribosomal RNA (rRNA) helps translate the information in messenger RNA (mRNA) into protein. It is the predominant form of RNA found in most cells, which can make over 80% of cellular RNA despite never being translated into proteins itself. In consequence, most reads derived from RNA belong to rRNAs, unless depletion strategies are implemented.</p>
 <p>Excessively abundant rRNA sequences can be depleted using multiple strategies, which are covered in the <a href="library-microbial-metatranscriptomics.html#library-microbial-metatranscriptomics">Microbial metatranscriptomics</a>. The most broadly employed enrichment strategy when dealing with eukaryotic organisms is rRNA depletion through poly-A enrichment. This strategy relies on the fact that mature coding mRNAs of eukaryotic organisms contain polyA tails, long chains (tens to hundreds) of adenine nucleotides that are added to primary RNA transcripts to increase the stability of the molecule. However, not all transcripts contain poly(A) tails. microRNAs, small nucleolar RNAs (snoRNAs), transfer RNAs (tRNAs), some long non-coding RNAs (lncRNAs), and even protein-coding mRNAs such as histone mRNAs do not contail poly(A) tails, thus will be removed together with rRNA during poly(A) selection. If interested in quantifying expression of such transcripts the use of <a href="library-microbial-metatranscriptomics.html#library-microbial-metatranscriptomics">alternative methods</a> is recommended.</p>
-<p>The most broadly employed strategies to deplete rRNA through poly-A enrichment rely either on hybridisation with Oligo(dT)-attached magnetic beads or oligo(dT) priming during cDNA conversion step. In the former strategy, poly(A)-containing RNA molecules hybridise with Oligo(dT) stretches attached to magnetic beads. Following hybridisation, the supernatant consisting of non-polyadenylated molecules is removed. The beads are washed prior to elution of the poly(A)-selected RNA in water or buffer .</p>
+<p>The most broadly employed strategies to deplete rRNA through poly-A enrichment rely either on hybridisation with Oligo(dT)-attached magnetic beads or oligo(dT) priming during cDNA conversion step. In the former strategy, poly(A)-containing RNA molecules hybridise with Oligo(dT) stretches attached to magnetic beads. Following hybridisation, the supernatant consisting of non-polyadenylated molecules is removed. The beads are washed prior to elution of the poly(A)-selected RNA in water or buffer.</p>
+</div>
+<div id="rrna-polya-depletion-protocols" class="section level3 unnumbered hasAnchor">
+<h3>List of available protocols<a href="library-host-transcriptomics.html#rrna-polya-depletion-protocols" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <thead>
 <tr class="header">

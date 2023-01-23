@@ -17,7 +17,6 @@ molecular-resolution
 spatiotemporal-factors
 explanatory-and-response-variables
 about-labwork
-laboratory-procedures
 dna-rna-extraction
 protein-metabolite-extraction
 sequencing-library-preparation

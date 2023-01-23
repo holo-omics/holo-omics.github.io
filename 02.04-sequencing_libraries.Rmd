@@ -92,6 +92,10 @@ Before starting any library preparation protocol assessing the quality of RNA sa
 
 Depending on the RNA extraction method employed, it is not rare trace amounts of genomic DNA (gDNA) to be co-purified with RNA. Contaminating gDNA can interfere with reverse transcription and may lead to false positives, higher background, or lower detection in sensitive applications such as RT-qPCR. The traditional method of gDNA removal is the addition of DNase I to RNA extracts. DNase I must be removed prior to cDNA synthesis since any residual enzyme would degrade single-stranded DNA. Unfortunately, RNA loss or damage can occur during DNase I inactivation treatment. As an alternative to DNase I, double-strand–specific DNases are available to eliminate contaminating gDNA without affecting RNA or single-stranded DNAs.
 
+#### Stranded vs. non-stranded transcriptomics {- #stranded-transcriptomics}
+
+RNA-Seq libraries can be stranded or non-stranded (unstranded), a decision that affects data analysis and interpretation. Stranded RNA-Seq (also referred to as strand-specific or directional RNA-Seq) enables researchers to determine the orientation of the transcript, whereas this information is lost in non-stranded, or standard, RNA-Seq. Non-stranded RNA-Seq is often sufficient for measuring gene expression in organisms with well-annotated genomes, as with a reference  transcriptome, it is possible to infer orientation for most of the sequencing reads. As there are fewer steps than stranded library preparation, the benefits of this approach are lower cost, simpler execution, and greater recovery of material, which renders non-stranded RNA-Seq the prefered option for holo-omic analyses. In contrast, stranded RNA-Seq is useful if the aims include annotating genomes, identifying antisense transcripts or discovering novel transcripts.
+
 #### cDNA conversion {- #cDNA-conversion}
 
 Most RNA-Seq experiments are carried out on instruments that sequence DNA molecules, rather than RNA. This implies that RNA conversion to cDNA is a required step before library preparation. The synthesis of cDNA from an RNA template is carried out via reverse transcription using reverse transcriptases. In nature, these enzymes convert the viral RNA genome into a complementary DNA (cDNA) molecule, which can integrate into the host’s genome, among other processes.
@@ -120,7 +124,9 @@ Ribosomal RNA (rRNA) helps translate the information in messenger RNA (mRNA) int
 
 Excessively abundant rRNA sequences can be depleted using multiple strategies, which are covered in the [Microbial metatranscriptomics](#library-microbial-metatranscriptomics). The most broadly employed enrichment strategy when dealing with eukaryotic organisms is rRNA depletion through poly-A enrichment. This strategy relies on the fact that mature coding mRNAs of eukaryotic organisms contain polyA tails, long chains (tens to hundreds) of adenine nucleotides that are added to primary RNA transcripts to increase the stability of the molecule. However, not all transcripts contain poly(A) tails. microRNAs, small nucleolar RNAs (snoRNAs), transfer RNAs (tRNAs), some long non-coding RNAs (lncRNAs), and even protein-coding mRNAs such as histone mRNAs do not contail poly(A) tails, thus will be removed together with rRNA during poly(A) selection. If interested in quantifying expression of such transcripts the use of [alternative methods](#library-microbial-metatranscriptomics) is recommended.
 
-The most broadly employed strategies to deplete rRNA through poly-A enrichment rely either on hybridisation with Oligo(dT)-attached magnetic beads or oligo(dT) priming during cDNA conversion step. In the former strategy, poly(A)-containing RNA molecules hybridise with Oligo(dT) stretches attached to magnetic beads. Following hybridisation, the supernatant consisting of non-polyadenylated molecules is removed. The beads are washed prior to elution of the poly(A)-selected RNA in water or buffer .  
+The most broadly employed strategies to deplete rRNA through poly-A enrichment rely either on hybridisation with Oligo(dT)-attached magnetic beads or oligo(dT) priming during cDNA conversion step. In the former strategy, poly(A)-containing RNA molecules hybridise with Oligo(dT) stretches attached to magnetic beads. Following hybridisation, the supernatant consisting of non-polyadenylated molecules is removed. The beads are washed prior to elution of the poly(A)-selected RNA in water or buffer.  
+
+### List of available protocols {- #rrna-polya-depletion-protocols}
 
 |Type|Name|Author/owner|Protocol/Article|
 |---|---|---|---|
@@ -133,7 +139,30 @@ Contents of this section were created by [Antton Alberdi](#antton-alberdi).
 
 ## Microbial metatranscriptomics {#library-microbial-metatranscriptomics}
 
-Text to be added.
+Sequencing library preparation for microbial metatranscriptomics faces the same challenges as host genomics, but the fact that prokaryotic mRNA have no poly-A tails makes it impossible to apply oligo(dT)-based rRNA depletion strategies. There are three other alternatives through which prokaryotic rRNA can be depleted. These three strategies require designing oligos, probes or guides whose sequences complement the DNA sequences that should be removed. Most commercial kits contain probes designed to remove rRNA sequences of the most commonly employed animal hosts (Human/Mouse/Rat), as well as bacteria, but custom probes targeting any genes could be employed. The first two methods shown below are implemented before library-preparation, thus independent reactions must be ran for each sample. The last strategy is implemented after library preparation, which enables multiple indexed libraries to be pooled, and thus performing a single reaction per pool.
+
+### Capture-based rRNA depletion {- #capture-based-rrna-depletion}
+
+This method relies on capture rRNA with complimentary oligos that are coupled to paramagnetic beads. Unwanted transcripts get bound to beads, which can then be retained using a magnet, while the non-hybridasing transcripts remain in the elution.
+
+### RNAse-based rRNA depletion {- #rnase-based-rrna-depletion}
+
+A more recent technological upgrade to capture-based rRNA depletion is to, instead of using paramagnetic beads, degrade RNA:DNA hybrids using RNase H [@Huang2019].
+
+### CRISPR/Cas9-based rRNA depletion {- #cas9-based-rrna-depletion}
+
+The newest method of all three relies on the DNA claveage capacity of the Cas9 enzyme [@Gu2016]. In this method, custom-designed guides are used for the Cas9 enzyme to cleveage unwanted sequences. This strategy is applied once libraries are prepared, and before the final PCR amplification is conducted. When the targetted molecules are cleaveged, they lack one of the two adaptors, and therefore they are not amplified, resulting in a considerable depletion compared to the rest of the library.
+
+### List of available protocols {- #rrna-depletion-protocols}
+
+|Name|Strategy|Author/owner|Protocol/Article|
+|---|---|---|---|
+| Custom capture-based depletion | Capture-based | Open Source | [Article](https://www.nature.com/articles/s41598-019-48692-2) [@Kraus2019] |
+| Legacy Ribo-Zero | Capture-based | Illumina | |
+| Custom RNAse-based depletion | RNAse-based | Open Source | [Article](https://academic.oup.com/nar/article/48/4/e20/5687826) [@Huang2019] |
+| Ribo-Zero Plus | RNAse-based | Illumina | |
+| NEBNext® rRNA Depletion Kit | RNAse-based | NEB | |
+| DASH | Cas9-based | Open Source | [Article](https://rnajournal.cshlp.org/content/26/8/1069.full) [@Prezza2020] |
 
 :::: {.authorbox}
 Contents of this section were created by [Antton Alberdi](#antton-alberdi).  

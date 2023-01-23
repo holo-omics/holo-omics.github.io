@@ -1,11 +1,11 @@
 # (PART) LABORATORY PROCEDURES {-}
 # About labwork {#about-labwork}
 
-### General considerations {-}
+### General considerations {- #laboratory-general-considerations}
 
 Although the generation of each omic data layer requires dedicated protocols to be implemented, there are multiple general considerations that apply to all laboratory processes. In the following we list three of the most relevant ones.
 
-#### External contamination {-}
+#### External contamination {- #external-contamination}
 
 The risk of external contamination is a relevant issue that must be actively tackled when generating multi-omic data. External contamination refers to any molecule of interest that unintendedly is added to the sample, and analysed with the target molecules. As shotgun sequencing entails analysing all available nucleic acids in a sample, human saliva, skin microbiome, or microbes present in water and reagents are some of the sources of external contamination. Incorporating DNA and RNA from these sources can distort the biological signal, which can lead researchers into incorrect conclusions. The following measures contribute to minimise external contamination:
 
@@ -14,19 +14,19 @@ The risk of external contamination is a relevant issue that must be actively tac
 * Separate pre-PCR and post-PCR laboratories.
 * Process and sequence blank controls.
 
-#### Internal cross-contamination {-}
+#### Internal cross-contamination {- #internal-cross-contamination}
 
-Another common type of contamination is that happening among samples. During the many pipetting actions laboratory protocols entail, is not uncommon to transfer small amounts of samples to adjacent tubes or wells. This can obviously distort the sample, and lead researchers into incorrect conclusions. The following measures contribute to minimise internal cross-contamination:
+Another common type of contamination is that happening among samples. During the many pipetting actions laboratory protocols entail, is not uncommon to transfer small amounts of samples to adjacent tubes or wells. This can obviously distort the sample, and lead researchers into incorrect conclusions. The following measures contribute to minimise internal cross-contamination [@Alberdi2022-ay]:
 
 * Process all batches in an identical way for errors to be detectable.
 * Avoid pipetting from the top of the tube to minimise sprays.
 * Process and sequence blank controls.
 
-#### Batch effects {-}
+#### Batch effects {- #batch-effects}
 
 The last global consideration is to be aware of batch effects and try to minimise or account for their impact in downstream analyses. Batch effects are almost unavoidable in holo-omic data generation, because samples are usually processed in batches. Each batch can suffer different types of technical biases, including the aforementioned contamination issues, but also other problems derived from the use of different reagent stocks, different researchers executing identical protocols in slightly different ways, or storing samples for variable time periods. The critical measure to minimise the impact of batch effects and account for them in downstream analysis is to randomise samples. Randomising means randomly assigning samples from different contrasting groups to the different batches, minimising correlation between batches and experimental groups. If this is done, laboratory batches can be included as covariates in statistical analyses, which enable accounting and controlling for batch effects in the final results.
 
-### Procedures for generating multi-omic data {#laboratory-procedures}
+### Procedures for generating multi-omic data {- #laboratory-procedures}
 
 This chapter contains sections dedicated to each of the omic layers included in the workbook.
 
