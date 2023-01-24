@@ -1,5 +1,6 @@
 ---
-title: "A Practical Guide to Holo-Omics"
+title: A Practical Guide to Holo-Omics
+author: The Center for Evolutionary Hologenomics
 documentclass: book
 bibliography: references.bib
 csl: biomed-central.csl
@@ -8,6 +9,8 @@ output:
   bookdown::gitbook:
     highlight: tango
     css: style.css
+  bookdown::pdf_book:
+    template: style.tex
 ---
 # About this guidebook {- #about-this-guidebook}
 

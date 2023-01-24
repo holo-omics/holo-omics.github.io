@@ -37,5 +37,6 @@ bookdown::pdf_book:
   keep_tex: yes
   toc_depth: 2
   toc_appendix: yes
+  title-fontsize: 20pt
 #Syntax highlighting styles:
   #default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, breezedark
