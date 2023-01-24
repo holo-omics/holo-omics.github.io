@@ -228,9 +228,9 @@ div.csl-indent {
 <li class="chapter" data-level="7.1" data-path="prepare-shell.html"><a href="prepare-shell.html"><i class="fa fa-check"></i><b>7.1</b> Prepare your shell environment</a>
 <ul>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#required-software"><i class="fa fa-check"></i>Required software</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-miniconda"><i class="fa fa-check"></i>Install miniconda</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba-optional"><i class="fa fa-check"></i>Install mamba (optional)</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-a-conda-environment"><i class="fa fa-check"></i>Create a conda environment</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-conda-miniconda"><i class="fa fa-check"></i>Install conda / miniconda</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba"><i class="fa fa-check"></i>Install mamba (optional)</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-conda-environment"><i class="fa fa-check"></i>Create a conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
@@ -343,7 +343,7 @@ div.csl-indent {
 <p>Sequencing of DNA and RNA molecules require sequencing libraries to be prepared, which entails modifying original nucleic acid molecules to allow sequencing platforms to identify the target molecules and perform the sequencing.</p>
 <div id="sequencing-strategies-platforms" class="section level3 unnumbered hasAnchor">
 <h3>Sequencing strategies and platforms<a href="sequencing-library-preparation.html#sequencing-strategies-platforms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Library features are specific to each sequencing platform, which requires selecting in advance the sequencing strategy to be employed. Pure nucleic acid sequencing-based strategies can be broadly divided in two groups. Short-read sequencing (SRS) platforms provide large amounts of data yet with short sequencing reads (typically 150 nucleotides). In contrast, long-read sequencing (LRS) platforms yield much longer sequences (thousands or even million of nucleotides), yet with a lower throughput, and typically lower sequence quality. The SRS market is dominated by two main companies with propietary platforms, namely Illumina and BGI, although PacBio recently released their own SRS platform called ONSO. The LRS market is also dominated by two different companies with propietary technologies, which are Oxford Nanopore (ONT) and Pacific Biosciences (Pacbio).</p>
+<p>Library features are specific to each sequencing platform, which requires selecting in advance the sequencing strategy to be employed. Pure nucleic acid sequencing-based strategies can be broadly divided in two groups. Short-read sequencing (SRS) platforms provide large amounts of data yet with short sequencing reads (typically 150 nucleotides). In contrast, long-read sequencing (LRS) platforms yield much longer sequences (thousands or even million of nucleotides), yet with a lower throughput, and typically lower sequence quality. The SRS market is dominated by two main companies with proprietary platforms, namely Illumina and BGI, although PacBio recently released their own SRS platform called ONSO. The LRS market is also dominated by two different companies with proprietary technologies, which are Oxford Nanopore (ONT) and Pacific Biosciences (Pacbio).</p>
 <p>Sequencing enterprises, as well as auxiliary biotechnological companies, provide library preparation kits that can be more or less customised for different purposes.</p>
 <table>
 <colgroup>
@@ -401,21 +401,21 @@ div.csl-indent {
 <h3>PCR-based vs. PCR-free library preparation<a href="sequencing-library-preparation.html#pcr-library" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sequencing library preparation procedures can be split into two main groups depending on whether they PCR-amplify or not the DNA templates. Unlike in the case of targeted amplicon sequencing, in which the objective is to amplify a specific target region, the aim of including a PCR step in shotgun-based library preparation is to increase the molarity of the library and/or to attach indices (see below) to the adaptors.</p>
 <div class="tipbox">
-<p>Learn more about PCR-based and PCR-free library preparation in <a href="https://www.pnas.org/doi/abs/10.1073/pnas.1519288112">this article</a> by Jones et al. <span class="citation">[<a href="#ref-Jones-2015" role="doc-biblioref">7</a>]</span>.</p>
+<p>Learn more about PCR-based and PCR-free library preparation in <a href="https://www.pnas.org/doi/abs/10.1073/pnas.1519288112">this article</a> by Jones et al. <span class="citation">[<a href="#ref-Jones2015-bk" role="doc-biblioref">7</a>]</span>.</p>
 </div>
 </div>
 <div id="indices-multiplexing" class="section level3 unnumbered hasAnchor">
 <h3>Indices and multiplexing<a href="sequencing-library-preparation.html#indices-multiplexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Usually, library preparation also entails tagging molecules with unique sample idenifiers known as indices, which enable pooling molecules derived from multiple samples in a single sequencing run. This can be achieved in PCR-free protocols by using adaptors containing unique indices per sample, or by using indexed amplification primers in PCR-based library preparation protocols.</p>
+<p>Usually, library preparation also entails tagging molecules with unique sample identifiers known as indices, which enable pooling molecules derived from multiple samples in a single sequencing run. This can be achieved in PCR-free protocols by using adaptors containing unique indices per sample, or by using indexed amplification primers in PCR-based library preparation protocols.</p>
 <div class="tipbox">
-<p>Learn more about indices and multiplexing in <a href="https://academic.oup.com/nar/article/40/1/e3/1287690">this article</a> by Kircher et al. <span class="citation">[<a href="#ref-Kircher-2011" role="doc-biblioref">8</a>]</span>.</p>
+<p>Learn more about indices and multiplexing in <a href="https://academic.oup.com/nar/article/40/1/e3/1287690">this article</a> by Kircher et al. <span class="citation">[<a href="#ref-Kircher2012-vy" role="doc-biblioref">8</a>]</span>.</p>
 </div>
 </div>
 <div id="unique-molecular-identifiers" class="section level3 unnumbered hasAnchor">
 <h3>Unique molecular identifiers (UMIs)<a href="sequencing-library-preparation.html#unique-molecular-identifiers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Unique molecular identifiers (UMIs) are a type of molecular barcoding that provides error correction and increased accuracy during sequencing by uniquely tag each molecule (rather than each pool of molecules derived from a sample) in a sample library. UMIs are used for a wide range of sequencing applications, many around PCR duplicates in DNA and cDNA. UMI deduplication is also useful for RNA-seq gene expression analysis and other quantitative sequencing methods.</p>
 <div class="tipbox">
-<p>Learn more about unique molecular identifiers in <a href="https://www.nature.com/articles/nmeth.1778">this article</a> by Kivioja et al. <span class="citation">[<a href="#ref-Kivioja-2012" role="doc-biblioref">9</a>]</span>.</p>
+<p>Learn more about unique molecular identifiers in <a href="https://www.nature.com/articles/nmeth.1778">this article</a> by Kivioja et al. <span class="citation">[<a href="#ref-Kivioja2011-fe" role="doc-biblioref">9</a>]</span>.</p>
 </div>
 <div class="authorbox">
 <p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
@@ -424,14 +424,14 @@ div.csl-indent {
 </div>
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
-<div id="ref-Jones-2015" class="csl-entry">
-7. Jones MB, Highlander SK, Anderson EL, Li W, Dayrit M, Klitgord N, et al. Library preparation methodology can influence genomic and functional predictions in human microbiome research. Proceedings of the National Academy of Sciences. 2015;112:14024–9.
+<div id="ref-Jones2015-bk" class="csl-entry">
+7. Jones MB, Highlander SK, Anderson EL, Li W, Dayrit M, Klitgord N, et al. Library preparation methodology can influence genomic and functional predictions in human microbiome research. Proc Natl Acad Sci U S A. 2015;112:14024–9.
 </div>
-<div id="ref-Kircher-2011" class="csl-entry">
-8. Kircher M, Sawyer S, Meyer M. Double indexing overcomes inaccuracies in multiplex sequencing on the illumina platform. Nucleic Acids Research. 2011;40:e3–3.
+<div id="ref-Kircher2012-vy" class="csl-entry">
+8. Kircher M, Sawyer S, Meyer M. Double indexing overcomes inaccuracies in multiplex sequencing on the illumina platform. Nucleic Acids Res. 2012;40:e3.
 </div>
-<div id="ref-Kivioja-2012" class="csl-entry">
-9. Kivioja T, Vähärautio A, Karlsson K, Bonke M, Enge M, Linnarsson S, et al. Counting absolute numbers of molecules using unique molecular identifiers. Nature Methods. 2012;9:72–4.
+<div id="ref-Kivioja2011-fe" class="csl-entry">
+9. Kivioja T, Vähärautio A, Karlsson K, Bonke M, Enge M, Linnarsson S, et al. Counting absolute numbers of molecules using unique molecular identifiers. Nat Methods. 2011;9:72–4.
 </div>
 </div>
             </section>

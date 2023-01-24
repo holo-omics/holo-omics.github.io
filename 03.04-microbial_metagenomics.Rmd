@@ -4,7 +4,7 @@ Microbial metagenomic data processing can be conducted following different strat
 
 * **[Reference-based approach](#reference-based):** it relies on a reference database of microbial genomes to which sequencing reads can be mapped to obtain estimations of relative proportion of reads belonging to each of the genomes available in the reference database. It is the simplest and computationally less expensive approach, yet it completely relies on a complete and representative reference database.
 * **[Assembly-based approach](#assembly-based):** it is based on assembling sequencing reads into longer DNA sequences known as contigs, which can then be used to predict genes and perform functional analyses. The main limitation of this approach is that the entire metagenome (set of contigs) in each sample is considered as a single unit, thus overlooking which bacterial genome each detected gene belongs to.
-* **[Genome-resolved approach](#genome-resolved):** it is the most advanced of the three approaches, and the strategy that provides the largest amount of information, as the aim of this approach is to directly reconstruct all the genomes in a metagenome. This is achieved by binning contigs into Metagenome-Assembled Genomes (MAGs), which can then be taxonomically and functionally annotated to perform sounds community-level analyses.
+* **[Genome-resolved approach](#genome-resolved):** it is the most advanced of the three approaches, and the strategy that provides the largest amount of information, as the aim of this approach is to directly reconstruct all the genomes in a metagenome. This is achieved by binning contigs into Metagenome-Assembled Genomes (MAGs), which can then be taxonomically and functionally annotated to perform sound community-level analyses.
 
 ## Reference-based {#reference-based}
 
@@ -19,7 +19,7 @@ Assembly-based approaches can be divided in two main strategies:
 
 ### Individual assembly-based {#individual-assembly-based}
 
-Two of the most popular metagenome assemblers are **Megahit** and **MetaSpades**. Metaspades is considered superior in therms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g. bbmap) to get rid off barely informative yet often abundant short contigs.
+Two of the most popular metagenome assemblers are **Megahit** and **MetaSpades**. Metaspades is considered superior in terms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g. bbmap) to get rid off barely informative yet often abundant short contigs.
 
 #### Individual assembly using Megahit
 

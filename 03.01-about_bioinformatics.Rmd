@@ -19,13 +19,13 @@ If the comment chunks of the code (text after #) is creating you problems, use t
 setopt interactivecomments
 ```
 
-### Required software {-}
+### Required software {- #required-software}
 
 Bioinformatic pipelines for processing omic data require the use of dozens of software. All the required software are listed in the conda environment installation file available [here](https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml).
 
-### Install miniconda {-}
+### Install conda / miniconda {- #install-conda-miniconda}
 
-If **conda** is not installed in your system, the first step is to install **miniconda** (a free minimal installer for conda, enough to run the bioinformatic analyses explained in the workbook). Miniconda installers for Linux, Mac and Windows operating systems can be found in the following website:
+Conda is an open-source package management system and environment management system that quickly installs, runs, and updates packages and their dependencies. If **conda** is not installed in your system, the first step is to install **miniconda** (a free minimal installer for conda, enough to run the bioinformatic analyses explained in the workbook). Miniconda installers for Linux, Mac and Windows operating systems can be found in the following website:
 https://docs.conda.io/en/latest/miniconda.html
 
 Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:
@@ -35,7 +35,7 @@ conda -V
 #> conda 22.11.1 #or whatever version you have installed
 ```
 
-### Install mamba (optional) {-}
+### Install mamba (optional) {- #install-mamba}
 
 An optional  step is to install **mamba**, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the `conda install` option.
 
@@ -43,9 +43,9 @@ An optional  step is to install **mamba**, which is a reimplementation of the co
 conda install mamba -n base -c conda-forge
 ```
 
-### Create a conda environment {-}
+### Create a conda environment {- #create-conda-environment}
 
-All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available [here](https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml), and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don't forget to provide the absolut path to the 'holo-omics-env.yaml' file in the `mamba create` command.
+All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available [here](https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml), and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don't forget to provide the absolute path to the 'holo-omics-env.yaml' file in the `mamba create` command.
 
 ``` {sh eval=FALSE}
 wget https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml #download installer file

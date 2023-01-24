@@ -4,7 +4,7 @@ Sequencing of DNA and RNA molecules require sequencing libraries to be prepared,
 
 ### Sequencing strategies and platforms {- #sequencing-strategies-platforms}
 
-Library features are specific to each sequencing platform, which requires selecting in advance the sequencing strategy to be employed. Pure nucleic acid sequencing-based strategies can be broadly divided in two groups. Short-read sequencing (SRS) platforms provide large amounts of data yet with short sequencing reads (typically 150 nucleotides). In contrast, long-read sequencing (LRS) platforms yield much longer sequences (thousands or even million of nucleotides), yet with a lower throughput, and typically lower sequence quality. The SRS market is dominated by two main companies with propietary platforms, namely Illumina and BGI, although PacBio recently released their own SRS platform called ONSO. The LRS market is also dominated by two different companies with propietary technologies, which are Oxford Nanopore (ONT) and Pacific Biosciences (Pacbio).
+Library features are specific to each sequencing platform, which requires selecting in advance the sequencing strategy to be employed. Pure nucleic acid sequencing-based strategies can be broadly divided in two groups. Short-read sequencing (SRS) platforms provide large amounts of data yet with short sequencing reads (typically 150 nucleotides). In contrast, long-read sequencing (LRS) platforms yield much longer sequences (thousands or even million of nucleotides), yet with a lower throughput, and typically lower sequence quality. The SRS market is dominated by two main companies with proprietary platforms, namely Illumina and BGI, although PacBio recently released their own SRS platform called ONSO. The LRS market is also dominated by two different companies with proprietary technologies, which are Oxford Nanopore (ONT) and Pacific Biosciences (Pacbio).
 
 Sequencing enterprises, as well as auxiliary biotechnological companies, provide library preparation kits that can be more or less customised for different purposes.
 
@@ -24,15 +24,15 @@ Some of the most widely used sequencing technologies and platforms.
 Sequencing library preparation procedures can be split into two main groups depending on whether they PCR-amplify or not the DNA templates. Unlike in the case of targeted amplicon sequencing, in which the objective is to amplify a specific target region, the aim of including a PCR step in shotgun-based library preparation is to increase the molarity of the library and/or to attach indices (see below) to the adaptors.
 
 :::: {.tipbox}
-Learn more about PCR-based and PCR-free library preparation in [this article](https://www.pnas.org/doi/abs/10.1073/pnas.1519288112) by Jones et al. [@Jones-2015].
+Learn more about PCR-based and PCR-free library preparation in [this article](https://www.pnas.org/doi/abs/10.1073/pnas.1519288112) by Jones et al. [@Jones2015-bk].
 :::
 
 ### Indices and multiplexing {- #indices-multiplexing}
 
-Usually, library preparation also entails tagging molecules with unique sample idenifiers known as indices, which enable pooling molecules derived from multiple samples in a single sequencing run. This can be achieved in PCR-free protocols by using adaptors containing unique indices per sample, or by using indexed amplification primers in PCR-based library preparation protocols.
+Usually, library preparation also entails tagging molecules with unique sample identifiers known as indices, which enable pooling molecules derived from multiple samples in a single sequencing run. This can be achieved in PCR-free protocols by using adaptors containing unique indices per sample, or by using indexed amplification primers in PCR-based library preparation protocols.
 
 :::: {.tipbox}
-Learn more about indices and multiplexing in [this article](https://academic.oup.com/nar/article/40/1/e3/1287690) by Kircher et al. [@Kircher-2011].
+Learn more about indices and multiplexing in [this article](https://academic.oup.com/nar/article/40/1/e3/1287690) by Kircher et al. [@Kircher2012-vy].
 :::
 
 ### Unique molecular identifiers (UMIs) {- #unique-molecular-identifiers}
@@ -40,7 +40,7 @@ Learn more about indices and multiplexing in [this article](https://academic.oup
 Unique molecular identifiers (UMIs) are a type of molecular barcoding that provides error correction and increased accuracy during sequencing by uniquely tag each molecule (rather than each pool of molecules derived from a sample) in a sample library. UMIs are used for a wide range of sequencing applications, many around PCR duplicates in DNA and cDNA. UMI deduplication is also useful for RNA-seq gene expression analysis and other quantitative sequencing methods.
 
 :::: {.tipbox}
-Learn more about unique molecular identifiers in [this article](https://www.nature.com/articles/nmeth.1778) by Kivioja et al. [@Kivioja-2012].
+Learn more about unique molecular identifiers in [this article](https://www.nature.com/articles/nmeth.1778) by Kivioja et al. [@Kivioja2011-fe].
 :::
 
 :::: {.authorbox}
@@ -57,7 +57,7 @@ Short-read sequencing libraries requires DNA to be sheared to the desired fragme
 
 #### Adaptor ligation {- #adaptor-ligation}
 
-In shotgun libraries adaptors are merged to DNA template molecules through chemical ligation (e.g., using a ligase enzyme). The ligation process is slightly different depending on whether the DNA template has blunt- or sticky-ends . In blunt ends, both strands are of equal length – i.e. they end at the same base position, leaving no unpaired bases on either strand, while in sticky ends, one strand is longer than the other. Some protocols deliverately create sticky-ends from blunt-end fragmended DNA molecules by adding a single adenine base to form an overhang by an A-tailing reaction. This A overhang allows adapters containing a single thymine overhanging base to pair with the DNA fragments.
+In shotgun libraries adaptors are merged to DNA template molecules through chemical ligation (e.g., using a ligase enzyme). The ligation process is slightly different depending on whether the DNA template has blunt- or sticky-ends . In blunt ends, both strands are of equal length – i.e. they end at the same base position, leaving no unpaired bases on either strand, while in sticky ends, one strand is longer than the other. Some protocols deliberately create sticky-ends from blunt-end fragmented DNA molecules by adding a single adenine base to form an overhang by an A-tailing reaction. This A overhang allows adapters containing a single thymine overhanging base to pair with the DNA fragments.
 
 An example of a blunt-end molecule:
 ```
@@ -86,7 +86,7 @@ Library preparation for host transcriptomics (HT) requires some extra steps to t
 
 #### Sample quality assessment {- #rrna-sample-quality-assessment}
 
-Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended. While traditionally assessed through agarose gel electrophoresis, nowadays RNA quality assessment is performed on electropherogram profiles, which are produced by nucleic acid fragment analysis instruments (e.g. Bioanalyzer, Fragment Analyzer). Traditionally, a simple model evaluating the 28S to 18S rRNA ratio was used as a criterion for RNA quality. However, the most common metric currently employed for assessing the preservation quality of RNA is the RNA integrity number (RIN), which accounts for more RNA features for assessing sample quality [@Schroeder2006]. RIN values range from 10 (intact RNA) to 1 (totally degraded RNA). For example, the poly(A) enrichment procedures explained below require high quality RNA (RIN > 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3’ ends are enriched while the more 5’ sequences would not be captured, leading to a strong 3′ bias for degraded RNA inputs.
+Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended. While traditionally assessed through agarose gel electrophoresis, nowadays RNA quality assessment is performed on electropherogram profiles, which are produced by nucleic acid fragment analysis instruments (e.g. Bioanalyzer, Fragment Analyzer). Traditionally, a simple model evaluating the 28S to 18S rRNA ratio was used as a criterion for RNA quality. However, the most common metric currently employed for assessing the preservation quality of RNA is the RNA integrity number (RIN), which accounts for more RNA features for assessing sample quality [@Schroeder2006-dn]. RIN values range from 10 (intact RNA) to 1 (totally degraded RNA). For example, the poly(A) enrichment procedures explained below require high quality RNA (RIN > 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3’ ends are enriched while the more 5’ sequences would not be captured, leading to a strong 3′ bias for degraded RNA inputs.
 
 #### DNA removal {- #DNA-removal}
 
@@ -94,7 +94,7 @@ Depending on the RNA extraction method employed, it is not rare trace amounts of
 
 #### Stranded vs. non-stranded transcriptomics {- #stranded-transcriptomics}
 
-RNA-Seq libraries can be stranded or non-stranded (unstranded), a decision that affects data analysis and interpretation. Stranded RNA-Seq (also referred to as strand-specific or directional RNA-Seq) enables researchers to determine the orientation of the transcript, whereas this information is lost in non-stranded, or standard, RNA-Seq. Non-stranded RNA-Seq is often sufficient for measuring gene expression in organisms with well-annotated genomes, as with a reference  transcriptome, it is possible to infer orientation for most of the sequencing reads. As there are fewer steps than stranded library preparation, the benefits of this approach are lower cost, simpler execution, and greater recovery of material, which renders non-stranded RNA-Seq the prefered option for holo-omic analyses. In contrast, stranded RNA-Seq is useful if the aims include annotating genomes, identifying antisense transcripts or discovering novel transcripts.
+RNA-Seq libraries can be stranded or non-stranded (unstranded), a decision that affects data analysis and interpretation. Stranded RNA-Seq (also referred to as strand-specific or directional RNA-Seq) enables researchers to determine the orientation of the transcript, whereas this information is lost in non-stranded, or standard, RNA-Seq. Non-stranded RNA-Seq is often sufficient for measuring gene expression in organisms with well-annotated genomes, as with a reference  transcriptome, it is possible to infer orientation for most of the sequencing reads. As there are fewer steps than stranded library preparation, the benefits of this approach are lower cost, simpler execution, and greater recovery of material, which renders non-stranded RNA-Seq the preferred option for holo-omic analyses. In contrast, stranded RNA-Seq is useful if the aims include annotating genomes, identifying antisense transcripts or discovering novel transcripts.
 
 #### cDNA conversion {- #cDNA-conversion}
 
@@ -147,22 +147,22 @@ This method relies on capture rRNA with complimentary oligos that are coupled to
 
 ### RNAse-based rRNA depletion {- #rnase-based-rrna-depletion}
 
-A more recent technological upgrade to capture-based rRNA depletion is to, instead of using paramagnetic beads, degrade RNA:DNA hybrids using RNase H [@Huang2019].
+A more recent technological upgrade to capture-based rRNA depletion is to, instead of using paramagnetic beads, degrade RNA:DNA hybrids using RNase H [@Huang2020-xf].
 
 ### CRISPR/Cas9-based rRNA depletion {- #cas9-based-rrna-depletion}
 
-The newest method of all three relies on the DNA claveage capacity of the Cas9 enzyme [@Gu2016]. In this method, custom-designed guides are used for the Cas9 enzyme to cleveage unwanted sequences. This strategy is applied once libraries are prepared, and before the final PCR amplification is conducted. When the targetted molecules are cleaveged, they lack one of the two adaptors, and therefore they are not amplified, resulting in a considerable depletion compared to the rest of the library.
+The newest method of all three relies on the DNA claveage capacity of the Cas9 enzyme [@Gu2016-yf]. In this method, custom-designed guides are used for the Cas9 enzyme to cleveage unwanted sequences. This strategy is applied once libraries are prepared, and before the final PCR amplification is conducted. When the targetted molecules are cleaveged, they lack one of the two adaptors, and therefore they are not amplified, resulting in a considerable depletion compared to the rest of the library.
 
 ### List of available protocols {- #rrna-depletion-protocols}
 
 |Name|Strategy|Author/owner|Protocol/Article|
 |---|---|---|---|
-| Custom capture-based depletion | Capture-based | Open Source | [Article](https://www.nature.com/articles/s41598-019-48692-2) [@Kraus2019] |
+| Custom capture-based depletion | Capture-based | Open Source | [Article](https://www.nature.com/articles/s41598-019-48692-2) [@Kraus2019-fq] |
 | Legacy Ribo-Zero | Capture-based | Illumina | |
-| Custom RNAse-based depletion | RNAse-based | Open Source | [Article](https://academic.oup.com/nar/article/48/4/e20/5687826) [@Huang2019] |
+| Custom RNAse-based depletion | RNAse-based | Open Source | [Article](https://academic.oup.com/nar/article/48/4/e20/5687826) [@Huang2020-xf] |
 | Ribo-Zero Plus | RNAse-based | Illumina | |
 | NEBNext® rRNA Depletion Kit | RNAse-based | NEB | |
-| DASH | Cas9-based | Open Source | [Article](https://rnajournal.cshlp.org/content/26/8/1069.full) [@Prezza2020] |
+| DASH | Cas9-based | Open Source | [Article](https://rnajournal.cshlp.org/content/26/8/1069.full) [@Prezza2020-ln] |
 
 :::: {.authorbox}
 Contents of this section were created by [Antton Alberdi](#antton-alberdi).  

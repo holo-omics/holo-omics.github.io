@@ -16,16 +16,16 @@ output:
 ![](images/holo-omics_overview_nyholm.png "Author: Lasse Nyholm")
 
 :::: {.imagenote}
-Holo-omics overview. Modified from Nyholm et al. 2020 [@Nyholm-2020]
+Holo-omics overview. Modified from Nyholm et al. 2020 [@Nyholm2020-ua]
 :::
 
-The **practical guide to holo-omics** is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities [@Nyholm-2020; @Limborg-2018]. This resource extends the contents of the article **"A practical introduction to holo-omics"**, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of this guide is to compile protocols and pipelines to be implemented by researchers. The **practical guide to holo-omics** is presented in two formats:
+The **practical guide to holo-omics** is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities [@Nyholm2020-ua; @Limborg2018-tf]. This guide extends the contents of the article **"A practical introduction to holo-omics"**, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of this guide is to compile protocols and pipelines to be implemented by researchers. The **practical guide to holo-omics** is presented in two formats:
 
 * Website (https://holo-omics.github.io/)
 * PDF document (https://holo-omics.github.io/holo-omics_workbook.pdf)
 
 :::: {.graybox}
-These resources are presented as two of the main final outputs of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
+This guide is presented as a final output of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
 :::
 
 ### Contents {-}
@@ -37,7 +37,7 @@ These resources are presented as two of the main final outputs of the H2020 proj
 
 ### Protocols, exercises and tutorials {- #protocols-exercises-tutorials}
 
-Thhis guide contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
+This guide contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
 
 ```{r eval=FALSE}
 shao4d_perm <- shao4d %>%

@@ -228,9 +228,9 @@ div.csl-indent {
 <li class="chapter" data-level="7.1" data-path="prepare-shell.html"><a href="prepare-shell.html"><i class="fa fa-check"></i><b>7.1</b> Prepare your shell environment</a>
 <ul>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#required-software"><i class="fa fa-check"></i>Required software</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-miniconda"><i class="fa fa-check"></i>Install miniconda</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba-optional"><i class="fa fa-check"></i>Install mamba (optional)</a></li>
-<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-a-conda-environment"><i class="fa fa-check"></i>Create a conda environment</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-conda-miniconda"><i class="fa fa-check"></i>Install conda / miniconda</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-mamba"><i class="fa fa-check"></i>Install mamba (optional)</a></li>
+<li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#create-conda-environment"><i class="fa fa-check"></i>Create a conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
@@ -347,7 +347,7 @@ div.csl-indent {
 </ul>
 <div id="individual-assembly-based" class="section level3 hasAnchor" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Individual assembly-based<a href="assembly-based.html#individual-assembly-based" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Two of the most popular metagenome assemblers are <strong>Megahit</strong> and <strong>MetaSpades</strong>. Metaspades is considered superior in therms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g. bbmap) to get rid off barely informative yet often abundant short contigs.</p>
+<p>Two of the most popular metagenome assemblers are <strong>Megahit</strong> and <strong>MetaSpades</strong>. Metaspades is considered superior in terms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g. bbmap) to get rid off barely informative yet often abundant short contigs.</p>
 <div id="individual-assembly-using-megahit" class="section level4 hasAnchor" number="10.2.1.1">
 <h4><span class="header-section-number">10.2.1.1</span> Individual assembly using Megahit<a href="assembly-based.html#individual-assembly-using-megahit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="assembly-based.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">megahit</span> <span class="dt">\</span></span>

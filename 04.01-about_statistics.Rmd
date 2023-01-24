@@ -27,7 +27,7 @@ All statistical analyses included in the **Holo-omics workbook** are conducted i
 
 ## Prepare your R environment {#prepare-r}
 
-All statistical analyses included in the **Holo-omics workbook** are conducted in [R environment](https://en.wikipedia.org/wiki/R_(programming_language)) [@R-core-2022]. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, [R](https://cran.r-project.org/) or [RStudio](https://posit.co/downloads/) must be installed in your local computer or remote server.
+All statistical analyses included in the **Holo-omics workbook** are conducted in [R environment](https://en.wikipedia.org/wiki/R_(programming_language)) [@R_Development_Core_Team2008-gd]. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, [R](https://cran.r-project.org/) or [RStudio](https://posit.co/downloads/) must be installed in your local computer or remote server.
 
 ### Required packages {-}
 
