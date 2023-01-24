@@ -97,5 +97,5 @@ Antton is an Associate Professor at the University of Copenhagen whose research 
 Instructions to cite this work will be eventually added.
 
 ### Acknowledgement {-}
-![HF Logo](https://www.holofood.eu/files/logo_only.png)
-This project has received funding from the European Unionʼs Horizon 2020 research and innovation programme under grant agreement No 817729.
+![HF Logo](images/holofood_logo_large.png)
+This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 817729.
