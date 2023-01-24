@@ -1,0 +1,1656 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\title{A Practical Guide to Holo-Omics}
+\author{}
+\date{\vspace{-2.5em}}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={A Practical Guide to Holo-Omics},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{about-this-guidebook}{%
+\chapter*{About this guidebook}\label{about-this-guidebook}}
+\addcontentsline{toc}{chapter}{About this guidebook}
+
+\textbf{The practical guide to holo-omics is under construction, and its contents are still preliminary. We expect to have an initial complete version by May 2023.}
+
+\includegraphics{images/holo-omics_overview_nyholm.png}
+
+Holo-omics overview. Modified from Nyholm et al.~2020 \citep{Nyholm2020-ua}
+
+The \textbf{practical guide to holo-omics} is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities \citep{Nyholm2020-ua, Limborg2018-tf}. This guide extends the contents of the article \textbf{``A practical introduction to holo-omics''}, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of this guide is to compile protocols and pipelines to be implemented by researchers. The \textbf{practical guide to holo-omics} is presented in two formats:
+
+\begin{itemize}
+\tightlist
+\item
+  Website (\url{http://www.holo-omics.science/})
+\item
+  PDF document (\url{http://www.holo-omics.science/holo_omics_workbook.pdf})
+\end{itemize}
+
+This guide is presented as a final output of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the \href{http://www.holofood.eu}{HoloFood Website} and the \href{https://cordis.europa.eu/project/id/817729}{CORDIS website}.
+
+\hypertarget{contents}{%
+\subsection*{Contents}\label{contents}}
+\addcontentsline{toc}{subsection}{Contents}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{holo-omics}{Introduction}}: general information about holo-omics, employed data types and study design considerations.
+\item
+  \textbf{\protect\hyperlink{about-labwork}{Laboratory procedures}}: methods and procedures for generating raw omic data of hosts and microbial communities.
+\item
+  \textbf{\protect\hyperlink{about-bioinformatics}{Bioinformatic procedures}}: methods and procedures for processing raw omic data into quantitative datasets to be analysed through statistics.
+\item
+  \textbf{\protect\hyperlink{about-statistics}{Statistical procedures}}: methods and procedures for analysing and integrating holo-omic data.
+\end{itemize}
+
+\hypertarget{protocols-exercises-tutorials}{%
+\subsection*{Protocols, exercises and tutorials}\label{protocols-exercises-tutorials}}
+\addcontentsline{toc}{subsection}{Protocols, exercises and tutorials}
+
+This guide contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{shao4d\_perm }\OtherTok{\textless{}{-}}\NormalTok{ shao4d }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tax\_transform}\NormalTok{(}\StringTok{"identity"}\NormalTok{, }\AttributeTok{rank =} \StringTok{"genus"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{dist\_calc}\NormalTok{(}\StringTok{"aitchison"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{dist\_permanova}\NormalTok{(}
+    \AttributeTok{variables =} \FunctionTok{c}\NormalTok{(}\StringTok{"birth\_mode"}\NormalTok{, }\StringTok{"sex"}\NormalTok{, }\StringTok{"number\_reads"}\NormalTok{),}
+    \AttributeTok{n\_perms =} \DecValTok{99}\NormalTok{, }\CommentTok{\# you should use more permutations in your real analyses!}
+    \AttributeTok{n\_processes =} \DecValTok{1}
+\NormalTok{  )}
+\CommentTok{\#\textgreater{} Dropping samples with missings: 15}
+\CommentTok{\#\textgreater{} 2022{-}11{-}24 01:15:20 {-} Starting PERMANOVA with 99 perms with 1 processes}
+\CommentTok{\#\textgreater{} 2022{-}11{-}24 01:15:21 {-} Finished PERMANOVA}
+
+\NormalTok{shao4d\_perm }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{perm\_get}\NormalTok{()}
+\CommentTok{\#\textgreater{} Permutation test for adonis under reduced model}
+\CommentTok{\#\textgreater{} Marginal effects of terms}
+\CommentTok{\#\textgreater{} Permutation: free}
+\CommentTok{\#\textgreater{} Number of permutations: 99}
+\CommentTok{\#\textgreater{}}
+\CommentTok{\#\textgreater{} vegan::adonis2(formula = formula, data = metadata, permutations = n\_perms, by = by, parallel = parall)}
+\CommentTok{\#\textgreater{}               Df SumOfSqs      R2       F Pr(\textgreater{}F)   }
+\CommentTok{\#\textgreater{} birth\_mode     1    10462 0.09055 29.3778   0.01 **}
+\CommentTok{\#\textgreater{} sex            1      402 0.00348  1.1296   0.31   }
+\CommentTok{\#\textgreater{} number\_reads   1     1117 0.00967  3.1364   0.01 **}
+\CommentTok{\#\textgreater{} Residual     287   102209 0.88462                  }
+\CommentTok{\#\textgreater{} Total        290   115540 1.00000                  }
+\CommentTok{\#\textgreater{} {-}{-}{-}}
+\CommentTok{\#\textgreater{} Signif. codes:  0 \textquotesingle{}***\textquotesingle{} 0.001 \textquotesingle{}**\textquotesingle{} 0.01 \textquotesingle{}*\textquotesingle{} 0.05 \textquotesingle{}.\textquotesingle{} 0.1 \textquotesingle{} \textquotesingle{} 1}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{authors}{%
+\subsection*{Authors}\label{authors}}
+\addcontentsline{toc}{subsection}{Authors}
+
+\hypertarget{antton-alberdi}{%
+\subsubsection*{Antton Alberdi}\label{antton-alberdi}}
+\addcontentsline{toc}{subsubsection}{Antton Alberdi}
+
+Antton is an Associate Professor at the University of Copenhagen whose research is focused on understanding how animal-microbiota interactions shape basic and applied biological processes. Antton is the corresponding author of the \textbf{Practical Guide to Holo-omics}.
+
+\url{antton.alberdi@sund.ku.dk} \textbar{} \url{www.alberdilab.dk}
+
+\begin{itemize}
+\tightlist
+\item
+  Morten T Limborg, University of Copenhagen
+\item
+  Iñaki Odriozola, University of Copenhagen
+\item
+  Jacob A Rasmussen, University of Copenhagen
+\end{itemize}
+
+\hypertarget{protocol-and-script-contributors}{%
+\subsubsection*{Protocol and script contributors}\label{protocol-and-script-contributors}}
+\addcontentsline{toc}{subsubsection}{Protocol and script contributors}
+
+\begin{itemize}
+\tightlist
+\item
+  Carlotta Pietroni, University of Copenhagen
+\item
+  Raphael Eisenhofer, University of Copenhagen
+\item
+  Jorge Langa, University of Copenhagen
+\end{itemize}
+
+\hypertarget{other-relevant-people}{%
+\subsubsection*{Other relevant people}\label{other-relevant-people}}
+\addcontentsline{toc}{subsubsection}{Other relevant people}
+
+\begin{itemize}
+\tightlist
+\item
+  Tom Gilbert (HoloFood project coordinator), University of Copenhagen
+\item
+  Anna Fotaki (HoloFood project manager), University of Copenhagen
+\end{itemize}
+
+\hypertarget{how-to-cite-this-work}{%
+\subsection*{How to cite this work}\label{how-to-cite-this-work}}
+\addcontentsline{toc}{subsection}{How to cite this work}
+
+Instructions to cite this work will be eventually added.
+
+\hypertarget{acknowledgement}{%
+\subsection*{Acknowledgement}\label{acknowledgement}}
+\addcontentsline{toc}{subsection}{Acknowledgement}
+
+\includegraphics{images/holofood_logo_large.png}
+This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 817729.
+
+\hypertarget{part-introduction}{%
+\part{INTRODUCTION}\label{part-introduction}}
+
+\hypertarget{holo-omics}{%
+\chapter{Introduction to holo-omics}\label{holo-omics}}
+
+Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities \citep{Nyholm2020-ua}. The holo-omic approach to host-microbiota interactions relies on three major assumptions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Host-associated microorganisms interact not only with each other but also with their host \citep{Fischer2017-wa}.
+\item
+  These interactions affect, either positively or negatively, central biological processes of hosts and microorganisms \citep{Wu2012-jt}.
+\item
+  The interplay can be traced using biomolecular tools.
+\end{enumerate}
+
+\hypertarget{omic-layers}{%
+\section{Omic layers}\label{omic-layers}}
+
+Nucleic acid sequencing and mass spectrometry technologies that enable tracking the biomolecular pathways linking host and microbial genomic sequences with biomolecular phenotypes by generating (meta)transcriptomes, (meta) proteomes, and (meta)metabolomes. The same technologies also enable epigenomic and exposomic profiling, which can further contribute to disentangling the biochemical associations between host-microbiota-environment interactions and their effect on host phenotypes.
+
+\includegraphics{images/omic_layers_limborg.png}
+
+Overview of omic layers. Modified from Limborg et al.~2018 \citep{Limborg2018-tf}.
+
+In this workbook we consider seven omic layers that require specific data generation and analysis strategies before integrating them into multi-omic statistical models:
+
+\begin{itemize}
+\tightlist
+\item
+  Nucleic acid sequencing-based
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Host genomics - \textbf{\protect\hyperlink{host-genomics}{HG}}
+  \item
+    Host transcriptomics - \textbf{\protect\hyperlink{host-transcriptomics}{HT}}
+  \item
+    Microbial metagenomics - \textbf{\protect\hyperlink{microbial-metagenomics}{MG}}
+  \item
+    Microbial metatranscriptomics - \textbf{\protect\hyperlink{microbial-metatranscriptomics}{MT}}
+  \end{itemize}
+\item
+  Mass spectrometry-based
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Host proteomics - \textbf{\protect\hyperlink{host-proteomics}{HP}}
+  \item
+    Microbial metaproteomics - \textbf{\protect\hyperlink{microbial-metaproteomics}{MP}}
+  \item
+    (Meta)metabolomics - \textbf{\protect\hyperlink{meta-metabolomics}{ME}}
+  \end{itemize}
+\end{itemize}
+
+Acknowledging the distinct biological and structural characteristics of these seven omic layers is essential to design experiments and analytical pipelines for better solving the complex puzzle of host-microbiota interactions.
+
+\hypertarget{host-genomics}{%
+\section{Host genomics (HG)}\label{host-genomics}}
+
+Contents to be added
+
+\hypertarget{host-transcriptomics}{%
+\section{Host transcriptomics (HT)}\label{host-transcriptomics}}
+
+Contents to be added
+
+\hypertarget{microbial-metagenomics}{%
+\section{Microbial metagenomics (MG)}\label{microbial-metagenomics}}
+
+Contents to be added
+
+\hypertarget{microbial-metatranscriptomics}{%
+\section{Microbial metatranscriptomics (MT)}\label{microbial-metatranscriptomics}}
+
+Contents to be added
+
+\hypertarget{host-proteomics}{%
+\section{Host proteomics (HP)}\label{host-proteomics}}
+
+Contents to be added
+
+\hypertarget{microbial-metaproteomics}{%
+\section{Microbial metaproteomics (MP)}\label{microbial-metaproteomics}}
+
+Contents to be added
+
+\hypertarget{meta-metabolomics}{%
+\section{(Meta)metabolomics (ME)}\label{meta-metabolomics}}
+
+Contents to be added
+
+\hypertarget{study-design-considerations}{%
+\chapter{Study design considerations}\label{study-design-considerations}}
+
+The contents of this section have been extracted and modified from the article \href{https://www.nature.com/articles/s41576-021-00421-0}{Disentangling host--microbiota complexity through hologenomics} published in \textbf{\emph{Nature Reviews Genetics}} in 2022 by the authors of the \textbf{Holo-omics Workbook}.
+
+Holo-omic approaches can be used to understand how the combined features of hosts and microorganisms shape biological processes relevant for hosts (such as adaptation), for microorganisms (such as meta-community dynamics) or both \citep{Alberdi2022-ay}.
+
+Depending on the aims and features of the study system, holo-omics can be implemented using different study designs, model systems and techniques. This landscape of possibilities is shaped around five essential questions that need to be considered when designing and interpreting hologenomic studies, which relate to five core topics:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{hologenomic-complexity}{Hologenomic complexity}}
+\item
+  \textbf{\protect\hyperlink{control-of-variables}{Control of variables}}
+\item
+  \textbf{\protect\hyperlink{molecular-resolution}{Molecular resolution}}
+\item
+  \textbf{\protect\hyperlink{spatiotemporal-factors}{Spatiotemporal factors}}
+\item
+  \textbf{\protect\hyperlink{explanatory-and-response-variables}{Explanatory and response variables}}
+\end{enumerate}
+
+\includegraphics{images/holo-omics_five_questions.png}
+
+\hypertarget{hologenomic-complexity}{%
+\section{Hologenomic complexity}\label{hologenomic-complexity}}
+
+The contents of this section have been extracted and modified from the article \href{https://www.nature.com/articles/s41576-021-00421-0}{Disentangling host--microbiota complexity through hologenomics} published in \textbf{\emph{Nature Reviews Genetics}} in 2022 by the authors of the \textbf{Holo-omics Workbook}.
+
+Hologenomic complexity can be broadly defined as the amount of information relevant to the study that the biological system under analysis contains and it can be decomposed into three major elements: host genomic, microbial metagenomic and environmental complexity \citep{Alberdi2022-ay}. Within each of these elements, two sources of complexity can be defined: the intrinsic complexity of the system under study, including host genome size and number of bacterial genomes, and the complexity introduced by the degree of difference between the organisms under comparison such as gene expression differences versus distinct genomes.
+
+\includegraphics{images/holo-omics_complexity.png}
+
+\textbf{Decomposition of hologenomic complexity.} \textbf{(a-c)} The design and interpretation of hologenomic studies depend on the host genomic (part a), microbial metagenomic (part b) and environmental (part c) complexity of the system under study. Within each axis of complexity, two types of gradients can be defined based on whether the features are intrinsic to the system or introduced by the researcher through the selection of groups under comparison. \textbf{(d)} Six examples of study systems with different levels of genomic, metagenomic and environmental complexity. \textbf{(e)} Three-dimensional representation of the complexity of the examples. The area of the plain represents the combined host genomic and microbial metagenomic complexity of the system, while the height represents the environmental complexity. The combined three-dimensional volume represents the overall hologenomic complexity of the system. HMP: Human Microbiome Project.
+
+\hypertarget{control-of-variables}{%
+\section{Control of variables}\label{control-of-variables}}
+
+The contents of this section have been extracted and modified from the article \href{https://www.nature.com/articles/s41576-021-00421-0}{Disentangling host--microbiota complexity through hologenomics} published in \textbf{\emph{Nature Reviews Genetics}} in 2022 by the authors of the \textbf{Holo-omics Workbook}.
+
+Controlling the complexity of hologenomic variables is essential for addressing specific research questions. Broadly speaking, the more detailed and mechanistic the question under study, the greater the required control. For instance, research on specific biomolecular processes using laboratory models will require a higher level of control than studying biogeographical patterns of host--microbiota interactions in wild organisms. The control of hologenomic variables can be achieved through a number of strategies.
+
+\hypertarget{controlling-host-genomes}{%
+\subsection{Controlling host genomes}\label{controlling-host-genomes}}
+
+The control over host genomic complexity largely depends on the model organisms studied and the technical approaches employed. In laboratory organisms that can reproduce asexually, such as water fleas (Daphnia, Crustacea) and Lamiaceae plants, absolute control over host genotypes can be achieved by using clonal organisms \citep{Mushegian2019-md}. When clones cannot be used, inbred laboratory animals can provide a high level of genomic homogeneity. The use of groups of genetically homogeneous hosts allows the effects of contrasting environmental conditions or specific microbial comunities to be compared. Clonal and inbred models also enable the effects of a specific host genetic factor to be studied in a controlled genomic background through the application of targeted techniques for modulating gene expression (such as RNA-mediated interference) or for genomic engineering (such as CRISPR--Cas9). Working with humans and wild organisms does not enable such a degree of control over the genotypes studied unless in vitro models, such as organ-on-a-chip co-cultures of animal tissues and microbial communities, are generated62. When this level of control is not possible, coarse control over host genotypes can be achieved through contrasting animals from different populations or from closely related species63, while greater control can be achieved through comparing individuals across different degrees of kinship, such as monozygotic versus dizygotic twins38, and family members to other individuals64.
+
+\hypertarget{controlling-microbial-metagenomes}{%
+\subsection{Controlling microbial metagenomes}\label{controlling-microbial-metagenomes}}
+
+Control over microbial metagenomic complexity is usually achieved through modulating microbial communities. Some strategies, such as modification of dietary regimes or the administration of microbiota-targeted additives or prebiotics, aim to modify microbial ecosystems by changing nutrient availability. However, unless compounds that match unique enzymatic capabilities of specific microorganisms are used, it is difficult to accurately modulate the microbiota owing to the complexity of ecological relationships among microorganisms. Alternative approaches to modify microbial communities include inoculation of target bacteria (such as probiotics) and faecal microbiota transplantation. The efficacy and accuracy of these methods is also variable; there is no guarantee that inoculated bacteria will establish or modulate the microbiota, while transplantation does not enable accurate control over the microbial community introduced or the secondary elements that are transplanted along with bacteria. These issues complicate interpretation of results; for example, bacteriophages transferred alongside bacteria may severely impact the gut microbiota composition. A higher level of control could potentially be achieved through transplanting synthetic microbial communities. While this approach has been successfully implemented in diverse in vitro setups the complexity of microbial communities still hinders its efficient use as a routine scientific procedure in live animals.
+
+\hypertarget{controlling-environment}{%
+\subsection{Controlling the environment}\label{controlling-environment}}
+
+In most laboratory studies, environmental complexity is reduced so that no, or very few, environmental parameters (usually only experimental treatments) vary among groups and subjects. Climate chambers and aquaria enable experiments by providing absolute control of abiotic conditions, such as light/dark cycles, humidity and temperature variations. Outdoor common garden experiments do not provide full control over environmental factors, but they ensure the effect on the systems being compared is identical. Some natural systems can also provide special conditions that enable environmental features to be controlled, such as cuckoo nestlings that are bred by other birds or salmon populations that breed in the same rivers in alternating years. Research on wild organisms usually incorporates more complex and dynamic environmental conditions. When controlling them is not possible, collection of relevant environmental metadata to be incorporated as covariates in the statistical analyses is useful. A century of ecological research has revealed the advantages of each of these approaches. On the one extreme, laboratory microcosms allow the most reductive control. On the other extreme, studies in the macrocosm of the real world provide perspective on emergent properties of natural ecosystems that cannot be anticipated solely based on microcosms.
+
+\hypertarget{molecular-resolution}{%
+\section{Molecular resolution}\label{molecular-resolution}}
+
+The contents of this section have been extracted and modified from the article \href{https://www.nature.com/articles/s41576-021-00421-0}{Disentangling host--microbiota complexity through hologenomics} published in \textbf{\emph{Nature Reviews Genetics}} in 2022 by the authors of the \textbf{Holo-omics Workbook}.
+
+The complexity of a study system is not only determined by its inherent properties and study design, but also the techniques and procedures employed to analyse it. Researchers can decide how much a system is simplified by altering the resolution of the hologenomic features under study; in essence, zooming in or zooming out.
+
+\hypertarget{host-genotype-resolution}{%
+\subsection{Resolution of host genotypes}\label{host-genotype-resolution}}
+
+In host-microbiota studies, host genotypes can be defined at different levels, including species, breeds, populations, strains, sex or individuals. Genotypes can be defined as categorical variables, without analysing the differences between them, or can be studied in more detail through considering their actual genetic content and establishing correlations among them. When using an evolutionary perspective, phylogenetic relationships between genotypes are established based on phylogenomic markers, which usually vary above population and species level, but not among individuals. This implies that genomic variability among the individuals included within each genotype is overlooked. Studying the effect of interindividual genomic variability on host-microbiota systems, such as identifying candidate host genomic variants associated with microbial features, requires a higher level of resolution. This is achieved through defining genotypes at the individual level, and using techniques based on whole genome resequencing that enable the complexity of host genomes to be screened at a much finer level, so that differences between the individuals contrasted are not only defined based on their kinship, but also the functional properties of their genomic variants. Currently, this approach requires high quality reference genomes from which high density SNP profiles of individuals can be generated, for example through SNPchip or resequencing studies. The genomic resolution could be further refined by incorporating structural variants, methylation patterns, or even, we hypothesise, chromosome 3D folding structure as revealed through techniques such as Hi-C. In doing so, researchers can identify associations between SNPs or gene variants and specific microbiota traits, such as the relative abundance of certain taxa or the enrichment of a given function, and thus identify mechanisms by which a host exerts control over composition and function of its associated microbiota
+
+\hypertarget{microbial-metagenotype-resolution}{%
+\subsection*{Resolution of microbial metagenotypes}\label{microbial-metagenotype-resolution}}
+\addcontentsline{toc}{subsection}{Resolution of microbial metagenotypes}
+
+The structure and resolution at which microbial metagenotypes are defined also affects the complexity of the metagenome under analysis. Metagenotypes can be defined as arrays of microbial taxa, microbial genes or a combination of both. The most common approach to define them is to rely on short marker sequences targeted for metabarcoding purposes, such as the 16S rRNA or the internal transcribed spacer (ITS). However, these procedures often do not enable reliable taxonomic assignment at genus or species level, do not capture strain level community dynamics, and are prone to generate biased functional inferences, as bacteria with identical marker genes (particularly those associated with wild taxa) might carry very different catalogues of genes. Thus, while useful for estimating microbial diversity and obtaining preliminary insights into functionality, targeted sequencing approaches do not provide conclusive evidence about the metabolic capabilities of the microbiota, particularly when working with non-human systems.
+
+By contrast, if appropriate strategies and adequate sequencing depths are employed, shotgun metagenomics enables bacterial genome sequences to be recovered, from which genes can be predicted and annotated to create a gene catalogue that can define a metagenotype. However, these genes are not randomly distributed, but enclosed within genomes of specific bacteria or other microorganisms, with a particular combination of genes that shape their expression and the specific biological features (such as oxygen affinity, reproduction time, metabolic capacity) that determine their ecology. Hence, a more refined characterisation of microbial metagenotypes can be achieved through binning algorithms that enable bacterial genome reconstruction from metagenomic mixtures, yielding metagenome-assembled genomes (MAGs). Nevertheless, unless short-read sequencing is combined with long-read approaches, it is challenging to capture multi-copy genes such as the 16S rRNA marker gene 103, which is often employed in metabarcoding studies and therefore represents a useful link to a large number of existing studies. Machine learning-based solutions to link 16S rRNA marker gene sequences with MAGs are, however, being developed 104. Finally, regardless of the approach used to define the microbial metagenotype, the complexity of microbial communities will often require dimensionality reduction to increase statistical power 105,106. This can be achieved by defining co-abundance clusters, ecological guilds or more complex strategies that also consider temporal features of microbiota variation, such as compositional tensor factorisation.
+
+\hypertarget{envirotype-resolution}{%
+\subsection*{Resolution of envirotypes}\label{envirotype-resolution}}
+\addcontentsline{toc}{subsection}{Resolution of envirotypes}
+
+Characterisation of environmental factors that affect the host-microbiota system under study enable the definition of envirotypes, a term drawn from crop sciences that is useful for accounting for the environmental factors in the hologenomic context. Any different physical place, or place sampled at different time points, will be exposed to a different environment, as conditions will seldom be identical between two spatial and temporal points. Hence, the resolution at which the composite of environmental factors is considered will define whether these two environments will be considered different envirotypes or not. For example, if only considering water temperature, killer whales sampled in the Arctic and the Antarctic seas experience the same envirotype. However, if the biotic composition is also considered in the definition of the environment, the Arctic and the Antarctic will need to be split into two distinct envirotypes, as some killer whales will have access to penguins while others will not. The same principle applies to laboratory setups or mesocosm experiments: a temperature shift of 2-3 ºC might not be considered relevant under some experimental setups, while it can define different envirotypes under other study designs. Finally, failure to recognise environmental factors that affect host-microbiota interactions, and thus define relevant envirotypes, can lead to increased noise and decreased capacity to achieve statistical significance.
+
+\hypertarget{spatiotemporal-factors}{%
+\section{Spatiotemporal factors}\label{spatiotemporal-factors}}
+
+The contents of this section have been extracted and modified from the article \href{https://www.nature.com/articles/s41576-021-00421-0}{Disentangling host--microbiota complexity through hologenomics} published in \textbf{\emph{Nature Reviews Genetics}} in 2022 by the authors of the \textbf{Holo-omics Workbook}.
+
+\hypertarget{spatial-factors}{%
+\subsection*{Spatial factors}\label{spatial-factors}}
+\addcontentsline{toc}{subsection}{Spatial factors}
+
+Spatial resolution. Microbial communities associated with animal and plant hosts vary not only across coarse body parts, but also at the micro-scale, such as between the lumen and the intestinal crypts. Thus, the resolution at which a body site is defined will also determine how a hologenomic system is characterised. For example, the animal gastrointestinal tract can be considered a single sampling unit, 4-5 units or hundreds of micro-units, depending on the sampling and data processing strategies employed. Naturally, each level of resolution will allow different questions to be addressed and will require the use of different technologies and analytical approaches.
+
+\hypertarget{temporal-factors}{%
+\subsection*{Temporal factors}\label{temporal-factors}}
+\addcontentsline{toc}{subsection}{Temporal factors}
+
+Temporal features to be considered include when, how often, and for how long host-microbiota systems are to be analysed. When a host is first exposed to microbes with regard to temporal benchmarks (number of days or years) must be considered, as should the order in which it is exposed to them. Priority effects relate to how the order of species arrivals in an ecosystem shape the potential for subsequently arriving taxa to establish themselves. Although originally discussed at the macroorganismal level in the context of plant communities, the phenomenon is also relevant for building host-associated microorganism communities, for example as documented in the human gut. In addition, microbial communities are known to vary daily, seasonally and relative to life-stage patterns. Hence, the extent and frequency of sampling determine which of these dynamics will be observed or, conversely, missed. Finally, it is important to consider that the consequences of changes at one time period or life stage may appear only later in time, thus detection of such effects obviously requires that the subsequent period is also studied. For example, interventional animal experiments show that when the immune system develops early in life, there is a window of opportunity where the gut microbiota composition shapes the risk of developing diseases in the future.
+
+\hypertarget{explanatory-and-response-variables}{%
+\section{Explanatory and response variables}\label{explanatory-and-response-variables}}
+
+The contents of this section have been extracted and modified from the article \href{https://www.nature.com/articles/s41576-021-00421-0}{Disentangling host--microbiota complexity through hologenomics} published in \textbf{\emph{Nature Reviews Genetics}} in 2022 by the authors of the \textbf{Holo-omics Workbook}.
+
+Host genomic and microbial metagenomic data generated under hologenomic setups can take on different roles when generating statistical models. While the environment is most often considered as an explanatory variable (though one can also study how the hologenome affects the environment), the host genome and the microbial metagenome are sometimes viewed as explanatory and sometimes as response variables, depending on the aim of the research. In many cases, directionality is set by the researcher rather than the biological system itself, as host-microbiota systems contain many bi-directional interactions and circular processes, which complicate the establishment of causal relationships. Here, we define three basic models in which the three main variables (genome, metagenome and environment) are assigned different roles to address different types of fundamental questions.
+
+\includegraphics{images/hologenomics_response_variables.png}
+
+Examples of biological processes addressed by the different models of host-microbiota interactions. \textbf{a)} How does the hologenome shape animal phenotypes? Only the combination of specific host genomic (G) and microbial metagenomic (MG) features, probably developed due to a selective force exerted by the presence of predators (E) enables rough-skinned newts to have skin toxicity, an ecologically relevant phenotypic trait (P). \textbf{b)} How do the microbial metagenome and environment shape host genomic features? SCFA-producing bacteria along with a fibre-rich diet enhance chromatin accessibility and thus activate immune gene expression. \textbf{c)} How do the host genome and the environment shape microbial genomic features? Only the combination of a lactase nonpersister genotype combined with the milk-drinking envirotype generates a microbial metagenotype characterised by enrichment of Bifidobacterium.
+
+\hypertarget{p-g-m-e}{%
+\subsection*{Phenotype as a product of genotype, metagenotype and envirotype}\label{p-g-m-e}}
+\addcontentsline{toc}{subsection}{Phenotype as a product of genotype, metagenotype and envirotype}
+
+This is the main model used when hologenomics is conducted to ascertain how genome-metagenome-environment interactions affect the biological properties of a host, such as disease susceptibility, performance or fitness. It is an especially common and relevant model for health, agricultural, and ecological and evolutionary research 19,125--127. One clear example of a phenotype shaped by host genomic, microbial metagenomic and environmental factors was recently reported for rough-skinned newts. The study showed that bacteria on the skin of the newts produce a deadly neurotoxin from which the newt is protected by mutations in five host genes that encode the NaV channels normally targeted by the toxin. Thus, this `toxic newt' phenotype is the result of both host and microbial genes, which likely evolved under the pressure exerted by an environmental factor, namely the presence of predators.
+
+\hypertarget{g-m-e}{%
+\subsection*{Genotype expression influenced by metagenotype and envirotype}\label{g-m-e}}
+\addcontentsline{toc}{subsection}{Genotype expression influenced by metagenotype and envirotype}
+
+When studying how core host genomic features, which contribute to shaping phenotypes, are affected by the microbiota, host genomic features become the response variable. Unlike the microbial metagenome, the genome sequence of the host organism is not variable, but microorganisms can induce chromatin remodelling and DNA methylation, and thus modulate the bioactivity of molecular receptors and host gene expression. A well-studied pathway that links the microbiota with host gene expression involves modulation of the activity of host histone deacetylases (HDAC) by short chain fatty acids (SCFA) produced by intestinal microorganisms. HDACs remove histone lysine acetyl groups, which leads to chromatin condensation and transcriptional silencing of genes. Increased SCFA concentrations inhibit histone deacetylases, thereby enhancing chromatin accessibility and activating gene expression. A metagenotype with a higher capacity to produce SCFAs combined with an envirotype characterised as a fibre-rich diet (required to produce SCFAs), therefore contributes to boost immune response through activating host immune gene expression.
+
+\hypertarget{m-g-e}{%
+\subsection*{Metagenotype as a product of genotype and envirotype}\label{m-g-e}}
+\addcontentsline{toc}{subsection}{Metagenotype as a product of genotype and envirotype}
+
+This model assumes the inverse causal directionality between the host genome and microbial metagenome to that described above. Candidate host genes related to microbiota features can be identified through GWAS in which the metagenotype (or derived metrics such as diversity or abundance of specific microbial taxa, genes or metabolic functions) are treated as a phenotypic trait. For instance, the increased abundance of lactose degrader Bifidobacteria in humans has been shown to be associated with lactase nonpersister genotype and consumption of milk (envirotype). Once candidate genes are known, targeted analyses in which natural or human-controlled genomic variability (such as the number of copies of the amylase-encoding gene in humans) can be contrasted under controlled environmental conditions to ascertain the effect on metagenotypes (such as the abundance of Ruminococcaceae bacteria in the gut microbiota).
+
+\hypertarget{part-laboratory-procedures}{%
+\part{LABORATORY PROCEDURES}\label{part-laboratory-procedures}}
+
+\hypertarget{about-labwork}{%
+\chapter{About labwork}\label{about-labwork}}
+
+\hypertarget{laboratory-general-considerations}{%
+\subsection*{General considerations}\label{laboratory-general-considerations}}
+\addcontentsline{toc}{subsection}{General considerations}
+
+Although the generation of each omic data layer requires dedicated protocols to be implemented, there are multiple general considerations that apply to all laboratory processes. In the following we list three of the most relevant ones.
+
+\hypertarget{external-contamination}{%
+\subsubsection*{External contamination}\label{external-contamination}}
+\addcontentsline{toc}{subsubsection}{External contamination}
+
+The risk of external contamination is a relevant issue that must be actively tackled when generating multi-omic data. External contamination refers to any molecule of interest that unintendedly is added to the sample, and analysed with the target molecules. As shotgun sequencing entails analysing all available nucleic acids in a sample, human saliva, skin microbiome, or microbes present in water and reagents are some of the sources of external contamination. Incorporating DNA and RNA from these sources can distort the biological signal, which can lead researchers into incorrect conclusions. The following measures contribute to minimise external contamination:
+
+\begin{itemize}
+\tightlist
+\item
+  Always wear gloves and work in sterile environments, such as clean laminar flow cabinets.
+\item
+  Use filtered pipette tips.
+\item
+  Separate pre-PCR and post-PCR laboratories.
+\item
+  Process and sequence blank controls.
+\end{itemize}
+
+\hypertarget{internal-cross-contamination}{%
+\subsubsection*{Internal cross-contamination}\label{internal-cross-contamination}}
+\addcontentsline{toc}{subsubsection}{Internal cross-contamination}
+
+Another common type of contamination is that happening among samples. During the many pipetting actions laboratory protocols entail, is not uncommon to transfer small amounts of samples to adjacent tubes or wells. This can obviously distort the sample, and lead researchers into incorrect conclusions. The following measures contribute to minimise internal cross-contamination:
+
+\begin{itemize}
+\tightlist
+\item
+  Process all batches in an identical way for errors to be detectable.
+\item
+  Avoid pipetting from the top of the tube to minimise sprays.
+\item
+  Process and sequence blank controls.
+\end{itemize}
+
+\hypertarget{batch-effects}{%
+\subsubsection*{Batch effects}\label{batch-effects}}
+\addcontentsline{toc}{subsubsection}{Batch effects}
+
+The last global consideration is to be aware of batch effects and try to minimise or account for their impact in downstream analyses. Batch effects are almost unavoidable in holo-omic data generation, because samples are usually processed in batches. Each batch can suffer different types of technical biases, including the aforementioned contamination issues, but also other problems derived from the use of different reagent stocks, different researchers executing identical protocols in slightly different ways, or storing samples for variable time periods. The critical measure to minimise the impact of batch effects and account for them in downstream analysis is to randomise samples. Randomising means randomly assigning samples from different contrasting groups to the different batches, minimising correlation between batches and experimental groups. If this is done, laboratory batches can be included as covariates in statistical analyses, which enable accounting and controlling for batch effects in the final results.
+
+\hypertarget{laboratory-procedures}{%
+\subsection*{Procedures for generating multi-omic data}\label{laboratory-procedures}}
+\addcontentsline{toc}{subsection}{Procedures for generating multi-omic data}
+
+This chapter contains sections dedicated to each of the omic layers included in the workbook.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Nucleic-acid sequencing-based approaches}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    DNA/RNA extraction for \textbf{\protect\hyperlink{host-genomics}{HG}}, \textbf{\protect\hyperlink{host-transcriptomics}{HT}}, \textbf{\protect\hyperlink{microbial-metagenomics}{MG}} and \textbf{\protect\hyperlink{microbial-metatranscriptomics}{MT}}
+  \item
+    Sequencing library preparation for \textbf{\protect\hyperlink{host-genomics}{HG}} and \textbf{\protect\hyperlink{microbial-metagenomics}{MG}}
+  \item
+    Sequencing library preparation for \textbf{\protect\hyperlink{host-transcriptomics}{HT}}
+  \item
+    Sequencing library preparation for \textbf{\protect\hyperlink{microbial-metatranscriptomics}{MT}}
+  \end{itemize}
+\item
+  \textbf{Mass spectrometry-based approaches}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Protein extraction for \textbf{\protect\hyperlink{host-proteomics}{HP}} and \textbf{\protect\hyperlink{microbial-metaproteomics}{MP}}
+  \item
+    Metabolite extraction for \textbf{\protect\hyperlink{meta-metabolomics}{ME}}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{dna-rna-extraction}{%
+\chapter{DNA/RNA extraction}\label{dna-rna-extraction}}
+
+Hundreds or (probably) thousands of different protocols and variations exist for extracting and purifying nucleic acids. Protocols can be classified based on methodological (e.g., chemical vs.~physical DNA/RNA isolation, column-based vs bead-based, commercial vs.~open-access).
+
+\hypertarget{sample-preprocessing}{%
+\subsection*{Sample preprocessing}\label{sample-preprocessing}}
+\addcontentsline{toc}{subsection}{Sample preprocessing}
+
+\hypertarget{bead-beating}{%
+\subsubsection*{Bead-beating}\label{bead-beating}}
+\addcontentsline{toc}{subsubsection}{Bead-beating}
+
+Contents to be added
+
+\hypertarget{freeze-heat-shock}{%
+\subsubsection*{Freeze-heat shock}\label{freeze-heat-shock}}
+\addcontentsline{toc}{subsubsection}{Freeze-heat shock}
+
+Contents to be added
+
+\hypertarget{tissue-digestion}{%
+\subsubsection*{Tissue digestion}\label{tissue-digestion}}
+\addcontentsline{toc}{subsubsection}{Tissue digestion}
+
+Contents to be added
+
+\hypertarget{chemical-isolation}{%
+\subsection*{Chemical isolation}\label{chemical-isolation}}
+\addcontentsline{toc}{subsection}{Chemical isolation}
+
+Based on chemical separation of nucleic acids from the rest of molecules.
+
+\hypertarget{physicochemical-isolation}{%
+\subsection*{Physicochemical isolation}\label{physicochemical-isolation}}
+\addcontentsline{toc}{subsection}{Physicochemical isolation}
+
+Based on physical separation of nucleic acids from the rest of molecules.
+
+\hypertarget{column-based}{%
+\subsubsection*{Column-based}\label{column-based}}
+\addcontentsline{toc}{subsubsection}{Column-based}
+
+Contents to be added
+
+\hypertarget{bead-based}{%
+\subsubsection*{Bead-based}\label{bead-based}}
+\addcontentsline{toc}{subsubsection}{Bead-based}
+
+Contents to be added
+
+\hypertarget{available-protocols}{%
+\subsection*{Available protocols}\label{available-protocols}}
+\addcontentsline{toc}{subsection}{Available protocols}
+
+Contents to be added
+
+\hypertarget{protein-metabolite-extraction}{%
+\chapter{Protein/metabolite extraction}\label{protein-metabolite-extraction}}
+
+Laboratory protocols for protein/metabolite extraction
+
+\hypertarget{sequencing-library-preparation}{%
+\chapter{Sequencing library preparation}\label{sequencing-library-preparation}}
+
+Sequencing of DNA and RNA molecules require sequencing libraries to be prepared, which entails modifying original nucleic acid molecules to allow sequencing platforms to identify the target molecules and perform the sequencing.
+
+\hypertarget{sequencing-strategies-platforms}{%
+\subsection*{Sequencing strategies and platforms}\label{sequencing-strategies-platforms}}
+\addcontentsline{toc}{subsection}{Sequencing strategies and platforms}
+
+Library features are specific to each sequencing platform, which requires selecting in advance the sequencing strategy to be employed. Pure nucleic acid sequencing-based strategies can be broadly divided in two groups. Short-read sequencing (SRS) platforms provide large amounts of data yet with short sequencing reads (typically 150 nucleotides). In contrast, long-read sequencing (LRS) platforms yield much longer sequences (thousands or even million of nucleotides), yet with a lower throughput, and typically lower sequence quality. The SRS market is dominated by two main companies with proprietary platforms, namely Illumina and BGI, although PacBio recently released their own SRS platform called ONSO. The LRS market is also dominated by two different companies with proprietary technologies, which are Oxford Nanopore (ONT) and Pacific Biosciences (Pacbio).
+
+Sequencing enterprises, as well as auxiliary biotechnological companies, provide library preparation kits that can be more or less customised for different purposes.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Technology
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Platforms
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sequencing type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Company
+\end{minipage} \\
+\midrule
+\endhead
+Sequencing by synthesis (SBS) & MiSeq, NovaSeq & Short-read sequencing & \href{https://www.illumina.com/}{Illumina} \\
+Combinatorial probe-anchor synthesis (cPAS) & DNBSeq & Short-read sequencing & \href{https://www.bgi.com/global}{BGI} \\
+Sequencing by binding (SBB) technology & Onso & Short-read sequencing & \href{https://www.pacb.com/}{PacBio} \\
+Single Molecule Real-Time sequencing (SMRT) & Sequel, Revio & Long-read sequencing & \href{https://www.pacb.com/}{PacBio} \\
+Nanopore sequencing & MinION, GridION, PromethION & Long-read sequencing & \href{https://nanoporetech.com/}{Oxford Nanopore} \\
+\bottomrule
+\end{longtable}
+
+Some of the most widely used sequencing technologies and platforms.
+
+\hypertarget{pcr-library}{%
+\subsection*{PCR-based vs.~PCR-free library preparation}\label{pcr-library}}
+\addcontentsline{toc}{subsection}{PCR-based vs.~PCR-free library preparation}
+
+Sequencing library preparation procedures can be split into two main groups depending on whether they PCR-amplify or not the DNA templates. Unlike in the case of targeted amplicon sequencing, in which the objective is to amplify a specific target region, the aim of including a PCR step in shotgun-based library preparation is to increase the molarity of the library and/or to attach indices (see below) to the adaptors.
+
+Learn more about PCR-based and PCR-free library preparation in \href{https://www.pnas.org/doi/abs/10.1073/pnas.1519288112}{this article} by Jones et al. \citep{Jones2015-bk}.
+
+\hypertarget{indices-multiplexing}{%
+\subsection*{Indices and multiplexing}\label{indices-multiplexing}}
+\addcontentsline{toc}{subsection}{Indices and multiplexing}
+
+Usually, library preparation also entails tagging molecules with unique sample identifiers known as indices, which enable pooling molecules derived from multiple samples in a single sequencing run. This can be achieved in PCR-free protocols by using adaptors containing unique indices per sample, or by using indexed amplification primers in PCR-based library preparation protocols.
+
+Learn more about indices and multiplexing in \href{https://academic.oup.com/nar/article/40/1/e3/1287690}{this article} by Kircher et al. \citep{Kircher2012-vy}.
+
+\hypertarget{unique-molecular-identifiers}{%
+\subsection*{Unique molecular identifiers (UMIs)}\label{unique-molecular-identifiers}}
+\addcontentsline{toc}{subsection}{Unique molecular identifiers (UMIs)}
+
+Unique molecular identifiers (UMIs) are a type of molecular barcoding that provides error correction and increased accuracy during sequencing by uniquely tag each molecule (rather than each pool of molecules derived from a sample) in a sample library. UMIs are used for a wide range of sequencing applications, many around PCR duplicates in DNA and cDNA. UMI deduplication is also useful for RNA-seq gene expression analysis and other quantitative sequencing methods.
+
+Learn more about unique molecular identifiers in \href{https://www.nature.com/articles/nmeth.1778}{this article} by Kivioja et al. \citep{Kivioja2011-fe}.
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
+
+\hypertarget{library-meta-genomics}{%
+\section{Host genomics and microbial metagenomics}\label{library-meta-genomics}}
+
+The library preparation strategies for generating host genomic (HG) and microbial metagenomic (MG) data are generally the same.
+
+\hypertarget{dna-fragmentation}{%
+\subsubsection*{DNA fragmentation}\label{dna-fragmentation}}
+\addcontentsline{toc}{subsubsection}{DNA fragmentation}
+
+Short-read sequencing libraries requires DNA to be sheared to the desired fragment-length (usually 400-500 nucleotides), which can be achieved using either chemical (e.g., restriction enzymes) or physical (e.g.~ultrasonication) procedures. Some long-read sequencing libraries intend to keep the largest DNA molecules possible, although some others recommend fragmenting to optimal mid-length molecules (e.g., around 10,000 nucleotides for Pacbio HiFi). After fragmentation, many library preparation protocols require repairing molecule ends by converting 5'-protruding and/or 3'-protruding ends to 5'-phosphorylated, blunt-end (see below) molecules.
+
+\hypertarget{adaptor-ligation}{%
+\subsubsection*{Adaptor ligation}\label{adaptor-ligation}}
+\addcontentsline{toc}{subsubsection}{Adaptor ligation}
+
+In shotgun libraries adaptors are merged to DNA template molecules through chemical ligation (e.g., using a ligase enzyme). The ligation process is slightly different depending on whether the DNA template has blunt- or sticky-ends. In blunt ends, both strands are of equal length -- i.e.~they end at the same base position, leaving no unpaired bases on either strand, while in sticky ends, one strand is longer than the other. Some protocols deliberately create sticky-ends from blunt-end fragmented DNA molecules by adding a single adenine base to form an overhang by an A-tailing reaction. This A overhang allows adapters containing a single thymine overhanging base to pair with the DNA fragments.
+
+An example of a blunt-end molecule:
+
+\begin{verbatim}
+5'-GATCTGACTGATGCGTATGCTAGT-3'
+3'-CTAGACTGACTACGCATACGATCA-5'
+\end{verbatim}
+
+An example of a sticky-end molecule:
+
+\begin{verbatim}
+5'-GATCTGACTGATGCGTATGCTAGT-3'
+3'-CTAGACTGACTACGCATACGATC-5'
+\end{verbatim}
+
+\hypertarget{library-meta-genomics-protocols}{%
+\subsection*{List of available protocols}\label{library-meta-genomics-protocols}}
+\addcontentsline{toc}{subsection}{List of available protocols}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Author/owner
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Protocol/Article
+\end{minipage} \\
+\midrule
+\endhead
+SRS & Blunt-End Single-Tube (BEST) library prep protocol & Open access & \href{https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12871}{Article} \\
+SRS & Santa Cruz Reaction (SCR) single-stranded library prep protocol & Open access & \href{https://academic.oup.com/jhered/article/112/3/241/6188529?login=true}{Article} \\
+SRS & & Illumina & \protect\hyperlink{}{Protocol} \\
+LRS & SMRTbell prep kit 3.0 for PacBio HiFi Sequencing & Pacbio & \href{https://www.pacb.com/wp-content/uploads/Procedure-checklist-Preparing-whole-genome-and-metagenome-libraries-using-SMRTbell-prep-kit-3.0.pdf}{Protocol} \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{library-host-transcriptomics}{%
+\section{Host transcriptomics}\label{library-host-transcriptomics}}
+
+Library preparation for host transcriptomics (HT) requires some extra steps to the already described procedures for \protect\hyperlink{ux5cux23library-meta-genomics}{host genomics and microbial metagenomics}. This is due to two main reasons. First, because RNA molecules cannot be directly built into most sequencing libraries, and require instead to generate complementary DNA (cDNA) before library preparation. Second, because gene transcripts tend to be overwhelmingly dominated by rRNA and mtDNA genes, which are often not of interest for the researcher.
+
+\hypertarget{rrna-sample-quality-assessment}{%
+\subsubsection*{Sample quality assessment}\label{rrna-sample-quality-assessment}}
+\addcontentsline{toc}{subsubsection}{Sample quality assessment}
+
+Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended. While traditionally assessed through agarose gel electrophoresis, nowadays RNA quality assessment is performed on electropherogram profiles, which are produced by nucleic acid fragment analysis instruments (e.g.~Bioanalyzer, Fragment Analyzer). Traditionally, a simple model evaluating the 28S to 18S rRNA ratio was used as a criterion for RNA quality. However, the most common metric currently employed for assessing the preservation quality of RNA is the RNA integrity number (RIN), which accounts for more RNA features for assessing sample quality \citep{Schroeder2006-dn}. RIN values range from 10 (intact RNA) to 1 (totally degraded RNA). For example, the poly(A) enrichment procedures explained below require high quality RNA (RIN \textgreater{} 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3' ends are enriched while the more 5' sequences would not be captured, leading to a strong 3' bias for degraded RNA inputs.
+
+\hypertarget{DNA-removal}{%
+\subsubsection*{DNA removal}\label{DNA-removal}}
+\addcontentsline{toc}{subsubsection}{DNA removal}
+
+Depending on the RNA extraction method employed, it is not rare trace amounts of genomic DNA (gDNA) to be co-purified with RNA. Contaminating gDNA can interfere with reverse transcription and may lead to false positives, higher background, or lower detection in sensitive applications such as RT-qPCR. The traditional method of gDNA removal is the addition of DNase I to RNA extracts. DNase I must be removed prior to cDNA synthesis since any residual enzyme would degrade single-stranded DNA. Unfortunately, RNA loss or damage can occur during DNase I inactivation treatment. As an alternative to DNase I, double-strand--specific DNases are available to eliminate contaminating gDNA without affecting RNA or single-stranded DNAs.
+
+\hypertarget{stranded-transcriptomics}{%
+\subsubsection*{Stranded vs.~non-stranded transcriptomics}\label{stranded-transcriptomics}}
+\addcontentsline{toc}{subsubsection}{Stranded vs.~non-stranded transcriptomics}
+
+RNA-Seq libraries can be stranded or non-stranded (unstranded), a decision that affects data analysis and interpretation. Stranded RNA-Seq (also referred to as strand-specific or directional RNA-Seq) enables researchers to determine the orientation of the transcript, whereas this information is lost in non-stranded, or standard, RNA-Seq. Non-stranded RNA-Seq is often sufficient for measuring gene expression in organisms with well-annotated genomes, as with a reference transcriptome, it is possible to infer orientation for most of the sequencing reads. As there are fewer steps than stranded library preparation, the benefits of this approach are lower cost, simpler execution, and greater recovery of material, which renders non-stranded RNA-Seq the preferred option for holo-omic analyses. In contrast, stranded RNA-Seq is useful if the aims include annotating genomes, identifying antisense transcripts or discovering novel transcripts.
+
+\hypertarget{cDNA-conversion}{%
+\subsubsection*{cDNA conversion}\label{cDNA-conversion}}
+\addcontentsline{toc}{subsubsection}{cDNA conversion}
+
+Most RNA-Seq experiments are carried out on instruments that sequence DNA molecules, rather than RNA. This implies that RNA conversion to cDNA is a required step before library preparation. The synthesis of cDNA from an RNA template is carried out via reverse transcription using reverse transcriptases. In nature, these enzymes convert the viral RNA genome into a complementary DNA (cDNA) molecule, which can integrate into the host's genome, among other processes.
+
+Reverse transcription, similar to PCR, requires the use of primers. Two main types of primers:
+
+\begin{itemize}
+\item
+  \textbf{Random primers}: this type of primers are oligonucleotides with random base sequences. They are often six nucleotides long and are usually referred to as random hexamers. While random primers help improve cDNA synthesis for detection, they are not suitable for full-length reverse transcription of long RNA. Increasing the concentration of random hexamers in reverse transcription reactions improves cDNA yield but results in shorter cDNA fragments due to increased binding at multiple sites on the same template
+\item
+  \textbf{oligo(dT) primers}: this type of primers consist of a stretch of 12--18 deoxythymidines that anneal to poly(A) tails of eukaryotic mRNAs (see the section below for further details).
+\end{itemize}
+
+Reverse transcription reactions for cDNA library construction and sequencing involve two main steps: first-strand cDNA synthesis and second-strand cDNA synthesis.
+
+\begin{itemize}
+\item
+  \textbf{First-strand cDNA synthesis}: this initial step generates a cDNA:RNA hybrid through the below-described three-step process.
+
+  \begin{itemize}
+  \item
+    \textbf{Primer annealing}: in this step primers are attached to the RNA template, which usually happens before reverse transcriptase and necessary components (e.g., buffer, dNTPs, RNase inhibitor) are added.
+  \item
+    \textbf{DNA polymerisation}: in this step the complementary DNA is polymerised by the reverse transcriptase enzyme. With oligo(dT) primers (Tm \textasciitilde35--50°C), the reaction is often incubated directly at the optimal temperature of the reverse transcriptase (37--50°C), while random hexamers typically have lower Tm (\textasciitilde10--15°C) due to their shorter length. Using a thermostable reverse transcriptase allows, a higher reaction temperature (e.g., 50°C), to help denature RNA with high GC content or secondary structures without impacting enzyme activity. With such enzymes, high-temperature incubation can result in an increase in cDNA yield, length, and representation.
+  \item
+    \textbf{Enzyme deactivation}: in this final step temperature is increased to 70--85°C, depending upon the thermostability of the enzyme, to deactivate the reverse transcriptase.
+  \end{itemize}
+\item
+  \textbf{Second-strand cDNA synthesis}: in this second step the first-strand cDNA is used as a template to generate double-stranded cDNA representing the RNA targets. Synthesis of double-stranded cDNA often employs a different DNA polymerase to produce the complementary strand of the first cDNA strand.
+\end{itemize}
+
+\hypertarget{rrna-depletion-polya}{%
+\subsubsection*{rRNA depletion through poly-A enrichment}\label{rrna-depletion-polya}}
+\addcontentsline{toc}{subsubsection}{rRNA depletion through poly-A enrichment}
+
+Ribosomal RNA (rRNA) helps translate the information in messenger RNA (mRNA) into protein. It is the predominant form of RNA found in most cells, which can make over 80\% of cellular RNA despite never being translated into proteins itself. In consequence, most reads derived from RNA belong to rRNAs, unless depletion strategies are implemented.
+
+Excessively abundant rRNA sequences can be depleted using multiple strategies, which are covered in the \protect\hyperlink{library-microbial-metatranscriptomics}{Microbial metatranscriptomics}. The most broadly employed enrichment strategy when dealing with eukaryotic organisms is rRNA depletion through poly-A enrichment. This strategy relies on the fact that mature coding mRNAs of eukaryotic organisms contain polyA tails, long chains (tens to hundreds) of adenine nucleotides that are added to primary RNA transcripts to increase the stability of the molecule. However, not all transcripts contain poly(A) tails. microRNAs, small nucleolar RNAs (snoRNAs), transfer RNAs (tRNAs), some long non-coding RNAs (lncRNAs), and even protein-coding mRNAs such as histone mRNAs do not contail poly(A) tails, thus will be removed together with rRNA during poly(A) selection. If interested in quantifying expression of such transcripts the use of \protect\hyperlink{library-microbial-metatranscriptomics}{alternative methods} is recommended.
+
+The most broadly employed strategies to deplete rRNA through poly-A enrichment rely either on hybridisation with Oligo(dT)-attached magnetic beads or oligo(dT) priming during cDNA conversion step. In the former strategy, poly(A)-containing RNA molecules hybridise with Oligo(dT) stretches attached to magnetic beads. Following hybridisation, the supernatant consisting of non-polyadenylated molecules is removed. The beads are washed prior to elution of the poly(A)-selected RNA in water or buffer.
+
+\hypertarget{rrna-polya-depletion-protocols}{%
+\subsection*{List of available protocols}\label{rrna-polya-depletion-protocols}}
+\addcontentsline{toc}{subsection}{List of available protocols}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Type & Name & Author/owner & Protocol/Article \\
+\midrule
+\endhead
+oligo(dT) hybridisation & Dynabeads Oligo (dT)25-61005 & Thermo Fisher & \href{https://www.thermofisher.com/dk/en/home/references/protocols/nucleic-acid-purification-and-analysis/mrna-protocols/dynabeads-oligo-dt-25-61002.html}{Protocol} \\
+oligo(dT) priming & & & \\
+\bottomrule
+\end{longtable}
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
+
+\hypertarget{library-microbial-metatranscriptomics}{%
+\section{Microbial metatranscriptomics}\label{library-microbial-metatranscriptomics}}
+
+Sequencing library preparation for microbial metatranscriptomics faces the same challenges as host genomics, but the fact that prokaryotic mRNA have no poly-A tails makes it impossible to apply oligo(dT)-based rRNA depletion strategies. There are three other alternatives through which prokaryotic rRNA can be depleted. These three strategies require designing oligos, probes or guides whose sequences complement the DNA sequences that should be removed. Most commercial kits contain probes designed to remove rRNA sequences of the most commonly employed animal hosts (Human/Mouse/Rat), as well as bacteria, but custom probes targeting any genes could be employed. The first two methods shown below are implemented before library-preparation, thus independent reactions must be ran for each sample. The last strategy is implemented after library preparation, which enables multiple indexed libraries to be pooled, and thus performing a single reaction per pool.
+
+\hypertarget{capture-based-rrna-depletion}{%
+\subsection*{Capture-based rRNA depletion}\label{capture-based-rrna-depletion}}
+\addcontentsline{toc}{subsection}{Capture-based rRNA depletion}
+
+This method relies on capture rRNA with complimentary oligos that are coupled to paramagnetic beads. Unwanted transcripts get bound to beads, which can then be retained using a magnet, while the non-hybridasing transcripts remain in the elution.
+
+\hypertarget{rnase-based-rrna-depletion}{%
+\subsection*{RNAse-based rRNA depletion}\label{rnase-based-rrna-depletion}}
+\addcontentsline{toc}{subsection}{RNAse-based rRNA depletion}
+
+A more recent technological upgrade to capture-based rRNA depletion is to, instead of using paramagnetic beads, degrade RNA:DNA hybrids using RNase H \citep{Huang2020-xf}.
+
+\hypertarget{cas9-based-rrna-depletion}{%
+\subsection*{CRISPR/Cas9-based rRNA depletion}\label{cas9-based-rrna-depletion}}
+\addcontentsline{toc}{subsection}{CRISPR/Cas9-based rRNA depletion}
+
+The newest method of all three relies on the DNA claveage capacity of the Cas9 enzyme \citep{Gu2016-yf}. In this method, custom-designed guides are used for the Cas9 enzyme to cleveage unwanted sequences. This strategy is applied once libraries are prepared, and before the final PCR amplification is conducted. When the targetted molecules are cleaveged, they lack one of the two adaptors, and therefore they are not amplified, resulting in a considerable depletion compared to the rest of the library.
+
+\hypertarget{rrna-depletion-protocols}{%
+\subsection*{List of available protocols}\label{rrna-depletion-protocols}}
+\addcontentsline{toc}{subsection}{List of available protocols}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedright
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Strategy
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Author/owner
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Protocol/Article
+\end{minipage} \\
+\midrule
+\endhead
+Custom capture-based depletion & Capture-based & Open Source & \href{https://www.nature.com/articles/s41598-019-48692-2}{Article} \citep{Kraus2019-fq} \\
+Legacy Ribo-Zero & Capture-based & Illumina & \\
+Custom RNAse-based depletion & RNAse-based & Open Source & \href{https://academic.oup.com/nar/article/48/4/e20/5687826}{Article} \citep{Huang2020-xf} \\
+Ribo-Zero Plus & RNAse-based & Illumina & \\
+NEBNext® rRNA Depletion Kit & RNAse-based & NEB & \\
+DASH & Cas9-based & Open Source & \href{https://rnajournal.cshlp.org/content/26/8/1069.full}{Article} \citep{Prezza2020-ln} \\
+\bottomrule
+\end{longtable}
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
+
+\hypertarget{part-bioinformatic-procedures}{%
+\part{BIOINFORMATIC PROCEDURES}\label{part-bioinformatic-procedures}}
+
+\hypertarget{about-bioinformatics}{%
+\chapter{About bioinformatics}\label{about-bioinformatics}}
+
+Bioinformatic processing of raw sequencing and mass spectrometry data is the computational step that precedes statistical analyses and integration of multi-omic data. Through bioinformatic processing raw data are converted into meaningful bits of information, usually drastically decreasing the size of the data sets that are used for downstream analyses.
+
+Raw sequencing and mass spectrometry-based data files used in holo-omic analyses are typically in the realm of gigabytes (Gb) or even terabytes (Tb). Many of the performed operations require large amounts of memory (some more than 1Tb), which makes it impossible to process data in personal computers. Instead, most bioinformatics tasks are performed in computational clusters with access to large amounts of memory and many CPUs and GPUs, which enable parallelising computational tasks thus speeding up data processing time.
+
+However, for the sake of simplicity and practicality, the example datasets included in this Workbook have been considerably downscaled to enable reproducing the exercises in personal computers.
+
+All bioinformatic analyses included in the \textbf{Holo-omics workbook} are conducted in a Unix command line Shell environment (BASH/SH). You can find the details to set-up your SHELL environment in the section \protect\hyperlink{prepare-shell}{Prepare your Shell environment}.
+
+\hypertarget{prepare-shell}{%
+\section{Prepare your shell environment}\label{prepare-shell}}
+
+If the comment chunks of the code (text after \#) is creating you problems, use the following code to disable interactive comments and avoid issues when copy-pasting code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{setopt}\NormalTok{ interactivecomments}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{required-software}{%
+\subsection*{Required software}\label{required-software}}
+\addcontentsline{toc}{subsection}{Required software}
+
+Bioinformatic pipelines for processing omic data require the use of dozens of software. All the required software are listed in the conda environment installation file available \href{https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml}{here}.
+
+\hypertarget{install-conda-miniconda}{%
+\subsection*{Install conda / miniconda}\label{install-conda-miniconda}}
+\addcontentsline{toc}{subsection}{Install conda / miniconda}
+
+Conda is an open-source package management system and environment management system that quickly installs, runs, and updates packages and their dependencies. If \textbf{conda} is not installed in your system, the first step is to install \textbf{miniconda} (a free minimal installer for conda, enough to run the bioinformatic analyses explained in the workbook). Miniconda installers for Linux, Mac and Windows operating systems can be found in the following website:
+\url{https://docs.conda.io/en/latest/miniconda.html}
+
+Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{conda} \AttributeTok{{-}V}
+\CommentTok{\#\textgreater{} conda 22.11.1 \#or whatever version you have installed}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{install-mamba}{%
+\subsection*{Install mamba (optional)}\label{install-mamba}}
+\addcontentsline{toc}{subsection}{Install mamba (optional)}
+
+An optional step is to install \textbf{mamba}, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the \texttt{conda\ install} option.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{conda}\NormalTok{ install mamba }\AttributeTok{{-}n}\NormalTok{ base }\AttributeTok{{-}c}\NormalTok{ conda{-}forge}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-conda-environment}{%
+\subsection*{Create a conda environment}\label{create-conda-environment}}
+\addcontentsline{toc}{subsection}{Create a conda environment}
+
+All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available \href{https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml}{here}, and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don't forget to provide the absolute path to the `holo-omics-env.yaml' file in the \texttt{mamba\ create} command.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wget}\NormalTok{ https://raw.githubusercontent.com/holo{-}omics/holo{-}omics.github.io/main/bin/holo{-}omics{-}env.yaml }\CommentTok{\#download installer file}
+\ExtensionTok{conda}\NormalTok{ update conda }\CommentTok{\#to ensure everything is updated}
+\ExtensionTok{conda}\NormalTok{ deactivate }\CommentTok{\#deactivate any conda environment before creating a new one}
+\ExtensionTok{conda}\NormalTok{ env create }\AttributeTok{{-}f}\NormalTok{ holo{-}omics{-}env.yml}
+\FunctionTok{rm}\NormalTok{ holo{-}omics{-}env.yaml }\CommentTok{\#remove installer file}
+\end{Highlighting}
+\end{Shaded}
+
+As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can double-check whether the environment has been successfully created using the following script:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{conda}\NormalTok{ activate holo{-}omics}
+\CommentTok{\#\textgreater{} (holo{-}omics) anttonalberdi@Anttons{-}MBP \textasciitilde{} \%}
+\end{Highlighting}
+\end{Shaded}
+
+The (holo-omics) specifies the environment you are at. To get out of the environment use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{conda}\NormalTok{ env list}
+\CommentTok{\#\textgreater{} base                  *  /Users/anttonalberdi/miniconda3}
+\CommentTok{\#\textgreater{} holo{-}omics               /Users/anttonalberdi/miniconda3/envs/holo{-}omics}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{activate-the-holo-omics-conda-environment}{%
+\subsection*{Activate the holo-omics conda environment}\label{activate-the-holo-omics-conda-environment}}
+\addcontentsline{toc}{subsection}{Activate the holo-omics conda environment}
+
+Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{conda}\NormalTok{ activate holo{-}omics}
+\CommentTok{\#\textgreater{} (holo{-}omics) anttonalberdi@Anttons{-}MBP \textasciitilde{} \%}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{install-software-in-conda-environment}{%
+\subsection*{Install software in conda environment}\label{install-software-in-conda-environment}}
+\addcontentsline{toc}{subsection}{Install software in conda environment}
+
+Content to be added.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{example-data-bioinformatics}{%
+\section{Example data for bioinformatics}\label{example-data-bioinformatics}}
+
+Contents to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{using-snakemake}{%
+\section{Using snakemake for workflow management}\label{using-snakemake}}
+
+Contents to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{sequencing-data-preprocessing}{%
+\chapter{Sequencing data preprocessing}\label{sequencing-data-preprocessing}}
+
+The first step of the bioinformatic pipeline is to pre-process the raw sequencing data to prepare them for downstream analyses.
+
+\hypertarget{preprocess-the-reads-using-fastp}{%
+\subsection*{Preprocess the reads using fastp}\label{preprocess-the-reads-using-fastp}}
+\addcontentsline{toc}{subsection}{Preprocess the reads using fastp}
+
+Raw sequencing data require an initial preprocessing to get rid off low-quality nucleotides and reads, as well as any remains of sequencing adaptors that can mess around in the downstream analyses. An efficient way to do so is to use the software \textbf{fastp}, which can perform all above-mentioned operations in a single go and directly on compressed files.
+
+\textbf{fastP} documentation \href{https://github.com/OpenGene/fastp}{can be found here}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{fastp} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}in1}\NormalTok{ \{input.r1i\} }\AttributeTok{{-}{-}in2}\NormalTok{ \{input.r2i\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}out1}\NormalTok{ \{output.r1o\} }\AttributeTok{{-}{-}out2}\NormalTok{ \{output.r2o\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}trim\_poly\_g} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}trim\_poly\_x} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}low\_complexity\_filter} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}n\_base\_limit}\NormalTok{ 5 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}qualified\_quality\_phred}\NormalTok{ 20 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}length\_required}\NormalTok{ 60 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}thread}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}html}\NormalTok{ \{output.fastp\_html\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}json}\NormalTok{ \{output.fastp\_json\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}adapter\_sequence}\NormalTok{ \{params.adapter1\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}adapter\_sequence\_r2}\NormalTok{ \{params.adapter2\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{splitting-host-and-non-host-data}{%
+\subsection*{Splitting host and non-host data}\label{splitting-host-and-non-host-data}}
+\addcontentsline{toc}{subsection}{Splitting host and non-host data}
+
+Depending on the sample type employed for data generation, sequencing data might contain only host reads, only microbial reads, or a mixture of both. For example, blood sampled from an animal is expected to only contain host DNA/RNA reads (unless an infection is ongoing), while DNA extracted from a microbial culture is only expected to contain microbial DNA/RNA reads (unless human contamination has happened). In contrast, intestinal content samples, faecal samples, leave samples or root samples can contain both host and microbial nucleic acids.
+
+\hypertarget{index-host-genome}{%
+\subsubsection*{Index host genome}\label{index-host-genome}}
+\addcontentsline{toc}{subsubsection}{Index host genome}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{bowtie2{-}build} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}large{-}index} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+\NormalTok{        \{output.rn\_catted\_ref\} \{output.rn\_catted\_ref\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{map-samples-to-host-genomes}{%
+\subsubsection*{Map samples to host genomes}\label{map-samples-to-host-genomes}}
+\addcontentsline{toc}{subsubsection}{Map samples to host genomes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Map reads to catted reference using Bowtie2}
+\ExtensionTok{bowtie2} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}time} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}x}\NormalTok{ \{input.catted\_ref\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}1}\NormalTok{ \{input.r1i\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}2}\NormalTok{ \{input.r2i\} }\DataTypeTok{\textbackslash{}}
+\KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ view }\AttributeTok{{-}b} \AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}} \KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ sort }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}o}\NormalTok{ \{output.all\_bam\} }\AttributeTok{{-}} \KeywordTok{\&\&}
+
+\CommentTok{\# Extract non{-}host reads (note we\textquotesingle{}re not compressing for nonpareil)}
+\ExtensionTok{samtools}\NormalTok{ view }\AttributeTok{{-}b} \AttributeTok{{-}f12} \AttributeTok{{-}@}\NormalTok{ \{threads\} \{output.all\_bam\} }\DataTypeTok{\textbackslash{}}
+\KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ fastq }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}1}\NormalTok{ \{output.non\_host\_r1\} }\AttributeTok{{-}2}\NormalTok{ \{output.non\_host\_r2\} }\AttributeTok{{-}} \KeywordTok{\&\&}
+
+\CommentTok{\# Send host reads to BAM}
+\ExtensionTok{samtools}\NormalTok{ view }\AttributeTok{{-}b} \AttributeTok{{-}F12} \AttributeTok{{-}@}\NormalTok{ \{threads\} \{output.all\_bam\} }\DataTypeTok{\textbackslash{}}
+\KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ sort }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}o}\NormalTok{ \{output.host\_bam\} }\AttributeTok{{-}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{host-genomics-data-processing}{%
+\chapter{Host genomics (HG) data processing}\label{host-genomics-data-processing}}
+
+Contents to be added.
+
+\hypertarget{host-reference-genome}{%
+\section{Host reference genome}\label{host-reference-genome}}
+
+Contents to be added.
+
+\hypertarget{host-genome-resequencing}{%
+\section{Host genome resequencing}\label{host-genome-resequencing}}
+
+Contents to be added.
+
+\hypertarget{microbial-metagenomics-data-processing}{%
+\chapter{Microbial metagenomics (MG) data processing}\label{microbial-metagenomics-data-processing}}
+
+Microbial metagenomic data processing can be conducted following different strategies. Decision on which approach to use should be based on the aims of the study, available reference data, amount of generated data, and many other criteria. In this workbook we consider three main approaches that require different bioinformatic pipelines to be implemented.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{reference-based}{Reference-based approach}:} it relies on a reference database of microbial genomes to which sequencing reads can be mapped to obtain estimations of relative proportion of reads belonging to each of the genomes available in the reference database. It is the simplest and computationally less expensive approach, yet it completely relies on a complete and representative reference database.
+\item
+  \textbf{\protect\hyperlink{assembly-based}{Assembly-based approach}:} it is based on assembling sequencing reads into longer DNA sequences known as contigs, which can then be used to predict genes and perform functional analyses. The main limitation of this approach is that the entire metagenome (set of contigs) in each sample is considered as a single unit, thus overlooking which bacterial genome each detected gene belongs to.
+\item
+  \textbf{\protect\hyperlink{genome-resolved}{Genome-resolved approach}:} it is the most advanced of the three approaches, and the strategy that provides the largest amount of information, as the aim of this approach is to directly reconstruct all the genomes in a metagenome. This is achieved by binning contigs into Metagenome-Assembled Genomes (MAGs), which can then be taxonomically and functionally annotated to perform sound community-level analyses.
+\end{itemize}
+
+\hypertarget{reference-based}{%
+\section{Reference-based}\label{reference-based}}
+
+Assembly-based.
+
+\hypertarget{assembly-based}{%
+\section{Assembly-based}\label{assembly-based}}
+
+Assembly-based approaches can be divided in two main strategies:
+
+\begin{itemize}
+\tightlist
+\item
+  Individual assembly-based
+\item
+  Coassembly-based
+\end{itemize}
+
+\hypertarget{individual-assembly-based}{%
+\subsection{Individual assembly-based}\label{individual-assembly-based}}
+
+Two of the most popular metagenome assemblers are \textbf{Megahit} and \textbf{MetaSpades}. Metaspades is considered superior in terms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g.~bbmap) to get rid off barely informative yet often abundant short contigs.
+
+\hypertarget{individual-assembly-using-megahit}{%
+\subsubsection{Individual assembly using Megahit}\label{individual-assembly-using-megahit}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{megahit} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}verbose} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}min{-}contig{-}len}\NormalTok{ 1500 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}1}\NormalTok{ \{input.r1\} }\AttributeTok{{-}2}\NormalTok{ \{input.r2\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ \{params.workdir\}}
+    \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{ \{log\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{individual-assembly-using-metaspades}{%
+\subsubsection{Individual assembly using MetaSpades}\label{individual-assembly-using-metaspades}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{metaspades.py} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}k}\NormalTok{ 21,33,55,77,99 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}1}\NormalTok{ \{input.r1\} }\AttributeTok{{-}2}\NormalTok{ \{input.r2\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ \{params.workdir\}}
+    \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{ \{log\}}
+
+\CommentTok{\# Remove contigs shorter than 1,500 bp using bbmap}
+\ExtensionTok{reformat.sh} \DataTypeTok{\textbackslash{}}
+\NormalTok{    in=\{params.workdir\}/scaffolds.fasta }\DataTypeTok{\textbackslash{}}
+\NormalTok{    out=\{output.assembly\} }\DataTypeTok{\textbackslash{}}
+\NormalTok{    minlength=1500}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{get-assembly-statistics-using-quast}{%
+\subsubsection{Get assembly statistics using Quast}\label{get-assembly-statistics-using-quast}}
+
+The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software \textbf{Quast}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{quast} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ \{output.report\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+\NormalTok{    \{input.assembly\}}
+\end{Highlighting}
+\end{Shaded}
+
+TO BE CONTINUED FROM HERE: \url{https://github.com/earthhologenome/EHI_bioinformatics/blob/main/0_Code/2_Individual_Assembly_Binning.snakefile}
+
+\hypertarget{coassembly-based}{%
+\subsection{Coassembly-based}\label{coassembly-based}}
+
+\hypertarget{genome-resolved}{%
+\section{Genome-resolved}\label{genome-resolved}}
+
+Contents to be added.
+
+\hypertarget{host-transcriptomics-data-processing}{%
+\chapter{Host transcriptomics (HT) data processing}\label{host-transcriptomics-data-processing}}
+
+Contents to be added.
+
+\hypertarget{microbial-metatranscriptomics-data-processing}{%
+\chapter{Microbial metatranscriptomics (HT) data processing}\label{microbial-metatranscriptomics-data-processing}}
+
+Contents to be added.
+
+\hypertarget{host-proteomics-data-processing}{%
+\chapter{Host proteomics (HP) data processing}\label{host-proteomics-data-processing}}
+
+Contents to be added.
+
+\hypertarget{microbial-metaproteomics-data-processing}{%
+\chapter{Microbial metaproteomics (MP) data processing}\label{microbial-metaproteomics-data-processing}}
+
+Contents to be added.
+
+\hypertarget{part-statistical-procedures}{%
+\part{STATISTICAL PROCEDURES}\label{part-statistical-procedures}}
+
+\hypertarget{about-statistics}{%
+\chapter{About statistics}\label{about-statistics}}
+
+Statistics is probably the most challenging step of holo-omic studies, due to two main factors: the extreme complexity of the data, often containing thousands of features, and the limited sample size, often in the realm of the dozens of sampling units. This combination renders many holo-omic datasets rather statistics unfriendly.
+
+\hypertarget{a-step-by-step-approach}{%
+\subsection*{A step-by-step approach}\label{a-step-by-step-approach}}
+\addcontentsline{toc}{subsection}{A step-by-step approach}
+
+In this workbook we strongly encourage researchers to proceed step-by-step when dealing with holo-omics data and biological questions.
+
+\hypertarget{initial-quantitative-exploration-of-omic-layers}{%
+\subsubsection*{Initial quantitative exploration of omic layers}\label{initial-quantitative-exploration-of-omic-layers}}
+\addcontentsline{toc}{subsubsection}{Initial quantitative exploration of omic layers}
+
+The analysis of any multi-omic data should begin with independent analysis of each omic layer to learn about its structure and variability before jumping to multi-omic data integration.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{data-transformations}{Data transformations}:} multivariate datasets consist of different data types (e.g., presence-absence of taxa, counts of genes, community-level metabolic capacity index of a function, concentrations of metabolites across samples) that may require specific transformation before applying statistical techniques.
+\item
+  \textbf{\protect\hyperlink{unsupervised-exploration}{Unsupervised exploration of omic layers}:} include exploratory techniques, such as cluster analysis and ordination-based visualisation methods, which reveal the structure and main patterns of the omic datasets without prior information about experimental design. These procedures might reveal that the observations are structured into meaningful groups or that variables can be reduced to fewer dimensions.
+\item
+  \textbf{\protect\hyperlink{supervised-analysis}{Supervised analysis of omic layers}:} this type of analyses incorporate information of experimental design and aim at testing and estimating the effects of the experimental factors (e.g., dietary treatment, drug administration) or variables of interest (e.g., age of the experimental subjects, geographic location of studied populations) on different omic layers.
+\end{itemize}
+
+\hypertarget{multi-omic-data-integration}{%
+\subsubsection*{Multi-omic data integration}\label{multi-omic-data-integration}}
+\addcontentsline{toc}{subsubsection}{Multi-omic data integration}
+
+When it comes to multi-omic data integration, the approaches can be broadly categorised into two types: multi-staged analysis and meta-dimensional or simultaneous analysis.
+
+\begin{itemize}
+\item
+  \textbf{\protect\hyperlink{multi-staged-integration}{Multi-staged integration}:} leverages the central dogma of molecular biology to assume that the variation in omic datasets is hierarchical, such that variation in DNA leads to variation in RNA and so on to determine the phenotype
+\item
+  \textbf{\protect\hyperlink{meta-dimensional-integration}{Meta-dimensional integration}:} considers the possibility that the phenotype is the product of the combination of variation across all omic layers, with the presence of complex inter-omic interactions.
+\end{itemize}
+
+All statistical analyses included in the \textbf{Holo-omics workbook} are conducted in R environment. You can find the details to set-up your R environment in the section \protect\hyperlink{prepare-r}{Prepare your R environment}.
+
+\hypertarget{prepare-r}{%
+\section{Prepare your R environment}\label{prepare-r}}
+
+All statistical analyses included in the \textbf{Holo-omics workbook} are conducted in \href{https://en.wikipedia.org/wiki/R_(programming_language)}{R environment} \citep{R_Development_Core_Team2008-gd}. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, \href{https://cran.r-project.org/}{R} or \href{https://posit.co/downloads/}{RStudio} must be installed in your local computer or remote server.
+
+\hypertarget{required-packages}{%
+\subsection*{Required packages}\label{required-packages}}
+\addcontentsline{toc}{subsection}{Required packages}
+
+In order to reproduce the analyses shown in the workbook, a rather long list of R packages must be installed. Packages are the fundamental units of reproducible R code, which include reusable R functions, the documentation that describes how to use them, and sample data.
+
+\begin{itemize}
+\tightlist
+\item
+  ape
+\item
+  DESeq2
+\item
+  distillR
+\item
+  ggplot2
+\item
+  tidyverse
+\item
+  vegan
+\item
+  (\ldots)
+\end{itemize}
+
+\hypertarget{package-installation}{%
+\subsection*{Package installation}\label{package-installation}}
+\addcontentsline{toc}{subsection}{Package installation}
+
+Packages are installed programatically using three main ways: through \href{https://cran.r-project.org/web/packages/available_packages_by_name.html}{CRAN}, \href{https://www.bioconductor.org/packages/release/bioc/}{Bioconductor} or \href{https://github.com/}{Github}.
+
+\hypertarget{install-package-from-cran}{%
+\subsubsection*{Install package from CRAN}\label{install-package-from-cran}}
+\addcontentsline{toc}{subsubsection}{Install package from CRAN}
+
+CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R. Packages stored in CRAN can be installed using the following code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"package\_name"}\NormalTok{)}
+\CommentTok{\#e.g.}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"vegan"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{install-package-from-bioconductor}{%
+\subsubsection*{Install package from Bioconductor}\label{install-package-from-bioconductor}}
+\addcontentsline{toc}{subsubsection}{Install package from Bioconductor}
+
+Bioconductor is a free, open source and open development software project for the analysis and comprehension of genomic data generated by wet lab experiments in molecular biology. Packages included in Bioconductor can be installed using the following code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(}\StringTok{"BiocManager"}\NormalTok{, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{))}
+    \FunctionTok{install.packages}\NormalTok{(}\StringTok{"BiocManager"}\NormalTok{)}
+\NormalTok{BiocManager}\SpecialCharTok{::}\FunctionTok{install}\NormalTok{(}\StringTok{"package\_name"}\NormalTok{)}
+\CommentTok{\#e.g.}
+\NormalTok{BiocManager}\SpecialCharTok{::}\FunctionTok{install}\NormalTok{(}\StringTok{"DESeq2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{install-package-from-github}{%
+\subsubsection*{Install package from Github}\label{install-package-from-github}}
+\addcontentsline{toc}{subsubsection}{Install package from Github}
+
+GitHub is a code hosting platform for version control and collaboration. Packages stored in R can be installed using the following code after installing the package devtools:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(devtools)}
+\FunctionTok{install\_github}\NormalTok{(}\StringTok{"github\_repository\_name\_of\_the\_package"}\NormalTok{)}
+\CommentTok{\#e.g.}
+\FunctionTok{install\_github}\NormalTok{(}\StringTok{"anttonalberdi/distillR"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{example-data-statistics}{%
+\section{Example data for statistics}\label{example-data-statistics}}
+
+Contents to be added here.
+
+\hypertarget{single-omic-analyses}{%
+\chapter{Single omic analyses}\label{single-omic-analyses}}
+
+Here is a review of existing methods.
+
+\hypertarget{data-transformations}{%
+\chapter{Data transformations}\label{data-transformations}}
+
+Here is a review of existing methods.
+
+\hypertarget{unsupervised-exploration}{%
+\chapter{Unsupervised exploration}\label{unsupervised-exploration}}
+
+Unsupervised methods include exploratory techniques, such as cluster analysis and ordination-based visualisation methods, which reveal the structure and main patterns of the omic datasets without prior information about experimental design. These procedures might reveal that the observations are structured into meaningful groups or that variables can be reduced to fewer dimensions. Researchers can then opt for using the outputs of these analyses, rather than the original multidimensional datasets, for the multi-omic data integration. Most clustering and ordination techniques are computed from association matrices, thus it is essential to do an appropriate pre-transformation of the data and choice of association coefficient, since this influences the final outcome of the analyses
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{cluster-analysis}{Cluster analysis}
+\item
+  \protect\hyperlink{dimension-reduction-ordination}{Dimension reduction and ordination}
+\end{itemize}
+
+\hypertarget{cluster-analysis}{%
+\section{Cluster analysis}\label{cluster-analysis}}
+
+Clustering procedures group features or observations into homogeneous sets by minimising within-group and maximising among-group distances
+
+\hypertarget{hierarchical-clustering}{%
+\subsection{Hierarchical clustering}\label{hierarchical-clustering}}
+
+Hierarchical clustering produces a stratified organisation of features or observations where relatively similar objects are grouped together. The clustering can be performed using different criteria to measure the distance between clusters, which will affect the final outcome of the analysis (e.g., single linkage, complete linkage, average linkage and Ward's minimum variance).
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+A useful exploratory analysis to reveal general patterns in an omic layer can be obtained by simultaneous application of hierarchical clustering to the rows and columns of the data matrix, and visualising the results in a heatmap.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{disjoint-clustering}{%
+\subsection{Disjoint clustering}\label{disjoint-clustering}}
+
+Disjoint clustering techniques aim at separating the objects into individual, usually mutually exclusive, and in most cases, unconnected clusters. K-means clustering is one of the most typical algorithms where objects are assigned to k clusters using an iterative procedure that minimises the within-clusters sums of squares. Other available clustering methods include twinspan, self-organising maps, dbscan and Dirichlet multinomial mixtures (DMM). DMM were specifically developed to analyse MG data but can be equally useful for other sequencing-based omic datasets.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{dimension-reduction-ordination}{%
+\section{Dimension reduction and ordination}\label{dimension-reduction-ordination}}
+
+Ordination is a method complementary to data clustering, which enables displaying differences among samples graphically through reducing the dimensions of the original data set, so that similar objects are near and dissimilar objects are farther from each other.
+
+\hypertarget{pca}{%
+\subsection{Principal Component Analysis (PCA)}\label{pca}}
+
+Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{pcoa}{%
+\subsection{Principal Coordinate Analysis (PCoA)}\label{pcoa}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{nmds}{%
+\subsection{Non-metric Multidimensional Scaling (NMDS)}\label{nmds}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{t-sne}{%
+\subsection{t-Distributed Stochastic Neighbour Embedding (t-SNE)}\label{t-sne}}
+
+Content to be added here.
+Requires many data points.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{umap}{%
+\subsection{Uniform manifold approximation and projection (UMAP)}\label{umap}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{phate}{%
+\subsection{Potential of heat diffusion for affinity-based transition embedding (PHATE)}\label{phate}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{supervised-analysis}{%
+\chapter{Supervised analysis}\label{supervised-analysis}}
+
+The supervised analyses of omic layers, in contrast to unsupervised ones, incorporate information of experimental design, and can be divided into two types of problems: regression and classification. A regression problem is when the output of the model is a numeric variable or a matrix, such as the phenotypic characteristics of the host or the omic data sets themselves. These methods aim at testing and estimating the effects of the experimental factors (e.g., dietary treatment, drug administration) or variables of interest (e.g., age of the experimental subjects, geographic location of studied populations) on different omic layers, or associating the omic layers with host phenotypic features. A classification problem is when the output of the model is categorical. In the context of multi omic studies, classification methods aim at classifying observations into their experimental groups (e.g.~health status, dietary treatment) based on their features on different omic layers.
+
+\hypertarget{regression-methods}{%
+\section{Regression methods}\label{regression-methods}}
+
+Independently testing the effects of the experimental factors of interest on different omic layers can be very informative to get an overall picture of how the host and the microbiome are responding to the environment and/or the experimental treatment.
+
+\hypertarget{permanova}{%
+\subsection{PERMANOVA}\label{permanova}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{anosim}{%
+\subsection{ANOSIM}\label{anosim}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{redundancy-analysis}{%
+\subsection{Redundancy analysis (RDA)}\label{redundancy-analysis}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{canonical-correspondence-analysis}{%
+\subsection{Canonical Correspondence Analysis (CCA)}\label{canonical-correspondence-analysis}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{generalised-linear-modelling}{%
+\subsection{Generalised linear modelling (GLM)}\label{generalised-linear-modelling}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{generalised-linear-mixed-modelling}{%
+\subsection{Generalised linear mixed modelling (GLMM)}\label{generalised-linear-mixed-modelling}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{classification-methods}{%
+\section{Classification methods}\label{classification-methods}}
+
+It is in classification problems where ML algorithms have proven most useful.
+
+\hypertarget{random-forests}{%
+\subsection{Random Forests (RF)}\label{random-forests}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{support-vector-machines}{%
+\subsection{Support Vector Machines (SVM)}\label{support-vector-machines}}
+
+Content to be added here.
+
+\begin{verbatim}
+#Example code goes here
+\end{verbatim}
+
+\hypertarget{multi-omic-integration}{%
+\chapter{Multi-omic integration}\label{multi-omic-integration}}
+
+Here is a review of existing methods.
+
+\hypertarget{multi-staged-integration}{%
+\chapter{Multi-staged integration}\label{multi-staged-integration}}
+
+Here is a review of existing methods.
+
+\hypertarget{meta-dimensional-integration}{%
+\chapter{Meta-dimensional integration}\label{meta-dimensional-integration}}
+
+Here is a review of existing methods.
+
+\hypertarget{part-resources}{%
+\part{RESOURCES}\label{part-resources}}
+
+\hypertarget{useful-links}{%
+\chapter{Useful links}\label{useful-links}}
+
+\hypertarget{genomics}{%
+\subsection*{Genomics}\label{genomics}}
+\addcontentsline{toc}{subsection}{Genomics}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\href{https://datacarpentry.org/wrangling-genomics/}{Data Wrangling and Processing for Genomics} (website):}
+\end{itemize}
+
+\hypertarget{shell-command-line-usage}{%
+\subsection*{Shell command line usage}\label{shell-command-line-usage}}
+\addcontentsline{toc}{subsection}{Shell command line usage}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\href{https://datacarpentry.org/shell-genomics/}{Introduction to the Command Line for Genomics} (website):} general overview of basic command line usage.
+\end{itemize}
+
+\hypertarget{r-usage-general-usage-and-programming}{%
+\subsection*{R usage (General usage and programming)}\label{r-usage-general-usage-and-programming}}
+\addcontentsline{toc}{subsection}{R usage (General usage and programming)}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\href{https://datacarpentry.org/genomics-r-intro/}{Intro to R and RStudio for Genomics} (website):}
+\item
+  \textbf{\href{https://csgillespie.github.io/efficientR/index.html}{Efficient R programming} (website):} best practices for programming in R.
+\end{itemize}
+
+\hypertarget{r-usage-graphics-and-visualisation}{%
+\subsection*{R usage (Graphics and visualisation)}\label{r-usage-graphics-and-visualisation}}
+\addcontentsline{toc}{subsection}{R usage (Graphics and visualisation)}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\href{https://clauswilke.com/dataviz/}{Fundamentals of Data Visualization} (website):} guide to making visualisations that accurately reflect the data, tell a story, and look professional.
+\item
+  \textbf{\href{https://r-graphics.org/index.html}{R Graphics Cookbook} (website):} a practical guide that provides more than 150 recipes to generate high-quality graphs using ggplot2.
+\end{itemize}
+
+\hypertarget{statistics}{%
+\subsection*{Statistics}\label{statistics}}
+\addcontentsline{toc}{subsection}{Statistics}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\href{https://www.statlearning.com/}{An Introduction to Statistical Learning} (book):} freely available book about general statistical learning covering regression and classification problems through linear modelling and machine learning.
+\item
+  \textbf{\href{https://carpentries-incubator.github.io/high-dimensional-stats-r/}{High dimensional statistics with R} (website):} virtual lesson specialised in dealing with high dimensional data.
+\end{itemize}
+
+\hypertarget{references}{%
+\chapter{References}\label{references}}
+
+  \bibliography{references.bib}
+
+\end{document}

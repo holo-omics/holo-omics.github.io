@@ -31,5 +31,11 @@ bookdown::gitbook:
       all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
     info: true
 
+bookdown::pdf_book:
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+  toc_depth: 2
+  toc_appendix: yes
 #Syntax highlighting styles:
   #default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, breezedark
