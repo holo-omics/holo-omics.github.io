@@ -22,8 +22,8 @@ Holo-omics overview. Modified from Nyholm et al. 2020 [@Nyholm2020-ua]
 
 The **practical guide to holo-omics** is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities [@Nyholm2020-ua; @Limborg2018-tf]. This guide extends the contents of the article **"A practical introduction to holo-omics"**, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of this guide is to compile protocols and pipelines to be implemented by researchers. The **practical guide to holo-omics** is presented in two formats:
 
-* Website (https://holo-omics.github.io/)
-* PDF document (https://holo-omics.github.io/holo-omics_workbook.pdf)
+* Website (http://www.holo-omics.science/)
+* PDF document (http://www.holo-omics.science/holo_omics_workbook.pdf)
 
 :::: {.graybox}
 This guide is presented as a final output of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the [HoloFood Website](http://www.holofood.eu) and the [CORDIS website](https://cordis.europa.eu/project/id/817729).  
