@@ -182,9 +182,23 @@ div.csl-indent {
 <li class="chapter" data-level="2.2.2" data-path="control-of-variables.html"><a href="control-of-variables.html#controlling-microbial-metagenomes"><i class="fa fa-check"></i><b>2.2.2</b> Controlling microbial metagenomes</a></li>
 <li class="chapter" data-level="2.2.3" data-path="control-of-variables.html"><a href="control-of-variables.html#controlling-environment"><i class="fa fa-check"></i><b>2.2.3</b> Controlling the environment</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="molecular-resolution.html"><a href="molecular-resolution.html"><i class="fa fa-check"></i><b>2.3</b> Molecular resolution</a></li>
-<li class="chapter" data-level="2.4" data-path="spatiotemporal-factors.html"><a href="spatiotemporal-factors.html"><i class="fa fa-check"></i><b>2.4</b> Spatiotemporal factors</a></li>
-<li class="chapter" data-level="2.5" data-path="explanatory-and-response-variables.html"><a href="explanatory-and-response-variables.html"><i class="fa fa-check"></i><b>2.5</b> Explanatory and response variables</a></li>
+<li class="chapter" data-level="2.3" data-path="molecular-resolution.html"><a href="molecular-resolution.html"><i class="fa fa-check"></i><b>2.3</b> Molecular resolution</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="molecular-resolution.html"><a href="molecular-resolution.html#host-genotype-resolution"><i class="fa fa-check"></i><b>2.3.1</b> Resolution of host genotypes</a></li>
+<li class="chapter" data-level="" data-path="molecular-resolution.html"><a href="molecular-resolution.html#microbial-metagenotype-resolution"><i class="fa fa-check"></i>Resolution of microbial metagenotypes</a></li>
+<li class="chapter" data-level="" data-path="molecular-resolution.html"><a href="molecular-resolution.html#envirotype-resolution"><i class="fa fa-check"></i>Resolution of envirotypes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="spatiotemporal-factors.html"><a href="spatiotemporal-factors.html"><i class="fa fa-check"></i><b>2.4</b> Spatiotemporal factors</a>
+<ul>
+<li class="chapter" data-level="" data-path="spatiotemporal-factors.html"><a href="spatiotemporal-factors.html#spatial-factors"><i class="fa fa-check"></i>Spatial factors</a></li>
+<li class="chapter" data-level="" data-path="spatiotemporal-factors.html"><a href="spatiotemporal-factors.html#temporal-factors"><i class="fa fa-check"></i>Temporal factors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="explanatory-and-response-variables.html"><a href="explanatory-and-response-variables.html"><i class="fa fa-check"></i><b>2.5</b> Explanatory and response variables</a>
+<ul>
+<li class="chapter" data-level="" data-path="explanatory-and-response-variables.html"><a href="explanatory-and-response-variables.html#p-g-m-e"><i class="fa fa-check"></i>Phenotype as a product of genotype, metagenotype and envirotype</a></li>
+<li class="chapter" data-level="" data-path="explanatory-and-response-variables.html"><a href="explanatory-and-response-variables.html#g-m-e"><i class="fa fa-check"></i>Genotype expression influenced by metagenotype and envirotype</a></li>
+<li class="chapter" data-level="" data-path="explanatory-and-response-variables.html"><a href="explanatory-and-response-variables.html#m-g-e"><i class="fa fa-check"></i>Metagenotype as a product of genotype and envirotype</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II LABORATORY PROCEDURES</b></span></li>
 <li class="chapter" data-level="3" data-path="about-labwork.html"><a href="about-labwork.html"><i class="fa fa-check"></i><b>3</b> About labwork</a>
@@ -343,8 +357,24 @@ div.csl-indent {
 <div class="graybox">
 <p>The contents of this section have been extracted and modified from the article <a href="https://www.nature.com/articles/s41576-021-00421-0">Disentangling host–microbiota complexity through hologenomics</a> published in <strong><em>Nature Reviews Genetics</em></strong> in 2022 by the authors of the <strong>Holo-omics Workbook</strong>.</p>
 </div>
-<p>To be added.</p>
+<p>Host genomic and microbial metagenomic data generated under hologenomic setups can take on different roles when generating statistical models. While the environment is most often considered as an explanatory variable (though one can also study how the hologenome affects the environment), the host genome and the microbial metagenome are sometimes viewed as explanatory and sometimes as response variables, depending on the aim of the research. In many cases, directionality is set by the researcher rather than the biological system itself, as host-microbiota systems contain many bi-directional interactions and circular processes, which complicate the establishment of causal relationships. Here, we define three basic models in which the three main variables (genome, metagenome and environment) are assigned different roles to address different types of fundamental questions.</p>
+<p><img src="images/hologenomics_response_variables.png" title="Author: Antton Alberdi" /></p>
+<div class="imagenote">
+<p>Examples of biological processes addressed by the different models of host-microbiota interactions. <strong>a)</strong> How does the hologenome shape animal phenotypes? Only the combination of specific host genomic (G) and microbial metagenomic (MG) features, probably developed due to a selective force exerted by the presence of predators (E) enables rough-skinned newts to have skin toxicity, an ecologically relevant phenotypic trait (P). <strong>b)</strong> How do the microbial metagenome and environment shape host genomic features? SCFA-producing bacteria along with a fibre-rich diet enhance chromatin accessibility and thus activate immune gene expression. <strong>c)</strong> How do the host genome and the environment shape microbial genomic features? Only the combination of a lactase nonpersister genotype combined with the milk-drinking envirotype generates a microbial metagenotype characterised by enrichment of Bifidobacterium.</p>
+</div>
+<div id="p-g-m-e" class="section level3 unnumbered hasAnchor">
+<h3>Phenotype as a product of genotype, metagenotype and envirotype<a href="explanatory-and-response-variables.html#p-g-m-e" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is the main model used when hologenomics is conducted to ascertain how genome-metagenome-environment interactions affect the biological properties of a host, such as disease susceptibility, performance or fitness. It is an especially common and relevant model for health, agricultural, and ecological and evolutionary research 19,125–127. One clear example of a phenotype shaped by host genomic, microbial metagenomic and environmental factors was recently reported for rough-skinned newts. The study showed that bacteria on the skin of the newts produce a deadly neurotoxin from which the newt is protected by mutations in five host genes that encode the NaV channels normally targeted by the toxin. Thus, this ‘toxic newt’ phenotype is the result of both host and microbial genes, which likely evolved under the pressure exerted by an environmental factor, namely the presence of predators.</p>
+</div>
+<div id="g-m-e" class="section level3 unnumbered hasAnchor">
+<h3>Genotype expression influenced by metagenotype and envirotype<a href="explanatory-and-response-variables.html#g-m-e" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When studying how core host genomic features, which contribute to shaping phenotypes, are affected by the microbiota, host genomic features become the response variable. Unlike the microbial metagenome, the genome sequence of the host organism is not variable, but microorganisms can induce chromatin remodelling and DNA methylation, and thus modulate the bioactivity of molecular receptors and host gene expression. A well-studied pathway that links the microbiota with host gene expression involves modulation of the activity of host histone deacetylases (HDAC) by short chain fatty acids (SCFA) produced by intestinal microorganisms. HDACs remove histone lysine acetyl groups, which leads to chromatin condensation and transcriptional silencing of genes. Increased SCFA concentrations inhibit histone deacetylases, thereby enhancing chromatin accessibility and activating gene expression. A metagenotype with a higher capacity to produce SCFAs combined with an envirotype characterised as a fibre-rich diet (required to produce SCFAs), therefore contributes to boost immune response through activating host immune gene expression.</p>
+</div>
+<div id="m-g-e" class="section level3 unnumbered hasAnchor">
+<h3>Metagenotype as a product of genotype and envirotype<a href="explanatory-and-response-variables.html#m-g-e" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This model assumes the inverse causal directionality between the host genome and microbial metagenome to that described above. Candidate host genes related to microbiota features can be identified through GWAS in which the metagenotype (or derived metrics such as diversity or abundance of specific microbial taxa, genes or metabolic functions) are treated as a phenotypic trait. For instance, the increased abundance of lactose degrader Bifidobacteria in humans has been shown to be associated with lactase nonpersister genotype and consumption of milk (envirotype). Once candidate genes are known, targeted analyses in which natural or human-controlled genomic variability (such as the number of copies of the amylase-encoding gene in humans) can be contrasted under controlled environmental conditions to ascertain the effect on metagenotypes (such as the abundance of Ruminococcaceae bacteria in the gut microbiota).</p>
 
+</div>
 </div>
 <!-- </div> -->
 
