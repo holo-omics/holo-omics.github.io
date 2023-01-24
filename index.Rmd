@@ -1,4 +1,5 @@
 ---
+title: "A Practical Guide to Holo-Omics"
 bibliography: references.bib
 csl: biomed-central.csl
 link-citations: true
@@ -7,7 +8,7 @@ output:
     highlight: tango
     css: style.css
 ---
-# A Practical Guide to Holo-Omics {-}
+# About this guidebook {- #about-this-guidebook}
 
 :::: {.warningbox}
 **The practical guide to holo-omics is under construction, and its contents are still preliminary. We expect to have an initial complete version by May 2023.**
