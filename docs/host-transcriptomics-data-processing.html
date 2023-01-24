@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="genome-resolved.html"/>
-<link rel="next" href="microbial-metatranscriptomics-data-processing.html"/>
+<link rel="next" href="host-transcriptomics-data-processing-reference-based.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -272,7 +272,17 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a></li>
+<li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html"><i class="fa fa-check"></i><b>11.1</b> Reference-based host transcriptomics (HT) data processing</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html#quality-filtering"><i class="fa fa-check"></i><b>11.1.1</b> Quality-filtering</a></li>
+<li class="chapter" data-level="11.1.2" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html#ribosomal-rna-removal"><i class="fa fa-check"></i><b>11.1.2</b> Ribosomal RNA removal</a></li>
+<li class="chapter" data-level="11.1.3" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html#reference-genome-indexing"><i class="fa fa-check"></i><b>11.1.3</b> Reference genome indexing</a></li>
+<li class="chapter" data-level="11.1.4" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html#read-mapping-against-reference-genome"><i class="fa fa-check"></i><b>11.1.4</b> Read mapping against reference genome</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="host-transcriptomics-data-processing-reference-free.html"><a href="host-transcriptomics-data-processing-reference-free.html"><i class="fa fa-check"></i><b>11.2</b> Reference-free host transcriptomics (HT) data processing</a></li>
+</ul></li>
 <li class="chapter" data-level="12" data-path="microbial-metatranscriptomics-data-processing.html"><a href="microbial-metatranscriptomics-data-processing.html"><i class="fa fa-check"></i><b>12</b> Microbial metatranscriptomics (HT) data processing</a></li>
 <li class="chapter" data-level="13" data-path="host-proteomics-data-processing.html"><a href="host-proteomics-data-processing.html"><i class="fa fa-check"></i><b>13</b> Host proteomics (HP) data processing</a></li>
 <li class="chapter" data-level="14" data-path="microbial-metaproteomics-data-processing.html"><a href="microbial-metaproteomics-data-processing.html"><i class="fa fa-check"></i><b>14</b> Microbial metaproteomics (MP) data processing</a></li>
@@ -355,8 +365,18 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="host-transcriptomics-data-processing" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">11</span> Host transcriptomics (HT) data processing<a href="host-transcriptomics-data-processing.html#host-transcriptomics-data-processing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Contents to be added.</p>
-
+<p>The analysis of host transcriptomic data can be conducted following two main strategies, which depend on whether a well-annotated reference genome that contain all gene sequences of the studied transcripts is available or not. This is seldom the case in non-model organisms that lack complete reference genomes with high-quality annotation of genetic information, although many reference genome generation initiatives are rapidly increasing the number of available reference genomes. The pros and cons of using either approach have been addressed in the literature <span class="citation">[<a href="#ref-Lee2021-th" role="doc-biblioref">15</a>]</span>.</p>
+<p>In the following two chapters, you will find example pipelines to process host transcriptomic data through both strategies:</p>
+<ul>
+<li><strong><a href="host-transcriptomics-data-processing-reference-based.html#host-transcriptomics-data-processing-reference-based">Reference-based host transcriptomics (HT) data processing</a></strong></li>
+<li><strong><a href="host-transcriptomics-data-processing-reference-free.html#host-transcriptomics-data-processing-reference-free">Reference-free host transcriptomics (HT) data processing</a></strong></li>
+</ul>
+</div>
+<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Lee2021-th" class="csl-entry">
+15. Lee S-G, Na D, Park C. Comparability of reference-based and reference-free transcriptome analysis approaches at the gene expression level. BMC Bioinformatics. 2021;22 Suppl 11:310.
+</div>
 </div>
             </section>
 
@@ -364,7 +384,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="genome-resolved.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="microbial-metatranscriptomics-data-processing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="host-transcriptomics-data-processing-reference-based.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

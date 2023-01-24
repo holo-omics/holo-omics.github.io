@@ -42,6 +42,12 @@ get-assembly-statistics-using-quast
 coassembly-based
 genome-resolved
 host-transcriptomics-data-processing
+host-transcriptomics-data-processing-reference-based
+quality-filtering
+ribosomal-rna-removal
+reference-genome-indexing
+read-mapping-against-reference-genome
+host-transcriptomics-data-processing-reference-free
 microbial-metatranscriptomics-data-processing
 host-proteomics-data-processing
 microbial-metaproteomics-data-processing

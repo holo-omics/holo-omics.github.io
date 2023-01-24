@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.8 (Meta)metabolomics (ME) | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="1.8 (Meta)metabolomics (ME) | A Practical Guide to Holo-Omics" />
+  <title>11.1 Reference-based host transcriptomics (HT) data processing | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="11.1 Reference-based host transcriptomics (HT) data processing | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.8 (Meta)metabolomics (ME) | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="11.1 Reference-based host transcriptomics (HT) data processing | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.8 (Meta)metabolomics (ME) | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="11.1 Reference-based host transcriptomics (HT) data processing | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="microbial-metaproteomics.html"/>
-<link rel="next" href="study-design-considerations.html"/>
+<link rel="prev" href="host-transcriptomics-data-processing.html"/>
+<link rel="next" href="host-transcriptomics-data-processing-reference-free.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -363,19 +363,73 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="meta-metabolomics" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> (Meta)metabolomics (ME)<a href="meta-metabolomics.html#meta-metabolomics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Contents to be added</p>
-
+<div id="host-transcriptomics-data-processing-reference-based" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Reference-based host transcriptomics (HT) data processing<a href="host-transcriptomics-data-processing-reference-based.html#host-transcriptomics-data-processing-reference-based" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="quality-filtering" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Quality-filtering<a href="host-transcriptomics-data-processing-reference-based.html#quality-filtering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Text to be added.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="dt">\</span></span>
+<span id="cb20-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--in1</span> {input.read1} <span class="at">--in2</span> {input.read2} <span class="dt">\</span></span>
+<span id="cb20-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out1</span> {output.read1} <span class="at">--out2</span> {output.read2} <span class="dt">\</span></span>
+<span id="cb20-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_g</span> <span class="dt">\</span></span>
+<span id="cb20-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_x</span> <span class="dt">\</span></span>
+<span id="cb20-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--low_complexity_filter</span> <span class="dt">\</span></span>
+<span id="cb20-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--n_base_limit</span> 5 <span class="dt">\</span></span>
+<span id="cb20-8"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--qualified_quality_phred</span> 20 <span class="dt">\</span></span>
+<span id="cb20-9"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">--length_required</span> 60 <span class="dt">\</span></span>
+<span id="cb20-10"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">--thread</span> {threads} <span class="dt">\</span></span>
+<span id="cb20-11"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">--html</span> {output.fastp_html} <span class="dt">\</span></span>
+<span id="cb20-12"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">--json</span> {output.fastp_json} <span class="dt">\</span></span>
+<span id="cb20-13"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence</span> AGATCGGAAGAGCACACGTCTGAACTCCAGTCA <span class="dt">\</span></span>
+<span id="cb20-14"><a href="host-transcriptomics-data-processing-reference-based.html#cb20-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence_r2</span>  AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT</span></code></pre></div>
 </div>
-<!-- </div> -->
+<div id="ribosomal-rna-removal" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> Ribosomal RNA removal<a href="host-transcriptomics-data-processing-reference-based.html#ribosomal-rna-removal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Text to be added.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ribodetector_cpu</span> <span class="dt">\</span></span>
+<span id="cb21-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb21-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-t</span> 24 <span class="dt">\</span></span>
+<span id="cb21-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb21-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-l</span> 150 <span class="dt">\</span></span>
+<span id="cb21-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb21-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-i</span> {input.r1} {input.r2} <span class="dt">\</span></span>
+<span id="cb21-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb21-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-e</span> rrna <span class="dt">\</span></span>
+<span id="cb21-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb21-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">-o</span> {output.non_rna_r1} {output.non_rna_r2}</span></code></pre></div>
+</div>
+<div id="reference-genome-indexing" class="section level3 hasAnchor" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Reference genome indexing<a href="host-transcriptomics-data-processing-reference-based.html#reference-genome-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Text to be added.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span> <span class="dt">\</span></span>
+<span id="cb22-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb22-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runMode</span> genomeGenerate <span class="dt">\</span></span>
+<span id="cb22-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb22-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runThreadN</span> {threads} <span class="dt">\</span></span>
+<span id="cb22-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb22-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeDir</span> {input} <span class="dt">\</span></span>
+<span id="cb22-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb22-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeFastaFiles</span> {input}/<span class="pp">*</span>.fna <span class="dt">\</span></span>
+<span id="cb22-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb22-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--sjdbGTFfile</span> {input}/<span class="pp">*</span>.gtf <span class="dt">\</span></span>
+<span id="cb22-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb22-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--sjdbOverhang</span> {params.readlength}</span></code></pre></div>
+<p>Text to be added.</p>
+</div>
+<div id="read-mapping-against-reference-genome" class="section level3 hasAnchor" number="11.1.4">
+<h3><span class="header-section-number">11.1.4</span> Read mapping against reference genome<a href="host-transcriptomics-data-processing-reference-based.html#read-mapping-against-reference-genome" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Text to be added.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span> <span class="dt">\</span></span>
+<span id="cb23-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runMode</span> alignReads <span class="dt">\</span></span>
+<span id="cb23-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runThreadN</span> {threads} <span class="dt">\</span></span>
+<span id="cb23-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeDir</span> {params.genome} <span class="dt">\</span></span>
+<span id="cb23-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--readFilesIn</span> {input.read1} {input.read2} <span class="dt">\</span></span>
+<span id="cb23-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outFileNamePrefix</span> {wildcards.sample} <span class="dt">\</span></span>
+<span id="cb23-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outSAMtype</span> BAM SortedByCoordinate <span class="dt">\</span></span>
+<span id="cb23-8"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outReadsUnmapped</span> Fastx <span class="dt">\</span></span>
+<span id="cb23-9"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">--readFilesCommand</span> zcat <span class="dt">\</span></span>
+<span id="cb23-10"><a href="host-transcriptomics-data-processing-reference-based.html#cb23-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">--quantMode</span> GeneCounts</span></code></pre></div>
+<div class="authorbox">
+<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a> and <a href="index.html#raphael-eisenhofer">Raphael Eisenhofer</a>.</p>
+</div>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="microbial-metaproteomics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="study-design-considerations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="host-transcriptomics-data-processing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="host-transcriptomics-data-processing-reference-free.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

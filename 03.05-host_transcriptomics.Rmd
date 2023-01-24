@@ -1,3 +1,79 @@
 # Host transcriptomics (HT) data processing {#host-transcriptomics-data-processing}
 
-Contents to be added.
+The analysis of host transcriptomic data can be conducted following two main strategies, which depend on whether a well-annotated reference genome that contain all gene sequences of the studied transcripts is available or not. This is seldom the case in non-model organisms that lack complete reference genomes with high-quality annotation of genetic information, although many reference genome generation initiatives are rapidly increasing the number of available reference genomes. The pros and cons of using either approach have been addressed in the literature [@Lee2021-th].
+
+In the following two chapters, you will find example pipelines to process host transcriptomic data through both strategies:
+
+*  **[Reference-based host transcriptomics (HT) data processing](#host-transcriptomics-data-processing-reference-based)**
+*  **[Reference-free host transcriptomics (HT) data processing](#host-transcriptomics-data-processing-reference-free)**
+
+## Reference-based host transcriptomics (HT) data processing {#host-transcriptomics-data-processing-reference-based}
+
+### Quality-filtering
+Text to be added.
+
+```{sh ht-fastp, eval=FALSE}
+fastp \
+      --in1 {input.read1} --in2 {input.read2} \
+      --out1 {output.read1} --out2 {output.read2} \
+      --trim_poly_g \
+      --trim_poly_x \
+      --low_complexity_filter \
+      --n_base_limit 5 \
+      --qualified_quality_phred 20 \
+      --length_required 60 \
+      --thread {threads} \
+      --html {output.fastp_html} \
+      --json {output.fastp_json} \
+      --adapter_sequence AGATCGGAAGAGCACACGTCTGAACTCCAGTCA \
+      --adapter_sequence_r2  AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+```
+
+### Ribosomal RNA removal
+Text to be added.
+
+```{sh ht-ribodetector, eval=FALSE}
+ribodetector_cpu \
+      -t 24 \
+      -l 150 \
+      -i {input.r1} {input.r2} \
+      -e rrna \
+      -o {output.non_rna_r1} {output.non_rna_r2}
+```
+
+### Reference genome indexing
+Text to be added.
+
+```{sh ht-star-index, eval=FALSE}
+STAR \
+      --runMode genomeGenerate \
+      --runThreadN {threads} \
+      --genomeDir {input} \
+      --genomeFastaFiles {input}/*.fna \
+      --sjdbGTFfile {input}/*.gtf \
+      --sjdbOverhang {params.readlength}
+```
+Text to be added.
+
+### Read mapping against reference genome
+Text to be added.
+
+```{sh ht-star-mapping, eval=FALSE}
+STAR \
+      --runMode alignReads \
+      --runThreadN {threads} \
+      --genomeDir {params.genome} \
+      --readFilesIn {input.read1} {input.read2} \
+      --outFileNamePrefix {wildcards.sample} \
+      --outSAMtype BAM SortedByCoordinate \
+      --outReadsUnmapped Fastx \
+      --readFilesCommand zcat \
+      --quantMode GeneCounts
+```
+
+:::: {.authorbox}
+Contents of this section were created by [Antton Alberdi](#antton-alberdi) and [Raphael Eisenhofer](#raphael-eisenhofer).
+:::
+
+## Reference-free host transcriptomics (HT) data processing {#host-transcriptomics-data-processing-reference-free}
+Text to be added.
