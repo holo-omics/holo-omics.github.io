@@ -49,6 +49,8 @@ reference-genome-indexing
 read-mapping-against-reference-genome
 host-transcriptomics-data-processing-reference-free
 microbial-metatranscriptomics-data-processing
+microbial-metatranscriptomics-data-processing-reference-based
+microbial-metatranscriptomics-data-processing-reference-free
 host-proteomics-data-processing
 microbial-metaproteomics-data-processing
 about-statistics
@@ -56,6 +58,10 @@ prepare-r
 example-data-statistics
 single-omic-analyses
 data-transformations
+transformations-to-normalise-data
+transformations-to-account-for-missing-observations
+transformations-to-account-for-compositional-nature-of-the-data
+transformations-to-account-for-scaling
 unsupervised-exploration
 cluster-analysis
 hierarchical-clustering

@@ -1,3 +1,35 @@
 # Data transformations {#data-transformations}
 
-Here is a review of existing methods.
+Before conducting any analysis on multivariate datasets, it is important to note that the different data types present (such as the presence/absence of taxa, gene counts, metabolic capacity indices, and metabolite concentrations) may need to undergo specific transformations.
+
+## Transformations to normalise data
+
+Many statistical techniques used for such datasets have assumptions, such as normally (or symmetrically) distributed values, independence between variables, and homogeneity in population variances. Unfortunately, biological datasets often do not meet these requirements. However, through transformations, the original values can be modified to better conform to these assumptions.
+
+```{r transformations-normalisation, eval=FALSE}
+#Example code to be added here
+```
+
+## Transformations to account for missing observations
+
+Many standard statistical techniques based on Euclidean distances, such as PCA, RDA, and K-means clustering, are not appropriate for analysing biological datasets that frequently contain missing observations represented as zeros. It is therefore recommended to use alternative transformations, such as Hellinger, when utilising these methods on datasets characterised by zero-inflated presence, absence, and abundance.
+
+```{r transformations-zeros, eval=FALSE}
+#Example code to be added here
+```
+
+## Transformations to account for compositional nature of the data
+
+When dealing with multi-omic datasets, it's important to determine if the measurements represent absolute or relative values. While HG provides qualitative information about host genomes, MG, HT, and MT provide quantitative information that's dependent on the amount of sequencing performed and thus are compositional. Consequently, raw quantitative values of genome abundance or gene expression across samples cannot be compared directly. To address this, the most common solution is to transform the raw abundance values into relative abundance data for comparison. However, this transformation reduces the independence of individual variables, which is an assumption for many statistical methods. An alternative is using ratio transformations like the centred log-ratio, which better suit compositional data analysis by removing the effect of the constant-sum constraint on the covariance and correlation matrices.
+
+```{r transformations-compositional, eval=FALSE}
+#Example code to be added here
+```
+
+## Transformations to account for scaling
+
+It's important to keep in mind that scaling can also impact the results when analszing multi-omic data. For instance, in ME data, certain metabolites such as ATP may have much higher concentrations than other important metabolites like signaling molecules, potentially overshadowing significant differences in the less abundant yet meaningful metabolites. In Transcriptomics, transcript length biases may also cause similar distortions. One solution is to standardise the features by using transformations like z-score normalisation, but this can amplify the influence of measurement error that is typically higher for less abundant features.
+
+```{r transformations-scaling, eval=FALSE}
+#Example code to be added here
+```

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.3 Microbial metatranscriptomics | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="6.3 Microbial metatranscriptomics | A Practical Guide to Holo-Omics" />
+  <title>17.3 Transformations to account for compositional nature of the data | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="17.3 Transformations to account for compositional nature of the data | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.3 Microbial metatranscriptomics | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="17.3 Transformations to account for compositional nature of the data | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.3 Microbial metatranscriptomics | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="17.3 Transformations to account for compositional nature of the data | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="library-host-transcriptomics.html"/>
-<link rel="next" href="about-bioinformatics.html"/>
+<link rel="prev" href="transformations-to-account-for-missing-observations.html"/>
+<link rel="next" href="transformations-to-account-for-scaling.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -382,109 +382,18 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="library-microbial-metatranscriptomics" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Microbial metatranscriptomics<a href="library-microbial-metatranscriptomics.html#library-microbial-metatranscriptomics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Sequencing library preparation for microbial metatranscriptomics faces the same challenges as host genomics, but the fact that prokaryotic mRNA have no poly-A tails makes it impossible to apply oligo(dT)-based rRNA depletion strategies. There are three other alternatives through which prokaryotic rRNA can be depleted. These three strategies require designing oligos, probes or guides whose sequences complement the DNA sequences that should be removed. Most commercial kits contain probes designed to remove rRNA sequences of the most commonly employed animal hosts (Human/Mouse/Rat), as well as bacteria, but custom probes targeting any genes could be employed. The first two methods shown below are implemented before library-preparation, thus independent reactions must be ran for each sample. The last strategy is implemented after library preparation, which enables multiple indexed libraries to be pooled, and thus performing a single reaction per pool.</p>
-<div id="capture-based-rrna-depletion" class="section level3 unnumbered hasAnchor">
-<h3>Capture-based rRNA depletion<a href="library-microbial-metatranscriptomics.html#capture-based-rrna-depletion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This method relies on capture rRNA with complimentary oligos that are coupled to paramagnetic beads. Unwanted transcripts get bound to beads, which can then be retained using a magnet, while the non-hybridasing transcripts remain in the elution.</p>
-</div>
-<div id="rnase-based-rrna-depletion" class="section level3 unnumbered hasAnchor">
-<h3>RNAse-based rRNA depletion<a href="library-microbial-metatranscriptomics.html#rnase-based-rrna-depletion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A more recent technological upgrade to capture-based rRNA depletion is to, instead of using paramagnetic beads, degrade RNA:DNA hybrids using RNase H <span class="citation">[<a href="#ref-Huang2020-xf" role="doc-biblioref">11</a>]</span>.</p>
-</div>
-<div id="cas9-based-rrna-depletion" class="section level3 unnumbered hasAnchor">
-<h3>CRISPR/Cas9-based rRNA depletion<a href="library-microbial-metatranscriptomics.html#cas9-based-rrna-depletion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The newest method of all three relies on the DNA claveage capacity of the Cas9 enzyme <span class="citation">[<a href="#ref-Gu2016-yf" role="doc-biblioref">12</a>]</span>. In this method, custom-designed guides are used for the Cas9 enzyme to cleveage unwanted sequences. This strategy is applied once libraries are prepared, and before the final PCR amplification is conducted. When the targetted molecules are cleaveged, they lack one of the two adaptors, and therefore they are not amplified, resulting in a considerable depletion compared to the rest of the library.</p>
-</div>
-<div id="rrna-depletion-protocols" class="section level3 unnumbered hasAnchor">
-<h3>List of available protocols<a href="library-microbial-metatranscriptomics.html#rrna-depletion-protocols" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<table>
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Strategy</th>
-<th>Author/owner</th>
-<th>Protocol/Article</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Custom capture-based depletion</td>
-<td>Capture-based</td>
-<td>Open Source</td>
-<td><a href="https://www.nature.com/articles/s41598-019-48692-2">Article</a> <span class="citation">[<a href="#ref-Kraus2019-fq" role="doc-biblioref">13</a>]</span></td>
-</tr>
-<tr class="even">
-<td>Legacy Ribo-Zero</td>
-<td>Capture-based</td>
-<td>Illumina</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Custom RNAse-based depletion</td>
-<td>RNAse-based</td>
-<td>Open Source</td>
-<td><a href="https://academic.oup.com/nar/article/48/4/e20/5687826">Article</a> <span class="citation">[<a href="#ref-Huang2020-xf" role="doc-biblioref">11</a>]</span></td>
-</tr>
-<tr class="even">
-<td>Ribo-Zero Plus</td>
-<td>RNAse-based</td>
-<td>Illumina</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>NEBNext® rRNA Depletion Kit</td>
-<td>RNAse-based</td>
-<td>NEB</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>DASH</td>
-<td>Cas9-based</td>
-<td>Open Source</td>
-<td><a href="https://rnajournal.cshlp.org/content/26/8/1069.full">Article</a> <span class="citation">[<a href="#ref-Prezza2020-ln" role="doc-biblioref">14</a>]</span></td>
-</tr>
-</tbody>
-</table>
-<div class="authorbox">
-<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
-</div>
-
-</div>
-</div>
-<!-- </div> -->
-
-
-
-<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body">
-<div id="ref-Huang2020-xf" class="csl-entry">
-11. Huang Y, Sheth RU, Kaufman A, Wang HH. Scalable and cost-effective ribonuclease-based <span class="nocase">rRNA</span> depletion for transcriptomics. Nucleic Acids Res. 2020;48:e20.
-</div>
-<div id="ref-Gu2016-yf" class="csl-entry">
-12. Gu W, Crawford ED, O’Donovan BD, Wilson MR, Chow ED, Retallack H, et al. Depletion of abundant sequences by hybridization (<span>DASH)</span>: Using Cas9 to remove unwanted high-abundance species in sequencing libraries and molecular counting applications. Genome Biol. 2016;17:41.
-</div>
-<div id="ref-Kraus2019-fq" class="csl-entry">
-13. Kraus AJ, Brink BG, Siegel TN. Efficient and specific oligo-based depletion of <span class="nocase">rRNA</span>. Sci Rep. 2019;9:12281.
-</div>
-<div id="ref-Prezza2020-ln" class="csl-entry">
-14. Prezza G, Heckel T, Dietrich S, Homberger C, Westermann AJ, Vogel J. Improved bacterial <span class="nocase">RNA-seq</span> by Cas9-based depletion of ribosomal <span>RNA</span> reads. RNA. 2020;26:1069–78.
-</div>
+<div id="transformations-to-account-for-compositional-nature-of-the-data" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Transformations to account for compositional nature of the data<a href="transformations-to-account-for-compositional-nature-of-the-data.html#transformations-to-account-for-compositional-nature-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When dealing with multi-omic datasets, it’s important to determine if the measurements represent absolute or relative values. While HG provides qualitative information about host genomes, MG, HT, and MT provide quantitative information that’s dependent on the amount of sequencing performed and thus are compositional. Consequently, raw quantitative values of genome abundance or gene expression across samples cannot be compared directly. To address this, the most common solution is to transform the raw abundance values into relative abundance data for comparison. However, this transformation reduces the independence of individual variables, which is an assumption for many statistical methods. An alternative is using ratio transformations like the centred log-ratio, which better suit compositional data analysis by removing the effect of the constant-sum constraint on the covariance and correlation matrices.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="transformations-to-account-for-compositional-nature-of-the-data.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example code to be added here</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="library-host-transcriptomics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="about-bioinformatics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="transformations-to-account-for-missing-observations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="transformations-to-account-for-scaling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

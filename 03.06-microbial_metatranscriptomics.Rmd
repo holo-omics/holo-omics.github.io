@@ -1,3 +1,84 @@
 # Microbial metatranscriptomics (HT) data processing {#microbial-metatranscriptomics-data-processing}
 
-Contents to be added.
+The analysis of microbial metatranscriptomic data can be conducted following two main strategies, which depend on whether a reference catalogue of annotated bacterial genomes is available or not.
+
+In the following two chapters, you will find example pipelines to process microbial metatranscriptomic data through both strategies:
+
+*  **[Reference-based microbial metatranscriptomics (MT) data processing](#microbial-metatranscriptomics-data-processing-reference-based)**
+*  **[Reference-free microbial metatranscriptomics (MT) data processing](#microbial-metatranscriptomics-data-processing-reference-free)**
+
+## Reference-based microbial metatranscriptomics (MT) data processing {#microbial-metatranscriptomics-data-processing-reference-based}
+
+Introduction to be added here.
+
+### Quality filtering {-}
+
+Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.
+
+```{sh mt-fastp, eval=FALSE}
+fastp \
+      --in1 {input.r1i} --in2 {input.r2i} \
+      --out1 {output.r1o} --out2 {output.r2o} \
+      --trim_poly_g \
+      --trim_poly_x \
+      --n_base_limit 5 \
+      --qualified_quality_phred 20 \
+      --length_required 60 \
+      --thread {threads} \
+      --html {output.fastp_html} \
+      --json {output.fastp_json} \
+      --adapter_sequence CTGTCTCTTATACACATCT \
+      --adapter_sequence_r2 CTGTCTCTTATACACATCT
+```
+
+### Ribosomal RNA removal {-}
+
+Ribodetector can be used for efficient removal of rRNA sequences from microbial metatranscriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
+
+```{sh mt-ribodetector, eval=FALSE}
+#Code to be added here
+```
+
+### Host genome indexing {-}
+
+In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which  can be used for multiple RNA-seq experiments.
+
+```{sh mt-star-index, eval=FALSE}
+#Code to be added here
+```
+
+### Host genome mapping {-}
+
+STAR (Spliced Transcripts Alignment to a Reference) can be used for efficiently mapping host reads against a selected reference genome, and thus filter them out from subsequent metatranscriptomic analyses.
+
+```{sh mt-star, eval=FALSE}
+#Code to be added here
+```
+
+### Generating and indexing the microbial genome catalogue {-}
+
+Explanations to be added here.
+
+```{sh mt-bowtie2-index, eval=FALSE}
+#Code to be added here
+```
+
+### Mapping against the microbial genome catalogue {-}
+
+Explanations to be added here.
+
+```{sh mt-bowtie2-mapping, eval=FALSE}
+#Code to be added here
+```
+
+### Calculate gene counts {-}
+
+Explanations to be added here.
+
+```{sh mt-coverm, eval=FALSE}
+#Code to be added here
+```
+
+## Reference-free microbial metatranscriptomics (MT) data processing {#microbial-metatranscriptomics-data-processing-reference-free}
+
+Contents to be added here.
