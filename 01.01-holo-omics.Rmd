@@ -41,30 +41,30 @@ In this workbook we consider seven omic layers that require specific data genera
 
 Acknowledging the distinct biological and structural characteristics of these seven omic layers is essential to design experiments and analytical pipelines for better solving the complex puzzle of host-microbiota interactions.
 
-## Host genomics (HG) {#host-genomics}
+### Host genomics (HG) {- #host-genomics}
 
 Contents to be added
 
-## Host transcriptomics (HT) {#host-transcriptomics}
+### Host transcriptomics (HT) {- #host-transcriptomics}
 
 Contents to be added
 
-## Microbial metagenomics (MG) {#microbial-metagenomics}
+### Microbial metagenomics (MG) {- #microbial-metagenomics}
 
 Contents to be added
 
-## Microbial metatranscriptomics (MT) {#microbial-metatranscriptomics}
+### Microbial metatranscriptomics (MT) {- #microbial-metatranscriptomics}
 
 Contents to be added
 
-## Host proteomics (HP) {#host-proteomics}
+### Host proteomics (HP) {- #host-proteomics}
 
 Contents to be added
 
-## Microbial metaproteomics (MP) {#microbial-metaproteomics}
+### Microbial metaproteomics (MP) {- #microbial-metaproteomics}
 
 Contents to be added
 
-## (Meta)metabolomics (ME) {#meta-metabolomics}
+### (Meta)metabolomics (ME) {- #meta-metabolomics}
 
 Contents to be added
