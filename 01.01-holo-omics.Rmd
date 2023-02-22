@@ -1,11 +1,20 @@
 # (PART) INTRODUCTION {-}
 # Introduction to holo-omics {#holo-omics}
 
-Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities [@Nyholm2020-ua]. The holo-omic approach to host-microbiota interactions relies on three major assumptions:
+### Why do we need holo-omics? {- #why-holo-omics}
+Every multicellular organism is a host ‘environment’ for which microbes pass through, persist, replicate, and/or influence the host phenotype. Evidence, collected from rainforest swamps to research labs, and from farm stables to patient bedsides, has made it clear that no fauna or flora live alone. Although each have their own peculiar characteristics, animals and plants are incontrovertible assemblages of multiple lifeforms. They compositionally form holobionts with their diverse microbial associates, whether they are transient or stably present [@Theis2016-dc]. Holobionts can thus change in time and space, and the collective gene catalog of a holobiont in turn forms a hologenome, which can yield variation in phenotypes with fitness, performance, or disease consequences. The prefix “holo” derives from the Greek word holos for entire or whole. Holobiont and hologenome are thus structural terms that help us view and study biological systems in an integrated community context, that are subject to diverse ecological and evolutionary forces with harmful, helpful, or harmless consequences [@Rosenberg2013-dc]. The terms also recognize that hosts often outsource or intertwine metabolism to stable or transient microbial associates, and that hosts have evolved a gradient of dependencies and antagonisms with microorganisms in or on their surfaces and surroundings across the plant and animalia kingdoms.
+
+### What is holo-omics? {- #what-is-holo-omics}
+
+Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities [@Nyholm2020-ua]. Holo-omics leverage current knowledge and methods in the fields of molecular biology and microbiology into a novel framework integrating molecular data including genomes, transcriptomes, epigenomes, proteomes, and metabolomes for analyzing host organisms and their gut microbiota as interconnected and coregulated systems. The advantage of holo-omics is that it is supposed to overcome the limited functional insights of current analytical strategies by simultaneously considering the holobiont at multiple molecular levels. This involves deciphering interactions between not only the host genome but also its epigenome and transcriptome, as well as its microbial metagenome and metatranscriptome. Studies would ideally also incorporate analyses of the associated proteomes and metabolomes, and metaproteomes and metametabolomes, to fully recover the functional pathways controlling the observable phenotype of a host organism. Successful integration of such data into a holo-omic framework will reveal mechanisms such as how host genomes regulate the composition of the microbial community, or, conversely, how specific microbes interact to control host gene expression patterns. Finally, the holo-omic approach to study host-microbiota interactions relies on three major assumptions of the study system:
 
 1. Host-associated microorganisms interact not only with each other but also with their host [@Fischer2017-wa].
 2. These interactions affect, either positively or negatively, central biological processes of hosts and microorganisms [@Wu2012-jt].
 3. The interplay can be traced using biomolecular tools.
+
+:::: {.authorbox}
+Contents of this section were created by [Antton Alberdi](#antton-alberdi) and [Morten Limborg](#morten-limborg).
+:::
 
 ## Omic layers {#omic-layers}
 

@@ -112,13 +112,12 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={ A Practical Guide to Holo-Omics},
+  pdftitle={A Practical Guide to Holo-Omics},
   pdfauthor={The Center for Evolutionary Hologenomics},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{\includegraphics[width=1\textwidth,height=\textheight]{images/holo-omics_overview_nyholm.png}
-A Practical Guide to Holo-Omics}
+\title{A Practical Guide to Holo-Omics}
 \author{The Center for Evolutionary Hologenomics}
 \date{}
 
@@ -217,6 +216,18 @@ Antton is an Associate Professor at the University of Copenhagen whose research 
 
 \url{antton.alberdi@sund.ku.dk} \textbar{} \url{www.alberdilab.dk}
 
+\hypertarget{morten-limborg}{%
+\subsubsection*{Morten Limborg}\label{morten-limborg}}
+\addcontentsline{toc}{subsubsection}{Morten Limborg}
+
+Text to be included.
+
+\hypertarget{raphael-eisenhofer}{%
+\subsubsection*{Raphael Eisenhofer}\label{raphael-eisenhofer}}
+\addcontentsline{toc}{subsubsection}{Raphael Eisenhofer}
+
+Text to be included.
+
 \begin{itemize}
 \tightlist
 \item
@@ -235,8 +246,6 @@ Antton is an Associate Professor at the University of Copenhagen whose research 
 \tightlist
 \item
   Carlotta Pietroni, University of Copenhagen
-\item
-  Raphael Eisenhofer, University of Copenhagen
 \item
   Jorge Langa, University of Copenhagen
 \end{itemize}
@@ -272,7 +281,17 @@ This project has received funding from the European Union's Horizon 2020 researc
 \hypertarget{holo-omics}{%
 \chapter{Introduction to holo-omics}\label{holo-omics}}
 
-Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities \citep{Nyholm2020-ua}. The holo-omic approach to host-microbiota interactions relies on three major assumptions:
+\hypertarget{why-holo-omics}{%
+\subsection*{Why do we need holo-omics?}\label{why-holo-omics}}
+\addcontentsline{toc}{subsection}{Why do we need holo-omics?}
+
+Every multicellular organism is a host `environment' for which microbes pass through, persist, replicate, and/or influence the host phenotype. Evidence, collected from rainforest swamps to research labs, and from farm stables to patient bedsides, has made it clear that no fauna or flora live alone. Although each have their own peculiar characteristics, animals and plants are incontrovertible assemblages of multiple lifeforms. They compositionally form holobionts with their diverse microbial associates, whether they are transient or stably present \citep{Theis2016-dc}. Holobionts can thus change in time and space, and the collective gene catalog of a holobiont in turn forms a hologenome, which can yield variation in phenotypes with fitness, performance, or disease consequences. The prefix ``holo'' derives from the Greek word holos for entire or whole. Holobiont and hologenome are thus structural terms that help us view and study biological systems in an integrated community context, that are subject to diverse ecological and evolutionary forces with harmful, helpful, or harmless consequences \citep{Rosenberg2013-dc}. The terms also recognize that hosts often outsource or intertwine metabolism to stable or transient microbial associates, and that hosts have evolved a gradient of dependencies and antagonisms with microorganisms in or on their surfaces and surroundings across the plant and animalia kingdoms.
+
+\hypertarget{what-is-holo-omics}{%
+\subsection*{What is holo-omics?}\label{what-is-holo-omics}}
+\addcontentsline{toc}{subsection}{What is holo-omics?}
+
+Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities \citep{Nyholm2020-ua}. Holo-omics leverage current knowledge and methods in the fields of molecular biology and microbiology into a novel framework integrating molecular data including genomes, transcriptomes, epigenomes, proteomes, and metabolomes for analyzing host organisms and their gut microbiota as interconnected and coregulated systems. The advantage of holo-omics is that it is supposed to overcome the limited functional insights of current analytical strategies by simultaneously considering the holobiont at multiple molecular levels. This involves deciphering interactions between not only the host genome but also its epigenome and transcriptome, as well as its microbial metagenome and metatranscriptome. Studies would ideally also incorporate analyses of the associated proteomes and metabolomes, and metaproteomes and metametabolomes, to fully recover the functional pathways controlling the observable phenotype of a host organism. Successful integration of such data into a holo-omic framework will reveal mechanisms such as how host genomes regulate the composition of the microbial community, or, conversely, how specific microbes interact to control host gene expression patterns. Finally, the holo-omic approach to study host-microbiota interactions relies on three major assumptions of the study system:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -284,6 +303,8 @@ Holo-omics refers to the methodological approach that jointly generates and anal
 \item
   The interplay can be traced using biomolecular tools.
 \end{enumerate}
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi} and \protect\hyperlink{morten-limborg}{Morten Limborg}.
 
 \hypertarget{omic-layers}{%
 \section{Omic layers}\label{omic-layers}}
@@ -1230,12 +1251,227 @@ Contents to be added.
 \hypertarget{host-transcriptomics-data-processing}{%
 \chapter{Host transcriptomics (HT) data processing}\label{host-transcriptomics-data-processing}}
 
-Contents to be added.
+The analysis of host transcriptomic data can be conducted following two main strategies, which depend on whether a well-annotated reference genome that contain all gene sequences of the studied transcripts is available or not. This is seldom the case in non-model organisms that lack complete reference genomes with high-quality annotation of genetic information, although many reference genome generation initiatives are rapidly increasing the number of available reference genomes. The pros and cons of using either approach have been addressed in the literature \citep{Lee2021-th}.
+
+In the following two chapters, you will find example pipelines to process host transcriptomic data through both strategies:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{host-transcriptomics-data-processing-reference-based}{Reference-based host transcriptomics (HT) data processing}}
+\item
+  \textbf{\protect\hyperlink{host-transcriptomics-data-processing-reference-free}{Reference-free host transcriptomics (HT) data processing}}
+\end{itemize}
+
+\hypertarget{host-transcriptomics-data-processing-reference-based}{%
+\section{Reference-based host transcriptomics (HT) data processing}\label{host-transcriptomics-data-processing-reference-based}}
+
+\hypertarget{quality-filtering}{%
+\subsection{Quality-filtering}\label{quality-filtering}}
+
+Text to be added.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{fastp} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}in1}\NormalTok{ \{input.read1\} }\AttributeTok{{-}{-}in2}\NormalTok{ \{input.read2\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}out1}\NormalTok{ \{output.read1\} }\AttributeTok{{-}{-}out2}\NormalTok{ \{output.read2\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}trim\_poly\_g} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}trim\_poly\_x} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}low\_complexity\_filter} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}n\_base\_limit}\NormalTok{ 5 }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}qualified\_quality\_phred}\NormalTok{ 20 }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}length\_required}\NormalTok{ 60 }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}thread}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}html}\NormalTok{ \{output.fastp\_html\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}json}\NormalTok{ \{output.fastp\_json\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}adapter\_sequence}\NormalTok{ AGATCGGAAGAGCACACGTCTGAACTCCAGTCA }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}adapter\_sequence\_r2}\NormalTok{  AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ribosomal-rna-removal}{%
+\subsection{Ribosomal RNA removal}\label{ribosomal-rna-removal}}
+
+Ribodetector can be used for efficient removal of rRNA sequences from host transcriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{ribodetector\_cpu} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}t}\NormalTok{ 24 }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}l}\NormalTok{ 150 }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}i}\NormalTok{ \{input.r1\} \{input.r2\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}e}\NormalTok{ rrna }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}o}\NormalTok{ \{output.non\_rna\_r1\} \{output.non\_rna\_r2\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{reference-genome-indexing}{%
+\subsection{Reference genome indexing}\label{reference-genome-indexing}}
+
+In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which can be used for multiple RNA-seq experiments.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{STAR} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}runMode}\NormalTok{ genomeGenerate }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}runThreadN}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}genomeDir}\NormalTok{ \{input\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}genomeFastaFiles}\NormalTok{ \{input\}/}\PreprocessorTok{*}\NormalTok{.fna }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}sjdbGTFfile}\NormalTok{ \{input\}/}\PreprocessorTok{*}\NormalTok{.gtf }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}sjdbOverhang}\NormalTok{ \{params.readlength\}}
+\end{Highlighting}
+\end{Shaded}
+
+Text to be added.
+
+\hypertarget{read-mapping-against-reference-genome}{%
+\subsection{Read mapping against reference genome}\label{read-mapping-against-reference-genome}}
+
+STAR (Spliced Transcripts Alignment to a Reference) is a fast and efficient method for aligning RNA-seq reads to a reference genome. It uses a two-pass alignment approach to detect spliced transcripts, improve accuracy and speed up the alignment process.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{STAR} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}runMode}\NormalTok{ alignReads }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}runThreadN}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}genomeDir}\NormalTok{ \{params.genome\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}readFilesIn}\NormalTok{ \{input.read1\} \{input.read2\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}outFileNamePrefix}\NormalTok{ \{wildcards.sample\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}outSAMtype}\NormalTok{ BAM SortedByCoordinate }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}outReadsUnmapped}\NormalTok{ Fastx }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}readFilesCommand}\NormalTok{ zcat }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}quantMode}\NormalTok{ GeneCounts}
+\end{Highlighting}
+\end{Shaded}
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi} and \protect\hyperlink{raphael-eisenhofer}{Raphael Eisenhofer}.
+
+\hypertarget{host-transcriptomics-data-processing-reference-free}{%
+\section{Reference-free host transcriptomics (HT) data processing}\label{host-transcriptomics-data-processing-reference-free}}
+
+Text to be added.
 
 \hypertarget{microbial-metatranscriptomics-data-processing}{%
 \chapter{Microbial metatranscriptomics (HT) data processing}\label{microbial-metatranscriptomics-data-processing}}
 
-Contents to be added.
+The analysis of microbial metatranscriptomic data can be conducted following two main strategies, which depend on whether a reference catalogue of annotated bacterial genomes is available or not.
+
+In the following two chapters, you will find example pipelines to process microbial metatranscriptomic data through both strategies:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{microbial-metatranscriptomics-data-processing-reference-based}{Reference-based microbial metatranscriptomics (MT) data processing}}
+\item
+  \textbf{\protect\hyperlink{microbial-metatranscriptomics-data-processing-reference-free}{Reference-free microbial metatranscriptomics (MT) data processing}}
+\end{itemize}
+
+\hypertarget{microbial-metatranscriptomics-data-processing-reference-based}{%
+\section{Reference-based microbial metatranscriptomics (MT) data processing}\label{microbial-metatranscriptomics-data-processing-reference-based}}
+
+Introduction to be added here.
+
+\hypertarget{quality-filtering-1}{%
+\subsection*{Quality filtering}\label{quality-filtering-1}}
+\addcontentsline{toc}{subsection}{Quality filtering}
+
+Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{fastp} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}in1}\NormalTok{ \{input.r1i\} }\AttributeTok{{-}{-}in2}\NormalTok{ \{input.r2i\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}out1}\NormalTok{ \{output.r1o\} }\AttributeTok{{-}{-}out2}\NormalTok{ \{output.r2o\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}trim\_poly\_g} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}trim\_poly\_x} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}n\_base\_limit}\NormalTok{ 5 }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}qualified\_quality\_phred}\NormalTok{ 20 }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}length\_required}\NormalTok{ 60 }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}thread}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}html}\NormalTok{ \{output.fastp\_html\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}json}\NormalTok{ \{output.fastp\_json\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}adapter\_sequence}\NormalTok{ CTGTCTCTTATACACATCT }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}adapter\_sequence\_r2}\NormalTok{ CTGTCTCTTATACACATCT}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ribosomal-rna-removal-1}{%
+\subsection*{Ribosomal RNA removal}\label{ribosomal-rna-removal-1}}
+\addcontentsline{toc}{subsection}{Ribosomal RNA removal}
+
+Ribodetector can be used for efficient removal of rRNA sequences from microbial metatranscriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{host-genome-indexing}{%
+\subsection*{Host genome indexing}\label{host-genome-indexing}}
+\addcontentsline{toc}{subsection}{Host genome indexing}
+
+In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which can be used for multiple RNA-seq experiments.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{host-genome-mapping}{%
+\subsection*{Host genome mapping}\label{host-genome-mapping}}
+\addcontentsline{toc}{subsection}{Host genome mapping}
+
+STAR (Spliced Transcripts Alignment to a Reference) can be used for efficiently mapping host reads against a selected reference genome, and thus filter them out from subsequent metatranscriptomic analyses.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{generating-and-indexing-the-microbial-genome-catalogue}{%
+\subsection*{Generating and indexing the microbial genome catalogue}\label{generating-and-indexing-the-microbial-genome-catalogue}}
+\addcontentsline{toc}{subsection}{Generating and indexing the microbial genome catalogue}
+
+Explanations to be added here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{mapping-against-the-microbial-genome-catalogue}{%
+\subsection*{Mapping against the microbial genome catalogue}\label{mapping-against-the-microbial-genome-catalogue}}
+\addcontentsline{toc}{subsection}{Mapping against the microbial genome catalogue}
+
+Explanations to be added here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-gene-counts}{%
+\subsection*{Calculate gene counts}\label{calculate-gene-counts}}
+\addcontentsline{toc}{subsection}{Calculate gene counts}
+
+Explanations to be added here.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{microbial-metatranscriptomics-data-processing-reference-free}{%
+\section{Reference-free microbial metatranscriptomics (MT) data processing}\label{microbial-metatranscriptomics-data-processing-reference-free}}
+
+Contents to be added here.
 
 \hypertarget{host-proteomics-data-processing}{%
 \chapter{Host proteomics (HP) data processing}\label{host-proteomics-data-processing}}
@@ -1380,17 +1616,71 @@ Contents to be added here.
 \hypertarget{single-omic-analyses}{%
 \chapter{Single omic analyses}\label{single-omic-analyses}}
 
-Here is a review of existing methods.
+Multi-omic data analysis should start by evaluating each individual layer separately to gain insight into its structure and variability, before combining all layers. Despite the varying nature of the seven omic layers discussed in this guidebook, they all possess the common attribute of being multivariate, meaning they consist of multiple features, such as genomic variants, genes, metabolic pathways, proteins or metabolites, collected from multiple observations. This section contains the following three chapters:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{data-transformations}{Data transformations}:} multivariate datasets consist of different data types (e.g., presence-absence of taxa, counts of genes, community-level metabolic capacity index of a function, concentrations of metabolites across samples) that may require specific transformation before applying statistical techniques.
+\item
+  \textbf{\protect\hyperlink{unsupervised-exploration}{Unsupervised exploration of omic layers}:} include exploratory techniques, such as cluster analysis and ordination-based visualisation methods, which reveal the structure and main patterns of the omic datasets without prior information about experimental design. These procedures might reveal that the observations are structured into meaningful groups or that variables can be reduced to fewer dimensions.
+\item
+  \textbf{\protect\hyperlink{supervised-analysis}{Supervised analysis of omic layers}:} this type of analyses incorporate information of experimental design and aim at testing and estimating the effects of the experimental factors (e.g., dietary treatment, drug administration) or variables of interest (e.g., age of the experimental subjects, geographic location of studied populations) on different omic layers.
+\end{itemize}
 
 \hypertarget{data-transformations}{%
 \chapter{Data transformations}\label{data-transformations}}
 
-Here is a review of existing methods.
+Before conducting any analysis on multivariate datasets, it is important to note that the different data types present (such as the presence/absence of taxa, gene counts, metabolic capacity indices, and metabolite concentrations) may need to undergo specific transformations.
+
+\hypertarget{transformations-to-normalise-data}{%
+\section{Transformations to normalise data}\label{transformations-to-normalise-data}}
+
+Many statistical techniques used for such datasets have assumptions, such as normally (or symmetrically) distributed values, independence between variables, and homogeneity in population variances. Unfortunately, biological datasets often do not meet these requirements. However, through transformations, the original values can be modified to better conform to these assumptions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Example code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{transformations-to-account-for-missing-observations}{%
+\section{Transformations to account for missing observations}\label{transformations-to-account-for-missing-observations}}
+
+Many standard statistical techniques based on Euclidean distances, such as PCA, RDA, and K-means clustering, are not appropriate for analysing biological datasets that frequently contain missing observations represented as zeros. It is therefore recommended to use alternative transformations, such as Hellinger, when utilising these methods on datasets characterised by zero-inflated presence, absence, and abundance.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Example code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{transformations-to-account-for-compositional-nature-of-the-data}{%
+\section{Transformations to account for compositional nature of the data}\label{transformations-to-account-for-compositional-nature-of-the-data}}
+
+When dealing with multi-omic datasets, it's important to determine if the measurements represent absolute or relative values. While HG provides qualitative information about host genomes, MG, HT, and MT provide quantitative information that's dependent on the amount of sequencing performed and thus are compositional. Consequently, raw quantitative values of genome abundance or gene expression across samples cannot be compared directly. To address this, the most common solution is to transform the raw abundance values into relative abundance data for comparison. However, this transformation reduces the independence of individual variables, which is an assumption for many statistical methods. An alternative is using ratio transformations like the centred log-ratio, which better suit compositional data analysis by removing the effect of the constant-sum constraint on the covariance and correlation matrices.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Example code to be added here}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{transformations-to-account-for-scaling}{%
+\section{Transformations to account for scaling}\label{transformations-to-account-for-scaling}}
+
+It's important to keep in mind that scaling can also impact the results when analszing multi-omic data. For instance, in ME data, certain metabolites such as ATP may have much higher concentrations than other important metabolites like signaling molecules, potentially overshadowing significant differences in the less abundant yet meaningful metabolites. In Transcriptomics, transcript length biases may also cause similar distortions. One solution is to standardise the features by using transformations like z-score normalisation, but this can amplify the influence of measurement error that is typically higher for less abundant features.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Example code to be added here}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{unsupervised-exploration}{%
 \chapter{Unsupervised exploration}\label{unsupervised-exploration}}
 
-Unsupervised methods include exploratory techniques, such as cluster analysis and ordination-based visualisation methods, which reveal the structure and main patterns of the omic datasets without prior information about experimental design. These procedures might reveal that the observations are structured into meaningful groups or that variables can be reduced to fewer dimensions. Researchers can then opt for using the outputs of these analyses, rather than the original multidimensional datasets, for the multi-omic data integration. Most clustering and ordination techniques are computed from association matrices, thus it is essential to do an appropriate pre-transformation of the data and choice of association coefficient, since this influences the final outcome of the analyses
+Unsupervised methods in multi-omic data analysis involve techniques for exploring the structure and patterns of the data without prior knowledge of the experimental design. These include cluster analysis and visualisation methods based on ordination. These procedures can reveal meaningful groupings among observations or allow for reducing the complexity of the data by reducing the number of dimensions. Researchers can then use the results from these exploratory techniques in further multi-omic data integration. It's crucial to properly pre-process the data and choose the appropriate association coefficient when computing these methods, as this has a significant impact on the final outcome.
 
 \begin{itemize}
 \tightlist
@@ -1492,7 +1782,7 @@ Content to be added here.
 \hypertarget{supervised-analysis}{%
 \chapter{Supervised analysis}\label{supervised-analysis}}
 
-The supervised analyses of omic layers, in contrast to unsupervised ones, incorporate information of experimental design, and can be divided into two types of problems: regression and classification. A regression problem is when the output of the model is a numeric variable or a matrix, such as the phenotypic characteristics of the host or the omic data sets themselves. These methods aim at testing and estimating the effects of the experimental factors (e.g., dietary treatment, drug administration) or variables of interest (e.g., age of the experimental subjects, geographic location of studied populations) on different omic layers, or associating the omic layers with host phenotypic features. A classification problem is when the output of the model is categorical. In the context of multi omic studies, classification methods aim at classifying observations into their experimental groups (e.g.~health status, dietary treatment) based on their features on different omic layers.
+The difference between supervised and unsupervised analyses in omic studies lies in the incorporation of experimental design information. Supervised analyses can be divided into two types: regression and classification. Regression problems involve predicting a numeric variable or matrix based on the omic data and experimental factors, such as treatment or subject characteristics. Classification problems, on the other hand, involve classifying observations into groups based on their features across different omic layers. Unlike unsupervised methods, supervised analyses incorporate prior information about the experimental design, making them useful for testing the effects of experimental factors and associating omic data with phenotypic features.
 
 \hypertarget{regression-methods}{%
 \section{Regression methods}\label{regression-methods}}
