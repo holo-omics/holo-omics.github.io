@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 DNA/RNA extraction | A Practical Guide to Holo-Omics</title>
   <meta name="description" content="4 DNA/RNA extraction | A Practical Guide to Holo-Omics" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 DNA/RNA extraction | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
@@ -273,8 +273,21 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
 <li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+<li class="chapter" data-level="10.2.3" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-prediction"><i class="fa fa-check"></i><b>10.2.3</b> Gene prediction</a></li>
+<li class="chapter" data-level="10.2.4" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-annotation"><i class="fa fa-check"></i><b>10.2.4</b> Gene annotation</a></li>
+<li class="chapter" data-level="10.2.5" data-path="assembly-based.html"><a href="assembly-based.html#assembly-read-mapping"><i class="fa fa-check"></i><b>10.2.5</b> Read mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-binning"><i class="fa fa-check"></i><b>10.3.1</b> Binning</a></li>
+<li class="chapter" data-level="10.3.2" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-refinement"><i class="fa fa-check"></i><b>10.3.2</b> Bin refinement</a></li>
+<li class="chapter" data-level="10.3.3" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-qc"><i class="fa fa-check"></i><b>10.3.3</b> Bin quality assessment</a></li>
+<li class="chapter" data-level="10.3.4" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-curation"><i class="fa fa-check"></i><b>10.3.4</b> Bin curation</a></li>
+<li class="chapter" data-level="10.3.5" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-dereplication"><i class="fa fa-check"></i><b>10.3.5</b> Dereplication</a></li>
+<li class="chapter" data-level="10.3.6" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-taxonomy"><i class="fa fa-check"></i><b>10.3.6</b> Taxonomic annotation</a></li>
+<li class="chapter" data-level="10.3.7" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-function"><i class="fa fa-check"></i><b>10.3.7</b> Functional annotation</a></li>
+<li class="chapter" data-level="10.3.8" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-mapping"><i class="fa fa-check"></i><b>10.3.8</b> Read mapping</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a>
 <ul>
@@ -393,37 +406,48 @@ div.csl-indent {
 <h3>Sample preprocessing<a href="dna-rna-extraction.html#sample-preprocessing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="bead-beating" class="section level4 unnumbered hasAnchor">
 <h4>Bead-beating<a href="dna-rna-extraction.html#bead-beating" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Contents to be added</p>
+<p>Bead-beating is a mechanical disruption method performed before standard DNA extraction, where ceramic or glass beads are added to a tube containing microbial samples. Subsequently, moderate to high-speed shaking is applied to create collisions between the beads and samples. Bead-beating is widely used in microbial metagenomics studies for bacterial cell lysis, and various bead-beating protocols have been utilized to extract microbial DNA from stool samples. Literature has investigated the effects of different bead-beating techniques on downstream analyses <span class="citation">[<a href="#ref-Fiedorova2019-yk" role="doc-biblioref">10</a>]</span>.</p>
 </div>
 <div id="freeze-heat-shock" class="section level4 unnumbered hasAnchor">
 <h4>Freeze-heat shock<a href="dna-rna-extraction.html#freeze-heat-shock" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Contents to be added</p>
+<p>Temperature shocks are one of the most damaging processes for tissue, cell and DNA integrity. While such events are commonly avoided to preserve the quality of the samples, heat-shocks have been shown to improve nucleic acid extractions in various contexts. This is because freezing induces crystallisation of water inside cells which leads to destruction of cytoplasmic structures.</p>
 </div>
 <div id="tissue-digestion" class="section level4 unnumbered hasAnchor">
 <h4>Tissue digestion<a href="dna-rna-extraction.html#tissue-digestion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Contents to be added</p>
+<p>After tissue disaggregation, a typical approach involves treating samples with a detergent and salt (such as SDS) to rupture cell membranes and sometimes with enzymes for cellular and organelle disruption and the elimination of impurities. Proteinase K is a popular choice for DNA isolation from mammalian tissues and cells, whereas lyticase and lysozyme are enzymes used to break down the cell walls of yeast and bacteria and are commonly featured in microbial DNA extraction kits.</p>
 </div>
 </div>
 <div id="chemical-isolation" class="section level3 unnumbered hasAnchor">
 <h3>Chemical isolation<a href="dna-rna-extraction.html#chemical-isolation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Based on chemical separation of nucleic acids from the rest of molecules.</p>
+<p>Once the DNA is released, proteins and other contaminants must be removed. When using chemical approaches, this is typically done by adding a precipitating agent like alcohols (e.g., ethanol) or salts (e.g., ammonium acetate). This process separates DNA and contaminants in different phases, which enables the contaminants to be removed from the sample, thus purifying the DNA. Purely chemical procedures for DNA isolation are becoming less common for the challenges they entail for high-throughput sample processing and automatisation.</p>
 </div>
 <div id="physicochemical-isolation" class="section level3 unnumbered hasAnchor">
 <h3>Physicochemical isolation<a href="dna-rna-extraction.html#physicochemical-isolation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Based on physical separation of nucleic acids from the rest of molecules.</p>
+<p>Physicochemical procedures are the most commonly employed strategies for DNA and RNA isolation. Two main strategies exist, either column-based or bead-based isolation.</p>
 <div id="column-based" class="section level4 unnumbered hasAnchor">
 <h4>Column-based<a href="dna-rna-extraction.html#column-based" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Contents to be added</p>
+<p>The spin column-based nucleic acid purification method is a rapid solid-phase extraction technique that purifies nucleic acids. The principle underlying this method is that under specific ionic conditions, nucleic acids bind to the solid-phase silica. A binding buffer is used to establish the optimal pH or salt concentration required for DNA to bind to silica. The sample in the binding buffer is then transferred to a spin column, which is placed in a centrifuge or attached to a vacuum. The centrifuge or vacuum forces the solution through a silica membrane within the spin column, where the nucleic acids bind to the silica membrane while the rest of the solution flows through. Once the target material is bound, the flow-through can be discarded.</p>
+<p>The next step involves washing the column by adding a new buffer, which typically contains alcohol, to maintain binding conditions while removing binding salts and any remaining contaminants. This process requires several washes, often with increasing concentrations of ethanol or isopropanol, until the nucleic acids on the silica membrane are free of contaminants. Finally, elution is the process of adding an aqueous solution to the column, allowing the hydrophilic nucleic acid to leave the column and enter the solution. This step can be enhanced by altering the salt, pH, time, or temperature. Finally, to collect the extract, the column is transferred to a clean microtube prior to a final centrifugation step.</p>
 </div>
 <div id="bead-based" class="section level4 unnumbered hasAnchor">
 <h4>Bead-based<a href="dna-rna-extraction.html#bead-based" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Contents to be added</p>
+<p>Bead-based nucleic acid extractions are based on the magnetic properties of very small (20 to 30 nm) iron oxide particles that only display magnetic behaviour in the presence of an external magnetic field. Several types of magnetic beads with different binding properties exist, which can be used for DNA and RNA purification as well as proteins and other biomolecules, depending on their surface coatings and chemistries. For instance, streptavidin-coated magnetic beads are commonly used for nucleic acid extractions, due to their capacity to bind biotinylated ligands such as nucleic acids.</p>
+<p>First, beads are mixed with the sample along with a binding buffer that provokes DNA to get attached to the magnetic beads. Subsequently, particles (with attached DNA) are dragged to an edge of the tube by the magnetic force of an external magnet, thus immobilising them. While the beads are immobilised, the rest of the sample is removed. The bead-bound DNA is retained during the washing steps, and finally released to an aqueous solution when the sample has been purified. The main advantage offered by bead-based strategies is their capacity to upscale and automatise, because there is no need for vacuum or centrifugation.</p>
 </div>
 </div>
 <div id="available-protocols" class="section level3 unnumbered hasAnchor">
 <h3>Available protocols<a href="dna-rna-extraction.html#available-protocols" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Contents to be added</p>
+<p>Hundreds of protocols, both open access and commercial, are currently available to extract nucleic acids from different types of samples.</p>
+<div class="authorbox">
+<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
+</div>
 
+</div>
+</div>
+<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Fiedorova2019-yk" class="csl-entry">
+10. Fiedorová K, Radvanský M, Němcová E, Grombiřı́ková H, Bosák J, Černochová M, et al. The impact of <span>DNA</span> extraction methods on stool bacterial and fungal microbiota community recovery. Front Microbiol. 2019;10:821.
 </div>
 </div>
             </section>

@@ -6,16 +6,20 @@ Microbial metagenomic data processing can be conducted following different strat
 * **[Assembly-based approach](#assembly-based):** it is based on assembling sequencing reads into longer DNA sequences known as contigs, which can then be used to predict genes and perform functional analyses. The main limitation of this approach is that the entire metagenome (set of contigs) in each sample is considered as a single unit, thus overlooking which bacterial genome each detected gene belongs to.
 * **[Genome-resolved approach](#genome-resolved):** it is the most advanced of the three approaches, and the strategy that provides the largest amount of information, as the aim of this approach is to directly reconstruct all the genomes in a metagenome. This is achieved by binning contigs into Metagenome-Assembled Genomes (MAGs), which can then be taxonomically and functionally annotated to perform sound community-level analyses.
 
+:::: {.authorbox}
+Contents of this section were created by [Antton Alberdi](#antton-alberdi).  
+:::
+
 ## Reference-based {#reference-based}
 
-Assembly-based.
+Reference-based.
 
 ## Assembly-based {#assembly-based}
 
-Assembly-based approaches can be divided in two main strategies:
+Assembly-based approaches for processing metagenomic data are based on assembling sequencing reads into longer DNA sequences known as contigs, which can then be used to predict genes and perform functional analyses. The main limitation of this approach is that the entire metagenome (set of contigs) in each sample is considered as a single unit, thus overlooking which bacterial genome each detected gene belongs to. Assembly-based approaches can be divided in two main strategies:
 
-* Individual assembly-based
-* Coassembly-based
+* [Individual assembly-based](#individual-assembly-based)
+* [Coassembly-based](#coassembly-based)
 
 ### Individual assembly-based {#individual-assembly-based}
 
@@ -50,7 +54,7 @@ reformat.sh \
     minlength=1500
 ```
 
-#### Get assembly statistics using Quast
+#### Assembly statistics using Quast
 
 The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software **Quast**.
 
@@ -61,12 +65,94 @@ quast \
     {input.assembly}
 ```
 
-TO BE CONTINUED FROM HERE: https://github.com/earthhologenome/EHI_bioinformatics/blob/main/0_Code/2_Individual_Assembly_Binning.snakefile
-
 ### Coassembly-based {#coassembly-based}
 
+Coassembly is the process of assembling input files consisting of reads from multiple samples, as opposed to performing an independent assembly for each sample, where the input would only include reads from that particular sample. Coassembly has several advantages, such as increased read depth, simplified comparison across samples by utilizing a single reference assembly for all, and frequently, a better capability to recover genomes from metagenomes by obtaining differential coverage information. However, it can also limit the capacity to recover strain-level variation.
 
+Coassembling multiple samples does not require special assemblers, but only preparing the input files in the correct way to enable assemblers to perform the assembly over multiple samples. An example for metaspades is shown below:
+
+```{sh eval=FALSE}
+#Concatenate input reads into a single big input file
+cat {input.reads}/*_1.fq.gz > {params.r1_cat}
+cat {input.reads}/*_2.fq.gz > {params.r2_cat}
+
+# Run metaspades
+metaspades.py \
+    -t {threads} \
+    -k 21,33,55,77,99 \
+    -1 {params.r1_cat} -2 {params.r2_cat} \
+    -o {params.workdir}
+    2> {log}
+
+# Remove contigs shorter than 1,500 bp using bbmap
+reformat.sh \
+    in={params.workdir}/scaffolds.fasta \
+    out={output.Coassembly} \
+    minlength=1500
+```
+
+Note that the genome-resolved metagenomic approach also relies on assemblies or co-assemblies, but downstream binning procedures are explained in the **[genome-resolved approach](#genome-resolved)** section.
+
+### Gene prediction {#assembly-gene-prediction}
+
+Content to be added.
+
+### Gene annotation {#assembly-gene-annotation}
+
+Content to be added.
+
+### Read mapping {#assembly-read-mapping}
+
+Content to be added.
+
+:::: {.authorbox}
+Contents of this section were created by [Antton Alberdi](#antton-alberdi).  
+:::
 
 ## Genome-resolved {#genome-resolved}
 
-Contents to be added.
+Genome-resolved metagenomics aims at recovering near-complete bacterial genomes from metagenomic mixtures. It relies on the assembling and read-mapping procedures explained in **[assembly-based approach](#assembly-based)** section, which is followed by a binning procedure to produce the so-called Metagenome-Assembled Genomes (MAGs).
+
+### Binning {#genome-resolved-binning}
+
+Metagenomic binning is the bioinformatic process that attempts to group metagenomic sequences by their organism of origin {Goussarov}. In practice, what binning does is to cluster contigs of a metagenomic assembly into putative bacterial genomes. In the last decade over a dozen of binning algorithms have been released, each relying on different structural and mathematical properties of the input data.
+
+Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.
+
+### Bin refinement {#genome-resolved-refinement}
+
+The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as "bin refinement", and can be performed using tools like Metawrap [@Uritskiy2018-my] or Dastool [@Sieber2018-fp]. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
+
+### Bin quality assessment {#genome-resolved-qc}
+
+Metagenomic binning is a powerful yet complex procedure that yields many bins that do not properly represent bacterial genomes. It is therefore essential to assess the quality of those bins before considering them representative of bacterial genomes. The two main parameters used for bin assessment are completeness and contamination. Completeness refers to the fraction of a given bacterial genome estimated to be represented in the bin, while contamination refers to the proportion of the bin estimated to belong to a different genome. The most commonly employed software to assess bin quality is CheckM, which yields completeness and contamination metrics based on single-copy core genes.
+
+Based on completeness and contamination metrics, a group of experts proposed some community standards to classify bins according to their quality and establish minimum quality requirements for considering a bin as a MAG [@Bowers2017-kj].
+
+### Bin curation {#genome-resolved-curation}
+
+Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi'o suite provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner [@Orakov2021-pt].
+
+### Dereplication {#genome-resolved-dereplication}
+
+Dereplication is the reduction of a set of MAGs based on high sequence similarity between them [@Evans2020-hs]. Although this step is neither essential nor meaningful in certain cases (e.g., when studying straing-level variation or pangenomes), in most cases it contributes to overcome issues such as excessive computational demans, inflated diversity or inspecific read mapping. If the catalogue of MAGs used to map sequencing reads to (see [read mapping](#genome-resolved-mapping) section below) contains many similar genomes, read mapping results in multiple high-quality alignments. Depending on the software used and parameters chosen, this leads to sequencing reads either being randomly distributed across the redundant genomes or being reported at all redundant locations. This can bias quantitative estimations of relative representation of each MAG in a given metagenomic sample.
+
+Dereplication is based on pairwise comparisons of average nucleotide identity (ANI) between MAGs. This implies that the number of comparisons scales quadratically with an increasing amount of MAGs, which requires for efficient strategies to perform dereplication in a cost-efficient way. A popular tool used for dereplicating MAGs is dRep [@Olm2017-nx], which combines the fast yet innacurate algorithm MASH with the slow but accurate gANI computation to yield a fast and accurate estimation of ANIs between MAGs. An optimal threshold that balances between retaining genome diversity while minimising cross-mapping issues has been found to be 98% ANI.
+
+### Taxonomic annotation {#genome-resolved-taxonomy}
+
+Although not necessary for conducting most of the downstream analyses, taxonomic annotation of MAGs is an important step to provide context, improve comparability and facilitate result interpretation in holo-omic studies. MAGs can be taxonomically annotated using different algorithms and reference databases, but the  Genome Taxonomy Database (GTDB) [@Parks2022-zl] and associated taxonomic classification toolkit (GTDB-Tk) [@Chaumeil2022-jr] have become the preferred option for many researchers.
+
+### Functional annotation {#genome-resolved-function}
+
+Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases.
+
+More details to be added.
+
+### Read mapping {#genome-resolved-mapping}
+
+Content to be added.
+
+:::: {.authorbox}
+Contents of this section were created by [Antton Alberdi](#antton-alberdi).  
+:::

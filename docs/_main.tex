@@ -621,49 +621,55 @@ Hundreds or (probably) thousands of different protocols and variations exist for
 \subsubsection*{Bead-beating}\label{bead-beating}}
 \addcontentsline{toc}{subsubsection}{Bead-beating}
 
-Contents to be added
+Bead-beating is a mechanical disruption method performed before standard DNA extraction, where ceramic or glass beads are added to a tube containing microbial samples. Subsequently, moderate to high-speed shaking is applied to create collisions between the beads and samples. Bead-beating is widely used in microbial metagenomics studies for bacterial cell lysis, and various bead-beating protocols have been utilized to extract microbial DNA from stool samples. Literature has investigated the effects of different bead-beating techniques on downstream analyses \citep[\citet{Fiedorova2019-yk}]{Zhang2021-sn}.
 
 \hypertarget{freeze-heat-shock}{%
 \subsubsection*{Freeze-heat shock}\label{freeze-heat-shock}}
 \addcontentsline{toc}{subsubsection}{Freeze-heat shock}
 
-Contents to be added
+Temperature shocks are one of the most damaging processes for tissue, cell and DNA integrity. While such events are commonly avoided to preserve the quality of the samples, heat-shocks have been shown to improve nucleic acid extractions in various contexts. This is because freezing induces crystallisation of water inside cells which leads to destruction of cytoplasmic structures.
 
 \hypertarget{tissue-digestion}{%
 \subsubsection*{Tissue digestion}\label{tissue-digestion}}
 \addcontentsline{toc}{subsubsection}{Tissue digestion}
 
-Contents to be added
+After tissue disaggregation, a typical approach involves treating samples with a detergent and salt (such as SDS) to rupture cell membranes and sometimes with enzymes for cellular and organelle disruption and the elimination of impurities. Proteinase K is a popular choice for DNA isolation from mammalian tissues and cells, whereas lyticase and lysozyme are enzymes used to break down the cell walls of yeast and bacteria and are commonly featured in microbial DNA extraction kits.
 
 \hypertarget{chemical-isolation}{%
 \subsection*{Chemical isolation}\label{chemical-isolation}}
 \addcontentsline{toc}{subsection}{Chemical isolation}
 
-Based on chemical separation of nucleic acids from the rest of molecules.
+Once the DNA is released, proteins and other contaminants must be removed. When using chemical approaches, this is typically done by adding a precipitating agent like alcohols (e.g., ethanol) or salts (e.g., ammonium acetate). This process separates DNA and contaminants in different phases, which enables the contaminants to be removed from the sample, thus purifying the DNA. Purely chemical procedures for DNA isolation are becoming less common for the challenges they entail for high-throughput sample processing and automatisation.
 
 \hypertarget{physicochemical-isolation}{%
 \subsection*{Physicochemical isolation}\label{physicochemical-isolation}}
 \addcontentsline{toc}{subsection}{Physicochemical isolation}
 
-Based on physical separation of nucleic acids from the rest of molecules.
+Physicochemical procedures are the most commonly employed strategies for DNA and RNA isolation. Two main strategies exist, either column-based or bead-based isolation.
 
 \hypertarget{column-based}{%
 \subsubsection*{Column-based}\label{column-based}}
 \addcontentsline{toc}{subsubsection}{Column-based}
 
-Contents to be added
+The spin column-based nucleic acid purification method is a rapid solid-phase extraction technique that purifies nucleic acids. The principle underlying this method is that under specific ionic conditions, nucleic acids bind to the solid-phase silica. A binding buffer is used to establish the optimal pH or salt concentration required for DNA to bind to silica. The sample in the binding buffer is then transferred to a spin column, which is placed in a centrifuge or attached to a vacuum. The centrifuge or vacuum forces the solution through a silica membrane within the spin column, where the nucleic acids bind to the silica membrane while the rest of the solution flows through. Once the target material is bound, the flow-through can be discarded.
+
+The next step involves washing the column by adding a new buffer, which typically contains alcohol, to maintain binding conditions while removing binding salts and any remaining contaminants. This process requires several washes, often with increasing concentrations of ethanol or isopropanol, until the nucleic acids on the silica membrane are free of contaminants. Finally, elution is the process of adding an aqueous solution to the column, allowing the hydrophilic nucleic acid to leave the column and enter the solution. This step can be enhanced by altering the salt, pH, time, or temperature. Finally, to collect the extract, the column is transferred to a clean microtube prior to a final centrifugation step.
 
 \hypertarget{bead-based}{%
 \subsubsection*{Bead-based}\label{bead-based}}
 \addcontentsline{toc}{subsubsection}{Bead-based}
 
-Contents to be added
+Bead-based nucleic acid extractions are based on the magnetic properties of very small (20 to 30 nm) iron oxide particles that only display magnetic behaviour in the presence of an external magnetic field. Several types of magnetic beads with different binding properties exist, which can be used for DNA and RNA purification as well as proteins and other biomolecules, depending on their surface coatings and chemistries. For instance, streptavidin-coated magnetic beads are commonly used for nucleic acid extractions, due to their capacity to bind biotinylated ligands such as nucleic acids.
+
+First, beads are mixed with the sample along with a binding buffer that provokes DNA to get attached to the magnetic beads. Subsequently, particles (with attached DNA) are dragged to an edge of the tube by the magnetic force of an external magnet, thus immobilising them. While the beads are immobilised, the rest of the sample is removed. The bead-bound DNA is retained during the washing steps, and finally released to an aqueous solution when the sample has been purified. The main advantage offered by bead-based strategies is their capacity to upscale and automatise, because there is no need for vacuum or centrifugation.
 
 \hypertarget{available-protocols}{%
 \subsection*{Available protocols}\label{available-protocols}}
 \addcontentsline{toc}{subsection}{Available protocols}
 
-Contents to be added
+Hundreds of protocols, both open access and commercial, are currently available to extract nucleic acids from different types of samples.
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
 \hypertarget{protein-metabolite-extraction}{%
 \chapter{Protein/metabolite extraction}\label{protein-metabolite-extraction}}
@@ -1173,22 +1179,24 @@ Microbial metagenomic data processing can be conducted following different strat
   \textbf{\protect\hyperlink{genome-resolved}{Genome-resolved approach}:} it is the most advanced of the three approaches, and the strategy that provides the largest amount of information, as the aim of this approach is to directly reconstruct all the genomes in a metagenome. This is achieved by binning contigs into Metagenome-Assembled Genomes (MAGs), which can then be taxonomically and functionally annotated to perform sound community-level analyses.
 \end{itemize}
 
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
+
 \hypertarget{reference-based}{%
 \section{Reference-based}\label{reference-based}}
 
-Assembly-based.
+Reference-based.
 
 \hypertarget{assembly-based}{%
 \section{Assembly-based}\label{assembly-based}}
 
-Assembly-based approaches can be divided in two main strategies:
+Assembly-based approaches for processing metagenomic data are based on assembling sequencing reads into longer DNA sequences known as contigs, which can then be used to predict genes and perform functional analyses. The main limitation of this approach is that the entire metagenome (set of contigs) in each sample is considered as a single unit, thus overlooking which bacterial genome each detected gene belongs to. Assembly-based approaches can be divided in two main strategies:
 
 \begin{itemize}
 \tightlist
 \item
-  Individual assembly-based
+  \protect\hyperlink{individual-assembly-based}{Individual assembly-based}
 \item
-  Coassembly-based
+  \protect\hyperlink{coassembly-based}{Coassembly-based}
 \end{itemize}
 
 \hypertarget{individual-assembly-based}{%
@@ -1231,8 +1239,8 @@ Two of the most popular metagenome assemblers are \textbf{Megahit} and \textbf{M
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{get-assembly-statistics-using-quast}{%
-\subsubsection{Get assembly statistics using Quast}\label{get-assembly-statistics-using-quast}}
+\hypertarget{assembly-statistics-using-quast}{%
+\subsubsection{Assembly statistics using Quast}\label{assembly-statistics-using-quast}}
 
 The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software \textbf{Quast}.
 
@@ -1245,15 +1253,108 @@ The metagenome assemblies can have very different properties depending on the am
 \end{Highlighting}
 \end{Shaded}
 
-TO BE CONTINUED FROM HERE: \url{https://github.com/earthhologenome/EHI_bioinformatics/blob/main/0_Code/2_Individual_Assembly_Binning.snakefile}
-
 \hypertarget{coassembly-based}{%
 \subsection{Coassembly-based}\label{coassembly-based}}
+
+Coassembly is the process of assembling input files consisting of reads from multiple samples, as opposed to performing an independent assembly for each sample, where the input would only include reads from that particular sample. Coassembly has several advantages, such as increased read depth, simplified comparison across samples by utilizing a single reference assembly for all, and frequently, a better capability to recover genomes from metagenomes by obtaining differential coverage information. However, it can also limit the capacity to recover strain-level variation.
+
+Coassembling multiple samples does not require special assemblers, but only preparing the input files in the correct way to enable assemblers to perform the assembly over multiple samples. An example for metaspades is shown below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Concatenate input reads into a single big input file}
+\FunctionTok{cat}\NormalTok{ \{input.reads\}/}\PreprocessorTok{*}\NormalTok{\_1.fq.gz }\OperatorTok{\textgreater{}}\NormalTok{ \{params.r1\_cat\}}
+\FunctionTok{cat}\NormalTok{ \{input.reads\}/}\PreprocessorTok{*}\NormalTok{\_2.fq.gz }\OperatorTok{\textgreater{}}\NormalTok{ \{params.r2\_cat\}}
+
+\CommentTok{\# Run metaspades}
+\ExtensionTok{metaspades.py} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}k}\NormalTok{ 21,33,55,77,99 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}1}\NormalTok{ \{params.r1\_cat\} }\AttributeTok{{-}2}\NormalTok{ \{params.r2\_cat\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ \{params.workdir\}}
+    \DecValTok{2}\OperatorTok{\textgreater{}}\NormalTok{ \{log\}}
+
+\CommentTok{\# Remove contigs shorter than 1,500 bp using bbmap}
+\ExtensionTok{reformat.sh} \DataTypeTok{\textbackslash{}}
+\NormalTok{    in=\{params.workdir\}/scaffolds.fasta }\DataTypeTok{\textbackslash{}}
+\NormalTok{    out=\{output.Coassembly\} }\DataTypeTok{\textbackslash{}}
+\NormalTok{    minlength=1500}
+\end{Highlighting}
+\end{Shaded}
+
+Note that the genome-resolved metagenomic approach also relies on assemblies or co-assemblies, but downstream binning procedures are explained in the \textbf{\protect\hyperlink{genome-resolved}{genome-resolved approach}} section.
+
+\hypertarget{assembly-gene-prediction}{%
+\subsection{Gene prediction}\label{assembly-gene-prediction}}
+
+Content to be added.
+
+\hypertarget{assembly-gene-annotation}{%
+\subsection{Gene annotation}\label{assembly-gene-annotation}}
+
+Content to be added.
+
+\hypertarget{assembly-read-mapping}{%
+\subsection{Read mapping}\label{assembly-read-mapping}}
+
+Content to be added.
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
 \hypertarget{genome-resolved}{%
 \section{Genome-resolved}\label{genome-resolved}}
 
-Contents to be added.
+Genome-resolved metagenomics aims at recovering near-complete bacterial genomes from metagenomic mixtures. It relies on the assembling and read-mapping procedures explained in \textbf{\protect\hyperlink{assembly-based}{assembly-based approach}} section, which is followed by a binning procedure to produce the so-called Metagenome-Assembled Genomes (MAGs).
+
+\hypertarget{genome-resolved-binning}{%
+\subsection{Binning}\label{genome-resolved-binning}}
+
+Metagenomic binning is the bioinformatic process that attempts to group metagenomic sequences by their organism of origin \{Goussarov\}. In practice, what binning does is to cluster contigs of a metagenomic assembly into putative bacterial genomes. In the last decade over a dozen of binning algorithms have been released, each relying on different structural and mathematical properties of the input data.
+
+Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.
+
+\hypertarget{genome-resolved-refinement}{%
+\subsection{Bin refinement}\label{genome-resolved-refinement}}
+
+The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as ``bin refinement'', and can be performed using tools like Metawrap \citep{Uritskiy2018-my} or Dastool \citep{Sieber2018-fp}. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
+
+\hypertarget{genome-resolved-qc}{%
+\subsection{Bin quality assessment}\label{genome-resolved-qc}}
+
+Metagenomic binning is a powerful yet complex procedure that yields many bins that do not properly represent bacterial genomes. It is therefore essential to assess the quality of those bins before considering them representative of bacterial genomes. The two main parameters used for bin assessment are completeness and contamination. Completeness refers to the fraction of a given bacterial genome estimated to be represented in the bin, while contamination refers to the proportion of the bin estimated to belong to a different genome. The most commonly employed software to assess bin quality is CheckM, which yields completeness and contamination metrics based on single-copy core genes.
+
+Based on completeness and contamination metrics, a group of experts proposed some community standards to classify bins according to their quality and establish minimum quality requirements for considering a bin as a MAG \citep{Bowers2017-kj}.
+
+\hypertarget{genome-resolved-curation}{%
+\subsection{Bin curation}\label{genome-resolved-curation}}
+
+Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi'o suite provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC\%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner \citep{Orakov2021-pt}.
+
+\hypertarget{genome-resolved-dereplication}{%
+\subsection{Dereplication}\label{genome-resolved-dereplication}}
+
+Dereplication is the reduction of a set of MAGs based on high sequence similarity between them \citep{Evans2020-hs}. Although this step is neither essential nor meaningful in certain cases (e.g., when studying straing-level variation or pangenomes), in most cases it contributes to overcome issues such as excessive computational demans, inflated diversity or inspecific read mapping. If the catalogue of MAGs used to map sequencing reads to (see \protect\hyperlink{genome-resolved-mapping}{read mapping} section below) contains many similar genomes, read mapping results in multiple high-quality alignments. Depending on the software used and parameters chosen, this leads to sequencing reads either being randomly distributed across the redundant genomes or being reported at all redundant locations. This can bias quantitative estimations of relative representation of each MAG in a given metagenomic sample.
+
+Dereplication is based on pairwise comparisons of average nucleotide identity (ANI) between MAGs. This implies that the number of comparisons scales quadratically with an increasing amount of MAGs, which requires for efficient strategies to perform dereplication in a cost-efficient way. A popular tool used for dereplicating MAGs is dRep \citep{Olm2017-nx}, which combines the fast yet innacurate algorithm MASH with the slow but accurate gANI computation to yield a fast and accurate estimation of ANIs between MAGs. An optimal threshold that balances between retaining genome diversity while minimising cross-mapping issues has been found to be 98\% ANI.
+
+\hypertarget{genome-resolved-taxonomy}{%
+\subsection{Taxonomic annotation}\label{genome-resolved-taxonomy}}
+
+Although not necessary for conducting most of the downstream analyses, taxonomic annotation of MAGs is an important step to provide context, improve comparability and facilitate result interpretation in holo-omic studies. MAGs can be taxonomically annotated using different algorithms and reference databases, but the Genome Taxonomy Database (GTDB) \citep{Parks2022-zl} and associated taxonomic classification toolkit (GTDB-Tk) \citep{Chaumeil2022-jr} have become the preferred option for many researchers.
+
+\hypertarget{genome-resolved-function}{%
+\subsection{Functional annotation}\label{genome-resolved-function}}
+
+Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases.
+
+More details to be added.
+
+\hypertarget{genome-resolved-mapping}{%
+\subsection{Read mapping}\label{genome-resolved-mapping}}
+
+Content to be added.
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
 \hypertarget{host-transcriptomics-data-processing}{%
 \chapter{Host transcriptomics (HT) data processing}\label{host-transcriptomics-data-processing}}

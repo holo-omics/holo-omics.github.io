@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Sequencing library preparation | A Practical Guide to Holo-Omics</title>
   <meta name="description" content="6 Sequencing library preparation | A Practical Guide to Holo-Omics" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Sequencing library preparation | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
@@ -273,8 +273,21 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
 <li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+<li class="chapter" data-level="10.2.3" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-prediction"><i class="fa fa-check"></i><b>10.2.3</b> Gene prediction</a></li>
+<li class="chapter" data-level="10.2.4" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-annotation"><i class="fa fa-check"></i><b>10.2.4</b> Gene annotation</a></li>
+<li class="chapter" data-level="10.2.5" data-path="assembly-based.html"><a href="assembly-based.html#assembly-read-mapping"><i class="fa fa-check"></i><b>10.2.5</b> Read mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-binning"><i class="fa fa-check"></i><b>10.3.1</b> Binning</a></li>
+<li class="chapter" data-level="10.3.2" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-refinement"><i class="fa fa-check"></i><b>10.3.2</b> Bin refinement</a></li>
+<li class="chapter" data-level="10.3.3" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-qc"><i class="fa fa-check"></i><b>10.3.3</b> Bin quality assessment</a></li>
+<li class="chapter" data-level="10.3.4" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-curation"><i class="fa fa-check"></i><b>10.3.4</b> Bin curation</a></li>
+<li class="chapter" data-level="10.3.5" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-dereplication"><i class="fa fa-check"></i><b>10.3.5</b> Dereplication</a></li>
+<li class="chapter" data-level="10.3.6" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-taxonomy"><i class="fa fa-check"></i><b>10.3.6</b> Taxonomic annotation</a></li>
+<li class="chapter" data-level="10.3.7" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-function"><i class="fa fa-check"></i><b>10.3.7</b> Functional annotation</a></li>
+<li class="chapter" data-level="10.3.8" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-mapping"><i class="fa fa-check"></i><b>10.3.8</b> Read mapping</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a>
 <ul>
@@ -449,21 +462,21 @@ div.csl-indent {
 <h3>PCR-based vs. PCR-free library preparation<a href="sequencing-library-preparation.html#pcr-library" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sequencing library preparation procedures can be split into two main groups depending on whether they PCR-amplify or not the DNA templates. Unlike in the case of targeted amplicon sequencing, in which the objective is to amplify a specific target region, the aim of including a PCR step in shotgun-based library preparation is to increase the molarity of the library and/or to attach indices (see below) to the adaptors.</p>
 <div class="tipbox">
-<p>Learn more about PCR-based and PCR-free library preparation in <a href="https://www.pnas.org/doi/abs/10.1073/pnas.1519288112">this article</a> by Jones et al. <span class="citation">[<a href="#ref-Jones2015-bk" role="doc-biblioref">9</a>]</span>.</p>
+<p>Learn more about PCR-based and PCR-free library preparation in <a href="https://www.pnas.org/doi/abs/10.1073/pnas.1519288112">this article</a> by Jones et al. <span class="citation">[<a href="#ref-Jones2015-bk" role="doc-biblioref">11</a>]</span>.</p>
 </div>
 </div>
 <div id="indices-multiplexing" class="section level3 unnumbered hasAnchor">
 <h3>Indices and multiplexing<a href="sequencing-library-preparation.html#indices-multiplexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Usually, library preparation also entails tagging molecules with unique sample identifiers known as indices, which enable pooling molecules derived from multiple samples in a single sequencing run. This can be achieved in PCR-free protocols by using adaptors containing unique indices per sample, or by using indexed amplification primers in PCR-based library preparation protocols.</p>
 <div class="tipbox">
-<p>Learn more about indices and multiplexing in <a href="https://academic.oup.com/nar/article/40/1/e3/1287690">this article</a> by Kircher et al. <span class="citation">[<a href="#ref-Kircher2012-vy" role="doc-biblioref">10</a>]</span>.</p>
+<p>Learn more about indices and multiplexing in <a href="https://academic.oup.com/nar/article/40/1/e3/1287690">this article</a> by Kircher et al. <span class="citation">[<a href="#ref-Kircher2012-vy" role="doc-biblioref">12</a>]</span>.</p>
 </div>
 </div>
 <div id="unique-molecular-identifiers" class="section level3 unnumbered hasAnchor">
 <h3>Unique molecular identifiers (UMIs)<a href="sequencing-library-preparation.html#unique-molecular-identifiers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Unique molecular identifiers (UMIs) are a type of molecular barcoding that provides error correction and increased accuracy during sequencing by uniquely tag each molecule (rather than each pool of molecules derived from a sample) in a sample library. UMIs are used for a wide range of sequencing applications, many around PCR duplicates in DNA and cDNA. UMI deduplication is also useful for RNA-seq gene expression analysis and other quantitative sequencing methods.</p>
 <div class="tipbox">
-<p>Learn more about unique molecular identifiers in <a href="https://www.nature.com/articles/nmeth.1778">this article</a> by Kivioja et al. <span class="citation">[<a href="#ref-Kivioja2011-fe" role="doc-biblioref">11</a>]</span>.</p>
+<p>Learn more about unique molecular identifiers in <a href="https://www.nature.com/articles/nmeth.1778">this article</a> by Kivioja et al. <span class="citation">[<a href="#ref-Kivioja2011-fe" role="doc-biblioref">13</a>]</span>.</p>
 </div>
 <div class="authorbox">
 <p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
@@ -473,13 +486,13 @@ div.csl-indent {
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-Jones2015-bk" class="csl-entry">
-9. Jones MB, Highlander SK, Anderson EL, Li W, Dayrit M, Klitgord N, et al. Library preparation methodology can influence genomic and functional predictions in human microbiome research. Proc Natl Acad Sci U S A. 2015;112:14024–9.
+11. Jones MB, Highlander SK, Anderson EL, Li W, Dayrit M, Klitgord N, et al. Library preparation methodology can influence genomic and functional predictions in human microbiome research. Proc Natl Acad Sci U S A. 2015;112:14024–9.
 </div>
 <div id="ref-Kircher2012-vy" class="csl-entry">
-10. Kircher M, Sawyer S, Meyer M. Double indexing overcomes inaccuracies in multiplex sequencing on the illumina platform. Nucleic Acids Res. 2012;40:e3.
+12. Kircher M, Sawyer S, Meyer M. Double indexing overcomes inaccuracies in multiplex sequencing on the illumina platform. Nucleic Acids Res. 2012;40:e3.
 </div>
 <div id="ref-Kivioja2011-fe" class="csl-entry">
-11. Kivioja T, Vähärautio A, Karlsson K, Bonke M, Enge M, Linnarsson S, et al. Counting absolute numbers of molecules using unique molecular identifiers. Nat Methods. 2011;9:72–4.
+13. Kivioja T, Vähärautio A, Karlsson K, Bonke M, Enge M, Linnarsson S, et al. Counting absolute numbers of molecules using unique molecular identifiers. Nat Methods. 2011;9:72–4.
 </div>
 </div>
             </section>

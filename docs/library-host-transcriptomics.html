@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.2 Host transcriptomics | A Practical Guide to Holo-Omics</title>
   <meta name="description" content="6.2 Host transcriptomics | A Practical Guide to Holo-Omics" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.2 Host transcriptomics | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
@@ -273,8 +273,21 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
 <li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+<li class="chapter" data-level="10.2.3" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-prediction"><i class="fa fa-check"></i><b>10.2.3</b> Gene prediction</a></li>
+<li class="chapter" data-level="10.2.4" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-annotation"><i class="fa fa-check"></i><b>10.2.4</b> Gene annotation</a></li>
+<li class="chapter" data-level="10.2.5" data-path="assembly-based.html"><a href="assembly-based.html#assembly-read-mapping"><i class="fa fa-check"></i><b>10.2.5</b> Read mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-binning"><i class="fa fa-check"></i><b>10.3.1</b> Binning</a></li>
+<li class="chapter" data-level="10.3.2" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-refinement"><i class="fa fa-check"></i><b>10.3.2</b> Bin refinement</a></li>
+<li class="chapter" data-level="10.3.3" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-qc"><i class="fa fa-check"></i><b>10.3.3</b> Bin quality assessment</a></li>
+<li class="chapter" data-level="10.3.4" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-curation"><i class="fa fa-check"></i><b>10.3.4</b> Bin curation</a></li>
+<li class="chapter" data-level="10.3.5" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-dereplication"><i class="fa fa-check"></i><b>10.3.5</b> Dereplication</a></li>
+<li class="chapter" data-level="10.3.6" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-taxonomy"><i class="fa fa-check"></i><b>10.3.6</b> Taxonomic annotation</a></li>
+<li class="chapter" data-level="10.3.7" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-function"><i class="fa fa-check"></i><b>10.3.7</b> Functional annotation</a></li>
+<li class="chapter" data-level="10.3.8" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-mapping"><i class="fa fa-check"></i><b>10.3.8</b> Read mapping</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a>
 <ul>
@@ -391,7 +404,7 @@ div.csl-indent {
 <p>Library preparation for host transcriptomics (HT) requires some extra steps to the already described procedures for <a href="##library-meta-genomics">host genomics and microbial metagenomics</a>. This is due to two main reasons. First, because RNA molecules cannot be directly built into most sequencing libraries, and require instead to generate complementary DNA (cDNA) before library preparation. Second, because gene transcripts tend to be overwhelmingly dominated by rRNA and mtDNA genes, which are often not of interest for the researcher.</p>
 <div id="rrna-sample-quality-assessment" class="section level4 unnumbered hasAnchor">
 <h4>Sample quality assessment<a href="library-host-transcriptomics.html#rrna-sample-quality-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended. While traditionally assessed through agarose gel electrophoresis, nowadays RNA quality assessment is performed on electropherogram profiles, which are produced by nucleic acid fragment analysis instruments (e.g. Bioanalyzer, Fragment Analyzer). Traditionally, a simple model evaluating the 28S to 18S rRNA ratio was used as a criterion for RNA quality. However, the most common metric currently employed for assessing the preservation quality of RNA is the RNA integrity number (RIN), which accounts for more RNA features for assessing sample quality <span class="citation">[<a href="#ref-Schroeder2006-dn" role="doc-biblioref">12</a>]</span>. RIN values range from 10 (intact RNA) to 1 (totally degraded RNA). For example, the poly(A) enrichment procedures explained below require high quality RNA (RIN &gt; 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3’ ends are enriched while the more 5’ sequences would not be captured, leading to a strong 3’ bias for degraded RNA inputs.</p>
+<p>Before starting any library preparation protocol assessing the quality of RNA samples is strongly recommended. While traditionally assessed through agarose gel electrophoresis, nowadays RNA quality assessment is performed on electropherogram profiles, which are produced by nucleic acid fragment analysis instruments (e.g. Bioanalyzer, Fragment Analyzer). Traditionally, a simple model evaluating the 28S to 18S rRNA ratio was used as a criterion for RNA quality. However, the most common metric currently employed for assessing the preservation quality of RNA is the RNA integrity number (RIN), which accounts for more RNA features for assessing sample quality <span class="citation">[<a href="#ref-Schroeder2006-dn" role="doc-biblioref">14</a>]</span>. RIN values range from 10 (intact RNA) to 1 (totally degraded RNA). For example, the poly(A) enrichment procedures explained below require high quality RNA (RIN &gt; 8), because RNA degradaation to breaks within the transcript body and due to the selection of the poly(A) tail, the 3’ ends are enriched while the more 5’ sequences would not be captured, leading to a strong 3’ bias for degraded RNA inputs.</p>
 </div>
 <div id="DNA-removal" class="section level4 unnumbered hasAnchor">
 <h4>DNA removal<a href="library-host-transcriptomics.html#DNA-removal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -460,7 +473,7 @@ div.csl-indent {
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-Schroeder2006-dn" class="csl-entry">
-12. Schroeder A, Mueller O, Stocker S, Salowsky R, Leiber M, Gassmann M, et al. The <span>RIN</span>: An <span>RNA</span> integrity number for assigning integrity values to <span>RNA</span> measurements. BMC Mol Biol. 2006;7:3.
+14. Schroeder A, Mueller O, Stocker S, Salowsky R, Leiber M, Gassmann M, et al. The <span>RIN</span>: An <span>RNA</span> integrity number for assigning integrity values to <span>RNA</span> measurements. BMC Mol Biol. 2006;7:3.
 </div>
 </div>
             </section>

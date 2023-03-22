@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10.3 Genome-resolved | A Practical Guide to Holo-Omics</title>
   <meta name="description" content="10.3 Genome-resolved | A Practical Guide to Holo-Omics" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10.3 Genome-resolved | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
@@ -273,8 +273,21 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
 <li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+<li class="chapter" data-level="10.2.3" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-prediction"><i class="fa fa-check"></i><b>10.2.3</b> Gene prediction</a></li>
+<li class="chapter" data-level="10.2.4" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-annotation"><i class="fa fa-check"></i><b>10.2.4</b> Gene annotation</a></li>
+<li class="chapter" data-level="10.2.5" data-path="assembly-based.html"><a href="assembly-based.html#assembly-read-mapping"><i class="fa fa-check"></i><b>10.2.5</b> Read mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-binning"><i class="fa fa-check"></i><b>10.3.1</b> Binning</a></li>
+<li class="chapter" data-level="10.3.2" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-refinement"><i class="fa fa-check"></i><b>10.3.2</b> Bin refinement</a></li>
+<li class="chapter" data-level="10.3.3" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-qc"><i class="fa fa-check"></i><b>10.3.3</b> Bin quality assessment</a></li>
+<li class="chapter" data-level="10.3.4" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-curation"><i class="fa fa-check"></i><b>10.3.4</b> Bin curation</a></li>
+<li class="chapter" data-level="10.3.5" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-dereplication"><i class="fa fa-check"></i><b>10.3.5</b> Dereplication</a></li>
+<li class="chapter" data-level="10.3.6" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-taxonomy"><i class="fa fa-check"></i><b>10.3.6</b> Taxonomic annotation</a></li>
+<li class="chapter" data-level="10.3.7" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-function"><i class="fa fa-check"></i><b>10.3.7</b> Functional annotation</a></li>
+<li class="chapter" data-level="10.3.8" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-mapping"><i class="fa fa-check"></i><b>10.3.8</b> Read mapping</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a>
 <ul>
@@ -388,10 +401,76 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="genome-resolved" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Genome-resolved<a href="genome-resolved.html#genome-resolved" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Contents to be added.</p>
+<p>Genome-resolved metagenomics aims at recovering near-complete bacterial genomes from metagenomic mixtures. It relies on the assembling and read-mapping procedures explained in <strong><a href="assembly-based.html#assembly-based">assembly-based approach</a></strong> section, which is followed by a binning procedure to produce the so-called Metagenome-Assembled Genomes (MAGs).</p>
+<div id="genome-resolved-binning" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> Binning<a href="genome-resolved.html#genome-resolved-binning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Metagenomic binning is the bioinformatic process that attempts to group metagenomic sequences by their organism of origin {Goussarov}. In practice, what binning does is to cluster contigs of a metagenomic assembly into putative bacterial genomes. In the last decade over a dozen of binning algorithms have been released, each relying on different structural and mathematical properties of the input data.</p>
+<p>Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.</p>
+</div>
+<div id="genome-resolved-refinement" class="section level3 hasAnchor" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> Bin refinement<a href="genome-resolved.html#genome-resolved-refinement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as “bin refinement,” and can be performed using tools like Metawrap <span class="citation">[<a href="#ref-Uritskiy2018-my" role="doc-biblioref">19</a>]</span> or Dastool <span class="citation">[<a href="#ref-Sieber2018-fp" role="doc-biblioref">20</a>]</span>. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.</p>
+</div>
+<div id="genome-resolved-qc" class="section level3 hasAnchor" number="10.3.3">
+<h3><span class="header-section-number">10.3.3</span> Bin quality assessment<a href="genome-resolved.html#genome-resolved-qc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Metagenomic binning is a powerful yet complex procedure that yields many bins that do not properly represent bacterial genomes. It is therefore essential to assess the quality of those bins before considering them representative of bacterial genomes. The two main parameters used for bin assessment are completeness and contamination. Completeness refers to the fraction of a given bacterial genome estimated to be represented in the bin, while contamination refers to the proportion of the bin estimated to belong to a different genome. The most commonly employed software to assess bin quality is CheckM, which yields completeness and contamination metrics based on single-copy core genes.</p>
+<p>Based on completeness and contamination metrics, a group of experts proposed some community standards to classify bins according to their quality and establish minimum quality requirements for considering a bin as a MAG <span class="citation">[<a href="#ref-Bowers2017-kj" role="doc-biblioref">21</a>]</span>.</p>
+</div>
+<div id="genome-resolved-curation" class="section level3 hasAnchor" number="10.3.4">
+<h3><span class="header-section-number">10.3.4</span> Bin curation<a href="genome-resolved.html#genome-resolved-curation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi’o suite provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner <span class="citation">[<a href="#ref-Orakov2021-pt" role="doc-biblioref">22</a>]</span>.</p>
+</div>
+<div id="genome-resolved-dereplication" class="section level3 hasAnchor" number="10.3.5">
+<h3><span class="header-section-number">10.3.5</span> Dereplication<a href="genome-resolved.html#genome-resolved-dereplication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dereplication is the reduction of a set of MAGs based on high sequence similarity between them <span class="citation">[<a href="#ref-Evans2020-hs" role="doc-biblioref">23</a>]</span>. Although this step is neither essential nor meaningful in certain cases (e.g., when studying straing-level variation or pangenomes), in most cases it contributes to overcome issues such as excessive computational demans, inflated diversity or inspecific read mapping. If the catalogue of MAGs used to map sequencing reads to (see <a href="genome-resolved.html#genome-resolved-mapping">read mapping</a> section below) contains many similar genomes, read mapping results in multiple high-quality alignments. Depending on the software used and parameters chosen, this leads to sequencing reads either being randomly distributed across the redundant genomes or being reported at all redundant locations. This can bias quantitative estimations of relative representation of each MAG in a given metagenomic sample.</p>
+<p>Dereplication is based on pairwise comparisons of average nucleotide identity (ANI) between MAGs. This implies that the number of comparisons scales quadratically with an increasing amount of MAGs, which requires for efficient strategies to perform dereplication in a cost-efficient way. A popular tool used for dereplicating MAGs is dRep <span class="citation">[<a href="#ref-Olm2017-nx" role="doc-biblioref">24</a>]</span>, which combines the fast yet innacurate algorithm MASH with the slow but accurate gANI computation to yield a fast and accurate estimation of ANIs between MAGs. An optimal threshold that balances between retaining genome diversity while minimising cross-mapping issues has been found to be 98% ANI.</p>
+</div>
+<div id="genome-resolved-taxonomy" class="section level3 hasAnchor" number="10.3.6">
+<h3><span class="header-section-number">10.3.6</span> Taxonomic annotation<a href="genome-resolved.html#genome-resolved-taxonomy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Although not necessary for conducting most of the downstream analyses, taxonomic annotation of MAGs is an important step to provide context, improve comparability and facilitate result interpretation in holo-omic studies. MAGs can be taxonomically annotated using different algorithms and reference databases, but the Genome Taxonomy Database (GTDB) <span class="citation">[<a href="#ref-Parks2022-zl" role="doc-biblioref">25</a>]</span> and associated taxonomic classification toolkit (GTDB-Tk) <span class="citation">[<a href="#ref-Chaumeil2022-jr" role="doc-biblioref">26</a>]</span> have become the preferred option for many researchers.</p>
+</div>
+<div id="genome-resolved-function" class="section level3 hasAnchor" number="10.3.7">
+<h3><span class="header-section-number">10.3.7</span> Functional annotation<a href="genome-resolved.html#genome-resolved-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases.</p>
+<p>More details to be added.</p>
+</div>
+<div id="genome-resolved-mapping" class="section level3 hasAnchor" number="10.3.8">
+<h3><span class="header-section-number">10.3.8</span> Read mapping<a href="genome-resolved.html#genome-resolved-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Content to be added.</p>
+<div class="authorbox">
+<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
+</div>
 
 </div>
+</div>
 <!-- </div> -->
+<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Uritskiy2018-my" class="csl-entry">
+19. Uritskiy GV, DiRuggiero J, Taylor J. <span class="nocase">MetaWRAP—a</span> flexible pipeline for genome-resolved metagenomic data analysis. Microbiome. 2018;6:1–3.
+</div>
+<div id="ref-Sieber2018-fp" class="csl-entry">
+20. Sieber CMK, Probst AJ, Sharrar A, Thomas BC, Hess M, Tringe SG, et al. Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy. Nat Microbiol. 2018;3:836–43.
+</div>
+<div id="ref-Bowers2017-kj" class="csl-entry">
+21. Bowers RM, Kyrpides NC, Stepanauskas R, Harmon-Smith M, Doud D, Reddy TBK, et al. Minimum information about a single amplified genome (<span>MISAG</span>) and a metagenome-assembled genome (<span>MIMAG</span>) of bacteria and archaea. Nat Biotechnol. 2017;35:725–31.
+</div>
+<div id="ref-Orakov2021-pt" class="csl-entry">
+22. Orakov A, Fullam A, Coelho LP, Khedkar S, Szklarczyk D, Mende DR, et al. <span>GUNC</span>: Detection of chimerism and contamination in prokaryotic genomes. Genome Biol. 2021;22:178.
+</div>
+<div id="ref-Evans2020-hs" class="csl-entry">
+23. Evans JT, Denef VJ. To dereplicate or not to dereplicate? mSphere. 2020;5.
+</div>
+<div id="ref-Olm2017-nx" class="csl-entry">
+24. Olm MR, Brown CT, Brooks B, Banfield JF. dRep: A tool for fast and accurate genomic comparisons that enables improved genome recovery from metagenomes through de-replication. ISME J. 2017;11:2864–8.
+</div>
+<div id="ref-Parks2022-zl" class="csl-entry">
+25. Parks DH, Chuvochina M, Rinke C, Mussig AJ, Chaumeil P-A, Hugenholtz P. <span>GTDB</span>: An ongoing census of bacterial and archaeal diversity through a phylogenetically consistent, rank normalized and complete genome-based taxonomy. Nucleic Acids Res. 2022;50:D785–94.
+</div>
+<div id="ref-Chaumeil2022-jr" class="csl-entry">
+26. Chaumeil P-A, Mussig AJ, Hugenholtz P, Parks DH. <span>GTDB-Tk</span> v2: Memory friendly classification with the genome taxonomy database. Bioinformatics. 2022;38:5315–6.
+</div>
+</div>
             </section>
 
           </div>

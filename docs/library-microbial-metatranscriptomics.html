@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.3 Microbial metatranscriptomics | A Practical Guide to Holo-Omics</title>
   <meta name="description" content="6.3 Microbial metatranscriptomics | A Practical Guide to Holo-Omics" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.3 Microbial metatranscriptomics | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
@@ -273,8 +273,21 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i><b>10.2.1</b> Individual assembly-based</a></li>
 <li class="chapter" data-level="10.2.2" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i><b>10.2.2</b> Coassembly-based</a></li>
+<li class="chapter" data-level="10.2.3" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-prediction"><i class="fa fa-check"></i><b>10.2.3</b> Gene prediction</a></li>
+<li class="chapter" data-level="10.2.4" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-annotation"><i class="fa fa-check"></i><b>10.2.4</b> Gene annotation</a></li>
+<li class="chapter" data-level="10.2.5" data-path="assembly-based.html"><a href="assembly-based.html#assembly-read-mapping"><i class="fa fa-check"></i><b>10.2.5</b> Read mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a></li>
+<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-binning"><i class="fa fa-check"></i><b>10.3.1</b> Binning</a></li>
+<li class="chapter" data-level="10.3.2" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-refinement"><i class="fa fa-check"></i><b>10.3.2</b> Bin refinement</a></li>
+<li class="chapter" data-level="10.3.3" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-qc"><i class="fa fa-check"></i><b>10.3.3</b> Bin quality assessment</a></li>
+<li class="chapter" data-level="10.3.4" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-curation"><i class="fa fa-check"></i><b>10.3.4</b> Bin curation</a></li>
+<li class="chapter" data-level="10.3.5" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-dereplication"><i class="fa fa-check"></i><b>10.3.5</b> Dereplication</a></li>
+<li class="chapter" data-level="10.3.6" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-taxonomy"><i class="fa fa-check"></i><b>10.3.6</b> Taxonomic annotation</a></li>
+<li class="chapter" data-level="10.3.7" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-function"><i class="fa fa-check"></i><b>10.3.7</b> Functional annotation</a></li>
+<li class="chapter" data-level="10.3.8" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-mapping"><i class="fa fa-check"></i><b>10.3.8</b> Read mapping</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a>
 <ul>
@@ -395,11 +408,11 @@ div.csl-indent {
 </div>
 <div id="rnase-based-rrna-depletion" class="section level3 unnumbered hasAnchor">
 <h3>RNAse-based rRNA depletion<a href="library-microbial-metatranscriptomics.html#rnase-based-rrna-depletion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A more recent technological upgrade to capture-based rRNA depletion is to, instead of using paramagnetic beads, degrade RNA:DNA hybrids using RNase H <span class="citation">[<a href="#ref-Huang2020-xf" role="doc-biblioref">13</a>]</span>.</p>
+<p>A more recent technological upgrade to capture-based rRNA depletion is to, instead of using paramagnetic beads, degrade RNA:DNA hybrids using RNase H <span class="citation">[<a href="#ref-Huang2020-xf" role="doc-biblioref">15</a>]</span>.</p>
 </div>
 <div id="cas9-based-rrna-depletion" class="section level3 unnumbered hasAnchor">
 <h3>CRISPR/Cas9-based rRNA depletion<a href="library-microbial-metatranscriptomics.html#cas9-based-rrna-depletion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The newest method of all three relies on the DNA claveage capacity of the Cas9 enzyme <span class="citation">[<a href="#ref-Gu2016-yf" role="doc-biblioref">14</a>]</span>. In this method, custom-designed guides are used for the Cas9 enzyme to cleveage unwanted sequences. This strategy is applied once libraries are prepared, and before the final PCR amplification is conducted. When the targetted molecules are cleaveged, they lack one of the two adaptors, and therefore they are not amplified, resulting in a considerable depletion compared to the rest of the library.</p>
+<p>The newest method of all three relies on the DNA claveage capacity of the Cas9 enzyme <span class="citation">[<a href="#ref-Gu2016-yf" role="doc-biblioref">16</a>]</span>. In this method, custom-designed guides are used for the Cas9 enzyme to cleveage unwanted sequences. This strategy is applied once libraries are prepared, and before the final PCR amplification is conducted. When the targetted molecules are cleaveged, they lack one of the two adaptors, and therefore they are not amplified, resulting in a considerable depletion compared to the rest of the library.</p>
 </div>
 <div id="rrna-depletion-protocols" class="section level3 unnumbered hasAnchor">
 <h3>List of available protocols<a href="library-microbial-metatranscriptomics.html#rrna-depletion-protocols" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -423,7 +436,7 @@ div.csl-indent {
 <td>Custom capture-based depletion</td>
 <td>Capture-based</td>
 <td>Open Source</td>
-<td><a href="https://www.nature.com/articles/s41598-019-48692-2">Article</a> <span class="citation">[<a href="#ref-Kraus2019-fq" role="doc-biblioref">15</a>]</span></td>
+<td><a href="https://www.nature.com/articles/s41598-019-48692-2">Article</a> <span class="citation">[<a href="#ref-Kraus2019-fq" role="doc-biblioref">17</a>]</span></td>
 </tr>
 <tr class="even">
 <td>Legacy Ribo-Zero</td>
@@ -435,7 +448,7 @@ div.csl-indent {
 <td>Custom RNAse-based depletion</td>
 <td>RNAse-based</td>
 <td>Open Source</td>
-<td><a href="https://academic.oup.com/nar/article/48/4/e20/5687826">Article</a> <span class="citation">[<a href="#ref-Huang2020-xf" role="doc-biblioref">13</a>]</span></td>
+<td><a href="https://academic.oup.com/nar/article/48/4/e20/5687826">Article</a> <span class="citation">[<a href="#ref-Huang2020-xf" role="doc-biblioref">15</a>]</span></td>
 </tr>
 <tr class="even">
 <td>Ribo-Zero Plus</td>
@@ -453,7 +466,7 @@ div.csl-indent {
 <td>DASH</td>
 <td>Cas9-based</td>
 <td>Open Source</td>
-<td><a href="https://rnajournal.cshlp.org/content/26/8/1069.full">Article</a> <span class="citation">[<a href="#ref-Prezza2020-ln" role="doc-biblioref">16</a>]</span></td>
+<td><a href="https://rnajournal.cshlp.org/content/26/8/1069.full">Article</a> <span class="citation">[<a href="#ref-Prezza2020-ln" role="doc-biblioref">18</a>]</span></td>
 </tr>
 </tbody>
 </table>
@@ -470,16 +483,16 @@ div.csl-indent {
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-Huang2020-xf" class="csl-entry">
-13. Huang Y, Sheth RU, Kaufman A, Wang HH. Scalable and cost-effective ribonuclease-based <span class="nocase">rRNA</span> depletion for transcriptomics. Nucleic Acids Res. 2020;48:e20.
+15. Huang Y, Sheth RU, Kaufman A, Wang HH. Scalable and cost-effective ribonuclease-based <span class="nocase">rRNA</span> depletion for transcriptomics. Nucleic Acids Res. 2020;48:e20.
 </div>
 <div id="ref-Gu2016-yf" class="csl-entry">
-14. Gu W, Crawford ED, O’Donovan BD, Wilson MR, Chow ED, Retallack H, et al. Depletion of abundant sequences by hybridization (<span>DASH)</span>: Using Cas9 to remove unwanted high-abundance species in sequencing libraries and molecular counting applications. Genome Biol. 2016;17:41.
+16. Gu W, Crawford ED, O’Donovan BD, Wilson MR, Chow ED, Retallack H, et al. Depletion of abundant sequences by hybridization (<span>DASH)</span>: Using Cas9 to remove unwanted high-abundance species in sequencing libraries and molecular counting applications. Genome Biol. 2016;17:41.
 </div>
 <div id="ref-Kraus2019-fq" class="csl-entry">
-15. Kraus AJ, Brink BG, Siegel TN. Efficient and specific oligo-based depletion of <span class="nocase">rRNA</span>. Sci Rep. 2019;9:12281.
+17. Kraus AJ, Brink BG, Siegel TN. Efficient and specific oligo-based depletion of <span class="nocase">rRNA</span>. Sci Rep. 2019;9:12281.
 </div>
 <div id="ref-Prezza2020-ln" class="csl-entry">
-16. Prezza G, Heckel T, Dietrich S, Homberger C, Westermann AJ, Vogel J. Improved bacterial <span class="nocase">RNA-seq</span> by Cas9-based depletion of ribosomal <span>RNA</span> reads. RNA. 2020;26:1069–78.
+18. Prezza G, Heckel T, Dietrich S, Homberger C, Westermann AJ, Vogel J. Improved bacterial <span class="nocase">RNA-seq</span> by Cas9-based depletion of ribosomal <span>RNA</span> reads. RNA. 2020;26:1069–78.
 </div>
 </div>
             </section>
