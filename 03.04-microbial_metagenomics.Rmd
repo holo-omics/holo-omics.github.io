@@ -119,9 +119,61 @@ Metagenomic binning is the bioinformatic process that attempts to group metageno
 
 Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.
 
+Metabat and Maxbin require a depth file to be generated first.
+```{sh eval=FALSE}
+jgi_summarize_bam_contig_depths \
+    --outputDepth {output.depth} \
+    {input.assemblybampath}
+```
+
+Example code for launching metabat2.
+```{sh eval=FALSE}
+metabat2 \
+    -i {input.assemblypath} \
+    -a {input.depth} \
+    -o {output.basepath} \
+    -m 1500 \
+    -t {threads} \
+    --unbinned
+```
+
+Example code for launching MaxBin.
+```{sh eval=FALSE}
+run_MaxBin.pl \
+    -contig {input.assemblypath} \
+    -abund {input.depth} \
+    -out {output.basepath} \
+    -thread {threads}
+```
+
 ### Bin refinement {#genome-resolved-refinement}
 
-The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as "bin refinement", and can be performed using tools like Metawrap [@Uritskiy2018-my] or Dastool [@Sieber2018-fp]. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
+The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as "bin refinement", and can be performed using tools like metaWRAP [@Uritskiy2018-my] or Dastool [@Sieber2018-fp]. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
+
+The following code can be used to run an ensemble binning using metaWRAP.
+```{sh eval=FALSE}
+metawrap binning -o {params.outdir} \
+    -t {threads} \
+    -m {params.memory} \
+    -a {params.assembly} \
+    -l 1500 \
+    --metabat2 \
+    --maxbin2 \
+    --concoct \
+```
+
+The following code can be used to refine binds using metaWRAP.
+```{sh eval=FALSE}
+metawrap bin_refinement \
+    -m {params.memory} \
+    -t {threads} \
+    -o {params.outdir} \
+    -A {params.concoct} \
+    -B {params.maxbin2} \
+    -C {params.metabat2} \
+    -c 70 \
+    -x 10
+```
 
 ### Bin quality assessment {#genome-resolved-qc}
 
@@ -131,7 +183,7 @@ Based on completeness and contamination metrics, a group of experts proposed som
 
 ### Bin curation {#genome-resolved-curation}
 
-Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi'o suite provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner [@Orakov2021-pt].
+Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi'o suite [@Eren2015-tt] provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner [@Orakov2021-pt].
 
 ### Dereplication {#genome-resolved-dereplication}
 
@@ -151,7 +203,53 @@ More details to be added.
 
 ### Read mapping {#genome-resolved-mapping}
 
-Content to be added.
+When the objective of a genome-resolved metagenomic analysis is to reconstruct and analyse a microbiome, researchers usually require relative abundance information to measure how abundant or rare each bacteria was in the analysed sample. In order to achieve this, it is necessary to map the reads of each sample back to the MAG catalogue and retrieve mapping statistics. The procedure is identical to that explained in the [assembly read-mapping](#assembly-read-mapping) section, yet using the MAG catalogue as a reference database rather than the metagenomic assembly. This procedure usually happens in two steps. In the first step, reads are mapped to the MAG catalogue to generate BAM or CRAM mapping files. In the second step, these mapping files are used to extract quantitative read-abundance information in the form of a table in which the amount of reads mapped to each MAG in each sample is displayed.
+
+First, all MAGs need to be concatenated into a single file, which will become the reference MAG catalogue or database.
+```{sh eval=FALSE}
+cat {MAG.path}/*.fa.gz > {all_MAGs}.fa.gz
+```
+
+The MAG catalogue needs to be indexed before the mapping.
+```{sh eval=FALSE}
+bowtie2-build \
+      --large-index \
+      --threads {threads} \
+       {all_MAGs}.fa.gz
+```
+
+Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
+```{sh eval=FALSE}
+bowtie2 \
+      --time \
+      --threads {threads} \
+      -x {all_MAGs} \
+      -1 {input.r1} \
+      -2 {input.r2} \
+      | samtools sort -@ {threads} -o {output}
+```
+
+Finally, CoverM can be used to extract the required stats, such as covered fraction per MAG per sample.
+```{sh eval=FALSE}
+coverm genome \
+      -b {input} \
+      -s ^ \
+      -m count covered_fraction length \
+      -t {threads} \
+      --min-covered-fraction 0 \
+      > {output.count_table}
+```
+
+Or relative abundance per MAG per sample.
+```{sh eval=FALSE}
+coverm genome \
+      -b {params.BAMs}/*.bam \
+      -s ^ \
+      -m relative_abundance \
+      -t {threads} \
+      --min-covered-fraction 0 \
+      > {output.mapping_rate}
+```
 
 :::: {.authorbox}
 Contents of this section were created by [Antton Alberdi](#antton-alberdi).  

@@ -1313,10 +1313,77 @@ Metagenomic binning is the bioinformatic process that attempts to group metageno
 
 Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.
 
+Metabat and Maxbin require a depth file to be generated first.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{jgi\_summarize\_bam\_contig\_depths} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}outputDepth}\NormalTok{ \{output.depth\} }\DataTypeTok{\textbackslash{}}
+\NormalTok{    \{input.assemblybampath\}}
+\end{Highlighting}
+\end{Shaded}
+
+Example code for launching metabat2.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{metabat2} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}i}\NormalTok{ \{input.assemblypath\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}a}\NormalTok{ \{input.depth\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ \{output.basepath\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}m}\NormalTok{ 1500 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}unbinned}
+\end{Highlighting}
+\end{Shaded}
+
+Example code for launching MaxBin.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{run\_MaxBin.pl} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}contig}\NormalTok{ \{input.assemblypath\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}abund}\NormalTok{ \{input.depth\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}out}\NormalTok{ \{output.basepath\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}thread}\NormalTok{ \{threads\}}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{genome-resolved-refinement}{%
 \subsection{Bin refinement}\label{genome-resolved-refinement}}
 
-The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as ``bin refinement'', and can be performed using tools like Metawrap \citep{Uritskiy2018-my} or Dastool \citep{Sieber2018-fp}. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
+The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as ``bin refinement'', and can be performed using tools like metaWRAP \citep{Uritskiy2018-my} or Dastool \citep{Sieber2018-fp}. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
+
+The following code can be used to run an ensemble binning using metaWRAP.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{metawrap}\NormalTok{ binning }\AttributeTok{{-}o}\NormalTok{ \{params.outdir\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}m}\NormalTok{ \{params.memory\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}a}\NormalTok{ \{params.assembly\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}l}\NormalTok{ 1500 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}metabat2} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}maxbin2} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}concoct} \DataTypeTok{\textbackslash{}}
+\end{Highlighting}
+\end{Shaded}
+
+The following code can be used to refine binds using metaWRAP.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{metawrap}\NormalTok{ bin\_refinement }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}m}\NormalTok{ \{params.memory\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ \{params.outdir\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}A}\NormalTok{ \{params.concoct\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}B}\NormalTok{ \{params.maxbin2\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}C}\NormalTok{ \{params.metabat2\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}c}\NormalTok{ 70 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}x}\NormalTok{ 10}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{genome-resolved-qc}{%
 \subsection{Bin quality assessment}\label{genome-resolved-qc}}
@@ -1328,7 +1395,7 @@ Based on completeness and contamination metrics, a group of experts proposed som
 \hypertarget{genome-resolved-curation}{%
 \subsection{Bin curation}\label{genome-resolved-curation}}
 
-Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi'o suite provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC\%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner \citep{Orakov2021-pt}.
+Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi'o suite \citep{Eren2015-tt} provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC\%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner \citep{Orakov2021-pt}.
 
 \hypertarget{genome-resolved-dereplication}{%
 \subsection{Dereplication}\label{genome-resolved-dereplication}}
@@ -1352,7 +1419,68 @@ More details to be added.
 \hypertarget{genome-resolved-mapping}{%
 \subsection{Read mapping}\label{genome-resolved-mapping}}
 
-Content to be added.
+When the objective of a genome-resolved metagenomic analysis is to reconstruct and analyse a microbiome, researchers usually require relative abundance information to measure how abundant or rare each bacteria was in the analysed sample. In order to achieve this, it is necessary to map the reads of each sample back to the MAG catalogue and retrieve mapping statistics. The procedure is identical to that explained in the \protect\hyperlink{assembly-read-mapping}{assembly read-mapping} section, yet using the MAG catalogue as a reference database rather than the metagenomic assembly. This procedure usually happens in two steps. In the first step, reads are mapped to the MAG catalogue to generate BAM or CRAM mapping files. In the second step, these mapping files are used to extract quantitative read-abundance information in the form of a table in which the amount of reads mapped to each MAG in each sample is displayed.
+
+First, all MAGs need to be concatenated into a single file, which will become the reference MAG catalogue or database.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ \{MAG.path\}/}\PreprocessorTok{*}\NormalTok{.fa.gz }\OperatorTok{\textgreater{}}\NormalTok{ \{all\_MAGs\}.fa.gz}
+\end{Highlighting}
+\end{Shaded}
+
+The MAG catalogue needs to be indexed before the mapping.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{bowtie2{-}build} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}large{-}index} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+\NormalTok{       \{all\_MAGs\}.fa.gz}
+\end{Highlighting}
+\end{Shaded}
+
+Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{bowtie2} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}time} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}x}\NormalTok{ \{all\_MAGs\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}1}\NormalTok{ \{input.r1\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}2}\NormalTok{ \{input.r2\} }\DataTypeTok{\textbackslash{}}
+      \KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ sort }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}o}\NormalTok{ \{output\}}
+\end{Highlighting}
+\end{Shaded}
+
+Finally, CoverM can be used to extract the required stats, such as covered fraction per MAG per sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{coverm}\NormalTok{ genome }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}b}\NormalTok{ \{input\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}s}\NormalTok{ \^{} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}m}\NormalTok{ count covered\_fraction length }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}min{-}covered{-}fraction}\NormalTok{ 0 }\DataTypeTok{\textbackslash{}}
+      \OperatorTok{\textgreater{}}\NormalTok{ \{output.count\_table\}}
+\end{Highlighting}
+\end{Shaded}
+
+Or relative abundance per MAG per sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{coverm}\NormalTok{ genome }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}b}\NormalTok{ \{params.BAMs\}/}\PreprocessorTok{*}\NormalTok{.bam }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}s}\NormalTok{ \^{} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}m}\NormalTok{ relative\_abundance }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}min{-}covered{-}fraction}\NormalTok{ 0 }\DataTypeTok{\textbackslash{}}
+      \OperatorTok{\textgreater{}}\NormalTok{ \{output.mapping\_rate\}}
+\end{Highlighting}
+\end{Shaded}
 
 Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
