@@ -1184,7 +1184,7 @@ Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antt
 \hypertarget{reference-based}{%
 \section{Reference-based}\label{reference-based}}
 
-Reference-based.
+Reference-based metagenomics is the approach that aims at characterising metagenomes based on existing genome sequences that are used as reference. This approach is meaningful when the microbial community under study is well known, such as the human microbiome, or when a reference MAG catalogue has been generated from a subset of samples under analysis. When the genome catalogue used as a reference has not been generated from the same environment (e.g., using human gut microorganisms as reference for vulture gut microbiomes), there are two major risks. The first one is that some of the microorganisms present in the studied environment might not be represented in the reference catalogue, which results in diversity underestimations. The second one is that the microorganisms present in the reference catalogue are similar but not identical to the ones in the target sample, which might result in incorrect taxonomic and functional inferences. It is therefore important to keep these caveats in mind when performing reference-based metagenomic analyses, mainly when dealing with non-model host organisms.
 
 \hypertarget{assembly-based}{%
 \section{Assembly-based}\label{assembly-based}}
@@ -1200,12 +1200,14 @@ Assembly-based approaches for processing metagenomic data are based on assemblin
 \end{itemize}
 
 \hypertarget{individual-assembly-based}{%
-\subsection{Individual assembly-based}\label{individual-assembly-based}}
+\subsection*{Individual assembly-based}\label{individual-assembly-based}}
+\addcontentsline{toc}{subsection}{Individual assembly-based}
 
 Two of the most popular metagenome assemblers are \textbf{Megahit} and \textbf{MetaSpades}. Metaspades is considered superior in terms of assembly quality, yet memory requirements are much larger than those of Megahit. Thus, one of the most relevant criteria to choose the assembler to be employed is the balance between amount of data and available memory. Another minor, yet relevant difference between both assemblers is that Megahit allows removing contings below a certain size, while MetaSpades needs to be piped with another software (e.g.~bbmap) to get rid off barely informative yet often abundant short contigs.
 
 \hypertarget{individual-assembly-using-megahit}{%
-\subsubsection{Individual assembly using Megahit}\label{individual-assembly-using-megahit}}
+\subsubsection*{Individual assembly using Megahit}\label{individual-assembly-using-megahit}}
+\addcontentsline{toc}{subsubsection}{Individual assembly using Megahit}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1220,7 +1222,8 @@ Two of the most popular metagenome assemblers are \textbf{Megahit} and \textbf{M
 \end{Shaded}
 
 \hypertarget{individual-assembly-using-metaspades}{%
-\subsubsection{Individual assembly using MetaSpades}\label{individual-assembly-using-metaspades}}
+\subsubsection*{Individual assembly using MetaSpades}\label{individual-assembly-using-metaspades}}
+\addcontentsline{toc}{subsubsection}{Individual assembly using MetaSpades}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1240,7 +1243,8 @@ Two of the most popular metagenome assemblers are \textbf{Megahit} and \textbf{M
 \end{Shaded}
 
 \hypertarget{assembly-statistics-using-quast}{%
-\subsubsection{Assembly statistics using Quast}\label{assembly-statistics-using-quast}}
+\subsubsection*{Assembly statistics using Quast}\label{assembly-statistics-using-quast}}
+\addcontentsline{toc}{subsubsection}{Assembly statistics using Quast}
 
 The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software \textbf{Quast}.
 
@@ -1254,7 +1258,8 @@ The metagenome assemblies can have very different properties depending on the am
 \end{Shaded}
 
 \hypertarget{coassembly-based}{%
-\subsection{Coassembly-based}\label{coassembly-based}}
+\subsection*{Coassembly-based}\label{coassembly-based}}
+\addcontentsline{toc}{subsection}{Coassembly-based}
 
 Coassembly is the process of assembling input files consisting of reads from multiple samples, as opposed to performing an independent assembly for each sample, where the input would only include reads from that particular sample. Coassembly has several advantages, such as increased read depth, simplified comparison across samples by utilizing a single reference assembly for all, and frequently, a better capability to recover genomes from metagenomes by obtaining differential coverage information. However, it can also limit the capacity to recover strain-level variation.
 
@@ -1284,20 +1289,68 @@ Coassembling multiple samples does not require special assemblers, but only prep
 
 Note that the genome-resolved metagenomic approach also relies on assemblies or co-assemblies, but downstream binning procedures are explained in the \textbf{\protect\hyperlink{genome-resolved}{genome-resolved approach}} section.
 
-\hypertarget{assembly-gene-prediction}{%
-\subsection{Gene prediction}\label{assembly-gene-prediction}}
-
-Content to be added.
-
 \hypertarget{assembly-gene-annotation}{%
-\subsection{Gene annotation}\label{assembly-gene-annotation}}
+\subsection*{Gene annotation}\label{assembly-gene-annotation}}
+\addcontentsline{toc}{subsection}{Gene annotation}
 
-Content to be added.
+Gene annotation refers to the process of identifing and assigning function to genes present in an assembly. In the first step, protein-coding and other types of genes are identified using tools such as Prodigal based on structural information of the DNA sequences. These software also predict the protein sequences these genes are expected to yield, which are then used to assign functions by contrasting them with functionally annotated reference databases. Due to the amount of reference databases available, it is common practice to match the genes against multiple databases and yield multiple annotations per gene. Currently, multiple tools exist that perform all these procedures in a single pipeline, such as DFAST \citep{Tanizawa2017-uy} and DRAM \citep{Shaffer2020-kp}. DFAST annotates genes against the TIGRFAM and Clusters of Orthologous Groups (COG) databases, while DRAM performs the annotation using Pfam, KEGG, UniProt, CAZY and MEROPS databases.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{DRAM.py}\NormalTok{ annotate }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}i}\NormalTok{ \{input.assembly\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}o}\NormalTok{ \{outdir\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}min\_contig\_size}\NormalTok{ 1500}
+\end{Highlighting}
+\end{Shaded}
+
+The procedure for annotating MAGs, which is explained in the \textbf{\protect\hyperlink{genome-resolved}{genome-resolved approach}} section, is identical to this one, with the only difference that the a MAG or a set of MAGs are used as input data rather than a metagenomic assembly.
 
 \hypertarget{assembly-read-mapping}{%
-\subsection{Read mapping}\label{assembly-read-mapping}}
+\subsection*{Read mapping}\label{assembly-read-mapping}}
+\addcontentsline{toc}{subsection}{Read mapping}
 
-Content to be added.
+The aim of assembly-based analyses is often to obtain gene-abundance information per studied sample, to characterise the functional properties of the entire metagenome as a whole (as opposed to the \textbf{\protect\hyperlink{genome-resolved}{genome-resolved approach}} approach, in which functional attributes are assigned to each MAG). This requires reads from each sample to be mapped against the sequence of all protein-coding genes identified during the annotation process. All gene prediction software and annotation pipelines produce a FASTA file only containing gene sequences, which is used as the reference material.
+
+The gene catalogue needs to be indexed before the mapping.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{bowtie2{-}build} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}large{-}index} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+\NormalTok{       \{all\_genes\}.fa.gz}
+\end{Highlighting}
+\end{Shaded}
+
+Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{bowtie2} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}time} \DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}x}\NormalTok{ \{all\_genes\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}1}\NormalTok{ \{input.r1\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}2}\NormalTok{ \{input.r2\} }\DataTypeTok{\textbackslash{}}
+      \KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ sort }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}o}\NormalTok{ \{output\}}
+\end{Highlighting}
+\end{Shaded}
+
+Or relative abundance per gene per sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{coverm}\NormalTok{ genome }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}b}\NormalTok{ \{params.BAMs\}/}\PreprocessorTok{*}\NormalTok{.bam }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}s}\NormalTok{ \^{} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}m}\NormalTok{ relative\_abundance }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}t}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}min{-}covered{-}fraction}\NormalTok{ 0 }\DataTypeTok{\textbackslash{}}
+      \OperatorTok{\textgreater{}}\NormalTok{ \{output.mapping\_rate\}}
+\end{Highlighting}
+\end{Shaded}
 
 Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
@@ -1306,8 +1359,21 @@ Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antt
 
 Genome-resolved metagenomics aims at recovering near-complete bacterial genomes from metagenomic mixtures. It relies on the assembling and read-mapping procedures explained in \textbf{\protect\hyperlink{assembly-based}{assembly-based approach}} section, which is followed by a binning procedure to produce the so-called Metagenome-Assembled Genomes (MAGs).
 
+Note that entire suites and pipelines are available for conducting all the steps outlined in this section, and often more. Some of them include:
+
+\begin{itemize}
+\tightlist
+\item
+  Anvi'o
+\item
+  metaWRAP
+\item
+  ATLAS
+\end{itemize}
+
 \hypertarget{genome-resolved-binning}{%
-\subsection{Binning}\label{genome-resolved-binning}}
+\subsection*{Binning}\label{genome-resolved-binning}}
+\addcontentsline{toc}{subsection}{Binning}
 
 Metagenomic binning is the bioinformatic process that attempts to group metagenomic sequences by their organism of origin \{Goussarov\}. In practice, what binning does is to cluster contigs of a metagenomic assembly into putative bacterial genomes. In the last decade over a dozen of binning algorithms have been released, each relying on different structural and mathematical properties of the input data.
 
@@ -1350,7 +1416,8 @@ Example code for launching MaxBin.
 \end{Shaded}
 
 \hypertarget{genome-resolved-refinement}{%
-\subsection{Bin refinement}\label{genome-resolved-refinement}}
+\subsection*{Bin refinement}\label{genome-resolved-refinement}}
+\addcontentsline{toc}{subsection}{Bin refinement}
 
 The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as ``bin refinement'', and can be performed using tools like metaWRAP \citep{Uritskiy2018-my} or Dastool \citep{Sieber2018-fp}. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
 
@@ -1386,38 +1453,54 @@ The following code can be used to refine binds using metaWRAP.
 \end{Shaded}
 
 \hypertarget{genome-resolved-qc}{%
-\subsection{Bin quality assessment}\label{genome-resolved-qc}}
+\subsection*{Bin quality assessment}\label{genome-resolved-qc}}
+\addcontentsline{toc}{subsection}{Bin quality assessment}
 
 Metagenomic binning is a powerful yet complex procedure that yields many bins that do not properly represent bacterial genomes. It is therefore essential to assess the quality of those bins before considering them representative of bacterial genomes. The two main parameters used for bin assessment are completeness and contamination. Completeness refers to the fraction of a given bacterial genome estimated to be represented in the bin, while contamination refers to the proportion of the bin estimated to belong to a different genome. The most commonly employed software to assess bin quality is CheckM, which yields completeness and contamination metrics based on single-copy core genes.
 
 Based on completeness and contamination metrics, a group of experts proposed some community standards to classify bins according to their quality and establish minimum quality requirements for considering a bin as a MAG \citep{Bowers2017-kj}.
 
 \hypertarget{genome-resolved-curation}{%
-\subsection{Bin curation}\label{genome-resolved-curation}}
+\subsection*{Bin curation}\label{genome-resolved-curation}}
+\addcontentsline{toc}{subsection}{Bin curation}
 
 Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi'o suite \citep{Eren2015-tt} provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC\%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner \citep{Orakov2021-pt}.
 
 \hypertarget{genome-resolved-dereplication}{%
-\subsection{Dereplication}\label{genome-resolved-dereplication}}
+\subsection*{Dereplication}\label{genome-resolved-dereplication}}
+\addcontentsline{toc}{subsection}{Dereplication}
 
 Dereplication is the reduction of a set of MAGs based on high sequence similarity between them \citep{Evans2020-hs}. Although this step is neither essential nor meaningful in certain cases (e.g., when studying straing-level variation or pangenomes), in most cases it contributes to overcome issues such as excessive computational demans, inflated diversity or inspecific read mapping. If the catalogue of MAGs used to map sequencing reads to (see \protect\hyperlink{genome-resolved-mapping}{read mapping} section below) contains many similar genomes, read mapping results in multiple high-quality alignments. Depending on the software used and parameters chosen, this leads to sequencing reads either being randomly distributed across the redundant genomes or being reported at all redundant locations. This can bias quantitative estimations of relative representation of each MAG in a given metagenomic sample.
 
 Dereplication is based on pairwise comparisons of average nucleotide identity (ANI) between MAGs. This implies that the number of comparisons scales quadratically with an increasing amount of MAGs, which requires for efficient strategies to perform dereplication in a cost-efficient way. A popular tool used for dereplicating MAGs is dRep \citep{Olm2017-nx}, which combines the fast yet innacurate algorithm MASH with the slow but accurate gANI computation to yield a fast and accurate estimation of ANIs between MAGs. An optimal threshold that balances between retaining genome diversity while minimising cross-mapping issues has been found to be 98\% ANI.
 
 \hypertarget{genome-resolved-taxonomy}{%
-\subsection{Taxonomic annotation}\label{genome-resolved-taxonomy}}
+\subsection*{Taxonomic annotation}\label{genome-resolved-taxonomy}}
+\addcontentsline{toc}{subsection}{Taxonomic annotation}
 
 Although not necessary for conducting most of the downstream analyses, taxonomic annotation of MAGs is an important step to provide context, improve comparability and facilitate result interpretation in holo-omic studies. MAGs can be taxonomically annotated using different algorithms and reference databases, but the Genome Taxonomy Database (GTDB) \citep{Parks2022-zl} and associated taxonomic classification toolkit (GTDB-Tk) \citep{Chaumeil2022-jr} have become the preferred option for many researchers.
 
 \hypertarget{genome-resolved-function}{%
-\subsection{Functional annotation}\label{genome-resolved-function}}
+\subsection*{Functional annotation}\label{genome-resolved-function}}
+\addcontentsline{toc}{subsection}{Functional annotation}
 
-Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases.
+Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases. As explained in the \textbf{\protect\hyperlink{assembly-based}{assembly-based approach}}, the first step is to predict genes in the MAGs (unless these are available from the assembly), followed by functional annotation by matching the protein sequences predicted from the genes with reference databases. Currently, multiple tools exist that perform all these procedures in a single pipeline, such as DFAST \citep{Tanizawa2017-uy} and DRAM \citep{Shaffer2020-kp}. DFAST annotates genes against the TIGRFAM and Clusters of Orthologous Groups (COG) databases, while DRAM performs the annotation using Pfam, KEGG, UniProt, CAZY and MEROPS databases.
 
-More details to be added.
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{DRAM.py}\NormalTok{ annotate }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}i}\NormalTok{ \{input.MAG\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}o}\NormalTok{ \{outdir\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}{-}min\_contig\_size}\NormalTok{ 1500}
+\end{Highlighting}
+\end{Shaded}
+
+These functional annotations can be used for performing functional gene enrichment analyses, distilling them into genome-inferred functional traits, and many other downstrean operations explained in the \protect\hyperlink{about-statistics}{statistics part}.
 
 \hypertarget{genome-resolved-mapping}{%
-\subsection{Read mapping}\label{genome-resolved-mapping}}
+\subsection*{Read mapping}\label{genome-resolved-mapping}}
+\addcontentsline{toc}{subsection}{Read mapping}
 
 When the objective of a genome-resolved metagenomic analysis is to reconstruct and analyse a microbiome, researchers usually require relative abundance information to measure how abundant or rare each bacteria was in the analysed sample. In order to achieve this, it is necessary to map the reads of each sample back to the MAG catalogue and retrieve mapping statistics. The procedure is identical to that explained in the \protect\hyperlink{assembly-read-mapping}{assembly read-mapping} section, yet using the MAG catalogue as a reference database rather than the metagenomic assembly. This procedure usually happens in two steps. In the first step, reads are mapped to the MAG catalogue to generate BAM or CRAM mapping files. In the second step, these mapping files are used to extract quantitative read-abundance information in the form of a table in which the amount of reads mapped to each MAG in each sample is displayed.
 
@@ -1503,7 +1586,8 @@ In the following two chapters, you will find example pipelines to process host t
 \section{Reference-based host transcriptomics (HT) data processing}\label{host-transcriptomics-data-processing-reference-based}}
 
 \hypertarget{quality-filtering}{%
-\subsection{Quality-filtering}\label{quality-filtering}}
+\subsection*{Quality-filtering}\label{quality-filtering}}
+\addcontentsline{toc}{subsection}{Quality-filtering}
 
 Text to be added.
 
@@ -1527,7 +1611,8 @@ Text to be added.
 \end{Shaded}
 
 \hypertarget{ribosomal-rna-removal}{%
-\subsection{Ribosomal RNA removal}\label{ribosomal-rna-removal}}
+\subsection*{Ribosomal RNA removal}\label{ribosomal-rna-removal}}
+\addcontentsline{toc}{subsection}{Ribosomal RNA removal}
 
 Ribodetector can be used for efficient removal of rRNA sequences from host transcriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
 
@@ -1543,7 +1628,8 @@ Ribodetector can be used for efficient removal of rRNA sequences from host trans
 \end{Shaded}
 
 \hypertarget{reference-genome-indexing}{%
-\subsection{Reference genome indexing}\label{reference-genome-indexing}}
+\subsection*{Reference genome indexing}\label{reference-genome-indexing}}
+\addcontentsline{toc}{subsection}{Reference genome indexing}
 
 In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which can be used for multiple RNA-seq experiments.
 
@@ -1562,7 +1648,8 @@ In order to use STAR for host transcriptomics, it is neccesary to first generate
 Text to be added.
 
 \hypertarget{read-mapping-against-reference-genome}{%
-\subsection{Read mapping against reference genome}\label{read-mapping-against-reference-genome}}
+\subsection*{Read mapping against reference genome}\label{read-mapping-against-reference-genome}}
+\addcontentsline{toc}{subsection}{Read mapping against reference genome}
 
 STAR (Spliced Transcripts Alignment to a Reference) is a fast and efficient method for aligning RNA-seq reads to a reference genome. It uses a two-pass alignment approach to detect spliced transcripts, improve accuracy and speed up the alignment process.
 

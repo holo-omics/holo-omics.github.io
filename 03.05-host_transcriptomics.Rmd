@@ -9,7 +9,7 @@ In the following two chapters, you will find example pipelines to process host t
 
 ## Reference-based host transcriptomics (HT) data processing {#host-transcriptomics-data-processing-reference-based}
 
-### Quality-filtering
+### Quality-filtering {-}
 Text to be added.
 
 ```{sh ht-fastp, eval=FALSE}
@@ -29,7 +29,7 @@ fastp \
       --adapter_sequence_r2  AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
 ```
 
-### Ribosomal RNA removal
+### Ribosomal RNA removal {-}
 Ribodetector can be used for efficient removal of rRNA sequences from host transcriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
 
 ```{sh ht-ribodetector, eval=FALSE}
@@ -41,7 +41,7 @@ ribodetector_cpu \
       -o {output.non_rna_r1} {output.non_rna_r2}
 ```
 
-### Reference genome indexing
+### Reference genome indexing {-}
 In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which  can be used for multiple RNA-seq experiments.
 
 ```{sh ht-star-index, eval=FALSE}
@@ -55,7 +55,7 @@ STAR \
 ```
 Text to be added.
 
-### Read mapping against reference genome
+### Read mapping against reference genome {-}
 STAR (Spliced Transcripts Alignment to a Reference) is a fast and efficient method for aligning RNA-seq reads to a reference genome. It uses a two-pass alignment approach to detect spliced transcripts, improve accuracy and speed up the alignment process.
 
 ```{sh ht-star-mapping, eval=FALSE}
@@ -76,4 +76,5 @@ Contents of this section were created by [Antton Alberdi](#antton-alberdi) and [
 :::
 
 ## Reference-free host transcriptomics (HT) data processing {#host-transcriptomics-data-processing-reference-free}
+
 Text to be added.
