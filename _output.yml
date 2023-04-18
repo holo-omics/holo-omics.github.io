@@ -1,5 +1,7 @@
 bookdown::gitbook:
   split_by: section #split by 2nd level. alternatively chapter, to split by first level
+  includes:
+      in_header: GA.html
   config:
     toc:
       collapse: section
