@@ -158,7 +158,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
 </ul></li>
@@ -263,8 +263,17 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="9" data-path="host-genomics-data-processing.html"><a href="host-genomics-data-processing.html"><i class="fa fa-check"></i><b>9</b> Host genomics (HG) data processing</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a></li>
-<li class="chapter" data-level="9.2" data-path="host-genome-resequencing.html"><a href="host-genome-resequencing.html"><i class="fa fa-check"></i><b>9.2</b> Host genome resequencing</a></li>
+<li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-quality"><i class="fa fa-check"></i><b>9.1.1</b> Genome quality</a></li>
+<li class="chapter" data-level="9.1.2" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-profile-analysis"><i class="fa fa-check"></i><b>9.1.2</b> Genome profile analysis</a></li>
+<li class="chapter" data-level="9.1.3" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-assembly-hifiasm"><i class="fa fa-check"></i><b>9.1.3</b> Genome assembly using hifiasm</a></li>
+<li class="chapter" data-level="9.1.4" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-assembly-evaluation"><i class="fa fa-check"></i><b>9.1.4</b> Assembly evaluation</a></li>
+<li class="chapter" data-level="9.1.5" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-scaffolding"><i class="fa fa-check"></i><b>9.1.5</b> Assembly scaffolding</a></li>
+<li class="chapter" data-level="9.1.6" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-final-evaluation"><i class="fa fa-check"></i><b>9.1.6</b> Final genome evaluation</a></li>
+<li class="chapter" data-level="9.1.7" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-annotation"><i class="fa fa-check"></i><b>9.1.7</b> Reference genome annotation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="host-resequencing.html"><a href="host-resequencing.html"><i class="fa fa-check"></i><b>9.2</b> Host genome resequencing</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="microbial-metagenomics-data-processing.html"><a href="microbial-metagenomics-data-processing.html"><i class="fa fa-check"></i><b>10</b> Microbial metagenomics (MG) data processing</a>
 <ul>
@@ -401,7 +410,7 @@ div.csl-indent {
 <div id="transformations-to-account-for-compositional-nature-of-the-data" class="section level2 hasAnchor" number="17.3">
 <h2><span class="header-section-number">17.3</span> Transformations to account for compositional nature of the data<a href="transformations-to-account-for-compositional-nature-of-the-data.html#transformations-to-account-for-compositional-nature-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When dealing with multi-omic datasets, it’s important to determine if the measurements represent absolute or relative values. While HG provides qualitative information about host genomes, MG, HT, and MT provide quantitative information that’s dependent on the amount of sequencing performed and thus are compositional. Consequently, raw quantitative values of genome abundance or gene expression across samples cannot be compared directly. To address this, the most common solution is to transform the raw abundance values into relative abundance data for comparison. However, this transformation reduces the independence of individual variables, which is an assumption for many statistical methods. An alternative is using ratio transformations like the centred log-ratio, which better suit compositional data analysis by removing the effect of the constant-sum constraint on the covariance and correlation matrices.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="transformations-to-account-for-compositional-nature-of-the-data.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example code to be added here</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="transformations-to-account-for-compositional-nature-of-the-data.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example code to be added here</span></span></code></pre></div>
 </div>
             </section>
 

@@ -1,6 +1,6 @@
 # Microbial metatranscriptomics (HT) data processing {#microbial-metatranscriptomics-data-processing}
 
-The analysis of microbial metatranscriptomic data can be conducted following two main strategies, which depend on whether a reference catalogue of annotated bacterial genomes is available or not.
+Metatranscriptomics is a powerful tool for investigating gene expression patterns in complex microbial communities. It allows researchers to explore the functional diversity of microbial populations, providing insights into the metabolic pathways and interactions that drive community dynamics. The analysis of microbial metatranscriptomic data can be conducted following two main strategies, which depend on whether a reference catalogue of annotated bacterial genomes is available or not.
 
 In the following two chapters, you will find example pipelines to process microbial metatranscriptomic data through both strategies:
 
@@ -9,7 +9,7 @@ In the following two chapters, you will find example pipelines to process microb
 
 ## Reference-based microbial metatranscriptomics (MT) data processing {#microbial-metatranscriptomics-data-processing-reference-based}
 
-Introduction to be added here.
+In reference-based metatranscriptomics, sequencing reads are aligned to a reference genome or transcriptome, allowing for the identification and quantification of transcripts from known genes. This approach provides a more focused analysis of gene expression in microbial communities and can be particularly useful when studying well-characterized microbial systems.
 
 ### Quality filtering {-}
 

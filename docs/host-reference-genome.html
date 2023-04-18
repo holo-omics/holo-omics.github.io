@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="host-genomics-data-processing.html"/>
-<link rel="next" href="host-genome-resequencing.html"/>
+<link rel="next" href="host-resequencing.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -158,7 +158,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
 </ul></li>
@@ -263,8 +263,17 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="9" data-path="host-genomics-data-processing.html"><a href="host-genomics-data-processing.html"><i class="fa fa-check"></i><b>9</b> Host genomics (HG) data processing</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a></li>
-<li class="chapter" data-level="9.2" data-path="host-genome-resequencing.html"><a href="host-genome-resequencing.html"><i class="fa fa-check"></i><b>9.2</b> Host genome resequencing</a></li>
+<li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-quality"><i class="fa fa-check"></i><b>9.1.1</b> Genome quality</a></li>
+<li class="chapter" data-level="9.1.2" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-profile-analysis"><i class="fa fa-check"></i><b>9.1.2</b> Genome profile analysis</a></li>
+<li class="chapter" data-level="9.1.3" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-assembly-hifiasm"><i class="fa fa-check"></i><b>9.1.3</b> Genome assembly using hifiasm</a></li>
+<li class="chapter" data-level="9.1.4" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-assembly-evaluation"><i class="fa fa-check"></i><b>9.1.4</b> Assembly evaluation</a></li>
+<li class="chapter" data-level="9.1.5" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-scaffolding"><i class="fa fa-check"></i><b>9.1.5</b> Assembly scaffolding</a></li>
+<li class="chapter" data-level="9.1.6" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-final-evaluation"><i class="fa fa-check"></i><b>9.1.6</b> Final genome evaluation</a></li>
+<li class="chapter" data-level="9.1.7" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-annotation"><i class="fa fa-check"></i><b>9.1.7</b> Reference genome annotation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="host-resequencing.html"><a href="host-resequencing.html"><i class="fa fa-check"></i><b>9.2</b> Host genome resequencing</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="microbial-metagenomics-data-processing.html"><a href="microbial-metagenomics-data-processing.html"><i class="fa fa-check"></i><b>10</b> Microbial metagenomics (MG) data processing</a>
 <ul>
@@ -400,7 +409,69 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="host-reference-genome" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Host reference genome<a href="host-reference-genome.html#host-reference-genome" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Contents to be added.</p>
+<p>Genomes of eukaryotic organisms are generally complex, because they carry multiple copies of the same genome, genomes contain duplications, repetitive sequences, mobile elements, etc. In consequence, generating a high-quality reference genome that represents all this complexity is a complex effort, that today, requires multiple complementary molecular techniques to be merged. Although multiple genome assembly protocols exist, in this guidebook we will focus on the one employed in the Vertebrates Genomes Project, the largest consortium aiming at generating animal reference genomes in a standardised way <strong>[RHIE 2021]</strong>. The VGP assembly pipeline uses data generated by a variety of technologies, including PacBio HiFi reads, Bionano optical maps, and Hi-C chromatin interaction maps.</p>
+<p><a href="https://training.galaxyproject.org/training-material/topics/assembly/tutorials/vgp_genome_assembly/tutorial.html" class="uri">https://training.galaxyproject.org/training-material/topics/assembly/tutorials/vgp_genome_assembly/tutorial.html</a></p>
+<div id="host-genome-quality" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Genome quality<a href="host-reference-genome.html#host-genome-quality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before advancing with genome generation procedures, it is important to acknowledge that reference genomes can have different qualities. Quality is measured by assembly statistics, such as the N50 and L90 metrics, which provide an overview of the completeness and accuracy of the genome. Based on those metrics, eukaryotic genomes are usually categorised in three levels:</p>
+<p><strong>Contig level</strong>: Contig level refers to the lowest level of genome assembly, where the genome is fragmented into small pieces called contigs. Contigs are contiguous sequences of DNA that are typically hundreds to thousands of base pairs in length. Contig-level genome assemblies lack information about the order and orientation of the contigs and may contain gaps between them.
+<strong>Scaffold level</strong>: Scaffold level is the next level of genome assembly, where contigs are linked together using paired-end reads or other genomic information to form larger structures called scaffolds. Scaffolds provide information about the order and orientation of contigs but may still contain gaps between them.
+<strong>Chromosome level</strong>: Chromosome level is the highest level of genome assembly, where the genome is fully assembled into chromosomes. Chromosome-level assemblies provide the most complete and accurate representation of the genome, with few gaps and accurate order and orientation of genomic elements. These assemblies typically require multiple sources of genomic information and sophisticated computational tools to produce.</p>
+</div>
+<div id="host-genome-profile-analysis" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Genome profile analysis<a href="host-reference-genome.html#host-genome-profile-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Gathering metrics on genome properties before initiating a de novo genome assembly project is very helpful in setting expectations for the assembly. In the past, DNA flow cytometry was commonly used to estimate genome size, but computational approaches have become the preferred method in recent times (Wang et al., 2020). Currently, genome profiling is based on k-mer frequency analysis, which not only provides information on the genome’s complexity, such as its size and levels of heterozygosity and repeat content, but also on the quality of the data.</p>
+<p>k-mer spectra can be generated with Meryl, which generates k-mer profile by decomposing the sequencing data into k-length substrings, counting the occurrence of each k-mer and determining its frequency.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="host-reference-genome.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Meryl</span> code chunk</span></code></pre></div>
+<p>The k-mer histogram produced by Meryl can be used to deduce genome properties with the help of GenomeScope2. This tool utilizes a nonlinear least-squares optimization to fit a combination of negative binomial distributions, providing estimates for genome size, repetitiveness, and heterozygosity rates (Ranallo-Benavidez et al., 2020).</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="host-reference-genome.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">GenomeScope2</span> code chunk</span></code></pre></div>
+</div>
+<div id="host-genome-assembly-hifiasm" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> Genome assembly using hifiasm<a href="host-reference-genome.html#host-genome-assembly-hifiasm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hifiasm is a powerful de novo assembler specifically developed for PacBio HiFi reads. One of the key advantages of hifiasm is that it allows us to resolve near-identical, but not exactly identical, sequences, such as repeats and segmental duplications (Cheng et al. 2021). Hifiasm can be run in multiple modes depending on data availability:</p>
+<div id="host-genome-assembly-hifiasm-solo" class="section level4 unnumbered hasAnchor">
+<h4>Solo mode<a href="host-reference-genome.html#host-genome-assembly-hifiasm-solo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The solo mode generates a pseudohaplotype assembly, resulting in a primary and an alternate assembly solely using HiFi reads.</p>
+</div>
+<div id="host-genome-assembly-hifiasm-Hi-C" class="section level4 unnumbered hasAnchor">
+<h4>Hi-C-phased mode<a href="host-reference-genome.html#host-genome-assembly-hifiasm-Hi-C" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The Hi-C-phased mode generates a hap1 assembly and a hap2 assembly, which are phased using the Hi-C reads from the same individual.</p>
+</div>
+<div id="host-genome-assembly-hifiasm-trio" class="section level4 unnumbered hasAnchor">
+<h4>Trio mode<a href="host-reference-genome.html#host-genome-assembly-hifiasm-trio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The trio mode requires long-read PacBio HiFi reads from child, and Illumina short-reads from both parents to generate a maternal assembly and a paternal assembly, which are phased using reads from the parents.</p>
+</div>
+</div>
+<div id="host-genome-assembly-evaluation" class="section level3 hasAnchor" number="9.1.4">
+<h3><span class="header-section-number">9.1.4</span> Assembly evaluation<a href="host-reference-genome.html#host-genome-assembly-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Assemblies can be evaluated using a variety of approaches that assess different parameters of the assembled genomes.</p>
+<p>gfastats can be used or summary statistics (e.g., contig count, N50, NG50, etc.)</p>
+<p>BUSCO assesses genome completeness based on an evolutionary functional perspective. BUSCO genes are anticipated to exist in a single-copy haplotype for a particular clade, and their presence, absence, or duplication can help researchers determine whether an assembly is deficient in significant regions or has multiple copies, which may necessitate purging (Simão et al., 2015).</p>
+<p>Merqury performs a reference-free assessment of assembly completeness and phasing based on k-mers. Merqury compares k-mers in the reads to the k-mers found in the assemblies, as well as the copy number (CN) of each k-mer in the assemblies (Rhie et al. 2020).</p>
+</div>
+<div id="host-genome-scaffolding" class="section level3 hasAnchor" number="9.1.5">
+<h3><span class="header-section-number">9.1.5</span> Assembly scaffolding<a href="host-reference-genome.html#host-genome-scaffolding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The following step in the process is to assemble contigs into scaffolds, i.e., to connect contigs interspaced with gaps. While traditionally, this process has been performed using paired-end short-read data with long insert-sizes, the VGP pipeline currently scaffolds using two more advanced technologies: Bionano optical maps and Hi-C data.</p>
+<div id="host-genome-scaffolding-bionano" class="section level4 unnumbered hasAnchor">
+<h4>Scaffolding using Bionano optical maps<a href="host-reference-genome.html#host-genome-scaffolding-bionano" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Content to be added.</p>
+</div>
+<div id="host-genome-scaffolding-hi-c" class="section level4 unnumbered hasAnchor">
+<h4>Scaffolding using Hi-C data<a href="host-reference-genome.html#host-genome-scaffolding-hi-c" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Content to be added.</p>
+</div>
+</div>
+<div id="host-genome-final-evaluation" class="section level3 hasAnchor" number="9.1.6">
+<h3><span class="header-section-number">9.1.6</span> Final genome evaluation<a href="host-reference-genome.html#host-genome-final-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Content to be added.</p>
+<div class="authorbox">
+<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
+</div>
+</div>
+<div id="host-genome-annotation" class="section level3 hasAnchor" number="9.1.7">
+<h3><span class="header-section-number">9.1.7</span> Reference genome annotation<a href="host-reference-genome.html#host-genome-annotation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Content to be added.</p>
+</div>
 </div>
             </section>
 
@@ -408,7 +479,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="host-genomics-data-processing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="host-genome-resequencing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="host-resequencing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

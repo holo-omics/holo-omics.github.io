@@ -132,8 +132,6 @@
 \chapter*{About this guidebook}\label{about-this-guidebook}}
 \addcontentsline{toc}{chapter}{About this guidebook}
 
-\textbf{The practical guide to holo-omics is under construction, and its contents are still preliminary. We expect to have an initial complete version by May 2023.}
-
 \includegraphics{images/holo-omics_overview_nyholm.png}
 
 Holo-omics overview. Modified from Nyholm et al.~2020 \citep{Nyholm2020-ua}
@@ -145,8 +143,10 @@ The \textbf{practical guide to holo-omics} is a compilation of methodological pr
 \item
   Website (\url{http://www.holo-omics.science/})
 \item
-  PDF document (\url{http://www.holo-omics.science/holo_omics_workbook.pdf})
+  PDF document (\url{http://www.holo-omics.science/holo_omics_guidebook.pdf})
 \end{itemize}
+
+The guidebook is meant to be a live resource under continuous development, whose contents are updated, replaced and improved as technology and knowledge advances. So, changes are to be expected. However, frozen PDF versions will be released periodically to ensure traceability of the contents.
 
 This guide is presented as a final output of the H2020 project HoloFood. More information about this EU Innovation Action that ran between 2019 and 2023 can be found in the \href{http://www.holofood.eu}{HoloFood Website} and the \href{https://cordis.europa.eu/project/id/817729}{CORDIS website}.
 
@@ -204,9 +204,11 @@ This guide contains example data and bits of code (mostly shell and R) to reprod
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{authors}{%
-\subsection*{Authors}\label{authors}}
-\addcontentsline{toc}{subsection}{Authors}
+\hypertarget{about-the-authors}{%
+\subsection*{About the authors}\label{about-the-authors}}
+\addcontentsline{toc}{subsection}{About the authors}
+
+The authors of the \textbf{Practical Guide to Holo-omics} belong primarily to the \href{https://ceh.ku.dk/}{Center for Evolutionary Hologenomics}, at the Globe Institute of the University of Copenhagen (Denmark). The CEH is a research centre dedicated to studying host-microbiota interactions and their impact on basic and applied biological processes.
 
 \hypertarget{antton-alberdi}{%
 \subsubsection*{Antton Alberdi}\label{antton-alberdi}}
@@ -676,7 +678,13 @@ Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antt
 \hypertarget{protein-metabolite-extraction}{%
 \chapter{Protein/metabolite extraction}\label{protein-metabolite-extraction}}
 
-Laboratory protocols for protein/metabolite extraction
+To ensure accurate and reliable analysis, it is crucial to apply cold processing when dealing with highly volatile subjects such as small metabolites. This approach helps to minimize any potential biases in the composition. In order to obtain efficient precipitation, cell lysis techniques such as sonication or homogenisation of tissue by freezing, grinding, or bead-beating may be necessary. Additionally, it is important to filter tissue samples to remove any large debris, and purify the lysate for either high-performance (HP), medium-performance (MP), or low-performance (ME) analysis.
+
+For ME, a suitable solvent is required for the precipitation of the metabolites, which should be chosen based on the desired detection spectrum of the metabolites. The polarity of the solvent can influence the target component of the ME. In contrast, for HP and MP, two main methods are currently used: acetone/TCA precipitation and phenol extraction.
+
+To increase the detection of rare abundant proteins and metabolites, it is necessary to remove highly abundant metabolites or proteins. However, it is crucial to include pooled quality controls during data acquisition to detect all metabolites and correct stochastic drift.
+
+Overall, to ensure the high quality of data for further processing, it is important to apply appropriate techniques for sample preparation and analysis of small metabolites. Proper purification and removal of contaminants can significantly improve the accuracy and reliability of results.
 
 \hypertarget{sequencing-library-preparation}{%
 \chapter{Sequencing library preparation}\label{sequencing-library-preparation}}
@@ -1154,17 +1162,122 @@ Depending on the sample type employed for data generation, sequencing data might
 \hypertarget{host-genomics-data-processing}{%
 \chapter{Host genomics (HG) data processing}\label{host-genomics-data-processing}}
 
-Contents to be added.
+Bioinformatic procedures for host genomics can be grouped in two main tasks, the generation of the reference genome and the resequencing of the genome. The first one aims at creating a (often single) reference genome sequence for a species, a breed or a population, which is then used to generate genomic profiles for multiple individuals. Reference genomes generation requires a considerably higher sequencing effort than resequencing, and the use of multiple sequencing technologies (long-read, Hi-C, etc.) is often needed to resolve the structural complexities of most eukaryotic organisms. Genome resequencing, in contrast, usually relies on short-read sequencing, which provide sufficient information for calling nucleotide variarions.
+
+Overviews of both procedures are shown in the following chapters:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{host-reference-genome}{Host reference genome}}
+\item
+  \textbf{\protect\hyperlink{host-resequencing}{Host genome resequencing}}
+\end{itemize}
 
 \hypertarget{host-reference-genome}{%
 \section{Host reference genome}\label{host-reference-genome}}
 
-Contents to be added.
+Genomes of eukaryotic organisms are generally complex, because they carry multiple copies of the same genome, genomes contain duplications, repetitive sequences, mobile elements, etc. In consequence, generating a high-quality reference genome that represents all this complexity is a complex effort, that today, requires multiple complementary molecular techniques to be merged. Although multiple genome assembly protocols exist, in this guidebook we will focus on the one employed in the Vertebrates Genomes Project, the largest consortium aiming at generating animal reference genomes in a standardised way \textbf{{[}RHIE 2021{]}}. The VGP assembly pipeline uses data generated by a variety of technologies, including PacBio HiFi reads, Bionano optical maps, and Hi-C chromatin interaction maps.
 
-\hypertarget{host-genome-resequencing}{%
-\section{Host genome resequencing}\label{host-genome-resequencing}}
+\url{https://training.galaxyproject.org/training-material/topics/assembly/tutorials/vgp_genome_assembly/tutorial.html}
 
-Contents to be added.
+\hypertarget{host-genome-quality}{%
+\subsection{Genome quality}\label{host-genome-quality}}
+
+Before advancing with genome generation procedures, it is important to acknowledge that reference genomes can have different qualities. Quality is measured by assembly statistics, such as the N50 and L90 metrics, which provide an overview of the completeness and accuracy of the genome. Based on those metrics, eukaryotic genomes are usually categorised in three levels:
+
+\textbf{Contig level}: Contig level refers to the lowest level of genome assembly, where the genome is fragmented into small pieces called contigs. Contigs are contiguous sequences of DNA that are typically hundreds to thousands of base pairs in length. Contig-level genome assemblies lack information about the order and orientation of the contigs and may contain gaps between them.
+\textbf{Scaffold level}: Scaffold level is the next level of genome assembly, where contigs are linked together using paired-end reads or other genomic information to form larger structures called scaffolds. Scaffolds provide information about the order and orientation of contigs but may still contain gaps between them.
+\textbf{Chromosome level}: Chromosome level is the highest level of genome assembly, where the genome is fully assembled into chromosomes. Chromosome-level assemblies provide the most complete and accurate representation of the genome, with few gaps and accurate order and orientation of genomic elements. These assemblies typically require multiple sources of genomic information and sophisticated computational tools to produce.
+
+\hypertarget{host-genome-profile-analysis}{%
+\subsection{Genome profile analysis}\label{host-genome-profile-analysis}}
+
+Gathering metrics on genome properties before initiating a de novo genome assembly project is very helpful in setting expectations for the assembly. In the past, DNA flow cytometry was commonly used to estimate genome size, but computational approaches have become the preferred method in recent times (Wang et al., 2020). Currently, genome profiling is based on k-mer frequency analysis, which not only provides information on the genome's complexity, such as its size and levels of heterozygosity and repeat content, but also on the quality of the data.
+
+k-mer spectra can be generated with Meryl, which generates k-mer profile by decomposing the sequencing data into k-length substrings, counting the occurrence of each k-mer and determining its frequency.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Meryl}\NormalTok{ code chunk}
+\end{Highlighting}
+\end{Shaded}
+
+The k-mer histogram produced by Meryl can be used to deduce genome properties with the help of GenomeScope2. This tool utilizes a nonlinear least-squares optimization to fit a combination of negative binomial distributions, providing estimates for genome size, repetitiveness, and heterozygosity rates (Ranallo-Benavidez et al., 2020).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{GenomeScope2}\NormalTok{ code chunk}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{host-genome-assembly-hifiasm}{%
+\subsection{Genome assembly using hifiasm}\label{host-genome-assembly-hifiasm}}
+
+Hifiasm is a powerful de novo assembler specifically developed for PacBio HiFi reads. One of the key advantages of hifiasm is that it allows us to resolve near-identical, but not exactly identical, sequences, such as repeats and segmental duplications (Cheng et al.~2021). Hifiasm can be run in multiple modes depending on data availability:
+
+\hypertarget{host-genome-assembly-hifiasm-solo}{%
+\subsubsection*{Solo mode}\label{host-genome-assembly-hifiasm-solo}}
+\addcontentsline{toc}{subsubsection}{Solo mode}
+
+The solo mode generates a pseudohaplotype assembly, resulting in a primary and an alternate assembly solely using HiFi reads.
+
+\hypertarget{host-genome-assembly-hifiasm-Hi-C}{%
+\subsubsection*{Hi-C-phased mode}\label{host-genome-assembly-hifiasm-Hi-C}}
+\addcontentsline{toc}{subsubsection}{Hi-C-phased mode}
+
+The Hi-C-phased mode generates a hap1 assembly and a hap2 assembly, which are phased using the Hi-C reads from the same individual.
+
+\hypertarget{host-genome-assembly-hifiasm-trio}{%
+\subsubsection*{Trio mode}\label{host-genome-assembly-hifiasm-trio}}
+\addcontentsline{toc}{subsubsection}{Trio mode}
+
+The trio mode requires long-read PacBio HiFi reads from child, and Illumina short-reads from both parents to generate a maternal assembly and a paternal assembly, which are phased using reads from the parents.
+
+\hypertarget{host-genome-assembly-evaluation}{%
+\subsection{Assembly evaluation}\label{host-genome-assembly-evaluation}}
+
+Assemblies can be evaluated using a variety of approaches that assess different parameters of the assembled genomes.
+
+gfastats can be used or summary statistics (e.g., contig count, N50, NG50, etc.)
+
+BUSCO assesses genome completeness based on an evolutionary functional perspective. BUSCO genes are anticipated to exist in a single-copy haplotype for a particular clade, and their presence, absence, or duplication can help researchers determine whether an assembly is deficient in significant regions or has multiple copies, which may necessitate purging (Simão et al., 2015).
+
+Merqury performs a reference-free assessment of assembly completeness and phasing based on k-mers. Merqury compares k-mers in the reads to the k-mers found in the assemblies, as well as the copy number (CN) of each k-mer in the assemblies (Rhie et al.~2020).
+
+\hypertarget{host-genome-scaffolding}{%
+\subsection{Assembly scaffolding}\label{host-genome-scaffolding}}
+
+The following step in the process is to assemble contigs into scaffolds, i.e., to connect contigs interspaced with gaps. While traditionally, this process has been performed using paired-end short-read data with long insert-sizes, the VGP pipeline currently scaffolds using two more advanced technologies: Bionano optical maps and Hi-C data.
+
+\hypertarget{host-genome-scaffolding-bionano}{%
+\subsubsection*{Scaffolding using Bionano optical maps}\label{host-genome-scaffolding-bionano}}
+\addcontentsline{toc}{subsubsection}{Scaffolding using Bionano optical maps}
+
+Content to be added.
+
+\hypertarget{host-genome-scaffolding-hi-c}{%
+\subsubsection*{Scaffolding using Hi-C data}\label{host-genome-scaffolding-hi-c}}
+\addcontentsline{toc}{subsubsection}{Scaffolding using Hi-C data}
+
+Content to be added.
+
+\hypertarget{host-genome-final-evaluation}{%
+\subsection{Final genome evaluation}\label{host-genome-final-evaluation}}
+
+Content to be added.
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
+
+\hypertarget{host-genome-annotation}{%
+\subsection{Reference genome annotation}\label{host-genome-annotation}}
+
+Content to be added.
+
+\hypertarget{host-resequencing}{%
+\section{Host genome resequencing}\label{host-resequencing}}
+
+Once a reference genome is available, the processing of resequencing data is straightforward.
 
 \hypertarget{microbial-metagenomics-data-processing}{%
 \chapter{Microbial metagenomics (MG) data processing}\label{microbial-metagenomics-data-processing}}
@@ -1591,7 +1704,7 @@ In the following two chapters, you will find example pipelines to process host t
 \subsection*{Quality-filtering}\label{quality-filtering}}
 \addcontentsline{toc}{subsection}{Quality-filtering}
 
-Text to be added.
+Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1680,7 +1793,7 @@ Text to be added.
 \hypertarget{microbial-metatranscriptomics-data-processing}{%
 \chapter{Microbial metatranscriptomics (HT) data processing}\label{microbial-metatranscriptomics-data-processing}}
 
-The analysis of microbial metatranscriptomic data can be conducted following two main strategies, which depend on whether a reference catalogue of annotated bacterial genomes is available or not.
+Metatranscriptomics is a powerful tool for investigating gene expression patterns in complex microbial communities. It allows researchers to explore the functional diversity of microbial populations, providing insights into the metabolic pathways and interactions that drive community dynamics. The analysis of microbial metatranscriptomic data can be conducted following two main strategies, which depend on whether a reference catalogue of annotated bacterial genomes is available or not.
 
 In the following two chapters, you will find example pipelines to process microbial metatranscriptomic data through both strategies:
 
@@ -1695,7 +1808,7 @@ In the following two chapters, you will find example pipelines to process microb
 \hypertarget{microbial-metatranscriptomics-data-processing-reference-based}{%
 \section{Reference-based microbial metatranscriptomics (MT) data processing}\label{microbial-metatranscriptomics-data-processing-reference-based}}
 
-Introduction to be added here.
+In reference-based metatranscriptomics, sequencing reads are aligned to a reference genome or transcriptome, allowing for the identification and quantification of transcripts from known genes. This approach provides a more focused analysis of gene expression in microbial communities and can be particularly useful when studying well-characterized microbial systems.
 
 \hypertarget{quality-filtering-1}{%
 \subsection*{Quality filtering}\label{quality-filtering-1}}
@@ -1801,12 +1914,12 @@ Contents to be added here.
 \hypertarget{host-proteomics-data-processing}{%
 \chapter{Host proteomics (HP) data processing}\label{host-proteomics-data-processing}}
 
-Contents to be added.
+Proteins are highly complex molecules that require extensive processing to derive meaningful biological insights from the large number of spectra generated by mass spectrometers, in contrast to nucleic acids. In quantitative proteomics and metabolomics, tandem mass-spectrometry (MS/MS) is the most widely used form of data collection. MS1-level quantification and MS2-level identification are used to identify and quantify features that elute from the chromatograph column at an expected retention time. This is achieved through area under the curve (AUC) or peak height calculation for each feature. The corresponding features in HP, MP, and ME are then quantified using MS1 detection, and feature identification is achieved through MS2 using search algorithms that compare the recorded MS2 spectrum to a feature spectrum from a predefined database. HP and MP databases are typically protein databases translated from genomic data, although other strategies such as spectral libraries or mRNA databases have also been successful. However, assembling the identified peptides into proteins can be challenging, especially when dealing with redundant peptides or spliced proteins. Recent advances in computational methods for predicting protein structures are expected to expand the reference databases for proteomics.
 
 \hypertarget{microbial-metaproteomics-data-processing}{%
 \chapter{Microbial metaproteomics (MP) data processing}\label{microbial-metaproteomics-data-processing}}
 
-Contents to be added.
+Proteins are highly complex molecules that require extensive processing to derive meaningful biological insights from the large number of spectra generated by mass spectrometers, in contrast to nucleic acids. In quantitative proteomics and metabolomics, tandem mass-spectrometry (MS/MS) is the most widely used form of data collection. MS1-level quantification and MS2-level identification are used to identify and quantify features that elute from the chromatograph column at an expected retention time. This is achieved through area under the curve (AUC) or peak height calculation for each feature. The corresponding features in HP, MP, and ME are then quantified using MS1 detection, and feature identification is achieved through MS2 using search algorithms that compare the recorded MS2 spectrum to a feature spectrum from a predefined database. HP and MP databases are typically protein databases translated from genomic data, although other strategies such as spectral libraries or mRNA databases have also been successful. However, assembling the identified peptides into proteins can be challenging, especially when dealing with redundant peptides or spliced proteins. Recent advances in computational methods for predicting protein structures are expected to expand the reference databases for proteomics.
 
 \hypertarget{part-statistical-procedures}{%
 \part{STATISTICAL PROCEDURES}\label{part-statistical-procedures}}

@@ -21,7 +21,7 @@ render_book(input = "index.Rmd", output_format = "bookdown::gitbook")
 
 #Render it as pdf
 render_book(input = "index.Rmd", output_format = "bookdown::pdf_book")
-file.rename("docs/_main.pdf","holo_omics_guidebook.pdf")
+file.rename("docs/_main.pdf","docs/holo_omics_guidebook.pdf")
 
 ######
 # USEFUL LINKS

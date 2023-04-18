@@ -1,3 +1,9 @@
 # Protein/metabolite extraction {#protein-metabolite-extraction}
 
-Laboratory protocols for protein/metabolite extraction
+To ensure accurate and reliable analysis, it is crucial to apply cold processing when dealing with highly volatile subjects such as small metabolites. This approach helps to minimize any potential biases in the composition. In order to obtain efficient precipitation, cell lysis techniques such as sonication or homogenisation of tissue by freezing, grinding, or bead-beating may be necessary. Additionally, it is important to filter tissue samples to remove any large debris, and purify the lysate for either high-performance (HP), medium-performance (MP), or low-performance (ME) analysis.
+
+For ME, a suitable solvent is required for the precipitation of the metabolites, which should be chosen based on the desired detection spectrum of the metabolites. The polarity of the solvent can influence the target component of the ME. In contrast, for HP and MP, two main methods are currently used: acetone/TCA precipitation and phenol extraction.
+
+To increase the detection of rare abundant proteins and metabolites, it is necessary to remove highly abundant metabolites or proteins. However, it is crucial to include pooled quality controls during data acquisition to detect all metabolites and correct stochastic drift.
+
+Overall, to ensure the high quality of data for further processing, it is important to apply appropriate techniques for sample preparation and analysis of small metabolites. Proper purification and removal of contaminants can significantly improve the accuracy and reliability of results.
