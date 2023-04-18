@@ -1,3 +1,9 @@
-# Multi-staged integration
+# Multi-staged omics integration {#multi-staged-omics-integration}
 
-Here is a review of existing methods.
+Multi-stage omics integrations leverages the structure of biological organisation to analyse the data in multiple steps, relating two omic layers at a time, with the final step linking the relevant omic layers with the outcome of interest. In the past, the predominant method for integrated analysis of biological data was the multi-staged approach. This approach relied heavily on traditional statistical tools and hypothesis testing approximations. The multi-staged approach is advantageous in that it enables the systematic linking of multi-omic datasets in a stepwise manner, allowing for the development of knowledge that can be later used to test causally-oriented hypotheses. Furthermore, this approach is better suited to account for the biological asymmetries between different omic datasets.
+
+One popular example of multi-staged integration is the three-stage or triangle method. In the first stage, SNPs are associated with the outcome of interest and filtered based on a genome-wide significance threshold. Then, SNPs significantly associated with the outcome in the first stage are tested for association with other omic layers: the SNPs associated with gene expression levels are called expression quantitative trait loci (eQTL); metabolite QTLs (mQTL) and protein QTLs (pQTL) can be similarly defined. Lastly, omic data retained in the second stage are used for association with the outcome in the third stage 97,98. Similar approaches could potentially be used to associate microbial MG data with MT, MP, ME data and outcomes of interest. Variations of this method where associations of other omic-layers are tested in stage one and the genomic associations are tested in later stages have also been proposed.
+
+:::: {.authorbox}
+Contents of this section were created by [Antton Alberdi](#antton-alberdi) and [Raphael Eisenhofer](#raphael-eisenhofer).
+:::

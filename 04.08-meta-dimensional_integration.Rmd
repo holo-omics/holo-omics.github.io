@@ -1,3 +1,41 @@
-# Meta-dimensional integration
+# Meta-dimensional omics integration {#meta-dimensional-omics-integration}
 
-Here is a review of existing methods.
+In meta-dimensional analysis all omic datasets are analysed in a single, simultaneous analysis. This kind of approach typically avoids using domain knowledge-based procedures to independently reduce features in single omic datasets, and aims at integrating multi-omic datasets in their whole complexity. Meta-dimensional integration methods can be grouped following several criteria but here we briefly summarise the classification first coined by Ritchie et al. (2015) [@Ritchie2015-qe] and recently reviewed by Reel et al. (2021) [@Reel2021-wb] (we refer interested readers to those publications for a more in depth treatment of the topic), which classifies the methods into concatenation-based, model-based and transformation-based integration methods. The three kinds of integration methods can be used for unsupervised and supervised analysis of multi-omic data, including classification and regression tasks.
+
+[Concatenation-based integration](#multi-staged-omics-integration-concatenation-based)
+[Transformation-based integration](#multi-staged-omics-integration-transformation-based)
+[Model-based integration](#multi-staged-omics-integration-model-based)
+
+:::: {.authorbox}
+Contents of this section were created by [Iñaki Odriozola](#inaki-odriozola) and [Antton Alberdi](#antton-alberdi).
+:::
+
+## Concatenation-based integration {#multi-staged-omics-integration-concatenation-based}
+
+Concatenation-based integration combines multiple omic datasets, raw or pre-processed, into a single large matrix. One of the advantages of these approaches is their simplicity, since once the concatenation of multi-omic datasets is achieved, unsupervised and supervised analysis methods can be applied to the joint matrix, as in the case of the independent analysis of omic layers. One of the main challenges of concatenation-based approaches is to ensure that the features of the different omic layers are comparable.
+
+:::: {.authorbox}
+Contents of this section were created by [Iñaki Odriozola](#inaki-odriozola) and [Antton Alberdi](#antton-alberdi).
+:::
+
+## Transformation-based integration {#multi-staged-omics-integration-transformation-based}
+
+In transformation-based integration, omic datasets are first transformed into an intermediate representation, typically a graph or a kernel matrix, and they are then merged before building the final model. This approach preserves the specific properties of each omic layer if they are transformed into appropriate intermediate representations, and a wide range of omic data can be combined as long as they share a unique identifier (i.e. a sample ID). Graph-based analyses have the advantage of easier interpretability and lower computational requirements whereas, overall, kernel-based methods provide higher predictive performance [@Yan2017-xh].
+
+There are several methods available for transformation-based unsupervised analysis. Regularised Multiple Kernel Learning for Locality Preserving Projections (rMKL-LPP) [@Speicher2015-sv] and PAMOGK [@Tepeli2021-as] are examples of kernel- and graph-based methods that can be used for clustering. Meta-analytic SVM (Meta-SVM) [@Kim2017-ao] and NEighborhood based Multi-Omics clustering (NEMO) [@Rappoport2019-zn] are other methods available for transformation-based unsupervised analysis. Most of the methods for transformation-based supervised analysis are kernel- or graph-based algorithms [@Reel2021-wb, @Yan2017-xh]. The kernel-based integration approaches include Semi-Definite Programming SVM (SDP-SVM) [@Lanckriet2004-kw], Multiple Kernel Learning with Feature Selection (FSMKL) [@Seoane2014-as], Relevance Vector Machine (RVM) [@Tipping2001-tj] and Ada-boost RVM [@Wu2010-jd]. The graph-based integration approaches include graph-based semi-supervised learning (included in supervised analyses following Reel et al. 2021 [@Reel2021-wb]) [@Kim2015-kx], graph sharpening [@Shin2010-rj] and composite network [@Mostafavi2010-aa]. Graph-based analyses have the advantage of easier interpretability and lower computational requirements whereas, overall, kernel-based methods provide higher predictive performance [@Yan2017-xh]. However, see Multi-Omics Graph Convolutional Networks (MOGONET) [@Wang2021-wb] for a high performing graph-based classification method.
+
+Several examples of unsupervised concatenation-based methods for multi-omic integration have been developed in recent years, most of them based on matrix-factorisation [@Reel2021-wb]. Joint non-negative matrix factorisation (Joint NMF) allowed integrating non-negative multi-omic data by decomposing the joint matrix into factors and loadings (Zhang et al., 2012). Joint and Individual Variation Explained (JIVE) is an adaptation of NMF framework (Lock et al., 2013) which was later improved by Joint Bayes Factor (JBF) to handle the problems derived from the high sparsity of multi-omic datasets (Ray et al., 2014). iCluster framework is based in similar principles to NMF but allows integration of datasets having negative values (Shen et al., 2009). iCluster+ (Mo et al., 2013), MoCluster (Meng et al., 2016), RLAcluster (Wu et al., 2015) and iClusterBayes (Mo et al., 2018) have further developed the framework and improved it in terms of diversity of handled data types, computation speed and clustering accuracy. Multi-Omics Factor Analysis (MOFA) is another recent development that allows discovering the principal sources of variability across different omic datasets (Argelaguet et al., 2018). Regarding supervised analyses, any of the algorithms for supervised analysis of single omic layers can be used to analyse concatenated multi omic data. RF (Fan et al., 2011; Acharjee et al., 2016; Li et al., 2015), SVM (Li et al., 2017), LASSO regression  (Lee et al., 2017) or DL (Zhang etal., 2018) algorithms have been used, among others, for concatenation-based supervised analysis in multi-omic literature.  
+
+:::: {.authorbox}
+Contents of this section were created by [Iñaki Odriozola](#inaki-odriozola) and [Antton Alberdi](#antton-alberdi).
+:::
+
+## Model-based integration {#multi-staged-omics-integration-model-based}
+
+Model-based integration builds intermediate models from each omic layer and then builds a final model combining all intermediate models. An advantage of this approach is that it allows merging multiple omic types that have been collected in different sets of sampling units, if the outcome of interest is the same across datasets (e.g. specific disease). On the other hand, since the models are first built independently for different omic layers, these methods may fail to capture interactions between features belonging to different omic datasets, i.e. if there are two features belonging to different omic layers that affect the outcome, but only through their interaction and not when evaluated independently. Therefore, the model-based integration is particularly suitable when the different omic datasets are extremely heterogeneous (even collected from different samples), and concatenating or transforming them to a common intermediate form is not possible.
+
+Model-based unsupervised integration methods include Format Concept Analysis (FCA) consensus clustering (Hristoskova et al., 2014), Bayesian consensus clustering (BCC) (Lock and Dunson, 2013) or Perturbation Clustering for Data Integration and Disease Subtyping (PINS+) (Nguyen et al., 2019). Network-based methods such as Lemon Tree (Bonnet et al., 2015) or Similarity Network Fusion (SNF) (Wang et al., 2014) are also available for association analysis. Model-based supervised integration can use a variety of frameworks for model development, including majority-based voting (Drăghici and Potter, 2003), hierarchical classifiers (Bavafaye Haghighi et al., 2019), ensemble-based approaches such as XGBoost (Ma et al., 2020) or DL methods (Poirion et al., 2021). Multi-omic data integration efforts such as ATHENA (Analysis Tool for Heritable and Environmental Network Associations) (Holzinger et al., 2014) or MOSAE (Multi-omics Supervised Autoencoder) (Tan et al., 2020) use model-based integration for disease prediction by combining a variety of modelling frameworks and algorithms.
+
+:::: {.authorbox}
+Contents of this section were created by [Iñaki Odriozola](#inaki-odriozola) and [Antton Alberdi](#antton-alberdi).
+:::

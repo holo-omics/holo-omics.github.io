@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="classification-methods.html"/>
-<link rel="next" href="multi-staged-integration.html"/>
+<link rel="next" href="multi-staged-omics-integration.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -378,8 +378,13 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="multi-omic-integration.html"><a href="multi-omic-integration.html"><i class="fa fa-check"></i><b>20</b> Multi-omic integration</a></li>
-<li class="chapter" data-level="21" data-path="multi-staged-integration.html"><a href="multi-staged-integration.html"><i class="fa fa-check"></i><b>21</b> Multi-staged integration</a></li>
-<li class="chapter" data-level="22" data-path="meta-dimensional-integration.html"><a href="meta-dimensional-integration.html"><i class="fa fa-check"></i><b>22</b> Meta-dimensional integration</a></li>
+<li class="chapter" data-level="21" data-path="multi-staged-omics-integration.html"><a href="multi-staged-omics-integration.html"><i class="fa fa-check"></i><b>21</b> Multi-staged omics integration</a></li>
+<li class="chapter" data-level="22" data-path="meta-dimensional-omics-integration.html"><a href="meta-dimensional-omics-integration.html"><i class="fa fa-check"></i><b>22</b> Meta-dimensional omics integration</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="multi-staged-omics-integration-concatenation-based.html"><a href="multi-staged-omics-integration-concatenation-based.html"><i class="fa fa-check"></i><b>22.1</b> Concatenation-based integration</a></li>
+<li class="chapter" data-level="22.2" data-path="multi-staged-omics-integration-transformation-based.html"><a href="multi-staged-omics-integration-transformation-based.html"><i class="fa fa-check"></i><b>22.2</b> Transformation-based integration</a></li>
+<li class="chapter" data-level="22.3" data-path="multi-staged-omics-integration-model-based.html"><a href="multi-staged-omics-integration-model-based.html"><i class="fa fa-check"></i><b>22.3</b> Model-based integration</a></li>
+</ul></li>
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
@@ -409,7 +414,11 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="multi-omic-integration" class="section level1 hasAnchor" number="20">
 <h1><span class="header-section-number">20</span> Multi-omic integration<a href="multi-omic-integration.html#multi-omic-integration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Here is a review of existing methods.</p>
+<p>Multi-omic data integration can be broadly classified into two categories: multi-staged analysis and meta-dimensional analysis. In the multi-staged approach, the data analysis is divided into multiple steps, where two omic layers are linked at each step, and the final step relates the relevant omic layers with the outcome of interest. This method takes advantage of the hierarchical nature of molecular biology’s central dogma, assuming that variations in omic datasets occur in a hierarchical manner, with changes in DNA leading to changes in RNA, and so on. On the other hand, meta-dimensional analysis involves analyzing all omic datasets in a single analysis, which encompasses the entire range of features simultaneously, and enables the assessment of inter-omic interactions.</p>
+<ul>
+<li><strong><a href="multi-staged-omics-integration">Multi-staged data integration</a></strong>:</li>
+<li><strong><a href="meta-dimensional-omics-integration.html#meta-dimensional-omics-integration">Meta-dimensional data integration</a></strong></li>
+</ul>
 
 </div>
             </section>
@@ -418,7 +427,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="classification-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multi-staged-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multi-staged-omics-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

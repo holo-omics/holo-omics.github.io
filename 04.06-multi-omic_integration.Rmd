@@ -1,3 +1,6 @@
 # Multi-omic integration
 
-Here is a review of existing methods.
+Multi-omic data integration can be broadly classified into two categories: multi-staged analysis and meta-dimensional analysis. In the multi-staged approach, the data analysis is divided into multiple steps, where two omic layers are linked at each step, and the final step relates the relevant omic layers with the outcome of interest. This method takes advantage of the hierarchical nature of molecular biology's central dogma, assuming that variations in omic datasets occur in a hierarchical manner, with changes in DNA leading to changes in RNA, and so on. On the other hand, meta-dimensional analysis involves analyzing all omic datasets in a single analysis, which encompasses the entire range of features simultaneously, and enables the assessment of inter-omic interactions.
+
+* **[Multi-staged data integration](multi-staged-omics-integration)**:
+* **[Meta-dimensional data integration](#meta-dimensional-omics-integration)**
