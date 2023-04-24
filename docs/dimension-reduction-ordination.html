@@ -435,86 +435,86 @@ div.csl-indent {
 <div id="pca" class="section level3 hasAnchor" number="18.2.1">
 <h3><span class="header-section-number">18.2.1</span> Principal Component Analysis (PCA)<a href="dimension-reduction-ordination.html#pca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.</p>
-<pre><code># Load the dataset
-data &lt;- read.csv(&quot;mydata.csv&quot;)
-
-# Perform PCA
-pca &lt;- prcomp(data, scale = TRUE)
-
-# View the results
-summary(pca)
-
-# Plot the results
-plot(pca, type = &quot;l&quot;)</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="dimension-reduction-ordination.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb59-2"><a href="dimension-reduction-ordination.html#cb59-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb59-3"><a href="dimension-reduction-ordination.html#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="dimension-reduction-ordination.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform PCA</span></span>
+<span id="cb59-5"><a href="dimension-reduction-ordination.html#cb59-5" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(data, <span class="at">scale =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb59-6"><a href="dimension-reduction-ordination.html#cb59-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-7"><a href="dimension-reduction-ordination.html#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb59-8"><a href="dimension-reduction-ordination.html#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca)</span>
+<span id="cb59-9"><a href="dimension-reduction-ordination.html#cb59-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-10"><a href="dimension-reduction-ordination.html#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results</span></span>
+<span id="cb59-11"><a href="dimension-reduction-ordination.html#cb59-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pca, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 </div>
 <div id="pcoa" class="section level3 hasAnchor" number="18.2.2">
 <h3><span class="header-section-number">18.2.2</span> Principal Coordinate Analysis (PCoA)<a href="dimension-reduction-ordination.html#pcoa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Principal Coordinate Analysis (PCoA) is a multivariate analysis technique used to visualise and explore the patterns of variation in multivariate data. It is similar to Principal Component Analysis (PCA) but is specifically designed for distance-based data. PCoA transforms a distance matrix into a set of coordinates that can be plotted in two or three dimensions, allowing for visualisation of the relationships between samples based on their dissimilarity.</p>
 <p>In multi-omics research, PCoA can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing PCoA on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, PCoA can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, PCoA is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research.</p>
-<pre><code># Load the distance matrix
-dist_mat &lt;- read.csv(&quot;mydistances.csv&quot;, row.names = 1)
-
-# Perform PCoA
-pcoa &lt;- cmdscale(dist_mat, k = 2, eig = TRUE, add = TRUE)
-
-# View the results
-summary(pcoa)
-
-# Plot the results
-plot(pcoa$points, type = &quot;n&quot;, xlab = &quot;PCo1&quot;, ylab = &quot;PCo2&quot;)
-text(pcoa$points, labels = rownames(pcoa$points))</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="dimension-reduction-ordination.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the distance matrix</span></span>
+<span id="cb60-2"><a href="dimension-reduction-ordination.html#cb60-2" aria-hidden="true" tabindex="-1"></a>dist_mat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydistances.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb60-3"><a href="dimension-reduction-ordination.html#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="dimension-reduction-ordination.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform PCoA</span></span>
+<span id="cb60-5"><a href="dimension-reduction-ordination.html#cb60-5" aria-hidden="true" tabindex="-1"></a>pcoa <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(dist_mat, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">eig =</span> <span class="cn">TRUE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb60-6"><a href="dimension-reduction-ordination.html#cb60-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-7"><a href="dimension-reduction-ordination.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb60-8"><a href="dimension-reduction-ordination.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pcoa)</span>
+<span id="cb60-9"><a href="dimension-reduction-ordination.html#cb60-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-10"><a href="dimension-reduction-ordination.html#cb60-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results</span></span>
+<span id="cb60-11"><a href="dimension-reduction-ordination.html#cb60-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pcoa<span class="sc">$</span>points, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;PCo1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;PCo2&quot;</span>)</span>
+<span id="cb60-12"><a href="dimension-reduction-ordination.html#cb60-12" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(pcoa<span class="sc">$</span>points, <span class="at">labels =</span> <span class="fu">rownames</span>(pcoa<span class="sc">$</span>points))</span></code></pre></div>
 </div>
 <div id="nmds" class="section level3 hasAnchor" number="18.2.3">
 <h3><span class="header-section-number">18.2.3</span> Non-metric Multidimensional Scaling (NMDS)<a href="dimension-reduction-ordination.html#nmds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Non-metric Multidimensional Scaling (NMDS) is a multivariate analysis technique used to visualize and explore the patterns of variation in multivariate data. It is similar to Principal Coordinate Analysis (PCoA) but is more flexible in that it can handle non-linear relationships between variables. NMDS transforms a distance matrix into a set of coordinates that can be plotted in two or three dimensions, allowing for visualisation of the relationships between samples based on their dissimilarity. Unlike PCoA, NMDS does not assume a linear relationship between the distance matrix and the coordinates, making it a more powerful tool for analysing complex and non-linear relationships in multivariate data.</p>
 <p>In multi-omics research, NMDS can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing NMDS on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, NMDS can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, NMDS is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research, particularly when the relationships between variables are non-linear.</p>
-<pre><code># Load the dataset
-data &lt;- read.csv(&quot;mydata.csv&quot;, row.names = 1)
-
-# Perform NMDS
-library(vegan)
-nmds &lt;- metaMDS(data, distance = &quot;bray&quot;)
-
-# View the results
-summary(nmds)
-
-# Plot the results
-plot(nmds$points, type = &quot;n&quot;, xlab = &quot;NMDS1&quot;, ylab = &quot;NMDS2&quot;)
-text(nmds$points, labels = rownames(nmds$points))</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="dimension-reduction-ordination.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb61-2"><a href="dimension-reduction-ordination.html#cb61-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb61-3"><a href="dimension-reduction-ordination.html#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="dimension-reduction-ordination.html#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform NMDS</span></span>
+<span id="cb61-5"><a href="dimension-reduction-ordination.html#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb61-6"><a href="dimension-reduction-ordination.html#cb61-6" aria-hidden="true" tabindex="-1"></a>nmds <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(data, <span class="at">distance =</span> <span class="st">&quot;bray&quot;</span>)</span>
+<span id="cb61-7"><a href="dimension-reduction-ordination.html#cb61-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-8"><a href="dimension-reduction-ordination.html#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb61-9"><a href="dimension-reduction-ordination.html#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(nmds)</span>
+<span id="cb61-10"><a href="dimension-reduction-ordination.html#cb61-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-11"><a href="dimension-reduction-ordination.html#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results</span></span>
+<span id="cb61-12"><a href="dimension-reduction-ordination.html#cb61-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(nmds<span class="sc">$</span>points, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;NMDS1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;NMDS2&quot;</span>)</span>
+<span id="cb61-13"><a href="dimension-reduction-ordination.html#cb61-13" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(nmds<span class="sc">$</span>points, <span class="at">labels =</span> <span class="fu">rownames</span>(nmds<span class="sc">$</span>points))</span></code></pre></div>
 </div>
 <div id="t-sne" class="section level3 hasAnchor" number="18.2.4">
 <h3><span class="header-section-number">18.2.4</span> t-Distributed Stochastic Neighbour Embedding (t-SNE)<a href="dimension-reduction-ordination.html#t-sne" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>t-Distributed Stochastic Neighbor Embedding (t-SNE) is a nonlinear dimensionality reduction technique used to visualise high-dimensional data in a low-dimensional space. t-SNE is particularly useful when exploring complex and nonlinear relationships between variables, and can be applied to various types of data including gene expression, proteomics, and metabolomics data. t-SNE works by first constructing a probability distribution over pairs of high-dimensional objects, such as genes or proteins, and then constructing a similar probability distribution over pairs of low-dimensional points. The technique then optimizes these probability distributions to minimise the divergence between them, resulting in a low-dimensional representation of the high-dimensional data.</p>
 <p>In multi-omics research, t-SNE can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing t-SNE on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, t-SNE can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, t-SNE is a powerful tool for visualising high-dimensional data in a low-dimensional space, allowing researchers to explore and analyse complex relationships in multi-omics research.</p>
-<pre><code># Load the dataset
-data &lt;- read.csv(&quot;mydata.csv&quot;, row.names = 1)
-
-# Perform t-SNE
-library(Rtsne)
-tsne &lt;- Rtsne(data, dims = 2, perplexity = 30, verbose = TRUE)
-
-# View the results
-summary(tsne)
-
-# Plot the results
-plot(tsne$Y, col = &quot;blue&quot;, pch = 19, xlab = &quot;t-SNE1&quot;, ylab = &quot;t-SNE2&quot;)</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="dimension-reduction-ordination.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb62-2"><a href="dimension-reduction-ordination.html#cb62-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb62-3"><a href="dimension-reduction-ordination.html#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="dimension-reduction-ordination.html#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform t-SNE</span></span>
+<span id="cb62-5"><a href="dimension-reduction-ordination.html#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rtsne)</span>
+<span id="cb62-6"><a href="dimension-reduction-ordination.html#cb62-6" aria-hidden="true" tabindex="-1"></a>tsne <span class="ot">&lt;-</span> <span class="fu">Rtsne</span>(data, <span class="at">dims =</span> <span class="dv">2</span>, <span class="at">perplexity =</span> <span class="dv">30</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb62-7"><a href="dimension-reduction-ordination.html#cb62-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-8"><a href="dimension-reduction-ordination.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb62-9"><a href="dimension-reduction-ordination.html#cb62-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tsne)</span>
+<span id="cb62-10"><a href="dimension-reduction-ordination.html#cb62-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-11"><a href="dimension-reduction-ordination.html#cb62-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results</span></span>
+<span id="cb62-12"><a href="dimension-reduction-ordination.html#cb62-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tsne<span class="sc">$</span>Y, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">xlab =</span> <span class="st">&quot;t-SNE1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;t-SNE2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="umap" class="section level3 hasAnchor" number="18.2.5">
 <h3><span class="header-section-number">18.2.5</span> Uniform manifold approximation and projection (UMAP)<a href="dimension-reduction-ordination.html#umap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Uniform Manifold Approximation and Projection (UMAP) is a non-linear dimension reduction technique used to visualise high-dimensional data in a low-dimensional space. It is similar to t-Distributed Stochastic Neighbour Embedding (t-SNE) but is faster and more scalable, making it useful for larger datasets. UMAP works by constructing a fuzzy topological representation of the high-dimensional data and then optimising a low-dimensional representation that preserves the structure of this topological representation. This results in a low-dimensional representation of the high-dimensional data that preserves complex relationships between variables.</p>
 <p>In multi-omics research, UMAP can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing UMAP on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, UMAP can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, UMAP is a powerful tool for visualising high-dimensional data, particularly for large and complex datasets.</p>
-<pre><code># Load the dataset
-data &lt;- read.csv(&quot;mydata.csv&quot;, row.names = 1)
-
-# Perform UMAP
-library(umap)
-umap_result &lt;- umap(data, n_components = 2, n_neighbors = 30)
-
-# View the results
-summary(umap_result)
-
-# Plot the results
-plot(umap_result$layout, col = &quot;blue&quot;, pch = 19, xlab = &quot;UMAP1&quot;, ylab = &quot;UMAP2&quot;)</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="dimension-reduction-ordination.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb63-2"><a href="dimension-reduction-ordination.html#cb63-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb63-3"><a href="dimension-reduction-ordination.html#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="dimension-reduction-ordination.html#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform UMAP</span></span>
+<span id="cb63-5"><a href="dimension-reduction-ordination.html#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(umap)</span>
+<span id="cb63-6"><a href="dimension-reduction-ordination.html#cb63-6" aria-hidden="true" tabindex="-1"></a>umap_result <span class="ot">&lt;-</span> <span class="fu">umap</span>(data, <span class="at">n_components =</span> <span class="dv">2</span>, <span class="at">n_neighbors =</span> <span class="dv">30</span>)</span>
+<span id="cb63-7"><a href="dimension-reduction-ordination.html#cb63-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-8"><a href="dimension-reduction-ordination.html#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the results</span></span>
+<span id="cb63-9"><a href="dimension-reduction-ordination.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(umap_result)</span>
+<span id="cb63-10"><a href="dimension-reduction-ordination.html#cb63-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-11"><a href="dimension-reduction-ordination.html#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results</span></span>
+<span id="cb63-12"><a href="dimension-reduction-ordination.html#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(umap_result<span class="sc">$</span>layout, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">xlab =</span> <span class="st">&quot;UMAP1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;UMAP2&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>

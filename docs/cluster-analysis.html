@@ -435,57 +435,57 @@ div.csl-indent {
 <div id="hierarchical-clustering" class="section level3 hasAnchor" number="18.1.1">
 <h3><span class="header-section-number">18.1.1</span> Hierarchical clustering<a href="cluster-analysis.html#hierarchical-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hierarchical clustering produces a stratified organisation of features or observations where relatively similar objects are grouped together. The clustering can be performed using different criteria to measure the distance between clusters, which will affect the final outcome of the analysis (e.g., single linkage, complete linkage, average linkage and Ward’s minimum variance).</p>
-<pre><code># Load the dataset
-data &lt;- read.csv(&quot;mydata.csv&quot;)
-
-# Perform hierarchical clustering
-dist_matrix &lt;- dist(data)  # calculate distance matrix
-hc &lt;- hclust(dist_matrix)  # perform hierarchical clustering
-
-# Plot dendrogram of clustering
-plot(hc, hang=-1)</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="cluster-analysis.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb55-2"><a href="cluster-analysis.html#cb55-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb55-3"><a href="cluster-analysis.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="cluster-analysis.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform hierarchical clustering</span></span>
+<span id="cb55-5"><a href="cluster-analysis.html#cb55-5" aria-hidden="true" tabindex="-1"></a>dist_matrix <span class="ot">&lt;-</span> <span class="fu">dist</span>(data)  <span class="co"># calculate distance matrix</span></span>
+<span id="cb55-6"><a href="cluster-analysis.html#cb55-6" aria-hidden="true" tabindex="-1"></a>hc <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_matrix)  <span class="co"># perform hierarchical clustering</span></span>
+<span id="cb55-7"><a href="cluster-analysis.html#cb55-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-8"><a href="cluster-analysis.html#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot dendrogram of clustering</span></span>
+<span id="cb55-9"><a href="cluster-analysis.html#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hc, <span class="at">hang=</span><span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <p>A useful exploratory analysis to reveal general patterns in an omic layer can be obtained by simultaneous application of hierarchical clustering to the rows and columns of the data matrix, and visualising the results in a heatmap.</p>
-<pre><code># Load the dataset
-data &lt;- read.csv(&quot;mydata.csv&quot;, row.names=1)
-
-# Perform hierarchical clustering of rows and columns
-row_clusters &lt;- hclust(dist(data))
-col_clusters &lt;- hclust(dist(t(data)))
-
-# Plot heatmap with row and column dendrograms
-library(gplots)
-heatmap.2(as.matrix(data),
-          Rowv=row_clusters,
-          Colv=col_clusters,
-          scale=&quot;row&quot;,
-          dendrogram=&quot;both&quot;,
-          key=TRUE,
-          keysize=1.5,
-          col=redgreen(75))</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="cluster-analysis.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb56-2"><a href="cluster-analysis.html#cb56-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>, <span class="at">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb56-3"><a href="cluster-analysis.html#cb56-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-4"><a href="cluster-analysis.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform hierarchical clustering of rows and columns</span></span>
+<span id="cb56-5"><a href="cluster-analysis.html#cb56-5" aria-hidden="true" tabindex="-1"></a>row_clusters <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(data))</span>
+<span id="cb56-6"><a href="cluster-analysis.html#cb56-6" aria-hidden="true" tabindex="-1"></a>col_clusters <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(<span class="fu">t</span>(data)))</span>
+<span id="cb56-7"><a href="cluster-analysis.html#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-8"><a href="cluster-analysis.html#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap with row and column dendrograms</span></span>
+<span id="cb56-9"><a href="cluster-analysis.html#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb56-10"><a href="cluster-analysis.html#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap.2</span>(<span class="fu">as.matrix</span>(data),</span>
+<span id="cb56-11"><a href="cluster-analysis.html#cb56-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">Rowv=</span>row_clusters,</span>
+<span id="cb56-12"><a href="cluster-analysis.html#cb56-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">Colv=</span>col_clusters,</span>
+<span id="cb56-13"><a href="cluster-analysis.html#cb56-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">scale=</span><span class="st">&quot;row&quot;</span>,</span>
+<span id="cb56-14"><a href="cluster-analysis.html#cb56-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">dendrogram=</span><span class="st">&quot;both&quot;</span>,</span>
+<span id="cb56-15"><a href="cluster-analysis.html#cb56-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">key=</span><span class="cn">TRUE</span>,</span>
+<span id="cb56-16"><a href="cluster-analysis.html#cb56-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">keysize=</span><span class="fl">1.5</span>,</span>
+<span id="cb56-17"><a href="cluster-analysis.html#cb56-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">col=</span><span class="fu">redgreen</span>(<span class="dv">75</span>))</span></code></pre></div>
 </div>
 <div id="disjoint-clustering" class="section level3 hasAnchor" number="18.1.2">
 <h3><span class="header-section-number">18.1.2</span> Disjoint clustering<a href="cluster-analysis.html#disjoint-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Disjoint clustering techniques aim at separating the objects into individual, usually mutually exclusive, and in most cases, unconnected clusters. K-means clustering is one of the most typical algorithms where objects are assigned to k clusters using an iterative procedure that minimises the within-clusters sums of squares. Other available clustering methods include twinspan, self-organising maps, dbscan and Dirichlet multinomial mixtures (DMM). DMM were specifically developed to analyse MG data but can be equally useful for other sequencing-based omic datasets.</p>
-<pre><code># Load the dataset
-data &lt;- read.csv(&quot;mydata.csv&quot;)
-
-# Perform K-means clustering
-k &lt;- 3  # number of clusters
-km &lt;- kmeans(data, k)
-
-# View the cluster assignments
-head(km$cluster)</code></pre>
-<pre><code># Load the package
-library(DirichletMultinomial)
-
-# Load the dataset
-data &lt;- read.csv(&quot;mydata.csv&quot;)
-
-# Fit Dirichlet multinomial mixture model
-model &lt;- DMM(data, K=3, alpha=1, beta=1)
-
-# View the cluster assignments
-head(model$Z)</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="cluster-analysis.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb57-2"><a href="cluster-analysis.html#cb57-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb57-3"><a href="cluster-analysis.html#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="cluster-analysis.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform K-means clustering</span></span>
+<span id="cb57-5"><a href="cluster-analysis.html#cb57-5" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># number of clusters</span></span>
+<span id="cb57-6"><a href="cluster-analysis.html#cb57-6" aria-hidden="true" tabindex="-1"></a>km <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(data, k)</span>
+<span id="cb57-7"><a href="cluster-analysis.html#cb57-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-8"><a href="cluster-analysis.html#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the cluster assignments</span></span>
+<span id="cb57-9"><a href="cluster-analysis.html#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(km<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="cluster-analysis.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the package</span></span>
+<span id="cb58-2"><a href="cluster-analysis.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DirichletMultinomial)</span>
+<span id="cb58-3"><a href="cluster-analysis.html#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="cluster-analysis.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb58-5"><a href="cluster-analysis.html#cb58-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb58-6"><a href="cluster-analysis.html#cb58-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-7"><a href="cluster-analysis.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit Dirichlet multinomial mixture model</span></span>
+<span id="cb58-8"><a href="cluster-analysis.html#cb58-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">DMM</span>(data, <span class="at">K=</span><span class="dv">3</span>, <span class="at">alpha=</span><span class="dv">1</span>, <span class="at">beta=</span><span class="dv">1</span>)</span>
+<span id="cb58-9"><a href="cluster-analysis.html#cb58-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-10"><a href="cluster-analysis.html#cb58-10" aria-hidden="true" tabindex="-1"></a><span class="co"># View the cluster assignments</span></span>
+<span id="cb58-11"><a href="cluster-analysis.html#cb58-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(model<span class="sc">$</span>Z)</span></code></pre></div>
 </div>
 </div>
             </section>

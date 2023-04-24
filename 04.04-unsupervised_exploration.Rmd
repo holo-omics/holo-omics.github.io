@@ -13,7 +13,7 @@ Clustering procedures group features or observations into homogeneous sets by mi
 
 Hierarchical clustering produces a stratified organisation of features or observations where relatively similar objects are grouped together. The clustering can be performed using different criteria to measure the distance between clusters, which will affect the final outcome of the analysis (e.g., single linkage, complete linkage, average linkage and Ward’s minimum variance).
 
-```
+```{r eval=FALSE}
 # Load the dataset
 data <- read.csv("mydata.csv")
 
@@ -27,7 +27,7 @@ plot(hc, hang=-1)
 
 A useful exploratory analysis to reveal general patterns in an omic layer can be obtained by simultaneous application of hierarchical clustering to the rows and columns of the data matrix, and visualising the results in a heatmap.
 
-```
+```{r eval=FALSE}
 # Load the dataset
 data <- read.csv("mydata.csv", row.names=1)
 
@@ -51,7 +51,7 @@ heatmap.2(as.matrix(data),
 
 Disjoint clustering techniques aim at separating the objects into individual, usually mutually exclusive, and in most cases, unconnected clusters. K-means clustering is one of the most typical algorithms where objects are assigned to k clusters using an iterative procedure that minimises the within-clusters sums of squares. Other available clustering methods include twinspan, self-organising maps, dbscan and Dirichlet multinomial mixtures (DMM). DMM were specifically developed to analyse MG data but can be equally useful for other sequencing-based omic datasets.
 
-```
+```{r eval=FALSE}
 # Load the dataset
 data <- read.csv("mydata.csv")
 
@@ -63,7 +63,7 @@ km <- kmeans(data, k)
 head(km$cluster)
 ```
 
-```
+```{r eval=FALSE}
 # Load the package
 library(DirichletMultinomial)
 
@@ -85,7 +85,7 @@ Ordination is a method complementary to data clustering, which enables displayin
 
 Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.
 
-```
+```{r eval=FALSE}
 # Load the dataset
 data <- read.csv("mydata.csv")
 
@@ -105,7 +105,7 @@ Principal Coordinate Analysis (PCoA) is a multivariate analysis technique used t
 
 In multi-omics research, PCoA can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing PCoA on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, PCoA can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, PCoA is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research.
 
-```
+```{r eval=FALSE}
 # Load the distance matrix
 dist_mat <- read.csv("mydistances.csv", row.names = 1)
 
@@ -126,7 +126,7 @@ Non-metric Multidimensional Scaling (NMDS) is a multivariate analysis technique 
 
 In multi-omics research, NMDS can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing NMDS on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, NMDS can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, NMDS is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research, particularly when the relationships between variables are non-linear.
 
-```
+```{r eval=FALSE}
 # Load the dataset
 data <- read.csv("mydata.csv", row.names = 1)
 
@@ -148,7 +148,7 @@ t-Distributed Stochastic Neighbor Embedding (t-SNE) is a nonlinear dimensionalit
 
 In multi-omics research, t-SNE can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing t-SNE on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, t-SNE can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, t-SNE is a powerful tool for visualising high-dimensional data in a low-dimensional space, allowing researchers to explore and analyse complex relationships in multi-omics research.
 
-```
+```{r eval=FALSE}
 # Load the dataset
 data <- read.csv("mydata.csv", row.names = 1)
 
@@ -169,7 +169,7 @@ Uniform Manifold Approximation and Projection (UMAP) is a non-linear dimension r
 
 In multi-omics research, UMAP can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing UMAP on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, UMAP can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, UMAP is a powerful tool for visualising high-dimensional data, particularly for large and complex datasets.
 
-```
+```{r eval=FALSE}
 # Load the dataset
 data <- read.csv("mydata.csv", row.names = 1)
 
