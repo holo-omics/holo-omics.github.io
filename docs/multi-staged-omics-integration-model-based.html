@@ -167,6 +167,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#datasets"><i class="fa fa-check"></i>Data sets</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
@@ -347,10 +348,18 @@ div.csl-indent {
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="transformations-to-normalise-data.html"><a href="transformations-to-normalise-data.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to normalise data</a></li>
-<li class="chapter" data-level="17.2" data-path="transformations-to-account-for-missing-observations.html"><a href="transformations-to-account-for-missing-observations.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for missing observations</a></li>
-<li class="chapter" data-level="17.3" data-path="transformations-to-account-for-compositional-nature-of-the-data.html"><a href="transformations-to-account-for-compositional-nature-of-the-data.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for compositional nature of the data</a></li>
-<li class="chapter" data-level="17.4" data-path="transformations-to-account-for-scaling.html"><a href="transformations-to-account-for-scaling.html"><i class="fa fa-check"></i><b>17.4</b> Transformations to account for scaling</a></li>
+<li class="chapter" data-level="17.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to account for statistical assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption"><i class="fa fa-check"></i>Transforming data to meet normality assumption</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for compositional data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html#transforming-data-using-centred-log-ratio"><i class="fa fa-check"></i>Transforming data using centred log-ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for scaling</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html#transforming-data-using-z-score-normalisation"><i class="fa fa-check"></i>Transforming data using z-score normalisation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
 <ul>
@@ -366,7 +375,6 @@ div.csl-indent {
 <li class="chapter" data-level="18.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>18.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
 <li class="chapter" data-level="18.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>18.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
 <li class="chapter" data-level="18.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>18.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
-<li class="chapter" data-level="18.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>18.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a>
@@ -426,7 +434,7 @@ div.csl-indent {
 <p>Model-based integration builds intermediate models from each omic layer and then builds a final model combining all intermediate models. An advantage of this approach is that it allows merging multiple omic types that have been collected in different sets of sampling units, if the outcome of interest is the same across datasets (e.g. specific disease). On the other hand, since the models are first built independently for different omic layers, these methods may fail to capture interactions between features belonging to different omic datasets, i.e. if there are two features belonging to different omic layers that affect the outcome, but only through their interaction and not when evaluated independently. Therefore, the model-based integration is particularly suitable when the different omic datasets are extremely heterogeneous (even collected from different samples), and concatenating or transforming them to a common intermediate form is not possible.</p>
 <p>Model-based unsupervised integration methods include Format Concept Analysis (FCA) consensus clustering (Hristoskova et al., 2014), Bayesian consensus clustering (BCC) (Lock and Dunson, 2013) or Perturbation Clustering for Data Integration and Disease Subtyping (PINS+) (Nguyen et al., 2019). Network-based methods such as Lemon Tree (Bonnet et al., 2015) or Similarity Network Fusion (SNF) (Wang et al., 2014) are also available for association analysis. Model-based supervised integration can use a variety of frameworks for model development, including majority-based voting (Drăghici and Potter, 2003), hierarchical classifiers (Bavafaye Haghighi et al., 2019), ensemble-based approaches such as XGBoost (Ma et al., 2020) or DL methods (Poirion et al., 2021). Multi-omic data integration efforts such as ATHENA (Analysis Tool for Heritable and Environmental Network Associations) (Holzinger et al., 2014) or MOSAE (Multi-omics Supervised Autoencoder) (Tan et al., 2020) use model-based integration for disease prediction by combining a variety of modelling frameworks and algorithms.</p>
 <div class="authorbox">
-<p>Contents of this section were created by <a href="#inaki-odriozola">Iñaki Odriozola</a> and <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
+<p>Contents of this section were created by <a href="index.html#inaki-odriozola">Iñaki Odriozola</a> and <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
 </div>
 
 </div>

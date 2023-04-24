@@ -167,6 +167,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#datasets"><i class="fa fa-check"></i>Data sets</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
@@ -347,10 +348,18 @@ div.csl-indent {
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="transformations-to-normalise-data.html"><a href="transformations-to-normalise-data.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to normalise data</a></li>
-<li class="chapter" data-level="17.2" data-path="transformations-to-account-for-missing-observations.html"><a href="transformations-to-account-for-missing-observations.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for missing observations</a></li>
-<li class="chapter" data-level="17.3" data-path="transformations-to-account-for-compositional-nature-of-the-data.html"><a href="transformations-to-account-for-compositional-nature-of-the-data.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for compositional nature of the data</a></li>
-<li class="chapter" data-level="17.4" data-path="transformations-to-account-for-scaling.html"><a href="transformations-to-account-for-scaling.html"><i class="fa fa-check"></i><b>17.4</b> Transformations to account for scaling</a></li>
+<li class="chapter" data-level="17.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to account for statistical assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption"><i class="fa fa-check"></i>Transforming data to meet normality assumption</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for compositional data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html#transforming-data-using-centred-log-ratio"><i class="fa fa-check"></i>Transforming data using centred log-ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for scaling</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html#transforming-data-using-z-score-normalisation"><i class="fa fa-check"></i>Transforming data using z-score normalisation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
 <ul>
@@ -366,7 +375,6 @@ div.csl-indent {
 <li class="chapter" data-level="18.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>18.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
 <li class="chapter" data-level="18.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>18.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
 <li class="chapter" data-level="18.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>18.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
-<li class="chapter" data-level="18.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>18.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a>
@@ -427,14 +435,57 @@ div.csl-indent {
 <div id="hierarchical-clustering" class="section level3 hasAnchor" number="18.1.1">
 <h3><span class="header-section-number">18.1.1</span> Hierarchical clustering<a href="cluster-analysis.html#hierarchical-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hierarchical clustering produces a stratified organisation of features or observations where relatively similar objects are grouped together. The clustering can be performed using different criteria to measure the distance between clusters, which will affect the final outcome of the analysis (e.g., single linkage, complete linkage, average linkage and Ward’s minimum variance).</p>
-<pre><code>#Example code goes here</code></pre>
+<pre><code># Load the dataset
+data &lt;- read.csv(&quot;mydata.csv&quot;)
+
+# Perform hierarchical clustering
+dist_matrix &lt;- dist(data)  # calculate distance matrix
+hc &lt;- hclust(dist_matrix)  # perform hierarchical clustering
+
+# Plot dendrogram of clustering
+plot(hc, hang=-1)</code></pre>
 <p>A useful exploratory analysis to reveal general patterns in an omic layer can be obtained by simultaneous application of hierarchical clustering to the rows and columns of the data matrix, and visualising the results in a heatmap.</p>
-<pre><code>#Example code goes here</code></pre>
+<pre><code># Load the dataset
+data &lt;- read.csv(&quot;mydata.csv&quot;, row.names=1)
+
+# Perform hierarchical clustering of rows and columns
+row_clusters &lt;- hclust(dist(data))
+col_clusters &lt;- hclust(dist(t(data)))
+
+# Plot heatmap with row and column dendrograms
+library(gplots)
+heatmap.2(as.matrix(data),
+          Rowv=row_clusters,
+          Colv=col_clusters,
+          scale=&quot;row&quot;,
+          dendrogram=&quot;both&quot;,
+          key=TRUE,
+          keysize=1.5,
+          col=redgreen(75))</code></pre>
 </div>
 <div id="disjoint-clustering" class="section level3 hasAnchor" number="18.1.2">
 <h3><span class="header-section-number">18.1.2</span> Disjoint clustering<a href="cluster-analysis.html#disjoint-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Disjoint clustering techniques aim at separating the objects into individual, usually mutually exclusive, and in most cases, unconnected clusters. K-means clustering is one of the most typical algorithms where objects are assigned to k clusters using an iterative procedure that minimises the within-clusters sums of squares. Other available clustering methods include twinspan, self-organising maps, dbscan and Dirichlet multinomial mixtures (DMM). DMM were specifically developed to analyse MG data but can be equally useful for other sequencing-based omic datasets.</p>
-<pre><code>#Example code goes here</code></pre>
+<pre><code># Load the dataset
+data &lt;- read.csv(&quot;mydata.csv&quot;)
+
+# Perform K-means clustering
+k &lt;- 3  # number of clusters
+km &lt;- kmeans(data, k)
+
+# View the cluster assignments
+head(km$cluster)</code></pre>
+<pre><code># Load the package
+library(DirichletMultinomial)
+
+# Load the dataset
+data &lt;- read.csv(&quot;mydata.csv&quot;)
+
+# Fit Dirichlet multinomial mixture model
+model &lt;- DMM(data, K=3, alpha=1, beta=1)
+
+# View the cluster assignments
+head(model$Z)</code></pre>
 </div>
 </div>
             </section>

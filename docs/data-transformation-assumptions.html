@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>20 Multi-omic integration | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <title>17.1 Transformations to account for statistical assumptions | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="17.1 Transformations to account for statistical assumptions | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="17.1 Transformations to account for statistical assumptions | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="17.1 Transformations to account for statistical assumptions | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="classification-methods.html"/>
-<link rel="next" href="multi-staged-omics-integration.html"/>
+<link rel="prev" href="data-transformations.html"/>
+<link rel="next" href="data-transformation-compositional.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -429,22 +429,55 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multi-omic-integration" class="section level1 hasAnchor" number="20">
-<h1><span class="header-section-number">20</span> Multi-omic integration<a href="multi-omic-integration.html#multi-omic-integration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Multi-omic data integration can be broadly classified into two categories: multi-staged analysis and meta-dimensional analysis. In the multi-staged approach, the data analysis is divided into multiple steps, where two omic layers are linked at each step, and the final step relates the relevant omic layers with the outcome of interest. This method takes advantage of the hierarchical nature of molecular biology’s central dogma, assuming that variations in omic datasets occur in a hierarchical manner, with changes in DNA leading to changes in RNA, and so on. On the other hand, meta-dimensional analysis involves analyzing all omic datasets in a single analysis, which encompasses the entire range of features simultaneously, and enables the assessment of inter-omic interactions.</p>
-<ul>
-<li><strong><a href="multi-staged-omics-integration">Multi-staged data integration</a></strong>:</li>
-<li><strong><a href="meta-dimensional-omics-integration.html#meta-dimensional-omics-integration">Meta-dimensional data integration</a></strong></li>
-</ul>
-
+<div id="data-transformation-assumptions" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Transformations to account for statistical assumptions<a href="data-transformation-assumptions.html#data-transformation-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Most of the statistical techniques applied to omic datasets have a set of requirements, known as assumptions, which is necessary the aalysed data meet for statistical models to make accurate and unbiased predictions based on the available data. Violating these assumptions can lead to biased and inaccurate results, and statistical tests and methods should be selected and applied carefully, taking into account the specific assumptions required for each analysis.</p>
+<p>The specific assumptions required vary depending on the type of statistical analysis being performed, but some common examples include:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Normality:</strong> The assumption that the distribution of the data is approximately normal.</li>
+<li><strong>Independence:</strong> The assumption that the observations are independent of each other.</li>
+<li><strong>Homogeneity of variance:</strong> The assumption that the variance of the data is the same across all levels of the independent variable.</li>
+<li><strong>Linearity:</strong> The assumption that there is a linear relationship between the independent and dependent variables.</li>
+<li><strong>Randomness:</strong> The assumption that the data was obtained randomly and that there are no systematic biases in the sample selection process.</li>
+<li><strong>Stationarity:</strong> The assumption that the statistical properties of the data do not change over time.</li>
+</ol>
+<p>Unfortunately, biological datasets rarely meet these assumptions. However, original values can be transformed so that the modified values conform better to those assumptions. Some of the most typical transformations include:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Log transformation:</strong> This transformation is used to reduce the effect of extreme values in the data and to stabilize the variance. It is often used when the data is highly skewed or when the relationship between the variables is multiplicative rather than additive.</li>
+<li><strong>Square root transformation:</strong> This transformation is similar to the log transformation, but is less extreme. It is often used when the data is moderately skewed and when the variance increases with the mean.</li>
+<li><strong>Box-Cox transformation:</strong> This is a more general transformation that allows for a range of power transformations to be applied to the data. It is used when the data is highly skewed or when the variance is not constant across the range of values.</li>
+<li><strong>Arcsine transformation:</strong> This transformation is used for data that is bounded between 0 and 1, such as proportions or percentages. It is used to stabilise the variance and to improve the normality of the data.</li>
+<li><strong>Rank transformation:</strong> This transformation involves converting the data to ranks, which can be useful for non-parametric tests. It is often used when the data is highly skewed or when there are outliers.</li>
+</ol>
+<div id="transforming-data-to-meet-normality-assumption" class="section level3 unnumbered hasAnchor">
+<h3>Transforming data to meet normality assumption<a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this example, we first load the multivariate dataset and use the Shapiro-Wilk test to check for normality. We then loop through each variable in the dataset and apply the Box-Cox transformation using the boxcox function from the MASS package if the Shapiro-Wilk test indicates that the variable is not normally distributed. Finally, we use the Shapiro-Wilk test again to check for normality of the transformed data.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-transformation-assumptions.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the multivariate dataset</span></span>
+<span id="cb52-2"><a href="data-transformation-assumptions.html#cb52-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb52-3"><a href="data-transformation-assumptions.html#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="data-transformation-assumptions.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for normality using Shapiro-Wilk test</span></span>
+<span id="cb52-5"><a href="data-transformation-assumptions.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data)</span>
+<span id="cb52-6"><a href="data-transformation-assumptions.html#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="data-transformation-assumptions.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Box-Cox transformation to each variable</span></span>
+<span id="cb52-8"><a href="data-transformation-assumptions.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb52-9"><a href="data-transformation-assumptions.html#cb52-9" aria-hidden="true" tabindex="-1"></a>data_transformed <span class="ot">&lt;-</span> data</span>
+<span id="cb52-10"><a href="data-transformation-assumptions.html#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(data)) {</span>
+<span id="cb52-11"><a href="data-transformation-assumptions.html#cb52-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">shapiro.test</span>(data[,i])<span class="sc">$</span>p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>) { <span class="co"># if not normal</span></span>
+<span id="cb52-12"><a href="data-transformation-assumptions.html#cb52-12" aria-hidden="true" tabindex="-1"></a>    data_transformed[,i] <span class="ot">&lt;-</span> <span class="fu">boxcox</span>(data[,i]) <span class="co"># apply Box-Cox transformation</span></span>
+<span id="cb52-13"><a href="data-transformation-assumptions.html#cb52-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb52-14"><a href="data-transformation-assumptions.html#cb52-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb52-15"><a href="data-transformation-assumptions.html#cb52-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-16"><a href="data-transformation-assumptions.html#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for normality again using Shapiro-Wilk test</span></span>
+<span id="cb52-17"><a href="data-transformation-assumptions.html#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_transformed)</span></code></pre></div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="classification-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multi-staged-omics-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-transformations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-transformation-compositional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -47,30 +47,19 @@ shao4d_perm <- shao4d %>%
   tax_transform("identity", rank = "genus") %>%
   dist_calc("aitchison") %>%
   dist_permanova(
-    variables = c("birth_mode", "sex", "number_reads"),
+    variables = c("breed", "sex", "number_reads"),
     n_perms = 99, # you should use more permutations in your real analyses!
     n_processes = 1
   )
 #> Dropping samples with missings: 15
 #> 2022-11-24 01:15:20 - Starting PERMANOVA with 99 perms with 1 processes
 #> 2022-11-24 01:15:21 - Finished PERMANOVA
-
-shao4d_perm %>% perm_get()
-#> Permutation test for adonis under reduced model
-#> Marginal effects of terms
-#> Permutation: free
-#> Number of permutations: 99
-#>
-#> vegan::adonis2(formula = formula, data = metadata, permutations = n_perms, by = by, parallel = parall)
-#>               Df SumOfSqs      R2       F Pr(>F)   
-#> birth_mode     1    10462 0.09055 29.3778   0.01 **
-#> sex            1      402 0.00348  1.1296   0.31   
-#> number_reads   1     1117 0.00967  3.1364   0.01 **
-#> Residual     287   102209 0.88462                  
-#> Total        290   115540 1.00000                  
-#> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
+
+### Data sets {- #datasets}
+
+The data sets employed in the guidebook are derived from chicken and salmon intestinal samples produced in the H2020 project HoloFood. All the raw omic data, as well as relevant metadata and complementary information can be found in the **[HoloFood Data Portal](https://www.holofooddata.org)**.
+
 ### About the authors {-}
 
 The authors of the **Practical Guide to Holo-omics** belong primarily to the [Center for Evolutionary Hologenomics](https://ceh.ku.dk/), at the Globe Institute of the University of Copenhagen (Denmark). The CEH is a research centre dedicated to studying host-microbiota interactions and their impact on basic and applied biological processes.
@@ -88,9 +77,11 @@ Text to be included.
 #### Raphael Eisenhofer {- #raphael-eisenhofer}
 Text to be included.
 
-* Morten T Limborg, University of Copenhagen
-* Iñaki Odriozola, University of Copenhagen
-* Jacob A Rasmussen, University of Copenhagen
+#### Iñaki Odriozola {- #inaki-odriozola}
+Text to be included.
+
+#### Jacob A Rasmussen {- #jacob-rasmussen}
+Text to be included.
 
 #### Protocol and script contributors {-}
 

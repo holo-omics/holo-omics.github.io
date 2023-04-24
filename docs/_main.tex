@@ -178,31 +178,21 @@ This guide contains example data and bits of code (mostly shell and R) to reprod
   \FunctionTok{tax\_transform}\NormalTok{(}\StringTok{"identity"}\NormalTok{, }\AttributeTok{rank =} \StringTok{"genus"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{dist\_calc}\NormalTok{(}\StringTok{"aitchison"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{dist\_permanova}\NormalTok{(}
-    \AttributeTok{variables =} \FunctionTok{c}\NormalTok{(}\StringTok{"birth\_mode"}\NormalTok{, }\StringTok{"sex"}\NormalTok{, }\StringTok{"number\_reads"}\NormalTok{),}
+    \AttributeTok{variables =} \FunctionTok{c}\NormalTok{(}\StringTok{"breed"}\NormalTok{, }\StringTok{"sex"}\NormalTok{, }\StringTok{"number\_reads"}\NormalTok{),}
     \AttributeTok{n\_perms =} \DecValTok{99}\NormalTok{, }\CommentTok{\# you should use more permutations in your real analyses!}
     \AttributeTok{n\_processes =} \DecValTok{1}
 \NormalTok{  )}
 \CommentTok{\#\textgreater{} Dropping samples with missings: 15}
 \CommentTok{\#\textgreater{} 2022{-}11{-}24 01:15:20 {-} Starting PERMANOVA with 99 perms with 1 processes}
 \CommentTok{\#\textgreater{} 2022{-}11{-}24 01:15:21 {-} Finished PERMANOVA}
-
-\NormalTok{shao4d\_perm }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{perm\_get}\NormalTok{()}
-\CommentTok{\#\textgreater{} Permutation test for adonis under reduced model}
-\CommentTok{\#\textgreater{} Marginal effects of terms}
-\CommentTok{\#\textgreater{} Permutation: free}
-\CommentTok{\#\textgreater{} Number of permutations: 99}
-\CommentTok{\#\textgreater{}}
-\CommentTok{\#\textgreater{} vegan::adonis2(formula = formula, data = metadata, permutations = n\_perms, by = by, parallel = parall)}
-\CommentTok{\#\textgreater{}               Df SumOfSqs      R2       F Pr(\textgreater{}F)   }
-\CommentTok{\#\textgreater{} birth\_mode     1    10462 0.09055 29.3778   0.01 **}
-\CommentTok{\#\textgreater{} sex            1      402 0.00348  1.1296   0.31   }
-\CommentTok{\#\textgreater{} number\_reads   1     1117 0.00967  3.1364   0.01 **}
-\CommentTok{\#\textgreater{} Residual     287   102209 0.88462                  }
-\CommentTok{\#\textgreater{} Total        290   115540 1.00000                  }
-\CommentTok{\#\textgreater{} {-}{-}{-}}
-\CommentTok{\#\textgreater{} Signif. codes:  0 \textquotesingle{}***\textquotesingle{} 0.001 \textquotesingle{}**\textquotesingle{} 0.01 \textquotesingle{}*\textquotesingle{} 0.05 \textquotesingle{}.\textquotesingle{} 0.1 \textquotesingle{} \textquotesingle{} 1}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{datasets}{%
+\subsection*{Data sets}\label{datasets}}
+\addcontentsline{toc}{subsection}{Data sets}
+
+The data sets employed in the guidebook are derived from chicken and salmon intestinal samples produced in the H2020 project HoloFood. All the raw omic data, as well as relevant metadata and complementary information can be found in the \textbf{\href{https://www.holofooddata.org}{HoloFood Data Portal}}.
 
 \hypertarget{about-the-authors}{%
 \subsection*{About the authors}\label{about-the-authors}}
@@ -230,15 +220,17 @@ Text to be included.
 
 Text to be included.
 
-\begin{itemize}
-\tightlist
-\item
-  Morten T Limborg, University of Copenhagen
-\item
-  Iñaki Odriozola, University of Copenhagen
-\item
-  Jacob A Rasmussen, University of Copenhagen
-\end{itemize}
+\hypertarget{inaki-odriozola}{%
+\subsubsection*{Iñaki Odriozola}\label{inaki-odriozola}}
+\addcontentsline{toc}{subsubsection}{Iñaki Odriozola}
+
+Text to be included.
+
+\hypertarget{jacob-rasmussen}{%
+\subsubsection*{Jacob A Rasmussen}\label{jacob-rasmussen}}
+\addcontentsline{toc}{subsubsection}{Jacob A Rasmussen}
+
+Text to be included.
 
 \hypertarget{protocol-and-script-contributors}{%
 \subsubsection*{Protocol and script contributors}\label{protocol-and-script-contributors}}
@@ -2069,49 +2061,135 @@ Multi-omic data analysis should start by evaluating each individual layer separa
 \hypertarget{data-transformations}{%
 \chapter{Data transformations}\label{data-transformations}}
 
-Before conducting any analysis on multivariate datasets, it is important to note that the different data types present (such as the presence/absence of taxa, gene counts, metabolic capacity indices, and metabolite concentrations) may need to undergo specific transformations.
+Before conducting any analysis on multivariate datasets, it is important to note that the different data types present (such as the presence/absence of taxa, gene counts, metabolic capacity indices, and metabolite concentrations) may need to undergo transformation. Data transformation is the process of changing the scale or distribution of data in order to meet the assumptions of a statistical model or to improve the interpretability of the data. Transformations can be applied to individual variables or to the entire dataset, and can involve a variety of mathematical operations, such as scaling, centring, and rescaling. Data transformations can be categorised by the objective they follow:
 
-\hypertarget{transformations-to-normalise-data}{%
-\section{Transformations to normalise data}\label{transformations-to-normalise-data}}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{data-transformation-assumptions}{Transformations to account for statistical assumptions}}
+\item
+  \textbf{\protect\hyperlink{data-transformation-assumptions}{Transformations to account for compositional data}}
+\item
+  \textbf{\protect\hyperlink{data-transformation-scaling}{Transformations to account for scaling}}
+\end{itemize}
 
-Many statistical techniques used for such datasets have assumptions, such as normally (or symmetrically) distributed values, independence between variables, and homogeneity in population variances. Unfortunately, biological datasets often do not meet these requirements. However, through transformations, the original values can be modified to better conform to these assumptions.
+\hypertarget{data-transformation-assumptions}{%
+\section{Transformations to account for statistical assumptions}\label{data-transformation-assumptions}}
+
+Most of the statistical techniques applied to omic datasets have a set of requirements, known as assumptions, which is necessary the aalysed data meet for statistical models to make accurate and unbiased predictions based on the available data. Violating these assumptions can lead to biased and inaccurate results, and statistical tests and methods should be selected and applied carefully, taking into account the specific assumptions required for each analysis.
+
+The specific assumptions required vary depending on the type of statistical analysis being performed, but some common examples include:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Normality:} The assumption that the distribution of the data is approximately normal.
+\item
+  \textbf{Independence:} The assumption that the observations are independent of each other.
+\item
+  \textbf{Homogeneity of variance:} The assumption that the variance of the data is the same across all levels of the independent variable.
+\item
+  \textbf{Linearity:} The assumption that there is a linear relationship between the independent and dependent variables.
+\item
+  \textbf{Randomness:} The assumption that the data was obtained randomly and that there are no systematic biases in the sample selection process.
+\item
+  \textbf{Stationarity:} The assumption that the statistical properties of the data do not change over time.
+\end{enumerate}
+
+Unfortunately, biological datasets rarely meet these assumptions. However, original values can be transformed so that the modified values conform better to those assumptions. Some of the most typical transformations include:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Log transformation:} This transformation is used to reduce the effect of extreme values in the data and to stabilize the variance. It is often used when the data is highly skewed or when the relationship between the variables is multiplicative rather than additive.
+\item
+  \textbf{Square root transformation:} This transformation is similar to the log transformation, but is less extreme. It is often used when the data is moderately skewed and when the variance increases with the mean.
+\item
+  \textbf{Box-Cox transformation:} This is a more general transformation that allows for a range of power transformations to be applied to the data. It is used when the data is highly skewed or when the variance is not constant across the range of values.
+\item
+  \textbf{Arcsine transformation:} This transformation is used for data that is bounded between 0 and 1, such as proportions or percentages. It is used to stabilise the variance and to improve the normality of the data.
+\item
+  \textbf{Rank transformation:} This transformation involves converting the data to ranks, which can be useful for non-parametric tests. It is often used when the data is highly skewed or when there are outliers.
+\end{enumerate}
+
+\hypertarget{transforming-data-to-meet-normality-assumption}{%
+\subsection*{Transforming data to meet normality assumption}\label{transforming-data-to-meet-normality-assumption}}
+\addcontentsline{toc}{subsection}{Transforming data to meet normality assumption}
+
+In this example, we first load the multivariate dataset and use the Shapiro-Wilk test to check for normality. We then loop through each variable in the dataset and apply the Box-Cox transformation using the boxcox function from the MASS package if the Shapiro-Wilk test indicates that the variable is not normally distributed. Finally, we use the Shapiro-Wilk test again to check for normality of the transformed data.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#Example code to be added here}
+\CommentTok{\# Load the multivariate dataset}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"mydata.csv"}\NormalTok{)}
+
+\CommentTok{\# Check for normality using Shapiro{-}Wilk test}
+\FunctionTok{shapiro.test}\NormalTok{(data)}
+
+\CommentTok{\# Apply Box{-}Cox transformation to each variable}
+\FunctionTok{library}\NormalTok{(MASS)}
+\NormalTok{data\_transformed }\OtherTok{\textless{}{-}}\NormalTok{ data}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(data)) \{}
+  \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{shapiro.test}\NormalTok{(data[,i])}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{) \{ }\CommentTok{\# if not normal}
+\NormalTok{    data\_transformed[,i] }\OtherTok{\textless{}{-}} \FunctionTok{boxcox}\NormalTok{(data[,i]) }\CommentTok{\# apply Box{-}Cox transformation}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\# Check for normality again using Shapiro{-}Wilk test}
+\FunctionTok{shapiro.test}\NormalTok{(data\_transformed)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{transformations-to-account-for-missing-observations}{%
-\section{Transformations to account for missing observations}\label{transformations-to-account-for-missing-observations}}
-
-Many standard statistical techniques based on Euclidean distances, such as PCA, RDA, and K-means clustering, are not appropriate for analysing biological datasets that frequently contain missing observations represented as zeros. It is therefore recommended to use alternative transformations, such as Hellinger, when utilising these methods on datasets characterised by zero-inflated presence, absence, and abundance.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#Example code to be added here}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{transformations-to-account-for-compositional-nature-of-the-data}{%
-\section{Transformations to account for compositional nature of the data}\label{transformations-to-account-for-compositional-nature-of-the-data}}
+\hypertarget{data-transformation-compositional}{%
+\section{Transformations to account for compositional data}\label{data-transformation-compositional}}
 
 When dealing with multi-omic datasets, it's important to determine if the measurements represent absolute or relative values. While HG provides qualitative information about host genomes, MG, HT, and MT provide quantitative information that's dependent on the amount of sequencing performed and thus are compositional. Consequently, raw quantitative values of genome abundance or gene expression across samples cannot be compared directly. To address this, the most common solution is to transform the raw abundance values into relative abundance data for comparison. However, this transformation reduces the independence of individual variables, which is an assumption for many statistical methods. An alternative is using ratio transformations like the centred log-ratio, which better suit compositional data analysis by removing the effect of the constant-sum constraint on the covariance and correlation matrices.
 
+\hypertarget{transforming-data-using-centred-log-ratio}{%
+\subsection*{Transforming data using centred log-ratio}\label{transforming-data-using-centred-log-ratio}}
+\addcontentsline{toc}{subsection}{Transforming data using centred log-ratio}
+
+In this example, we first load the multivariate dataset and then apply the CLR transformation using the \texttt{clr()} function from the \textbf{\texttt{compositions}} package. The CLR transformation is a commonly used method for analyzing compositional data, where the data represents proportions or percentages that add up to a constant sum. The CLR transformation is designed to remove the constant sum constraint and make the data amenable to standard multivariate statistical methods.
+
+The resulting \texttt{data\_transformed} object will be a transformed version of the original dataset, with each variable now representing the logarithm of the ratio between that variable and the geometric mean of the other variables. Note that the CLR transformation assumes that the data is non-negative, so it may not be appropriate for all types of multivariate data.
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#Example code to be added here}
+\CommentTok{\# Load the multivariate dataset}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"mydata.csv"}\NormalTok{)}
+
+\CommentTok{\# Apply CLR transformation using the compositions package}
+\FunctionTok{library}\NormalTok{(compositions)}
+\NormalTok{data\_transformed }\OtherTok{\textless{}{-}} \FunctionTok{clr}\NormalTok{(data)}
+
+\CommentTok{\# View the transformed data}
+\FunctionTok{head}\NormalTok{(data\_transformed)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{transformations-to-account-for-scaling}{%
-\section{Transformations to account for scaling}\label{transformations-to-account-for-scaling}}
+\hypertarget{data-transformation-scaling}{%
+\section{Transformations to account for scaling}\label{data-transformation-scaling}}
 
-It's important to keep in mind that scaling can also impact the results when analszing multi-omic data. For instance, in ME data, certain metabolites such as ATP may have much higher concentrations than other important metabolites like signaling molecules, potentially overshadowing significant differences in the less abundant yet meaningful metabolites. In Transcriptomics, transcript length biases may also cause similar distortions. One solution is to standardise the features by using transformations like z-score normalisation, but this can amplify the influence of measurement error that is typically higher for less abundant features.
+It's important to keep in mind that scaling can also impact the results when analsing multi-omic data. For instance, in ME data, certain metabolites such as ATP may have much higher concentrations than other important metabolites like signaling molecules, potentially overshadowing significant differences in the less abundant yet meaningful metabolites. In Transcriptomics, transcript length biases may also cause similar distortions. One solution is to standardise the features by using transformations like z-score normalisation, but this can amplify the influence of measurement error that is typically higher for less abundant features.
+
+\hypertarget{transforming-data-using-z-score-normalisation}{%
+\subsection*{Transforming data using z-score normalisation}\label{transforming-data-using-z-score-normalisation}}
+\addcontentsline{toc}{subsection}{Transforming data using z-score normalisation}
+
+In this example, we first load the dataset and then use the \texttt{apply()} function to apply the z-score normalization to each variable in the dataset. The \texttt{apply()} function applies a function to either the rows or columns of a matrix, and the 2 argument specifies that we want to apply the function to the columns (i.e., variables) of the dataset. The function applied to each column calculates the z-score of each observation by subtracting the mean of the variable from each observation and dividing by the standard deviation of the variable. This centers the data around 0 and scales it to have a standard deviation of 1. The resulting \texttt{data\_norm} object will be a normalized version of the original dataset, with each variable now having a mean of 0 and a standard deviation of 1.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#Example code to be added here}
+\CommentTok{\# Load the dataset}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"mydata.csv"}\NormalTok{)}
+
+\CommentTok{\# Apply z{-}score normalization to each variable}
+\NormalTok{data\_norm }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(data, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) (x }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(x)) }\SpecialCharTok{/} \FunctionTok{sd}\NormalTok{(x))}
+
+\CommentTok{\# View the normalized data}
+\FunctionTok{head}\NormalTok{(data\_norm)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2139,13 +2217,37 @@ Clustering procedures group features or observations into homogeneous sets by mi
 Hierarchical clustering produces a stratified organisation of features or observations where relatively similar objects are grouped together. The clustering can be performed using different criteria to measure the distance between clusters, which will affect the final outcome of the analysis (e.g., single linkage, complete linkage, average linkage and Ward's minimum variance).
 
 \begin{verbatim}
-#Example code goes here
+# Load the dataset
+data <- read.csv("mydata.csv")
+
+# Perform hierarchical clustering
+dist_matrix <- dist(data)  # calculate distance matrix
+hc <- hclust(dist_matrix)  # perform hierarchical clustering
+
+# Plot dendrogram of clustering
+plot(hc, hang=-1)
 \end{verbatim}
 
 A useful exploratory analysis to reveal general patterns in an omic layer can be obtained by simultaneous application of hierarchical clustering to the rows and columns of the data matrix, and visualising the results in a heatmap.
 
 \begin{verbatim}
-#Example code goes here
+# Load the dataset
+data <- read.csv("mydata.csv", row.names=1)
+
+# Perform hierarchical clustering of rows and columns
+row_clusters <- hclust(dist(data))
+col_clusters <- hclust(dist(t(data)))
+
+# Plot heatmap with row and column dendrograms
+library(gplots)
+heatmap.2(as.matrix(data),
+          Rowv=row_clusters,
+          Colv=col_clusters,
+          scale="row",
+          dendrogram="both",
+          key=TRUE,
+          keysize=1.5,
+          col=redgreen(75))
 \end{verbatim}
 
 \hypertarget{disjoint-clustering}{%
@@ -2154,7 +2256,29 @@ A useful exploratory analysis to reveal general patterns in an omic layer can be
 Disjoint clustering techniques aim at separating the objects into individual, usually mutually exclusive, and in most cases, unconnected clusters. K-means clustering is one of the most typical algorithms where objects are assigned to k clusters using an iterative procedure that minimises the within-clusters sums of squares. Other available clustering methods include twinspan, self-organising maps, dbscan and Dirichlet multinomial mixtures (DMM). DMM were specifically developed to analyse MG data but can be equally useful for other sequencing-based omic datasets.
 
 \begin{verbatim}
-#Example code goes here
+# Load the dataset
+data <- read.csv("mydata.csv")
+
+# Perform K-means clustering
+k <- 3  # number of clusters
+km <- kmeans(data, k)
+
+# View the cluster assignments
+head(km$cluster)
+\end{verbatim}
+
+\begin{verbatim}
+# Load the package
+library(DirichletMultinomial)
+
+# Load the dataset
+data <- read.csv("mydata.csv")
+
+# Fit Dirichlet multinomial mixture model
+model <- DMM(data, K=3, alpha=1, beta=1)
+
+# View the cluster assignments
+head(model$Z)
 \end{verbatim}
 
 \hypertarget{dimension-reduction-ordination}{%
@@ -2168,53 +2292,106 @@ Ordination is a method complementary to data clustering, which enables displayin
 Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.
 
 \begin{verbatim}
-#Example code goes here
+# Load the dataset
+data <- read.csv("mydata.csv")
+
+# Perform PCA
+pca <- prcomp(data, scale = TRUE)
+
+# View the results
+summary(pca)
+
+# Plot the results
+plot(pca, type = "l")
 \end{verbatim}
 
 \hypertarget{pcoa}{%
 \subsection{Principal Coordinate Analysis (PCoA)}\label{pcoa}}
 
-Content to be added here.
+Principal Coordinate Analysis (PCoA) is a multivariate analysis technique used to visualise and explore the patterns of variation in multivariate data. It is similar to Principal Component Analysis (PCA) but is specifically designed for distance-based data. PCoA transforms a distance matrix into a set of coordinates that can be plotted in two or three dimensions, allowing for visualisation of the relationships between samples based on their dissimilarity.
+
+In multi-omics research, PCoA can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing PCoA on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, PCoA can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, PCoA is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research.
 
 \begin{verbatim}
-#Example code goes here
+# Load the distance matrix
+dist_mat <- read.csv("mydistances.csv", row.names = 1)
+
+# Perform PCoA
+pcoa <- cmdscale(dist_mat, k = 2, eig = TRUE, add = TRUE)
+
+# View the results
+summary(pcoa)
+
+# Plot the results
+plot(pcoa$points, type = "n", xlab = "PCo1", ylab = "PCo2")
+text(pcoa$points, labels = rownames(pcoa$points))
 \end{verbatim}
 
 \hypertarget{nmds}{%
 \subsection{Non-metric Multidimensional Scaling (NMDS)}\label{nmds}}
 
-Content to be added here.
+Non-metric Multidimensional Scaling (NMDS) is a multivariate analysis technique used to visualize and explore the patterns of variation in multivariate data. It is similar to Principal Coordinate Analysis (PCoA) but is more flexible in that it can handle non-linear relationships between variables. NMDS transforms a distance matrix into a set of coordinates that can be plotted in two or three dimensions, allowing for visualisation of the relationships between samples based on their dissimilarity. Unlike PCoA, NMDS does not assume a linear relationship between the distance matrix and the coordinates, making it a more powerful tool for analysing complex and non-linear relationships in multivariate data.
+
+In multi-omics research, NMDS can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing NMDS on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, NMDS can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, NMDS is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research, particularly when the relationships between variables are non-linear.
 
 \begin{verbatim}
-#Example code goes here
+# Load the dataset
+data <- read.csv("mydata.csv", row.names = 1)
+
+# Perform NMDS
+library(vegan)
+nmds <- metaMDS(data, distance = "bray")
+
+# View the results
+summary(nmds)
+
+# Plot the results
+plot(nmds$points, type = "n", xlab = "NMDS1", ylab = "NMDS2")
+text(nmds$points, labels = rownames(nmds$points))
 \end{verbatim}
 
 \hypertarget{t-sne}{%
 \subsection{t-Distributed Stochastic Neighbour Embedding (t-SNE)}\label{t-sne}}
 
-Content to be added here.
-Requires many data points.
+t-Distributed Stochastic Neighbor Embedding (t-SNE) is a nonlinear dimensionality reduction technique used to visualise high-dimensional data in a low-dimensional space. t-SNE is particularly useful when exploring complex and nonlinear relationships between variables, and can be applied to various types of data including gene expression, proteomics, and metabolomics data. t-SNE works by first constructing a probability distribution over pairs of high-dimensional objects, such as genes or proteins, and then constructing a similar probability distribution over pairs of low-dimensional points. The technique then optimizes these probability distributions to minimise the divergence between them, resulting in a low-dimensional representation of the high-dimensional data.
+
+In multi-omics research, t-SNE can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing t-SNE on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, t-SNE can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, t-SNE is a powerful tool for visualising high-dimensional data in a low-dimensional space, allowing researchers to explore and analyse complex relationships in multi-omics research.
 
 \begin{verbatim}
-#Example code goes here
+# Load the dataset
+data <- read.csv("mydata.csv", row.names = 1)
+
+# Perform t-SNE
+library(Rtsne)
+tsne <- Rtsne(data, dims = 2, perplexity = 30, verbose = TRUE)
+
+# View the results
+summary(tsne)
+
+# Plot the results
+plot(tsne$Y, col = "blue", pch = 19, xlab = "t-SNE1", ylab = "t-SNE2")
 \end{verbatim}
 
 \hypertarget{umap}{%
 \subsection{Uniform manifold approximation and projection (UMAP)}\label{umap}}
 
-Content to be added here.
+Uniform Manifold Approximation and Projection (UMAP) is a non-linear dimension reduction technique used to visualise high-dimensional data in a low-dimensional space. It is similar to t-Distributed Stochastic Neighbour Embedding (t-SNE) but is faster and more scalable, making it useful for larger datasets. UMAP works by constructing a fuzzy topological representation of the high-dimensional data and then optimising a low-dimensional representation that preserves the structure of this topological representation. This results in a low-dimensional representation of the high-dimensional data that preserves complex relationships between variables.
+
+In multi-omics research, UMAP can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing UMAP on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, UMAP can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, UMAP is a powerful tool for visualising high-dimensional data, particularly for large and complex datasets.
 
 \begin{verbatim}
-#Example code goes here
-\end{verbatim}
+# Load the dataset
+data <- read.csv("mydata.csv", row.names = 1)
 
-\hypertarget{phate}{%
-\subsection{Potential of heat diffusion for affinity-based transition embedding (PHATE)}\label{phate}}
+# Perform UMAP
+library(umap)
+umap_result <- umap(data, n_components = 2, n_neighbors = 30)
 
-Content to be added here.
+# View the results
+summary(umap_result)
 
-\begin{verbatim}
-#Example code goes here
+# Plot the results
+plot(umap_result$layout, col = "blue", pch = 19, xlab = "UMAP1", ylab = "UMAP2")
 \end{verbatim}
 
 \hypertarget{supervised-analysis}{%

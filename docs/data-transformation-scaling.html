@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>20 Multi-omic integration | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <title>17.3 Transformations to account for scaling | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="17.3 Transformations to account for scaling | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="17.3 Transformations to account for scaling | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="17.3 Transformations to account for scaling | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="classification-methods.html"/>
-<link rel="next" href="multi-staged-omics-integration.html"/>
+<link rel="prev" href="data-transformation-compositional.html"/>
+<link rel="next" href="unsupervised-exploration.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -429,22 +429,31 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multi-omic-integration" class="section level1 hasAnchor" number="20">
-<h1><span class="header-section-number">20</span> Multi-omic integration<a href="multi-omic-integration.html#multi-omic-integration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Multi-omic data integration can be broadly classified into two categories: multi-staged analysis and meta-dimensional analysis. In the multi-staged approach, the data analysis is divided into multiple steps, where two omic layers are linked at each step, and the final step relates the relevant omic layers with the outcome of interest. This method takes advantage of the hierarchical nature of molecular biology’s central dogma, assuming that variations in omic datasets occur in a hierarchical manner, with changes in DNA leading to changes in RNA, and so on. On the other hand, meta-dimensional analysis involves analyzing all omic datasets in a single analysis, which encompasses the entire range of features simultaneously, and enables the assessment of inter-omic interactions.</p>
-<ul>
-<li><strong><a href="multi-staged-omics-integration">Multi-staged data integration</a></strong>:</li>
-<li><strong><a href="meta-dimensional-omics-integration.html#meta-dimensional-omics-integration">Meta-dimensional data integration</a></strong></li>
-</ul>
+<div id="data-transformation-scaling" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Transformations to account for scaling<a href="data-transformation-scaling.html#data-transformation-scaling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It’s important to keep in mind that scaling can also impact the results when analsing multi-omic data. For instance, in ME data, certain metabolites such as ATP may have much higher concentrations than other important metabolites like signaling molecules, potentially overshadowing significant differences in the less abundant yet meaningful metabolites. In Transcriptomics, transcript length biases may also cause similar distortions. One solution is to standardise the features by using transformations like z-score normalisation, but this can amplify the influence of measurement error that is typically higher for less abundant features.</p>
+<div id="transforming-data-using-z-score-normalisation" class="section level3 unnumbered hasAnchor">
+<h3>Transforming data using z-score normalisation<a href="data-transformation-scaling.html#transforming-data-using-z-score-normalisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this example, we first load the dataset and then use the <code>apply()</code> function to apply the z-score normalization to each variable in the dataset. The <code>apply()</code> function applies a function to either the rows or columns of a matrix, and the 2 argument specifies that we want to apply the function to the columns (i.e., variables) of the dataset. The function applied to each column calculates the z-score of each observation by subtracting the mean of the variable from each observation and dividing by the standard deviation of the variable. This centers the data around 0 and scales it to have a standard deviation of 1. The resulting <code>data_norm</code> object will be a normalized version of the original dataset, with each variable now having a mean of 0 and a standard deviation of 1.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-transformation-scaling.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb54-2"><a href="data-transformation-scaling.html#cb54-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb54-3"><a href="data-transformation-scaling.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="data-transformation-scaling.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply z-score normalization to each variable</span></span>
+<span id="cb54-5"><a href="data-transformation-scaling.html#cb54-5" aria-hidden="true" tabindex="-1"></a>data_norm <span class="ot">&lt;-</span> <span class="fu">apply</span>(data, <span class="dv">2</span>, <span class="cf">function</span>(x) (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x))</span>
+<span id="cb54-6"><a href="data-transformation-scaling.html#cb54-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-7"><a href="data-transformation-scaling.html#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View the normalized data</span></span>
+<span id="cb54-8"><a href="data-transformation-scaling.html#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_norm)</span></code></pre></div>
 
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="classification-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multi-staged-omics-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-transformation-compositional.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unsupervised-exploration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

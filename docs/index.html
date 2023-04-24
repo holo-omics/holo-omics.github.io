@@ -167,6 +167,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#datasets"><i class="fa fa-check"></i>Data sets</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
@@ -347,10 +348,18 @@ div.csl-indent {
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="transformations-to-normalise-data.html"><a href="transformations-to-normalise-data.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to normalise data</a></li>
-<li class="chapter" data-level="17.2" data-path="transformations-to-account-for-missing-observations.html"><a href="transformations-to-account-for-missing-observations.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for missing observations</a></li>
-<li class="chapter" data-level="17.3" data-path="transformations-to-account-for-compositional-nature-of-the-data.html"><a href="transformations-to-account-for-compositional-nature-of-the-data.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for compositional nature of the data</a></li>
-<li class="chapter" data-level="17.4" data-path="transformations-to-account-for-scaling.html"><a href="transformations-to-account-for-scaling.html"><i class="fa fa-check"></i><b>17.4</b> Transformations to account for scaling</a></li>
+<li class="chapter" data-level="17.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to account for statistical assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption"><i class="fa fa-check"></i>Transforming data to meet normality assumption</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for compositional data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html#transforming-data-using-centred-log-ratio"><i class="fa fa-check"></i>Transforming data using centred log-ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for scaling</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html#transforming-data-using-z-score-normalisation"><i class="fa fa-check"></i>Transforming data using z-score normalisation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
 <ul>
@@ -366,7 +375,6 @@ div.csl-indent {
 <li class="chapter" data-level="18.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>18.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
 <li class="chapter" data-level="18.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>18.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
 <li class="chapter" data-level="18.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>18.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
-<li class="chapter" data-level="18.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>18.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a>
@@ -456,29 +464,17 @@ div.csl-indent {
 <span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tax_transform</span>(<span class="st">&quot;identity&quot;</span>, <span class="at">rank =</span> <span class="st">&quot;genus&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dist_calc</span>(<span class="st">&quot;aitchison&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dist_permanova</span>(</span>
-<span id="cb1-5"><a href="index.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="fu">c</span>(<span class="st">&quot;birth_mode&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;number_reads&quot;</span>),</span>
+<span id="cb1-5"><a href="index.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> <span class="fu">c</span>(<span class="st">&quot;breed&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;number_reads&quot;</span>),</span>
 <span id="cb1-6"><a href="index.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_perms =</span> <span class="dv">99</span>, <span class="co"># you should use more permutations in your real analyses!</span></span>
 <span id="cb1-7"><a href="index.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_processes =</span> <span class="dv">1</span></span>
 <span id="cb1-8"><a href="index.html#cb1-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb1-9"><a href="index.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Dropping samples with missings: 15</span></span>
 <span id="cb1-10"><a href="index.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2022-11-24 01:15:20 - Starting PERMANOVA with 99 perms with 1 processes</span></span>
-<span id="cb1-11"><a href="index.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2022-11-24 01:15:21 - Finished PERMANOVA</span></span>
-<span id="cb1-12"><a href="index.html#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="index.html#cb1-13" aria-hidden="true" tabindex="-1"></a>shao4d_perm <span class="sc">%&gt;%</span> <span class="fu">perm_get</span>()</span>
-<span id="cb1-14"><a href="index.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Permutation test for adonis under reduced model</span></span>
-<span id="cb1-15"><a href="index.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Marginal effects of terms</span></span>
-<span id="cb1-16"><a href="index.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Permutation: free</span></span>
-<span id="cb1-17"><a href="index.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Number of permutations: 99</span></span>
-<span id="cb1-18"><a href="index.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
-<span id="cb1-19"><a href="index.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; vegan::adonis2(formula = formula, data = metadata, permutations = n_perms, by = by, parallel = parall)</span></span>
-<span id="cb1-20"><a href="index.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               Df SumOfSqs      R2       F Pr(&gt;F)   </span></span>
-<span id="cb1-21"><a href="index.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; birth_mode     1    10462 0.09055 29.3778   0.01 **</span></span>
-<span id="cb1-22"><a href="index.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; sex            1      402 0.00348  1.1296   0.31   </span></span>
-<span id="cb1-23"><a href="index.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; number_reads   1     1117 0.00967  3.1364   0.01 **</span></span>
-<span id="cb1-24"><a href="index.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual     287   102209 0.88462                  </span></span>
-<span id="cb1-25"><a href="index.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Total        290   115540 1.00000                  </span></span>
-<span id="cb1-26"><a href="index.html#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb1-27"><a href="index.html#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span></code></pre></div>
+<span id="cb1-11"><a href="index.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2022-11-24 01:15:21 - Finished PERMANOVA</span></span></code></pre></div>
+</div>
+<div id="datasets" class="section level3 unnumbered hasAnchor">
+<h3>Data sets<a href="index.html#datasets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The data sets employed in the guidebook are derived from chicken and salmon intestinal samples produced in the H2020 project HoloFood. All the raw omic data, as well as relevant metadata and complementary information can be found in the <strong><a href="https://www.holofooddata.org">HoloFood Data Portal</a></strong>.</p>
 </div>
 <div id="about-the-authors" class="section level3 unnumbered hasAnchor">
 <h3>About the authors<a href="index.html#about-the-authors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -497,11 +493,14 @@ div.csl-indent {
 <div id="raphael-eisenhofer" class="section level4 unnumbered hasAnchor">
 <h4>Raphael Eisenhofer<a href="index.html#raphael-eisenhofer" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Text to be included.</p>
-<ul>
-<li>Morten T Limborg, University of Copenhagen</li>
-<li>Iñaki Odriozola, University of Copenhagen</li>
-<li>Jacob A Rasmussen, University of Copenhagen</li>
-</ul>
+</div>
+<div id="inaki-odriozola" class="section level4 unnumbered hasAnchor">
+<h4>Iñaki Odriozola<a href="index.html#inaki-odriozola" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Text to be included.</p>
+</div>
+<div id="jacob-rasmussen" class="section level4 unnumbered hasAnchor">
+<h4>Jacob A Rasmussen<a href="index.html#jacob-rasmussen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Text to be included.</p>
 </div>
 <div id="protocol-and-script-contributors" class="section level4 unnumbered hasAnchor">
 <h4>Protocol and script contributors<a href="index.html#protocol-and-script-contributors" class="anchor-section" aria-label="Anchor link to header"></a></h4>

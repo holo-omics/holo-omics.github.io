@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="single-omic-analyses.html"/>
-<link rel="next" href="transformations-to-normalise-data.html"/>
+<link rel="next" href="data-transformation-assumptions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -167,6 +167,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#datasets"><i class="fa fa-check"></i>Data sets</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
@@ -347,10 +348,18 @@ div.csl-indent {
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="transformations-to-normalise-data.html"><a href="transformations-to-normalise-data.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to normalise data</a></li>
-<li class="chapter" data-level="17.2" data-path="transformations-to-account-for-missing-observations.html"><a href="transformations-to-account-for-missing-observations.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for missing observations</a></li>
-<li class="chapter" data-level="17.3" data-path="transformations-to-account-for-compositional-nature-of-the-data.html"><a href="transformations-to-account-for-compositional-nature-of-the-data.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for compositional nature of the data</a></li>
-<li class="chapter" data-level="17.4" data-path="transformations-to-account-for-scaling.html"><a href="transformations-to-account-for-scaling.html"><i class="fa fa-check"></i><b>17.4</b> Transformations to account for scaling</a></li>
+<li class="chapter" data-level="17.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to account for statistical assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption"><i class="fa fa-check"></i>Transforming data to meet normality assumption</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for compositional data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html#transforming-data-using-centred-log-ratio"><i class="fa fa-check"></i>Transforming data using centred log-ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for scaling</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html#transforming-data-using-z-score-normalisation"><i class="fa fa-check"></i>Transforming data using z-score normalisation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
 <ul>
@@ -366,7 +375,6 @@ div.csl-indent {
 <li class="chapter" data-level="18.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>18.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
 <li class="chapter" data-level="18.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>18.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
 <li class="chapter" data-level="18.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>18.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
-<li class="chapter" data-level="18.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>18.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a>
@@ -423,7 +431,12 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="data-transformations" class="section level1 hasAnchor" number="17">
 <h1><span class="header-section-number">17</span> Data transformations<a href="data-transformations.html#data-transformations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Before conducting any analysis on multivariate datasets, it is important to note that the different data types present (such as the presence/absence of taxa, gene counts, metabolic capacity indices, and metabolite concentrations) may need to undergo specific transformations.</p>
+<p>Before conducting any analysis on multivariate datasets, it is important to note that the different data types present (such as the presence/absence of taxa, gene counts, metabolic capacity indices, and metabolite concentrations) may need to undergo transformation. Data transformation is the process of changing the scale or distribution of data in order to meet the assumptions of a statistical model or to improve the interpretability of the data. Transformations can be applied to individual variables or to the entire dataset, and can involve a variety of mathematical operations, such as scaling, centring, and rescaling. Data transformations can be categorised by the objective they follow:</p>
+<ul>
+<li><strong><a href="data-transformation-assumptions.html#data-transformation-assumptions">Transformations to account for statistical assumptions</a></strong></li>
+<li><strong><a href="data-transformation-assumptions.html#data-transformation-assumptions">Transformations to account for compositional data</a></strong></li>
+<li><strong><a href="data-transformation-scaling.html#data-transformation-scaling">Transformations to account for scaling</a></strong></li>
+</ul>
 </div>
             </section>
 
@@ -431,7 +444,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="single-omic-analyses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="transformations-to-normalise-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-transformation-assumptions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

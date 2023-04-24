@@ -167,6 +167,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#datasets"><i class="fa fa-check"></i>Data sets</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
@@ -347,10 +348,18 @@ div.csl-indent {
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="transformations-to-normalise-data.html"><a href="transformations-to-normalise-data.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to normalise data</a></li>
-<li class="chapter" data-level="17.2" data-path="transformations-to-account-for-missing-observations.html"><a href="transformations-to-account-for-missing-observations.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for missing observations</a></li>
-<li class="chapter" data-level="17.3" data-path="transformations-to-account-for-compositional-nature-of-the-data.html"><a href="transformations-to-account-for-compositional-nature-of-the-data.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for compositional nature of the data</a></li>
-<li class="chapter" data-level="17.4" data-path="transformations-to-account-for-scaling.html"><a href="transformations-to-account-for-scaling.html"><i class="fa fa-check"></i><b>17.4</b> Transformations to account for scaling</a></li>
+<li class="chapter" data-level="17.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to account for statistical assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption"><i class="fa fa-check"></i>Transforming data to meet normality assumption</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for compositional data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html#transforming-data-using-centred-log-ratio"><i class="fa fa-check"></i>Transforming data using centred log-ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for scaling</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html#transforming-data-using-z-score-normalisation"><i class="fa fa-check"></i>Transforming data using z-score normalisation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
 <ul>
@@ -366,7 +375,6 @@ div.csl-indent {
 <li class="chapter" data-level="18.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>18.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
 <li class="chapter" data-level="18.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>18.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
 <li class="chapter" data-level="18.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>18.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
-<li class="chapter" data-level="18.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>18.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a>
@@ -426,7 +434,7 @@ div.csl-indent {
 <p>Multi-stage omics integrations leverages the structure of biological organisation to analyse the data in multiple steps, relating two omic layers at a time, with the final step linking the relevant omic layers with the outcome of interest. In the past, the predominant method for integrated analysis of biological data was the multi-staged approach. This approach relied heavily on traditional statistical tools and hypothesis testing approximations. The multi-staged approach is advantageous in that it enables the systematic linking of multi-omic datasets in a stepwise manner, allowing for the development of knowledge that can be later used to test causally-oriented hypotheses. Furthermore, this approach is better suited to account for the biological asymmetries between different omic datasets.</p>
 <p>One popular example of multi-staged integration is the three-stage or triangle method. In the first stage, SNPs are associated with the outcome of interest and filtered based on a genome-wide significance threshold. Then, SNPs significantly associated with the outcome in the first stage are tested for association with other omic layers: the SNPs associated with gene expression levels are called expression quantitative trait loci (eQTL); metabolite QTLs (mQTL) and protein QTLs (pQTL) can be similarly defined. Lastly, omic data retained in the second stage are used for association with the outcome in the third stage. Similar approaches could potentially be used to associate microbial MG data with MT, MP, ME data and outcomes of interest. Variations of this method where associations of other omic-layers are tested in stage one and the genomic associations are tested in later stages have also been proposed.</p>
 <div class="authorbox">
-<p>Contents of this section were created by <a href="#inaki-odriozola">Iñaki Odriozola</a> and <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
+<p>Contents of this section were created by <a href="index.html#inaki-odriozola">Iñaki Odriozola</a> and <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
 </div>
 
 </div>

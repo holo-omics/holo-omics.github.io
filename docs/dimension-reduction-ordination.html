@@ -167,6 +167,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#protocols-exercises-tutorials"><i class="fa fa-check"></i>Protocols, exercises and tutorials</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#datasets"><i class="fa fa-check"></i>Data sets</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-cite-this-work"><i class="fa fa-check"></i>How to cite this work</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
@@ -347,10 +348,18 @@ div.csl-indent {
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="transformations-to-normalise-data.html"><a href="transformations-to-normalise-data.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to normalise data</a></li>
-<li class="chapter" data-level="17.2" data-path="transformations-to-account-for-missing-observations.html"><a href="transformations-to-account-for-missing-observations.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for missing observations</a></li>
-<li class="chapter" data-level="17.3" data-path="transformations-to-account-for-compositional-nature-of-the-data.html"><a href="transformations-to-account-for-compositional-nature-of-the-data.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for compositional nature of the data</a></li>
-<li class="chapter" data-level="17.4" data-path="transformations-to-account-for-scaling.html"><a href="transformations-to-account-for-scaling.html"><i class="fa fa-check"></i><b>17.4</b> Transformations to account for scaling</a></li>
+<li class="chapter" data-level="17.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to account for statistical assumptions</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption"><i class="fa fa-check"></i>Transforming data to meet normality assumption</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html"><i class="fa fa-check"></i><b>17.2</b> Transformations to account for compositional data</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-compositional.html"><a href="data-transformation-compositional.html#transforming-data-using-centred-log-ratio"><i class="fa fa-check"></i>Transforming data using centred log-ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html"><i class="fa fa-check"></i><b>17.3</b> Transformations to account for scaling</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-transformation-scaling.html"><a href="data-transformation-scaling.html#transforming-data-using-z-score-normalisation"><i class="fa fa-check"></i>Transforming data using z-score normalisation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
 <ul>
@@ -366,7 +375,6 @@ div.csl-indent {
 <li class="chapter" data-level="18.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>18.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
 <li class="chapter" data-level="18.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>18.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
 <li class="chapter" data-level="18.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>18.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
-<li class="chapter" data-level="18.2.6" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#phate"><i class="fa fa-check"></i><b>18.2.6</b> Potential of heat diffusion for affinity-based transition embedding (PHATE)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a>
@@ -427,33 +435,86 @@ div.csl-indent {
 <div id="pca" class="section level3 hasAnchor" number="18.2.1">
 <h3><span class="header-section-number">18.2.1</span> Principal Component Analysis (PCA)<a href="dimension-reduction-ordination.html#pca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.</p>
-<pre><code>#Example code goes here</code></pre>
+<pre><code># Load the dataset
+data &lt;- read.csv(&quot;mydata.csv&quot;)
+
+# Perform PCA
+pca &lt;- prcomp(data, scale = TRUE)
+
+# View the results
+summary(pca)
+
+# Plot the results
+plot(pca, type = &quot;l&quot;)</code></pre>
 </div>
 <div id="pcoa" class="section level3 hasAnchor" number="18.2.2">
 <h3><span class="header-section-number">18.2.2</span> Principal Coordinate Analysis (PCoA)<a href="dimension-reduction-ordination.html#pcoa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>Principal Coordinate Analysis (PCoA) is a multivariate analysis technique used to visualise and explore the patterns of variation in multivariate data. It is similar to Principal Component Analysis (PCA) but is specifically designed for distance-based data. PCoA transforms a distance matrix into a set of coordinates that can be plotted in two or three dimensions, allowing for visualisation of the relationships between samples based on their dissimilarity.</p>
+<p>In multi-omics research, PCoA can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing PCoA on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, PCoA can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, PCoA is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research.</p>
+<pre><code># Load the distance matrix
+dist_mat &lt;- read.csv(&quot;mydistances.csv&quot;, row.names = 1)
+
+# Perform PCoA
+pcoa &lt;- cmdscale(dist_mat, k = 2, eig = TRUE, add = TRUE)
+
+# View the results
+summary(pcoa)
+
+# Plot the results
+plot(pcoa$points, type = &quot;n&quot;, xlab = &quot;PCo1&quot;, ylab = &quot;PCo2&quot;)
+text(pcoa$points, labels = rownames(pcoa$points))</code></pre>
 </div>
 <div id="nmds" class="section level3 hasAnchor" number="18.2.3">
 <h3><span class="header-section-number">18.2.3</span> Non-metric Multidimensional Scaling (NMDS)<a href="dimension-reduction-ordination.html#nmds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>Non-metric Multidimensional Scaling (NMDS) is a multivariate analysis technique used to visualize and explore the patterns of variation in multivariate data. It is similar to Principal Coordinate Analysis (PCoA) but is more flexible in that it can handle non-linear relationships between variables. NMDS transforms a distance matrix into a set of coordinates that can be plotted in two or three dimensions, allowing for visualisation of the relationships between samples based on their dissimilarity. Unlike PCoA, NMDS does not assume a linear relationship between the distance matrix and the coordinates, making it a more powerful tool for analysing complex and non-linear relationships in multivariate data.</p>
+<p>In multi-omics research, NMDS can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing NMDS on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, NMDS can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, NMDS is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research, particularly when the relationships between variables are non-linear.</p>
+<pre><code># Load the dataset
+data &lt;- read.csv(&quot;mydata.csv&quot;, row.names = 1)
+
+# Perform NMDS
+library(vegan)
+nmds &lt;- metaMDS(data, distance = &quot;bray&quot;)
+
+# View the results
+summary(nmds)
+
+# Plot the results
+plot(nmds$points, type = &quot;n&quot;, xlab = &quot;NMDS1&quot;, ylab = &quot;NMDS2&quot;)
+text(nmds$points, labels = rownames(nmds$points))</code></pre>
 </div>
 <div id="t-sne" class="section level3 hasAnchor" number="18.2.4">
 <h3><span class="header-section-number">18.2.4</span> t-Distributed Stochastic Neighbour Embedding (t-SNE)<a href="dimension-reduction-ordination.html#t-sne" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.
-Requires many data points.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>t-Distributed Stochastic Neighbor Embedding (t-SNE) is a nonlinear dimensionality reduction technique used to visualise high-dimensional data in a low-dimensional space. t-SNE is particularly useful when exploring complex and nonlinear relationships between variables, and can be applied to various types of data including gene expression, proteomics, and metabolomics data. t-SNE works by first constructing a probability distribution over pairs of high-dimensional objects, such as genes or proteins, and then constructing a similar probability distribution over pairs of low-dimensional points. The technique then optimizes these probability distributions to minimise the divergence between them, resulting in a low-dimensional representation of the high-dimensional data.</p>
+<p>In multi-omics research, t-SNE can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing t-SNE on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, t-SNE can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, t-SNE is a powerful tool for visualising high-dimensional data in a low-dimensional space, allowing researchers to explore and analyse complex relationships in multi-omics research.</p>
+<pre><code># Load the dataset
+data &lt;- read.csv(&quot;mydata.csv&quot;, row.names = 1)
+
+# Perform t-SNE
+library(Rtsne)
+tsne &lt;- Rtsne(data, dims = 2, perplexity = 30, verbose = TRUE)
+
+# View the results
+summary(tsne)
+
+# Plot the results
+plot(tsne$Y, col = &quot;blue&quot;, pch = 19, xlab = &quot;t-SNE1&quot;, ylab = &quot;t-SNE2&quot;)</code></pre>
 </div>
 <div id="umap" class="section level3 hasAnchor" number="18.2.5">
 <h3><span class="header-section-number">18.2.5</span> Uniform manifold approximation and projection (UMAP)<a href="dimension-reduction-ordination.html#umap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
-</div>
-<div id="phate" class="section level3 hasAnchor" number="18.2.6">
-<h3><span class="header-section-number">18.2.6</span> Potential of heat diffusion for affinity-based transition embedding (PHATE)<a href="dimension-reduction-ordination.html#phate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>Uniform Manifold Approximation and Projection (UMAP) is a non-linear dimension reduction technique used to visualise high-dimensional data in a low-dimensional space. It is similar to t-Distributed Stochastic Neighbour Embedding (t-SNE) but is faster and more scalable, making it useful for larger datasets. UMAP works by constructing a fuzzy topological representation of the high-dimensional data and then optimising a low-dimensional representation that preserves the structure of this topological representation. This results in a low-dimensional representation of the high-dimensional data that preserves complex relationships between variables.</p>
+<p>In multi-omics research, UMAP can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing UMAP on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, UMAP can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, UMAP is a powerful tool for visualising high-dimensional data, particularly for large and complex datasets.</p>
+<pre><code># Load the dataset
+data &lt;- read.csv(&quot;mydata.csv&quot;, row.names = 1)
+
+# Perform UMAP
+library(umap)
+umap_result &lt;- umap(data, n_components = 2, n_neighbors = 30)
+
+# View the results
+summary(umap_result)
+
+# Plot the results
+plot(umap_result$layout, col = &quot;blue&quot;, pch = 19, xlab = &quot;UMAP1&quot;, ylab = &quot;UMAP2&quot;)</code></pre>
 
 </div>
 </div>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>20 Multi-omic integration | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <title>17.2 Transformations to account for compositional data | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="17.2 Transformations to account for compositional data | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="17.2 Transformations to account for compositional data | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="20 Multi-omic integration | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="17.2 Transformations to account for compositional data | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="classification-methods.html"/>
-<link rel="next" href="multi-staged-omics-integration.html"/>
+<link rel="prev" href="data-transformation-assumptions.html"/>
+<link rel="next" href="data-transformation-scaling.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -429,22 +429,31 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multi-omic-integration" class="section level1 hasAnchor" number="20">
-<h1><span class="header-section-number">20</span> Multi-omic integration<a href="multi-omic-integration.html#multi-omic-integration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Multi-omic data integration can be broadly classified into two categories: multi-staged analysis and meta-dimensional analysis. In the multi-staged approach, the data analysis is divided into multiple steps, where two omic layers are linked at each step, and the final step relates the relevant omic layers with the outcome of interest. This method takes advantage of the hierarchical nature of molecular biology’s central dogma, assuming that variations in omic datasets occur in a hierarchical manner, with changes in DNA leading to changes in RNA, and so on. On the other hand, meta-dimensional analysis involves analyzing all omic datasets in a single analysis, which encompasses the entire range of features simultaneously, and enables the assessment of inter-omic interactions.</p>
-<ul>
-<li><strong><a href="multi-staged-omics-integration">Multi-staged data integration</a></strong>:</li>
-<li><strong><a href="meta-dimensional-omics-integration.html#meta-dimensional-omics-integration">Meta-dimensional data integration</a></strong></li>
-</ul>
-
+<div id="data-transformation-compositional" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Transformations to account for compositional data<a href="data-transformation-compositional.html#data-transformation-compositional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When dealing with multi-omic datasets, it’s important to determine if the measurements represent absolute or relative values. While HG provides qualitative information about host genomes, MG, HT, and MT provide quantitative information that’s dependent on the amount of sequencing performed and thus are compositional. Consequently, raw quantitative values of genome abundance or gene expression across samples cannot be compared directly. To address this, the most common solution is to transform the raw abundance values into relative abundance data for comparison. However, this transformation reduces the independence of individual variables, which is an assumption for many statistical methods. An alternative is using ratio transformations like the centred log-ratio, which better suit compositional data analysis by removing the effect of the constant-sum constraint on the covariance and correlation matrices.</p>
+<div id="transforming-data-using-centred-log-ratio" class="section level3 unnumbered hasAnchor">
+<h3>Transforming data using centred log-ratio<a href="data-transformation-compositional.html#transforming-data-using-centred-log-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this example, we first load the multivariate dataset and then apply the CLR transformation using the <code>clr()</code> function from the <strong><code>compositions</code></strong> package. The CLR transformation is a commonly used method for analyzing compositional data, where the data represents proportions or percentages that add up to a constant sum. The CLR transformation is designed to remove the constant sum constraint and make the data amenable to standard multivariate statistical methods.</p>
+<p>The resulting <code>data_transformed</code> object will be a transformed version of the original dataset, with each variable now representing the logarithm of the ratio between that variable and the geometric mean of the other variables. Note that the CLR transformation assumes that the data is non-negative, so it may not be appropriate for all types of multivariate data.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-transformation-compositional.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the multivariate dataset</span></span>
+<span id="cb53-2"><a href="data-transformation-compositional.html#cb53-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb53-3"><a href="data-transformation-compositional.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="data-transformation-compositional.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply CLR transformation using the compositions package</span></span>
+<span id="cb53-5"><a href="data-transformation-compositional.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(compositions)</span>
+<span id="cb53-6"><a href="data-transformation-compositional.html#cb53-6" aria-hidden="true" tabindex="-1"></a>data_transformed <span class="ot">&lt;-</span> <span class="fu">clr</span>(data)</span>
+<span id="cb53-7"><a href="data-transformation-compositional.html#cb53-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-8"><a href="data-transformation-compositional.html#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View the transformed data</span></span>
+<span id="cb53-9"><a href="data-transformation-compositional.html#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_transformed)</span></code></pre></div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="classification-methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multi-staged-omics-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-transformation-assumptions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-transformation-scaling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
