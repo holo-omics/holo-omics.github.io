@@ -42,6 +42,7 @@ This guide is presented as a final output of the H2020 project HoloFood. More in
 
 This guide contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
 
+\small
 ```{r eval=FALSE}
 shao4d_perm <- shao4d %>%
   tax_transform("identity", rank = "genus") %>%
@@ -55,6 +56,7 @@ shao4d_perm <- shao4d %>%
 #> 2022-11-24 01:15:20 - Starting PERMANOVA with 99 perms with 1 processes
 #> 2022-11-24 01:15:21 - Finished PERMANOVA
 ```
+\normalsize
 
 ### Data sets {- #datasets}
 

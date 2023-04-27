@@ -59,6 +59,7 @@ In this example, we first load the multivariate dataset and then apply the CLR t
 
 The resulting `data_transformed` object will be a transformed version of the original dataset, with each variable now representing the logarithm of the ratio between that variable and the geometric mean of the other variables. Note that the CLR transformation assumes that the data is non-negative, so it may not be appropriate for all types of multivariate data.
 
+\small
 ```{r transformations-compositional, eval=FALSE}
 # Load the multivariate dataset
 data <- read.csv("mydata.csv")
@@ -70,6 +71,7 @@ data_transformed <- clr(data)
 # View the transformed data
 head(data_transformed)
 ```
+\normalsize
 
 ### Transformations to account for scaling {#data-transformation-scaling}
 
@@ -78,6 +80,7 @@ It's important to keep in mind that scaling can also impact the results when ana
 #### Transforming data using z-score normalisation {-}
 In this example, we first load the dataset and then use the `apply()` function to apply the z-score normalization to each variable in the dataset. The `apply()` function applies a function to either the rows or columns of a matrix, and the 2 argument specifies that we want to apply the function to the columns (i.e., variables) of the dataset. The function applied to each column calculates the z-score of each observation by subtracting the mean of the variable from each observation and dividing by the standard deviation of the variable. This centers the data around 0 and scales it to have a standard deviation of 1. The resulting `data_norm` object will be a normalized version of the original dataset, with each variable now having a mean of 0 and a standard deviation of 1.
 
+\small
 ```{r transformations-scaling, eval=FALSE}
 # Load the dataset
 data <- read.csv("mydata.csv")
@@ -88,3 +91,4 @@ data_norm <- apply(data, 2, function(x) (x - mean(x)) / sd(x))
 # View the normalized data
 head(data_norm)
 ```
+\normalsize

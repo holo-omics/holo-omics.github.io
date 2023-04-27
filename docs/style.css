@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+#.sourceCode.r{
+  font-size: 12px;
+}#only working for the html
+
 .author{
   text-align: center
 }

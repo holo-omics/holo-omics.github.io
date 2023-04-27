@@ -14,6 +14,7 @@ Regression methods aim to model the relationship between the quantitative metric
 
 PERMANOVA is a statistical method that tests for significant differences between groups in multivariate data by comparing the distribution of distance-based similarity matrices. This method can be used to identify biomarkers that differ significantly between groups, such as disease states or treatment groups, and determine whether there are significant differences in the overall pattern of gene expression, methylation, or other omic features between the groups.
 
+\small
 ```{r eval=FALSE}
 library(vegan)
 
@@ -33,11 +34,13 @@ permanova_results <- adonis(dist_matrix ~ group)
 # view PERMANOVA results
 permanova_results
 ```
+\normalsize
 
 ### ANOSIM {#anosim}
 
 ANOSIM is a nonparametric statistical method that tests for significant differences in similarity between two or more groups of samples based on dissimilarity matrices. It is used to compare the dissimilarity between groups of samples based on their gene expression, metabolomics, or other omic data. The aim of ANOSIM is to determine if the differences in omic profiles between groups are significant and can be used to distinguish between groups.
 
+\small
 ```{r eval=FALSE}
 library(vegan)
 
@@ -56,11 +59,13 @@ result <- anosim(dissimilarity, group)
 # View ANOSIM results
 result
 ```
+\normalsize
 
 ### Redundancy analysis (RDA) {#redundancy-analysis}
 
-Redundancy Analysis (RDA) is a multivariate statistical technique that identifies the linear relationships between a response variable and a set of explanatory variables. It is an extension of Principal Component Analysis (PCA) that can handle both continuous and categorical variables. RDA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.
+Redundancy Analysis (RDA) is a multivariate statistical technique that identifies the linear relationships between a response variable and a set of explanatory variables. It is an extension of Principal Component Analysis (PCA) that can handle both continuous and categorical variables. RDA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualise the relationship between the explanatory and response variables.
 
+\small
 ```{r eval=FALSE}
 library(vegan)
 
@@ -79,11 +84,13 @@ result
 # Plot RDA biplot
 plot(result, display = "biplot")
 ```
+\normalsize
 
 ### Canonical Correspondence Analysis (CCA) {#canonical-correspondence-analysis}
 
-Canonical Correspondence Analysis (CCA) is a multivariate statistical technique that explores the relationship between a set of explanatory variables and a set of response variables. It is an extension of Correspondence Analysis (CA) that can handle both continuous and categorical variables. CCA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.
+Canonical Correspondence Analysis (CCA) is a multivariate statistical technique that explores the relationship between a set of explanatory variables and a set of response variables. It is an extension of Correspondence Analysis (CA) that can handle both continuous and categorical variables. CCA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualise the relationship between the explanatory and response variables.
 
+\small
 ```{r eval=FALSE}
 library(vegan)
 
@@ -102,6 +109,7 @@ result
 # Plot CCA biplot
 plot(result, display = "biplot")
 ```
+\normalsize
 
 ### Generalised linear modelling (GLM) {#generalised-linear-modelling}
 
@@ -111,6 +119,7 @@ The first step in using GLM for supervised analysis of omic data is to select th
 
 Overall, GLM can be a useful tool for supervised analysis of single omic layers because it allows for the identification of specific predictors of a response variable, such as disease status, and can handle a wide range of response variable distributions. However, it is important to carefully select the appropriate distribution and explanatory variables to ensure the validity and accuracy of the model.
 
+\small
 ```{r eval=FALSE}
 # Load required packages
 library(edgeR)   # for differential expression analysis
@@ -140,6 +149,7 @@ plot(fit.glm)
 # Identify the most important variables
 coef(fit.glm, s=fit.glm$lambda.min)
 ```
+\normalsize
 
 ### Generalised linear mixed modelling (GLMM) {#generalised-linear-mixed-modelling}
 
@@ -155,6 +165,7 @@ GLMMs are fitted using maximum likelihood estimation, which involves optimising 
 
 GLMMs can be used for a wide range of applications in omics data analysis, including the analysis of longitudinal or repeated measures data, the integration of multiple omics data layers, the analysis of data with non-independent errors, and the modelling of gene-environment interactions. However, GLMMs can be computationally intensive and require careful consideration of the correlation structure of the data and the appropriate choice of link function and distribution.
 
+\small
 ```{r eval=FALSE}
 # Load the lme4 package
 library(lme4)
@@ -185,6 +196,7 @@ accuracy <- sum(test_data$predicted > 0.5 & test_data$Treatment == "versicolor" 
 # Print the accuracy
 cat(sprintf("Accuracy: %.2f%%\n", accuracy*100))
 ```
+\normalsize
 
 ## Classification methods {#classification-methods}
 
@@ -194,6 +206,7 @@ Classification methods aim to learn a model that can predict the class labels of
 
 Random forests are an ensemble of decision trees that are trained on bootstrapped samples of the data and a random subset of the features, to reduce overfitting and improve accuracy.
 
+\small
 ```{r eval=FALSE}
 library(randomForest)
 
@@ -214,11 +227,13 @@ predictions <- predict(rf, testData)
 # Evaluate the performance of the classifier
 confusionMatrix(predictions, testData$class)
 ```
+\normalsize
 
 ### Support Vector Machines (SVM) {#support-vector-machines}
 
 Support vector machines (SVMs) aim to find a hyperplane that maximally separates the samples belonging to different classes in the feature space, and can handle both linear and nonlinear relationships between the features and the response variable.
 
+\small
 ```{r eval=FALSE}
 library(e1071)
 
@@ -239,3 +254,4 @@ predictions <- predict(svm, testData)
 # Evaluate the performance of the classifier
 confusionMatrix(predictions, testData$class)
 ```
+\normalsize

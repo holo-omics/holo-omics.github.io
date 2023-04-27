@@ -27,6 +27,7 @@ Two of the most popular metagenome assemblers are **Megahit** and **MetaSpades**
 
 #### Individual assembly using Megahit {-}
 
+\small
 ```{sh eval=FALSE}
 megahit \
     -t {threads} \
@@ -36,9 +37,11 @@ megahit \
     -o {params.workdir}
     2> {log}
 ```
+\normalsize
 
 #### Individual assembly using MetaSpades {-}
 
+\small
 ```{sh eval=FALSE}
 metaspades.py \
     -t {threads} \
@@ -53,17 +56,20 @@ reformat.sh \
     out={output.assembly} \
     minlength=1500
 ```
+\normalsize
 
 #### Assembly statistics using Quast {-}
 
 The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software **Quast**.
 
+\small
 ```{sh eval=FALSE}
 quast \
     -o {output.report} \
     --threads {threads} \
     {input.assembly}
 ```
+\normalsize
 
 ### Coassembly-based {- #coassembly-based}
 
@@ -71,6 +77,7 @@ Coassembly is the process of assembling input files consisting of reads from mul
 
 Coassembling multiple samples does not require special assemblers, but only preparing the input files in the correct way to enable assemblers to perform the assembly over multiple samples. An example for metaspades is shown below:
 
+\small
 ```{sh eval=FALSE}
 #Concatenate input reads into a single big input file
 cat {input.reads}/*_1.fq.gz > {params.r1_cat}
@@ -90,6 +97,7 @@ reformat.sh \
     out={output.Coassembly} \
     minlength=1500
 ```
+\normalsize
 
 Note that the genome-resolved metagenomic approach also relies on assemblies or co-assemblies, but downstream binning procedures are explained in the **[genome-resolved approach](#genome-resolved)** section.
 
@@ -97,6 +105,7 @@ Note that the genome-resolved metagenomic approach also relies on assemblies or 
 
 Gene annotation refers to the process of identifing and assigning function to genes present in an assembly. In the first step, protein-coding and other types of genes are identified using tools such as Prodigal based on structural information of the DNA sequences. These software also predict the protein sequences these genes are expected to yield, which are then used to assign functions by contrasting them with functionally annotated reference databases. Due to the amount of reference databases available, it is common practice to match the genes against multiple databases and yield multiple annotations per gene. Currently, multiple tools exist that perform all these procedures in a single pipeline, such as DFAST [@Tanizawa2017-uy] and DRAM [@Shaffer2020-kp]. DFAST annotates genes against the TIGRFAM and Clusters of Orthologous Groups (COG) databases, while DRAM performs the annotation using Pfam, KEGG, UniProt, CAZY and MEROPS databases.
 
+\small
 ```{sh eval=FALSE}
 DRAM.py annotate \
       -i {input.assembly} \
@@ -104,6 +113,7 @@ DRAM.py annotate \
       --threads {threads} \
       --min_contig_size 1500
 ```
+\normalsize
 
 The procedure for annotating MAGs, which is explained in the **[genome-resolved approach](#genome-resolved)** section, is identical to this one, with the only difference that the a MAG or a set of MAGs are used as input data rather than a metagenomic assembly.
 
@@ -112,14 +122,19 @@ The procedure for annotating MAGs, which is explained in the **[genome-resolved 
 The aim of assembly-based analyses is often to obtain gene-abundance information per studied sample, to characterise the functional properties of the entire metagenome as a whole (as opposed to the **[genome-resolved approach](#genome-resolved)** approach, in which functional attributes are assigned to each MAG). This requires reads from each sample to be mapped against the sequence of all protein-coding genes identified during the annotation process. All gene prediction software and annotation pipelines produce a FASTA file only containing gene sequences, which is used as the reference material.
 
 The gene catalogue needs to be indexed before the mapping.
+
+\small
 ```{sh eval=FALSE}
 bowtie2-build \
       --large-index \
       --threads {threads} \
        {all_genes}.fa.gz
 ```
+\normalsize
 
 Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
+
+\small
 ```{sh eval=FALSE}
 bowtie2 \
       --time \
@@ -129,8 +144,11 @@ bowtie2 \
       -2 {input.r2} \
       | samtools sort -@ {threads} -o {output}
 ```
+\normalsize
 
 Or relative abundance per gene per sample.
+
+\small
 ```{sh eval=FALSE}
 coverm genome \
       -b {params.BAMs}/*.bam \
@@ -140,6 +158,7 @@ coverm genome \
       --min-covered-fraction 0 \
       > {output.mapping_rate}
 ```
+\normalsize
 
 :::: {.authorbox}
 Contents of this section were created by [Antton Alberdi](#antton-alberdi).  
@@ -162,13 +181,16 @@ Metagenomic binning is the bioinformatic process that attempts to group metageno
 Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.
 
 Metabat and Maxbin require a depth file to be generated first.
+\small
 ```{sh eval=FALSE}
 jgi_summarize_bam_contig_depths \
     --outputDepth {output.depth} \
     {input.assemblybampath}
 ```
+\normalsize
 
 Example code for launching metabat2.
+\small
 ```{sh eval=FALSE}
 metabat2 \
     -i {input.assemblypath} \
@@ -178,8 +200,10 @@ metabat2 \
     -t {threads} \
     --unbinned
 ```
+\normalsize
 
 Example code for launching MaxBin.
+\small
 ```{sh eval=FALSE}
 run_MaxBin.pl \
     -contig {input.assemblypath} \
@@ -187,12 +211,14 @@ run_MaxBin.pl \
     -out {output.basepath} \
     -thread {threads}
 ```
+\normalsize
 
 ### Bin refinement {- #genome-resolved-refinement}
 
 The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as "bin refinement", and can be performed using tools like metaWRAP [@Uritskiy2018-my] or Dastool [@Sieber2018-fp]. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
 
 The following code can be used to run an ensemble binning using metaWRAP.
+\small
 ```{sh eval=FALSE}
 metawrap binning -o {params.outdir} \
     -t {threads} \
@@ -203,8 +229,10 @@ metawrap binning -o {params.outdir} \
     --maxbin2 \
     --concoct \
 ```
+\normalsize
 
 The following code can be used to refine binds using metaWRAP.
+\small
 ```{sh eval=FALSE}
 metawrap bin_refinement \
     -m {params.memory} \
@@ -216,6 +244,7 @@ metawrap bin_refinement \
     -c 70 \
     -x 10
 ```
+\normalsize
 
 ### Bin quality assessment {- #genome-resolved-qc}
 
@@ -241,6 +270,7 @@ Although not necessary for conducting most of the downstream analyses, taxonomic
 
 Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases. As explained in the **[assembly-based approach](#assembly-based)**, the first step is to predict genes in the MAGs (unless these are available from the assembly), followed by functional annotation by matching the protein sequences predicted from the genes with reference databases. Currently, multiple tools exist that perform all these procedures in a single pipeline, such as DFAST [@Tanizawa2017-uy] and DRAM [@Shaffer2020-kp]. DFAST annotates genes against the TIGRFAM and Clusters of Orthologous Groups (COG) databases, while DRAM performs the annotation using Pfam, KEGG, UniProt, CAZY and MEROPS databases.
 
+\small
 ```{sh eval=FALSE}
 DRAM.py annotate \
       -i {input.MAG} \
@@ -248,6 +278,7 @@ DRAM.py annotate \
       --threads {threads} \
       --min_contig_size 1500
 ```
+\normalsize
 
 These functional annotations can be used for performing functional gene enrichment analyses, distilling them into genome-inferred functional traits, and many other downstrean operations explained in the [statistics part](#about-statistics).
 
@@ -256,19 +287,24 @@ These functional annotations can be used for performing functional gene enrichme
 When the objective of a genome-resolved metagenomic analysis is to reconstruct and analyse a microbiome, researchers usually require relative abundance information to measure how abundant or rare each bacteria was in the analysed sample. In order to achieve this, it is necessary to map the reads of each sample back to the MAG catalogue and retrieve mapping statistics. The procedure is identical to that explained in the [assembly read-mapping](#assembly-read-mapping) section, yet using the MAG catalogue as a reference database rather than the metagenomic assembly. This procedure usually happens in two steps. In the first step, reads are mapped to the MAG catalogue to generate BAM or CRAM mapping files. In the second step, these mapping files are used to extract quantitative read-abundance information in the form of a table in which the amount of reads mapped to each MAG in each sample is displayed.
 
 First, all MAGs need to be concatenated into a single file, which will become the reference MAG catalogue or database.
+\small
 ```{sh eval=FALSE}
 cat {MAG.path}/*.fa.gz > {all_MAGs}.fa.gz
 ```
+\normalsize
 
 The MAG catalogue needs to be indexed before the mapping.
+\small
 ```{sh eval=FALSE}
 bowtie2-build \
       --large-index \
       --threads {threads} \
        {all_MAGs}.fa.gz
 ```
+\normalsize
 
 Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
+\small
 ```{sh eval=FALSE}
 bowtie2 \
       --time \
@@ -278,8 +314,10 @@ bowtie2 \
       -2 {input.r2} \
       | samtools sort -@ {threads} -o {output}
 ```
+\normalsize
 
 Finally, CoverM can be used to extract the required stats, such as covered fraction per MAG per sample.
+\small
 ```{sh eval=FALSE}
 coverm genome \
       -b {input} \
@@ -289,8 +327,10 @@ coverm genome \
       --min-covered-fraction 0 \
       > {output.count_table}
 ```
+\normalsize
 
 Or relative abundance per MAG per sample.
+\small
 ```{sh eval=FALSE}
 coverm genome \
       -b {params.BAMs}/*.bam \
@@ -300,6 +340,7 @@ coverm genome \
       --min-covered-fraction 0 \
       > {output.mapping_rate}
 ```
+\normalsize
 
 :::: {.authorbox}
 Contents of this section were created by [Antton Alberdi](#antton-alberdi).  

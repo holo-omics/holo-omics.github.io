@@ -30,6 +30,9 @@ file.rename("docs/_main.pdf","docs/holo_omics_guidebook.pdf")
 https://bookdown.org/yihui/rmarkdown-cookbook/
 https://bookdown.org/yihui/bookdown/
 
+#About changin fonts for pdf
+https://github.com/rstudio/rmarkdown/issues/388
+
 ######
 # For getting bib data from dois
 ######

@@ -12,6 +12,7 @@ In the following two chapters, you will find example pipelines to process host t
 ### Quality-filtering {-}
 Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.
 
+\small
 ```{sh ht-fastp, eval=FALSE}
 fastp \
       --in1 {input.read1} --in2 {input.read2} \
@@ -28,10 +29,12 @@ fastp \
       --adapter_sequence AGATCGGAAGAGCACACGTCTGAACTCCAGTCA \
       --adapter_sequence_r2  AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
 ```
+\normalsize
 
 ### Ribosomal RNA removal {-}
 Ribodetector can be used for efficient removal of rRNA sequences from host transcriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
 
+\small
 ```{sh ht-ribodetector, eval=FALSE}
 ribodetector_cpu \
       -t 24 \
@@ -40,10 +43,12 @@ ribodetector_cpu \
       -e rrna \
       -o {output.non_rna_r1} {output.non_rna_r2}
 ```
+\normalsize
 
 ### Reference genome indexing {-}
 In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which  can be used for multiple RNA-seq experiments.
 
+\small
 ```{sh ht-star-index, eval=FALSE}
 STAR \
       --runMode genomeGenerate \
@@ -53,11 +58,12 @@ STAR \
       --sjdbGTFfile {input}/*.gtf \
       --sjdbOverhang {params.readlength}
 ```
-Text to be added.
+\normalsize
 
 ### Read mapping against reference genome {-}
 STAR (Spliced Transcripts Alignment to a Reference) is a fast and efficient method for aligning RNA-seq reads to a reference genome. It uses a two-pass alignment approach to detect spliced transcripts, improve accuracy and speed up the alignment process.
 
+\small
 ```{sh ht-star-mapping, eval=FALSE}
 STAR \
       --runMode alignReads \
@@ -70,6 +76,7 @@ STAR \
       --readFilesCommand zcat \
       --quantMode GeneCounts
 ```
+\normalsize
 
 :::: {.authorbox}
 Contents of this section were created by [Antton Alberdi](#antton-alberdi) and [Raphael Eisenhofer](#raphael-eisenhofer).
@@ -77,4 +84,4 @@ Contents of this section were created by [Antton Alberdi](#antton-alberdi) and [
 
 ## Reference-free host transcriptomics (HT) data processing {#host-transcriptomics-data-processing-reference-free}
 
-Text to be added.
+Contents will be added shortly.

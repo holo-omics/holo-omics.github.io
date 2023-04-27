@@ -15,6 +15,7 @@ In reference-based metatranscriptomics, sequencing reads are aligned to a refere
 
 Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.
 
+\small
 ```{sh mt-fastp, eval=FALSE}
 fastp \
       --in1 {input.r1i} --in2 {input.r2i} \
@@ -30,54 +31,67 @@ fastp \
       --adapter_sequence CTGTCTCTTATACACATCT \
       --adapter_sequence_r2 CTGTCTCTTATACACATCT
 ```
+\normalsize
 
 ### Ribosomal RNA removal {-}
 
 Ribodetector can be used for efficient removal of rRNA sequences from microbial metatranscriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
 
+\small
 ```{sh mt-ribodetector, eval=FALSE}
 #Code to be added here
 ```
+\normalsize
 
 ### Host genome indexing {-}
 
 In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which  can be used for multiple RNA-seq experiments.
 
+\small
 ```{sh mt-star-index, eval=FALSE}
 #Code to be added here
 ```
+\normalsize
 
 ### Host genome mapping {-}
 
 STAR (Spliced Transcripts Alignment to a Reference) can be used for efficiently mapping host reads against a selected reference genome, and thus filter them out from subsequent metatranscriptomic analyses.
 
+\small
 ```{sh mt-star, eval=FALSE}
 #Code to be added here
 ```
+\normalsize
 
 ### Generating and indexing the microbial genome catalogue {-}
 
 Explanations to be added here.
 
+\small
 ```{sh mt-bowtie2-index, eval=FALSE}
 #Code to be added here
 ```
+\normalsize
 
 ### Mapping against the microbial genome catalogue {-}
 
 Explanations to be added here.
 
+\small
 ```{sh mt-bowtie2-mapping, eval=FALSE}
 #Code to be added here
 ```
+\normalsize
 
 ### Calculate gene counts {-}
 
 Explanations to be added here.
 
+\small
 ```{sh mt-coverm, eval=FALSE}
 #Code to be added here
 ```
+\normalsize
 
 ## Reference-free microbial metatranscriptomics (MT) data processing {#microbial-metatranscriptomics-data-processing-reference-free}
 

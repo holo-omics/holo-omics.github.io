@@ -343,7 +343,6 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-r.html"><a href="prepare-r.html#required-packages"><i class="fa fa-check"></i>Required packages</a></li>
 <li class="chapter" data-level="" data-path="prepare-r.html"><a href="prepare-r.html#package-installation"><i class="fa fa-check"></i>Package installation</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="example-data-statistics.html"><a href="example-data-statistics.html"><i class="fa fa-check"></i><b>15.2</b> Example data for statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
 <li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a>
@@ -433,11 +432,13 @@ div.csl-indent {
 <h3>Binning<a href="genome-resolved.html#genome-resolved-binning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Metagenomic binning is the bioinformatic process that attempts to group metagenomic sequences by their organism of origin {Goussarov}. In practice, what binning does is to cluster contigs of a metagenomic assembly into putative bacterial genomes. In the last decade over a dozen of binning algorithms have been released, each relying on different structural and mathematical properties of the input data.</p>
 <p>Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.</p>
-<p>Metabat and Maxbin require a depth file to be generated first.</p>
+<p>Metabat and Maxbin require a depth file to be generated first.
+</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="genome-resolved.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jgi_summarize_bam_contig_depths</span> <span class="dt">\</span></span>
 <span id="cb27-2"><a href="genome-resolved.html#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--outputDepth</span> {output.depth} <span class="dt">\</span></span>
 <span id="cb27-3"><a href="genome-resolved.html#cb27-3" aria-hidden="true" tabindex="-1"></a>    {input.assemblybampath}</span></code></pre></div>
-<p>Example code for launching metabat2.</p>
+<p>Example code for launching metabat2.
+</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="genome-resolved.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metabat2</span> <span class="dt">\</span></span>
 <span id="cb28-2"><a href="genome-resolved.html#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-i</span> {input.assemblypath} <span class="dt">\</span></span>
 <span id="cb28-3"><a href="genome-resolved.html#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-a</span> {input.depth} <span class="dt">\</span></span>
@@ -445,7 +446,8 @@ div.csl-indent {
 <span id="cb28-5"><a href="genome-resolved.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 1500 <span class="dt">\</span></span>
 <span id="cb28-6"><a href="genome-resolved.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
 <span id="cb28-7"><a href="genome-resolved.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--unbinned</span></span></code></pre></div>
-<p>Example code for launching MaxBin.</p>
+<p>Example code for launching MaxBin.
+</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb29-1"><a href="genome-resolved.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">run_MaxBin.pl</span> <span class="dt">\</span></span>
 <span id="cb29-2"><a href="genome-resolved.html#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-contig</span> {input.assemblypath} <span class="dt">\</span></span>
 <span id="cb29-3"><a href="genome-resolved.html#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-abund</span> {input.depth} <span class="dt">\</span></span>
@@ -455,7 +457,8 @@ div.csl-indent {
 <div id="genome-resolved-refinement" class="section level3 unnumbered hasAnchor">
 <h3>Bin refinement<a href="genome-resolved.html#genome-resolved-refinement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as “bin refinement,” and can be performed using tools like metaWRAP <span class="citation">[<a href="#ref-Uritskiy2018-my" role="doc-biblioref">21</a>]</span> or Dastool <span class="citation">[<a href="#ref-Sieber2018-fp" role="doc-biblioref">22</a>]</span>. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.</p>
-<p>The following code can be used to run an ensemble binning using metaWRAP.</p>
+<p>The following code can be used to run an ensemble binning using metaWRAP.
+</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb30-1"><a href="genome-resolved.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metawrap</span> binning <span class="at">-o</span> {params.outdir} <span class="dt">\</span></span>
 <span id="cb30-2"><a href="genome-resolved.html#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
 <span id="cb30-3"><a href="genome-resolved.html#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> {params.memory} <span class="dt">\</span></span>
@@ -464,7 +467,8 @@ div.csl-indent {
 <span id="cb30-6"><a href="genome-resolved.html#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--metabat2</span> <span class="dt">\</span></span>
 <span id="cb30-7"><a href="genome-resolved.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--maxbin2</span> <span class="dt">\</span></span>
 <span id="cb30-8"><a href="genome-resolved.html#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">--concoct</span> <span class="dt">\</span></span></code></pre></div>
-<p>The following code can be used to refine binds using metaWRAP.</p>
+<p>The following code can be used to refine binds using metaWRAP.
+</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="genome-resolved.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metawrap</span> bin_refinement <span class="dt">\</span></span>
 <span id="cb31-2"><a href="genome-resolved.html#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> {params.memory} <span class="dt">\</span></span>
 <span id="cb31-3"><a href="genome-resolved.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
@@ -506,14 +510,17 @@ div.csl-indent {
 <div id="genome-resolved-mapping" class="section level3 unnumbered hasAnchor">
 <h3>Read mapping<a href="genome-resolved.html#genome-resolved-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When the objective of a genome-resolved metagenomic analysis is to reconstruct and analyse a microbiome, researchers usually require relative abundance information to measure how abundant or rare each bacteria was in the analysed sample. In order to achieve this, it is necessary to map the reads of each sample back to the MAG catalogue and retrieve mapping statistics. The procedure is identical to that explained in the <a href="assembly-based.html#assembly-read-mapping">assembly read-mapping</a> section, yet using the MAG catalogue as a reference database rather than the metagenomic assembly. This procedure usually happens in two steps. In the first step, reads are mapped to the MAG catalogue to generate BAM or CRAM mapping files. In the second step, these mapping files are used to extract quantitative read-abundance information in the form of a table in which the amount of reads mapped to each MAG in each sample is displayed.</p>
-<p>First, all MAGs need to be concatenated into a single file, which will become the reference MAG catalogue or database.</p>
+<p>First, all MAGs need to be concatenated into a single file, which will become the reference MAG catalogue or database.
+</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb33-1"><a href="genome-resolved.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> {MAG.path}/<span class="pp">*</span>.fa.gz <span class="op">&gt;</span> {all_MAGs}.fa.gz</span></code></pre></div>
-<p>The MAG catalogue needs to be indexed before the mapping.</p>
+<p>The MAG catalogue needs to be indexed before the mapping.
+</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb34-1"><a href="genome-resolved.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2-build</span> <span class="dt">\</span></span>
 <span id="cb34-2"><a href="genome-resolved.html#cb34-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--large-index</span> <span class="dt">\</span></span>
 <span id="cb34-3"><a href="genome-resolved.html#cb34-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
 <span id="cb34-4"><a href="genome-resolved.html#cb34-4" aria-hidden="true" tabindex="-1"></a>       {all_MAGs}.fa.gz</span></code></pre></div>
-<p>Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.</p>
+<p>Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
+</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb35-1"><a href="genome-resolved.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="dt">\</span></span>
 <span id="cb35-2"><a href="genome-resolved.html#cb35-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--time</span> <span class="dt">\</span></span>
 <span id="cb35-3"><a href="genome-resolved.html#cb35-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
@@ -521,7 +528,8 @@ div.csl-indent {
 <span id="cb35-5"><a href="genome-resolved.html#cb35-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-1</span> {input.r1} <span class="dt">\</span></span>
 <span id="cb35-6"><a href="genome-resolved.html#cb35-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
 <span id="cb35-7"><a href="genome-resolved.html#cb35-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output}</span></code></pre></div>
-<p>Finally, CoverM can be used to extract the required stats, such as covered fraction per MAG per sample.</p>
+<p>Finally, CoverM can be used to extract the required stats, such as covered fraction per MAG per sample.
+</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="genome-resolved.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">coverm</span> genome <span class="dt">\</span></span>
 <span id="cb36-2"><a href="genome-resolved.html#cb36-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-b</span> {input} <span class="dt">\</span></span>
 <span id="cb36-3"><a href="genome-resolved.html#cb36-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-s</span> ^ <span class="dt">\</span></span>
@@ -529,7 +537,8 @@ div.csl-indent {
 <span id="cb36-5"><a href="genome-resolved.html#cb36-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-t</span> {threads} <span class="dt">\</span></span>
 <span id="cb36-6"><a href="genome-resolved.html#cb36-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--min-covered-fraction</span> 0 <span class="dt">\</span></span>
 <span id="cb36-7"><a href="genome-resolved.html#cb36-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">&gt;</span> {output.count_table}</span></code></pre></div>
-<p>Or relative abundance per MAG per sample.</p>
+<p>Or relative abundance per MAG per sample.
+</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb37-1"><a href="genome-resolved.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">coverm</span> genome <span class="dt">\</span></span>
 <span id="cb37-2"><a href="genome-resolved.html#cb37-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-b</span> {params.BAMs}/<span class="pp">*</span>.bam <span class="dt">\</span></span>
 <span id="cb37-3"><a href="genome-resolved.html#cb37-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-s</span> ^ <span class="dt">\</span></span>

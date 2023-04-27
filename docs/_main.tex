@@ -172,6 +172,8 @@ This guide is presented as a final output of the H2020 project HoloFood. More in
 
 This guide contains example data and bits of code (mostly shell and R) to reproduce data generation and analysis procedures. Code boxes look like the following:
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{shao4d\_perm }\OtherTok{\textless{}{-}}\NormalTok{ shao4d }\SpecialCharTok{\%\textgreater{}\%}
@@ -187,6 +189,8 @@ This guide contains example data and bits of code (mostly shell and R) to reprod
 \CommentTok{\#\textgreater{} 2022{-}11{-}24 01:15:21 {-} Finished PERMANOVA}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{datasets}{%
 \subsection*{Data sets}\label{datasets}}
@@ -1316,6 +1320,8 @@ Two of the most popular metagenome assemblers are \textbf{Megahit} and \textbf{M
 \subsubsection*{Individual assembly using Megahit}\label{individual-assembly-using-megahit}}
 \addcontentsline{toc}{subsubsection}{Individual assembly using Megahit}
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{megahit} \DataTypeTok{\textbackslash{}}
@@ -1328,9 +1334,13 @@ Two of the most popular metagenome assemblers are \textbf{Megahit} and \textbf{M
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{individual-assembly-using-metaspades}{%
 \subsubsection*{Individual assembly using MetaSpades}\label{individual-assembly-using-metaspades}}
 \addcontentsline{toc}{subsubsection}{Individual assembly using MetaSpades}
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1349,11 +1359,15 @@ Two of the most popular metagenome assemblers are \textbf{Megahit} and \textbf{M
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{assembly-statistics-using-quast}{%
 \subsubsection*{Assembly statistics using Quast}\label{assembly-statistics-using-quast}}
 \addcontentsline{toc}{subsubsection}{Assembly statistics using Quast}
 
 The metagenome assemblies can have very different properties depending on the amount of data used for the assembly, the complexity of the microbial community, and other biological and technical aspects. It is therefore convenient to obtain some general statistics of the assemblies to decide whether they look meaningful to continue with downstream analyses. This can be easily done using the software \textbf{Quast}.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1364,6 +1378,8 @@ The metagenome assemblies can have very different properties depending on the am
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{coassembly-based}{%
 \subsection*{Coassembly-based}\label{coassembly-based}}
 \addcontentsline{toc}{subsection}{Coassembly-based}
@@ -1371,6 +1387,8 @@ The metagenome assemblies can have very different properties depending on the am
 Coassembly is the process of assembling input files consisting of reads from multiple samples, as opposed to performing an independent assembly for each sample, where the input would only include reads from that particular sample. Coassembly has several advantages, such as increased read depth, simplified comparison across samples by utilizing a single reference assembly for all, and frequently, a better capability to recover genomes from metagenomes by obtaining differential coverage information. However, it can also limit the capacity to recover strain-level variation.
 
 Coassembling multiple samples does not require special assemblers, but only preparing the input files in the correct way to enable assemblers to perform the assembly over multiple samples. An example for metaspades is shown below:
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1394,6 +1412,8 @@ Coassembling multiple samples does not require special assemblers, but only prep
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Note that the genome-resolved metagenomic approach also relies on assemblies or co-assemblies, but downstream binning procedures are explained in the \textbf{\protect\hyperlink{genome-resolved}{genome-resolved approach}} section.
 
 \hypertarget{assembly-gene-annotation}{%
@@ -1401,6 +1421,8 @@ Note that the genome-resolved metagenomic approach also relies on assemblies or 
 \addcontentsline{toc}{subsection}{Gene annotation}
 
 Gene annotation refers to the process of identifing and assigning function to genes present in an assembly. In the first step, protein-coding and other types of genes are identified using tools such as Prodigal based on structural information of the DNA sequences. These software also predict the protein sequences these genes are expected to yield, which are then used to assign functions by contrasting them with functionally annotated reference databases. Due to the amount of reference databases available, it is common practice to match the genes against multiple databases and yield multiple annotations per gene. Currently, multiple tools exist that perform all these procedures in a single pipeline, such as DFAST \citep{Tanizawa2017-uy} and DRAM \citep{Shaffer2020-kp}. DFAST annotates genes against the TIGRFAM and Clusters of Orthologous Groups (COG) databases, while DRAM performs the annotation using Pfam, KEGG, UniProt, CAZY and MEROPS databases.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1412,6 +1434,8 @@ Gene annotation refers to the process of identifing and assigning function to ge
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 The procedure for annotating MAGs, which is explained in the \textbf{\protect\hyperlink{genome-resolved}{genome-resolved approach}} section, is identical to this one, with the only difference that the a MAG or a set of MAGs are used as input data rather than a metagenomic assembly.
 
 \hypertarget{assembly-read-mapping}{%
@@ -1422,6 +1446,8 @@ The aim of assembly-based analyses is often to obtain gene-abundance information
 
 The gene catalogue needs to be indexed before the mapping.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{bowtie2{-}build} \DataTypeTok{\textbackslash{}}
@@ -1431,7 +1457,11 @@ The gene catalogue needs to be indexed before the mapping.
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1445,7 +1475,11 @@ Then, the following step needs to be iterated for each sample, yielding a BAM ma
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Or relative abundance per gene per sample.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1458,6 +1492,8 @@ Or relative abundance per gene per sample.
       \OperatorTok{\textgreater{}}\NormalTok{ \{output.mapping\_rate\}}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
@@ -1487,6 +1523,7 @@ Metagenomic binning is the bioinformatic process that attempts to group metageno
 Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.
 
 Metabat and Maxbin require a depth file to be generated first.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1496,7 +1533,10 @@ Metabat and Maxbin require a depth file to be generated first.
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Example code for launching metabat2.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1510,7 +1550,10 @@ Example code for launching metabat2.
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Example code for launching MaxBin.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1522,6 +1565,8 @@ Example code for launching MaxBin.
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{genome-resolved-refinement}{%
 \subsection*{Bin refinement}\label{genome-resolved-refinement}}
 \addcontentsline{toc}{subsection}{Bin refinement}
@@ -1529,6 +1574,7 @@ Example code for launching MaxBin.
 The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as ``bin refinement'', and can be performed using tools like metaWRAP \citep{Uritskiy2018-my} or Dastool \citep{Sieber2018-fp}. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.
 
 The following code can be used to run an ensemble binning using metaWRAP.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1543,7 +1589,10 @@ The following code can be used to run an ensemble binning using metaWRAP.
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 The following code can be used to refine binds using metaWRAP.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1558,6 +1607,8 @@ The following code can be used to refine binds using metaWRAP.
     \AttributeTok{{-}x}\NormalTok{ 10}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{genome-resolved-qc}{%
 \subsection*{Bin quality assessment}\label{genome-resolved-qc}}
@@ -1593,6 +1644,8 @@ Although not necessary for conducting most of the downstream analyses, taxonomic
 
 Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases. As explained in the \textbf{\protect\hyperlink{assembly-based}{assembly-based approach}}, the first step is to predict genes in the MAGs (unless these are available from the assembly), followed by functional annotation by matching the protein sequences predicted from the genes with reference databases. Currently, multiple tools exist that perform all these procedures in a single pipeline, such as DFAST \citep{Tanizawa2017-uy} and DRAM \citep{Shaffer2020-kp}. DFAST annotates genes against the TIGRFAM and Clusters of Orthologous Groups (COG) databases, while DRAM performs the annotation using Pfam, KEGG, UniProt, CAZY and MEROPS databases.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{DRAM.py}\NormalTok{ annotate }\DataTypeTok{\textbackslash{}}
@@ -1603,6 +1656,8 @@ Functional annotation refers to the process of identifying putative functions of
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 These functional annotations can be used for performing functional gene enrichment analyses, distilling them into genome-inferred functional traits, and many other downstrean operations explained in the \protect\hyperlink{about-statistics}{statistics part}.
 
 \hypertarget{genome-resolved-mapping}{%
@@ -1612,6 +1667,7 @@ These functional annotations can be used for performing functional gene enrichme
 When the objective of a genome-resolved metagenomic analysis is to reconstruct and analyse a microbiome, researchers usually require relative abundance information to measure how abundant or rare each bacteria was in the analysed sample. In order to achieve this, it is necessary to map the reads of each sample back to the MAG catalogue and retrieve mapping statistics. The procedure is identical to that explained in the \protect\hyperlink{assembly-read-mapping}{assembly read-mapping} section, yet using the MAG catalogue as a reference database rather than the metagenomic assembly. This procedure usually happens in two steps. In the first step, reads are mapped to the MAG catalogue to generate BAM or CRAM mapping files. In the second step, these mapping files are used to extract quantitative read-abundance information in the form of a table in which the amount of reads mapped to each MAG in each sample is displayed.
 
 First, all MAGs need to be concatenated into a single file, which will become the reference MAG catalogue or database.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1619,7 +1675,10 @@ First, all MAGs need to be concatenated into a single file, which will become th
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 The MAG catalogue needs to be indexed before the mapping.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1630,7 +1689,10 @@ The MAG catalogue needs to be indexed before the mapping.
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1644,7 +1706,10 @@ Then, the following step needs to be iterated for each sample, yielding a BAM ma
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Finally, CoverM can be used to extract the required stats, such as covered fraction per MAG per sample.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1658,7 +1723,10 @@ Finally, CoverM can be used to extract the required stats, such as covered fract
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Or relative abundance per MAG per sample.
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1671,6 +1739,8 @@ Or relative abundance per MAG per sample.
       \OperatorTok{\textgreater{}}\NormalTok{ \{output.mapping\_rate\}}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
@@ -1698,6 +1768,8 @@ In the following two chapters, you will find example pipelines to process host t
 
 Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{fastp} \DataTypeTok{\textbackslash{}}
@@ -1717,11 +1789,15 @@ Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw 
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{ribosomal-rna-removal}{%
 \subsection*{Ribosomal RNA removal}\label{ribosomal-rna-removal}}
 \addcontentsline{toc}{subsection}{Ribosomal RNA removal}
 
 Ribodetector can be used for efficient removal of rRNA sequences from host transcriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1734,11 +1810,15 @@ Ribodetector can be used for efficient removal of rRNA sequences from host trans
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{reference-genome-indexing}{%
 \subsection*{Reference genome indexing}\label{reference-genome-indexing}}
 \addcontentsline{toc}{subsection}{Reference genome indexing}
 
 In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which can be used for multiple RNA-seq experiments.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1752,13 +1832,15 @@ In order to use STAR for host transcriptomics, it is neccesary to first generate
 \end{Highlighting}
 \end{Shaded}
 
-Text to be added.
+\normalsize
 
 \hypertarget{read-mapping-against-reference-genome}{%
 \subsection*{Read mapping against reference genome}\label{read-mapping-against-reference-genome}}
 \addcontentsline{toc}{subsection}{Read mapping against reference genome}
 
 STAR (Spliced Transcripts Alignment to a Reference) is a fast and efficient method for aligning RNA-seq reads to a reference genome. It uses a two-pass alignment approach to detect spliced transcripts, improve accuracy and speed up the alignment process.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1775,12 +1857,14 @@ STAR (Spliced Transcripts Alignment to a Reference) is a fast and efficient meth
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi} and \protect\hyperlink{raphael-eisenhofer}{Raphael Eisenhofer}.
 
 \hypertarget{host-transcriptomics-data-processing-reference-free}{%
 \section{Reference-free host transcriptomics (HT) data processing}\label{host-transcriptomics-data-processing-reference-free}}
 
-Text to be added.
+Contents will be added shortly.
 
 \hypertarget{microbial-metatranscriptomics-data-processing}{%
 \chapter{Microbial metatranscriptomics (HT) data processing}\label{microbial-metatranscriptomics-data-processing}}
@@ -1808,6 +1892,8 @@ In reference-based metatranscriptomics, sequencing reads are aligned to a refere
 
 Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{fastp} \DataTypeTok{\textbackslash{}}
@@ -1826,17 +1912,23 @@ Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw 
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{ribosomal-rna-removal-1}{%
 \subsection*{Ribosomal RNA removal}\label{ribosomal-rna-removal-1}}
 \addcontentsline{toc}{subsection}{Ribosomal RNA removal}
 
 Ribodetector can be used for efficient removal of rRNA sequences from microbial metatranscriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#Code to be added here}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{host-genome-indexing}{%
 \subsection*{Host genome indexing}\label{host-genome-indexing}}
@@ -1844,11 +1936,15 @@ Ribodetector can be used for efficient removal of rRNA sequences from microbial 
 
 In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which can be used for multiple RNA-seq experiments.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#Code to be added here}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{host-genome-mapping}{%
 \subsection*{Host genome mapping}\label{host-genome-mapping}}
@@ -1856,11 +1952,15 @@ In order to use STAR for host transcriptomics, it is neccesary to first generate
 
 STAR (Spliced Transcripts Alignment to a Reference) can be used for efficiently mapping host reads against a selected reference genome, and thus filter them out from subsequent metatranscriptomic analyses.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#Code to be added here}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{generating-and-indexing-the-microbial-genome-catalogue}{%
 \subsection*{Generating and indexing the microbial genome catalogue}\label{generating-and-indexing-the-microbial-genome-catalogue}}
@@ -1868,11 +1968,15 @@ STAR (Spliced Transcripts Alignment to a Reference) can be used for efficiently 
 
 Explanations to be added here.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#Code to be added here}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{mapping-against-the-microbial-genome-catalogue}{%
 \subsection*{Mapping against the microbial genome catalogue}\label{mapping-against-the-microbial-genome-catalogue}}
@@ -1880,11 +1984,15 @@ Explanations to be added here.
 
 Explanations to be added here.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#Code to be added here}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{calculate-gene-counts}{%
 \subsection*{Calculate gene counts}\label{calculate-gene-counts}}
@@ -1892,11 +2000,15 @@ Explanations to be added here.
 
 Explanations to be added here.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#Code to be added here}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{microbial-metatranscriptomics-data-processing-reference-free}{%
 \section{Reference-free microbial metatranscriptomics (MT) data processing}\label{microbial-metatranscriptomics-data-processing-reference-free}}
@@ -1999,6 +2111,8 @@ Packages are installed programatically using three main ways: through \href{http
 
 CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R. Packages stored in CRAN can be installed using the following code:
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{install.packages}\NormalTok{(}\StringTok{"package\_name"}\NormalTok{)}
@@ -2007,11 +2121,15 @@ CRAN is a network of ftp and web servers around the world that store identical, 
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{install-package-from-bioconductor}{%
 \subsubsection*{Install package from Bioconductor}\label{install-package-from-bioconductor}}
 \addcontentsline{toc}{subsubsection}{Install package from Bioconductor}
 
 Bioconductor is a free, open source and open development software project for the analysis and comprehension of genomic data generated by wet lab experiments in molecular biology. Packages included in Bioconductor can be installed using the following code:
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2023,11 +2141,15 @@ Bioconductor is a free, open source and open development software project for th
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{install-package-from-github}{%
 \subsubsection*{Install package from Github}\label{install-package-from-github}}
 \addcontentsline{toc}{subsubsection}{Install package from Github}
 
 GitHub is a code hosting platform for version control and collaboration. Packages stored in R can be installed using the following code after installing the package devtools:
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2038,10 +2160,7 @@ GitHub is a code hosting platform for version control and collaboration. Package
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{example-data-statistics}{%
-\section{Example data for statistics}\label{example-data-statistics}}
-
-Contents to be added here.
+\normalsize
 
 \hypertarget{single-omic-analyses}{%
 \chapter{Single omic analyses}\label{single-omic-analyses}}
@@ -2155,6 +2274,8 @@ In this example, we first load the multivariate dataset and then apply the CLR t
 
 The resulting \texttt{data\_transformed} object will be a transformed version of the original dataset, with each variable now representing the logarithm of the ratio between that variable and the geometric mean of the other variables. Note that the CLR transformation assumes that the data is non-negative, so it may not be appropriate for all types of multivariate data.
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Load the multivariate dataset}
@@ -2169,6 +2290,8 @@ The resulting \texttt{data\_transformed} object will be a transformed version of
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{data-transformation-scaling}{%
 \subsection{Transformations to account for scaling}\label{data-transformation-scaling}}
 
@@ -2179,6 +2302,8 @@ It's important to keep in mind that scaling can also impact the results when ana
 \addcontentsline{toc}{subsubsection}{Transforming data using z-score normalisation}
 
 In this example, we first load the dataset and then use the \texttt{apply()} function to apply the z-score normalization to each variable in the dataset. The \texttt{apply()} function applies a function to either the rows or columns of a matrix, and the 2 argument specifies that we want to apply the function to the columns (i.e., variables) of the dataset. The function applied to each column calculates the z-score of each observation by subtracting the mean of the variable from each observation and dividing by the standard deviation of the variable. This centers the data around 0 and scales it to have a standard deviation of 1. The resulting \texttt{data\_norm} object will be a normalized version of the original dataset, with each variable now having a mean of 0 and a standard deviation of 1.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2192,6 +2317,8 @@ In this example, we first load the dataset and then use the \texttt{apply()} fun
 \FunctionTok{head}\NormalTok{(data\_norm)}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{unsupervised-exploration}{%
 \chapter{Unsupervised exploration}\label{unsupervised-exploration}}
@@ -2216,6 +2343,8 @@ Clustering procedures group features or observations into homogeneous sets by mi
 
 Hierarchical clustering produces a stratified organisation of features or observations where relatively similar objects are grouped together. The clustering can be performed using different criteria to measure the distance between clusters, which will affect the final outcome of the analysis (e.g., single linkage, complete linkage, average linkage and Ward's minimum variance).
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Load the dataset}
@@ -2230,7 +2359,11 @@ Hierarchical clustering produces a stratified organisation of features or observ
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 A useful exploratory analysis to reveal general patterns in an omic layer can be obtained by simultaneous application of hierarchical clustering to the rows and columns of the data matrix, and visualising the results in a heatmap.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2254,10 +2387,14 @@ A useful exploratory analysis to reveal general patterns in an omic layer can be
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{disjoint-clustering}{%
 \subsection{Disjoint clustering}\label{disjoint-clustering}}
 
 Disjoint clustering techniques aim at separating the objects into individual, usually mutually exclusive, and in most cases, unconnected clusters. K-means clustering is one of the most typical algorithms where objects are assigned to k clusters using an iterative procedure that minimises the within-clusters sums of squares. Other available clustering methods include twinspan, self-organising maps, dbscan and Dirichlet multinomial mixtures (DMM). DMM were specifically developed to analyse MG data but can be equally useful for other sequencing-based omic datasets.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2272,6 +2409,10 @@ Disjoint clustering techniques aim at separating the objects into individual, us
 \FunctionTok{head}\NormalTok{(km}\SpecialCharTok{$}\NormalTok{cluster)}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2289,6 +2430,8 @@ Disjoint clustering techniques aim at separating the objects into individual, us
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{dimension-reduction-ordination}{%
 \section{Dimension reduction and ordination}\label{dimension-reduction-ordination}}
 
@@ -2298,6 +2441,8 @@ Ordination is a method complementary to data clustering, which enables displayin
 \subsection{Principal Component Analysis (PCA)}\label{pca}}
 
 Principal component analysis (PCA) is one of the most widely applied methods for ordination. PCA generates new synthetic variables (principal components) that are linear combinations of the original variables and capture as much variance of the original data as possible. The principal components are orthogonal to each other and correspond to the successive dimensions of maximum variance of the scatter of points. The distance preserved among objects is euclidean and the relationships among variables are linear, thus PCA should generally be applied after appropriate transformations.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2315,12 +2460,16 @@ Principal component analysis (PCA) is one of the most widely applied methods for
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{pcoa}{%
 \subsection{Principal Coordinate Analysis (PCoA)}\label{pcoa}}
 
 Principal Coordinate Analysis (PCoA) is a multivariate analysis technique used to visualise and explore the patterns of variation in multivariate data. It is similar to Principal Component Analysis (PCA) but is specifically designed for distance-based data. PCoA transforms a distance matrix into a set of coordinates that can be plotted in two or three dimensions, allowing for visualisation of the relationships between samples based on their dissimilarity.
 
 In multi-omics research, PCoA can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing PCoA on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, PCoA can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, PCoA is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2339,12 +2488,16 @@ In multi-omics research, PCoA can be used to analyse and visualise the relations
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{nmds}{%
 \subsection{Non-metric Multidimensional Scaling (NMDS)}\label{nmds}}
 
 Non-metric Multidimensional Scaling (NMDS) is a multivariate analysis technique used to visualize and explore the patterns of variation in multivariate data. It is similar to Principal Coordinate Analysis (PCoA) but is more flexible in that it can handle non-linear relationships between variables. NMDS transforms a distance matrix into a set of coordinates that can be plotted in two or three dimensions, allowing for visualisation of the relationships between samples based on their dissimilarity. Unlike PCoA, NMDS does not assume a linear relationship between the distance matrix and the coordinates, making it a more powerful tool for analysing complex and non-linear relationships in multivariate data.
 
 In multi-omics research, NMDS can be used to analyse and visualise the relationships between samples based on their similarity or dissimilarity in multiple omics data types, such as gene expression, metabolomics, or proteomics. By performing NMDS on these data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, NMDS can be used to identify groups or clusters of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, NMDS is a powerful tool for exploring and visualising the complex relationships between multiple omics data types in multi-omics research, particularly when the relationships between variables are non-linear.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2364,12 +2517,16 @@ In multi-omics research, NMDS can be used to analyse and visualise the relations
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{t-sne}{%
 \subsection{t-Distributed Stochastic Neighbour Embedding (t-SNE)}\label{t-sne}}
 
 t-Distributed Stochastic Neighbor Embedding (t-SNE) is a nonlinear dimensionality reduction technique used to visualise high-dimensional data in a low-dimensional space. t-SNE is particularly useful when exploring complex and nonlinear relationships between variables, and can be applied to various types of data including gene expression, proteomics, and metabolomics data. t-SNE works by first constructing a probability distribution over pairs of high-dimensional objects, such as genes or proteins, and then constructing a similar probability distribution over pairs of low-dimensional points. The technique then optimizes these probability distributions to minimise the divergence between them, resulting in a low-dimensional representation of the high-dimensional data.
 
 In multi-omics research, t-SNE can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing t-SNE on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, t-SNE can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, t-SNE is a powerful tool for visualising high-dimensional data in a low-dimensional space, allowing researchers to explore and analyse complex relationships in multi-omics research.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2388,12 +2545,16 @@ In multi-omics research, t-SNE can be used to analyse and visualise the relation
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{umap}{%
 \subsection{Uniform manifold approximation and projection (UMAP)}\label{umap}}
 
 Uniform Manifold Approximation and Projection (UMAP) is a non-linear dimension reduction technique used to visualise high-dimensional data in a low-dimensional space. It is similar to t-Distributed Stochastic Neighbour Embedding (t-SNE) but is faster and more scalable, making it useful for larger datasets. UMAP works by constructing a fuzzy topological representation of the high-dimensional data and then optimising a low-dimensional representation that preserves the structure of this topological representation. This results in a low-dimensional representation of the high-dimensional data that preserves complex relationships between variables.
 
 In multi-omics research, UMAP can be used to analyse and visualise the relationships between samples based on their omics profiles. By performing UMAP on multiple omics data types separately and then comparing the results, researchers can gain insight into how different omics layers contribute to the overall variation between samples. Additionally, UMAP can be used to identify clusters or groups of samples with similar omics profiles, which can provide insight into underlying biological processes or disease states. Overall, UMAP is a powerful tool for visualising high-dimensional data, particularly for large and complex datasets.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2411,6 +2572,8 @@ In multi-omics research, UMAP can be used to analyse and visualise the relations
 \FunctionTok{plot}\NormalTok{(umap\_result}\SpecialCharTok{$}\NormalTok{layout, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"UMAP1"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"UMAP2"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{supervised-analysis}{%
 \chapter{Supervised analysis}\label{supervised-analysis}}
@@ -2430,6 +2593,8 @@ Regression methods aim to model the relationship between the quantitative metric
 \subsection{PERMANOVA}\label{permanova}}
 
 PERMANOVA is a statistical method that tests for significant differences between groups in multivariate data by comparing the distribution of distance-based similarity matrices. This method can be used to identify biomarkers that differ significantly between groups, such as disease states or treatment groups, and determine whether there are significant differences in the overall pattern of gene expression, methylation, or other omic features between the groups.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2453,10 +2618,14 @@ PERMANOVA is a statistical method that tests for significant differences between
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{anosim}{%
 \subsection{ANOSIM}\label{anosim}}
 
 ANOSIM is a nonparametric statistical method that tests for significant differences in similarity between two or more groups of samples based on dissimilarity matrices. It is used to compare the dissimilarity between groups of samples based on their gene expression, metabolomics, or other omic data. The aim of ANOSIM is to determine if the differences in omic profiles between groups are significant and can be used to distinguish between groups.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2479,10 +2648,14 @@ ANOSIM is a nonparametric statistical method that tests for significant differen
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{redundancy-analysis}{%
 \subsection{Redundancy analysis (RDA)}\label{redundancy-analysis}}
 
-Redundancy Analysis (RDA) is a multivariate statistical technique that identifies the linear relationships between a response variable and a set of explanatory variables. It is an extension of Principal Component Analysis (PCA) that can handle both continuous and categorical variables. RDA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.
+Redundancy Analysis (RDA) is a multivariate statistical technique that identifies the linear relationships between a response variable and a set of explanatory variables. It is an extension of Principal Component Analysis (PCA) that can handle both continuous and categorical variables. RDA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualise the relationship between the explanatory and response variables.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2505,10 +2678,14 @@ Redundancy Analysis (RDA) is a multivariate statistical technique that identifie
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{canonical-correspondence-analysis}{%
 \subsection{Canonical Correspondence Analysis (CCA)}\label{canonical-correspondence-analysis}}
 
-Canonical Correspondence Analysis (CCA) is a multivariate statistical technique that explores the relationship between a set of explanatory variables and a set of response variables. It is an extension of Correspondence Analysis (CA) that can handle both continuous and categorical variables. CCA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.
+Canonical Correspondence Analysis (CCA) is a multivariate statistical technique that explores the relationship between a set of explanatory variables and a set of response variables. It is an extension of Correspondence Analysis (CA) that can handle both continuous and categorical variables. CCA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualise the relationship between the explanatory and response variables.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2531,6 +2708,8 @@ Canonical Correspondence Analysis (CCA) is a multivariate statistical technique 
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{generalised-linear-modelling}{%
 \subsection{Generalised linear modelling (GLM)}\label{generalised-linear-modelling}}
 
@@ -2539,6 +2718,8 @@ Generalised linear modelling (GLM) is a statistical framework that allows for th
 The first step in using GLM for supervised analysis of omic data is to select the appropriate distribution for the response variable. For example, if the response variable is binary (e.g., healthy vs.~diseased), then a binomial distribution can be used. If the response variable is a count (e.g., the number of mutations), then a Poisson or negative binomial distribution can be used. If the response variable is continuous (e.g., expression levels), then a Gaussian distribution can be used. Once the appropriate distribution is selected, a GLM can be constructed by specifying a linear relationship between the response variable and the omic data, using one or more explanatory variables. The explanatory variables can be selected based on prior knowledge or through a variable selection process, such as forward or backward selection. The GLM model can then be fit to the data using maximum likelihood estimation or other methods. After fitting the GLM model, the significance of each explanatory variable can be assessed using hypothesis testing, such as Wald tests or likelihood ratio tests. The explanatory variables that are found to be significant can then be interpreted as predictors of the response variable.
 
 Overall, GLM can be a useful tool for supervised analysis of single omic layers because it allows for the identification of specific predictors of a response variable, such as disease status, and can handle a wide range of response variable distributions. However, it is important to carefully select the appropriate distribution and explanatory variables to ensure the validity and accuracy of the model.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2572,6 +2753,8 @@ Overall, GLM can be a useful tool for supervised analysis of single omic layers 
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{generalised-linear-mixed-modelling}{%
 \subsection{Generalised linear mixed modelling (GLMM)}\label{generalised-linear-mixed-modelling}}
 
@@ -2588,6 +2771,8 @@ where beta are the fixed effects coefficients, b are the random effects coeffici
 GLMMs are fitted using maximum likelihood estimation, which involves optimising the likelihood function with respect to the fixed and random effects coefficients, as well as the covariance matrix of the random effects. The likelihood function takes into account the correlation structure of the data and is typically evaluated using numerical methods such as the Laplace approximation or Monte Carlo Markov Chain (MCMC) methods.
 
 GLMMs can be used for a wide range of applications in omics data analysis, including the analysis of longitudinal or repeated measures data, the integration of multiple omics data layers, the analysis of data with non-independent errors, and the modelling of gene-environment interactions. However, GLMMs can be computationally intensive and require careful consideration of the correlation structure of the data and the appropriate choice of link function and distribution.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2622,6 +2807,8 @@ GLMMs can be used for a wide range of applications in omics data analysis, inclu
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{classification-methods}{%
 \section{Classification methods}\label{classification-methods}}
 
@@ -2631,6 +2818,8 @@ Classification methods aim to learn a model that can predict the class labels of
 \subsection{Random Forests (RF)}\label{random-forests}}
 
 Random forests are an ensemble of decision trees that are trained on bootstrapped samples of the data and a random subset of the features, to reduce overfitting and improve accuracy.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2655,10 +2844,14 @@ Random forests are an ensemble of decision trees that are trained on bootstrappe
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{support-vector-machines}{%
 \subsection{Support Vector Machines (SVM)}\label{support-vector-machines}}
 
 Support vector machines (SVMs) aim to find a hyperplane that maximally separates the samples belonging to different classes in the feature space, and can handle both linear and nonlinear relationships between the features and the response variable.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2682,6 +2875,8 @@ Support vector machines (SVMs) aim to find a hyperplane that maximally separates
 \FunctionTok{confusionMatrix}\NormalTok{(predictions, testData}\SpecialCharTok{$}\NormalTok{class)}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{multi-omic-integration}{%
 \chapter{Multi-omic integration}\label{multi-omic-integration}}
