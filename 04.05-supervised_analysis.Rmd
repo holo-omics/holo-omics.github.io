@@ -1,75 +1,241 @@
 # Supervised analysis
 
-The difference between supervised and unsupervised analyses in omic studies lies in the incorporation of experimental design information. Supervised analyses can be divided into two types: regression and classification. Regression problems involve predicting a numeric variable or matrix based on the omic data and experimental factors, such as treatment or subject characteristics. Classification problems, on the other hand, involve classifying observations into groups based on their features across different omic layers. Unlike unsupervised methods, supervised analyses incorporate prior information about the experimental design, making them useful for testing the effects of experimental factors and associating omic data with phenotypic features.
+The difference between supervised and unsupervised analyses in omic studies lies in the incorporation of experimental design information. Unlike unsupervised methods, supervised analyses incorporate prior information about the experimental design, making them useful for testing the effects of experimental factors and associating omic data with phenotypic features. Supervised analyses can be divided into two types: regression and classification.
+
+**[Regression problems](#regression-methods)** involve predicting a numeric variable or matrix based on the omic data and experimental factors, such as treatment or subject characteristics.
+
+**[Classification problems](#classification-methods)** involve classifying observations into groups based on their features across different omic layers.
 
 ## Regression methods {#regression-methods}
 
-Independently testing the effects of the experimental factors of interest on different omic layers can be very informative to get an overall picture of how the host and the microbiome are responding to the environment and/or the experimental treatment.
+Regression methods aim to model the relationship between the quantitative metrics of the omic features and the response variable. Regression methods are commonly used in supervised analysis of omic data to identify associations between the expression levels of different genes, metabolites, or other features and a particular outcome or response variable, such as a disease state or an experimental treatment.
 
 ### PERMANOVA {#permanova}
 
-Content to be added here.
+PERMANOVA is a statistical method that tests for significant differences between groups in multivariate data by comparing the distribution of distance-based similarity matrices. This method can be used to identify biomarkers that differ significantly between groups, such as disease states or treatment groups, and determine whether there are significant differences in the overall pattern of gene expression, methylation, or other omic features between the groups.
 
-```
-#Example code goes here
+```{r eval=FALSE}
+library(vegan)
+
+# simulate gene expression data with 100 samples and 1000 genes
+set.seed(123)
+exprs <- matrix(rnorm(100*1000), nrow = 100, ncol = 1000)
+
+# create a grouping variable with 2 groups
+group <- rep(c("control", "treatment"), each = 50)
+
+# calculate Euclidean distance matrix from gene expression data
+dist_matrix <- vegdist(t(exprs), method = "euclidean")
+
+# perform PERMANOVA analysis
+permanova_results <- adonis(dist_matrix ~ group)
+
+# view PERMANOVA results
+permanova_results
 ```
 
 ### ANOSIM {#anosim}
 
-Content to be added here.
+ANOSIM is a nonparametric statistical method that tests for significant differences in similarity between two or more groups of samples based on dissimilarity matrices. It is used to compare the dissimilarity between groups of samples based on their gene expression, metabolomics, or other omic data. The aim of ANOSIM is to determine if the differences in omic profiles between groups are significant and can be used to distinguish between groups.
 
-```
-#Example code goes here
+```{r eval=FALSE}
+library(vegan)
+
+# Load gene expression data
+data <- read.csv("gene_expression_data.csv", row.names = 1)
+
+# Define grouping variable
+group <- c(rep("Group 1", 5), rep("Group 2", 5))
+
+# Calculate dissimilarity matrix
+dissimilarity <- vegdist(data)
+
+# Perform ANOSIM
+result <- anosim(dissimilarity, group)
+
+# View ANOSIM results
+result
 ```
 
 ### Redundancy analysis (RDA) {#redundancy-analysis}
 
-Content to be added here.
+Redundancy Analysis (RDA) is a multivariate statistical technique that identifies the linear relationships between a response variable and a set of explanatory variables. It is an extension of Principal Component Analysis (PCA) that can handle both continuous and categorical variables. RDA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.
 
-```
-#Example code goes here
+```{r eval=FALSE}
+library(vegan)
+
+# Load gene expression data
+data <- read.csv("gene_expression_data.csv", row.names = 1)
+
+# Load disease state data
+disease <- read.csv("disease_state.csv", row.names = 1)
+
+# Perform RDA
+result <- rda(data, disease)
+
+# View RDA results
+result
+
+# Plot RDA biplot
+plot(result, display = "biplot")
 ```
 
 ### Canonical Correspondence Analysis (CCA) {#canonical-correspondence-analysis}
 
-Content to be added here.
+Canonical Correspondence Analysis (CCA) is a multivariate statistical technique that explores the relationship between a set of explanatory variables and a set of response variables. It is an extension of Correspondence Analysis (CA) that can handle both continuous and categorical variables. CCA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.
 
-```
-#Example code goes here
+```{r eval=FALSE}
+library(vegan)
+
+# Load gene expression data
+data <- read.csv("gene_expression_data.csv", row.names = 1)
+
+# Load disease state data
+disease <- read.csv("disease_state.csv", row.names = 1)
+
+# Perform CCA
+result <- cca(data, disease)
+
+# View CCA results
+result
+
+# Plot CCA biplot
+plot(result, display = "biplot")
 ```
 
 ### Generalised linear modelling (GLM) {#generalised-linear-modelling}
 
-Content to be added here.
+Generalised linear modelling (GLM) is a statistical framework that allows for the analysis of a wide range of response variables, including binary, count, and continuous data. In the context of supervised analysis of single omic layers, GLM can be used to identify associations between a specific response variable, such as disease status, and the omic data, such as gene expression or metabolite levels.
 
-```
-#Example code goes here
+The first step in using GLM for supervised analysis of omic data is to select the appropriate distribution for the response variable. For example, if the response variable is binary (e.g., healthy vs. diseased), then a binomial distribution can be used. If the response variable is a count (e.g., the number of mutations), then a Poisson or negative binomial distribution can be used. If the response variable is continuous (e.g., expression levels), then a Gaussian distribution can be used. Once the appropriate distribution is selected, a GLM can be constructed by specifying a linear relationship between the response variable and the omic data, using one or more explanatory variables. The explanatory variables can be selected based on prior knowledge or through a variable selection process, such as forward or backward selection. The GLM model can then be fit to the data using maximum likelihood estimation or other methods. After fitting the GLM model, the significance of each explanatory variable can be assessed using hypothesis testing, such as Wald tests or likelihood ratio tests. The explanatory variables that are found to be significant can then be interpreted as predictors of the response variable.
+
+Overall, GLM can be a useful tool for supervised analysis of single omic layers because it allows for the identification of specific predictors of a response variable, such as disease status, and can handle a wide range of response variable distributions. However, it is important to carefully select the appropriate distribution and explanatory variables to ensure the validity and accuracy of the model.
+
+```{r eval=FALSE}
+# Load required packages
+library(edgeR)   # for differential expression analysis
+library(glmnet)  # for regularization and variable selection
+
+# Load example data
+data <- read.table("example_omic_data.txt", header=TRUE, sep="\t")
+
+# Define the response variable
+response <- factor(data$disease_status)
+
+# Define the explanatory variables
+explanatory <- as.matrix(data[,2:ncol(data)])  # omic data
+
+# Perform differential expression analysis to identify significant variables
+dge <- DGEList(counts=explanatory, group=response)
+dge <- calcNormFactors(dge)
+design <- model.matrix(~response)
+fit <- glmQLFit(dge, design)
+qlf <- glmQLFTest(fit, coef=2)
+significant_vars <- topTags(qlf, n=100)$table$ID  # select top 100 significant variables
+
+# Fit a GLM model with regularization and variable selection
+fit.glm <- cv.glmnet(x=explanatory[,significant_vars], y=response, family="binomial")
+plot(fit.glm)
+
+# Identify the most important variables
+coef(fit.glm, s=fit.glm$lambda.min)
 ```
 
 ### Generalised linear mixed modelling (GLMM) {#generalised-linear-mixed-modelling}
 
-Content to be added here.
+Generalised linear mixed models (GLMMs) are an extension of GLMs that allow for the analysis of data with non-independent errors, such as clustered or longitudinal data. GLMMs incorporate random effects, which account for the correlation between observations within groups or over time, and fixed effects, which represent the relationships between the response and explanatory variables. GLMMs are widely used in omics data analysis, particularly for the analysis of longitudinal or repeated measures data, and for the integration of multiple omics data layers.
 
+In GLMMs, the response variable y is related to the explanatory variables x through a link function g and a linear predictor:
 ```
-#Example code goes here
+g(E[y | x]) = x * beta + Z * b
+```
+where beta are the fixed effects coefficients, b are the random effects coefficients, Z is the design matrix for the random effects, and E[y | x] is the expected value of the response variable given the explanatory variables x. The random effects account for the correlation between observations within groups or over time, and are assumed to be normally distributed with mean 0 and covariance matrix D. The link function g specifies the relationship between the expected value of the response variable and the linear predictor. The choice of link function depends on the nature of the response variable and can be any member of the exponential family of distributions.
+
+GLMMs are fitted using maximum likelihood estimation, which involves optimising the likelihood function with respect to the fixed and random effects coefficients, as well as the covariance matrix of the random effects. The likelihood function takes into account the correlation structure of the data and is typically evaluated using numerical methods such as the Laplace approximation or Monte Carlo Markov Chain (MCMC) methods.
+
+GLMMs can be used for a wide range of applications in omics data analysis, including the analysis of longitudinal or repeated measures data, the integration of multiple omics data layers, the analysis of data with non-independent errors, and the modelling of gene-environment interactions. However, GLMMs can be computationally intensive and require careful consideration of the correlation structure of the data and the appropriate choice of link function and distribution.
+
+```{r eval=FALSE}
+# Load the lme4 package
+library(lme4)
+
+# Load example data
+data <- read.table("example_omic_data.txt", header=TRUE, sep="\t")
+
+# Convert the Treatment treatment to a factor
+data$Treatment <- as.factor(data$Treatment)
+
+# Split the data into training and testing sets
+set.seed(123)
+train_indices <- sample(nrow(data), 0.7*nrow(data))
+train_data <- data[train_indices,]
+test_data <- data[-train_indices,]
+
+# Fit a GLMM with random intercept and slope
+model <- glmer(Treatment ~ . + (1 | Sepal.Length), data = train_data, family = binomial)
+
+# Predict on the test data
+test_data$predicted <- predict(model, newdata = test_data, type = "response")
+
+# Calculate the accuracy of the predictions
+accuracy <- sum(test_data$predicted > 0.5 & test_data$Treatment == "versicolor" |
+                  test_data$predicted <= 0.5 & test_data$Treatment == "setosa" |
+                  test_data$Treatment == "virginica") / nrow(test_data)
+
+# Print the accuracy
+cat(sprintf("Accuracy: %.2f%%\n", accuracy*100))
 ```
 
 ## Classification methods {#classification-methods}
 
-It is in classification problems where ML algorithms have proven most useful.
+Classification methods aim to learn a model that can predict the class labels of new samples based on their omic profiles. Classification methods are commonly used in supervised analysis of omic data to classify samples into different categories based on their expression levels of genes, metabolites, or other features. Overall, classification methods aim to learn a model that can accurately predict the class labels of new samples based on their omic profiles, and can be useful for identifying biomarkers that are predictive of disease or treatment response.
 
 ### Random Forests (RF) {#random-forests}
 
-Content to be added here.
+Random forests are an ensemble of decision trees that are trained on bootstrapped samples of the data and a random subset of the features, to reduce overfitting and improve accuracy.
 
-```
-#Example code goes here
+```{r eval=FALSE}
+library(randomForest)
+
+# Load the dataset
+data <- read.csv("mydata.csv")
+
+# Split the data into training and test sets
+trainIndex <- sample(1:nrow(data), 0.7*nrow(data))
+trainData <- data[trainIndex, ]
+testData <- data[-trainIndex, ]
+
+# Train the random forest classifier
+rf <- randomForest(class ~ ., data=trainData, ntree=500, importance=TRUE)
+
+# Make predictions on the test data
+predictions <- predict(rf, testData)
+
+# Evaluate the performance of the classifier
+confusionMatrix(predictions, testData$class)
 ```
 
 ### Support Vector Machines (SVM) {#support-vector-machines}
 
-Content to be added here.
+Support vector machines (SVMs) aim to find a hyperplane that maximally separates the samples belonging to different classes in the feature space, and can handle both linear and nonlinear relationships between the features and the response variable.
 
-```
-#Example code goes here
+```{r eval=FALSE}
+library(e1071)
+
+# Load the dataset
+data <- read.csv("mydata.csv")
+
+# Split the data into training and test sets
+trainIndex <- sample(1:nrow(data), 0.7*nrow(data))
+trainData <- data[trainIndex, ]
+testData <- data[-trainIndex, ]
+
+# Train the SVM classifier
+svm <- svm(class ~ ., data=trainData, kernel="radial", cost=1)
+
+# Make predictions on the test data
+predictions <- predict(svm, testData)
+
+# Evaluate the performance of the classifier
+confusionMatrix(predictions, testData$class)
 ```

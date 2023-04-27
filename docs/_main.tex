@@ -2415,89 +2415,273 @@ In multi-omics research, UMAP can be used to analyse and visualise the relations
 \hypertarget{supervised-analysis}{%
 \chapter{Supervised analysis}\label{supervised-analysis}}
 
-The difference between supervised and unsupervised analyses in omic studies lies in the incorporation of experimental design information. Supervised analyses can be divided into two types: regression and classification. Regression problems involve predicting a numeric variable or matrix based on the omic data and experimental factors, such as treatment or subject characteristics. Classification problems, on the other hand, involve classifying observations into groups based on their features across different omic layers. Unlike unsupervised methods, supervised analyses incorporate prior information about the experimental design, making them useful for testing the effects of experimental factors and associating omic data with phenotypic features.
+The difference between supervised and unsupervised analyses in omic studies lies in the incorporation of experimental design information. Unlike unsupervised methods, supervised analyses incorporate prior information about the experimental design, making them useful for testing the effects of experimental factors and associating omic data with phenotypic features. Supervised analyses can be divided into two types: regression and classification.
+
+\textbf{\protect\hyperlink{regression-methods}{Regression problems}} involve predicting a numeric variable or matrix based on the omic data and experimental factors, such as treatment or subject characteristics.
+
+\textbf{\protect\hyperlink{classification-methods}{Classification problems}} involve classifying observations into groups based on their features across different omic layers.
 
 \hypertarget{regression-methods}{%
 \section{Regression methods}\label{regression-methods}}
 
-Independently testing the effects of the experimental factors of interest on different omic layers can be very informative to get an overall picture of how the host and the microbiome are responding to the environment and/or the experimental treatment.
+Regression methods aim to model the relationship between the quantitative metrics of the omic features and the response variable. Regression methods are commonly used in supervised analysis of omic data to identify associations between the expression levels of different genes, metabolites, or other features and a particular outcome or response variable, such as a disease state or an experimental treatment.
 
 \hypertarget{permanova}{%
 \subsection{PERMANOVA}\label{permanova}}
 
-Content to be added here.
+PERMANOVA is a statistical method that tests for significant differences between groups in multivariate data by comparing the distribution of distance-based similarity matrices. This method can be used to identify biomarkers that differ significantly between groups, such as disease states or treatment groups, and determine whether there are significant differences in the overall pattern of gene expression, methylation, or other omic features between the groups.
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vegan)}
+
+\CommentTok{\# simulate gene expression data with 100 samples and 1000 genes}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{exprs }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\SpecialCharTok{*}\DecValTok{1000}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{100}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{\# create a grouping variable with 2 groups}
+\NormalTok{group }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"control"}\NormalTok{, }\StringTok{"treatment"}\NormalTok{), }\AttributeTok{each =} \DecValTok{50}\NormalTok{)}
+
+\CommentTok{\# calculate Euclidean distance matrix from gene expression data}
+\NormalTok{dist\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(}\FunctionTok{t}\NormalTok{(exprs), }\AttributeTok{method =} \StringTok{"euclidean"}\NormalTok{)}
+
+\CommentTok{\# perform PERMANOVA analysis}
+\NormalTok{permanova\_results }\OtherTok{\textless{}{-}} \FunctionTok{adonis}\NormalTok{(dist\_matrix }\SpecialCharTok{\textasciitilde{}}\NormalTok{ group)}
+
+\CommentTok{\# view PERMANOVA results}
+\NormalTok{permanova\_results}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{anosim}{%
 \subsection{ANOSIM}\label{anosim}}
 
-Content to be added here.
+ANOSIM is a nonparametric statistical method that tests for significant differences in similarity between two or more groups of samples based on dissimilarity matrices. It is used to compare the dissimilarity between groups of samples based on their gene expression, metabolomics, or other omic data. The aim of ANOSIM is to determine if the differences in omic profiles between groups are significant and can be used to distinguish between groups.
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vegan)}
+
+\CommentTok{\# Load gene expression data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"gene\_expression\_data.csv"}\NormalTok{, }\AttributeTok{row.names =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Define grouping variable}
+\NormalTok{group }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"Group 1"}\NormalTok{, }\DecValTok{5}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\StringTok{"Group 2"}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+
+\CommentTok{\# Calculate dissimilarity matrix}
+\NormalTok{dissimilarity }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(data)}
+
+\CommentTok{\# Perform ANOSIM}
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{anosim}\NormalTok{(dissimilarity, group)}
+
+\CommentTok{\# View ANOSIM results}
+\NormalTok{result}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{redundancy-analysis}{%
 \subsection{Redundancy analysis (RDA)}\label{redundancy-analysis}}
 
-Content to be added here.
+Redundancy Analysis (RDA) is a multivariate statistical technique that identifies the linear relationships between a response variable and a set of explanatory variables. It is an extension of Principal Component Analysis (PCA) that can handle both continuous and categorical variables. RDA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vegan)}
+
+\CommentTok{\# Load gene expression data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"gene\_expression\_data.csv"}\NormalTok{, }\AttributeTok{row.names =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Load disease state data}
+\NormalTok{disease }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"disease\_state.csv"}\NormalTok{, }\AttributeTok{row.names =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Perform RDA}
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{rda}\NormalTok{(data, disease)}
+
+\CommentTok{\# View RDA results}
+\NormalTok{result}
+
+\CommentTok{\# Plot RDA biplot}
+\FunctionTok{plot}\NormalTok{(result, }\AttributeTok{display =} \StringTok{"biplot"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{canonical-correspondence-analysis}{%
 \subsection{Canonical Correspondence Analysis (CCA)}\label{canonical-correspondence-analysis}}
 
-Content to be added here.
+Canonical Correspondence Analysis (CCA) is a multivariate statistical technique that explores the relationship between a set of explanatory variables and a set of response variables. It is an extension of Correspondence Analysis (CA) that can handle both continuous and categorical variables. CCA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vegan)}
+
+\CommentTok{\# Load gene expression data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"gene\_expression\_data.csv"}\NormalTok{, }\AttributeTok{row.names =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Load disease state data}
+\NormalTok{disease }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"disease\_state.csv"}\NormalTok{, }\AttributeTok{row.names =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Perform CCA}
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{cca}\NormalTok{(data, disease)}
+
+\CommentTok{\# View CCA results}
+\NormalTok{result}
+
+\CommentTok{\# Plot CCA biplot}
+\FunctionTok{plot}\NormalTok{(result, }\AttributeTok{display =} \StringTok{"biplot"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{generalised-linear-modelling}{%
 \subsection{Generalised linear modelling (GLM)}\label{generalised-linear-modelling}}
 
-Content to be added here.
+Generalised linear modelling (GLM) is a statistical framework that allows for the analysis of a wide range of response variables, including binary, count, and continuous data. In the context of supervised analysis of single omic layers, GLM can be used to identify associations between a specific response variable, such as disease status, and the omic data, such as gene expression or metabolite levels.
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+The first step in using GLM for supervised analysis of omic data is to select the appropriate distribution for the response variable. For example, if the response variable is binary (e.g., healthy vs.~diseased), then a binomial distribution can be used. If the response variable is a count (e.g., the number of mutations), then a Poisson or negative binomial distribution can be used. If the response variable is continuous (e.g., expression levels), then a Gaussian distribution can be used. Once the appropriate distribution is selected, a GLM can be constructed by specifying a linear relationship between the response variable and the omic data, using one or more explanatory variables. The explanatory variables can be selected based on prior knowledge or through a variable selection process, such as forward or backward selection. The GLM model can then be fit to the data using maximum likelihood estimation or other methods. After fitting the GLM model, the significance of each explanatory variable can be assessed using hypothesis testing, such as Wald tests or likelihood ratio tests. The explanatory variables that are found to be significant can then be interpreted as predictors of the response variable.
+
+Overall, GLM can be a useful tool for supervised analysis of single omic layers because it allows for the identification of specific predictors of a response variable, such as disease status, and can handle a wide range of response variable distributions. However, it is important to carefully select the appropriate distribution and explanatory variables to ensure the validity and accuracy of the model.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load required packages}
+\FunctionTok{library}\NormalTok{(edgeR)   }\CommentTok{\# for differential expression analysis}
+\FunctionTok{library}\NormalTok{(glmnet)  }\CommentTok{\# for regularization and variable selection}
+
+\CommentTok{\# Load example data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\StringTok{"example\_omic\_data.txt"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep=}\StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# Define the response variable}
+\NormalTok{response }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{disease\_status)}
+
+\CommentTok{\# Define the explanatory variables}
+\NormalTok{explanatory }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(data[,}\DecValTok{2}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(data)])  }\CommentTok{\# omic data}
+
+\CommentTok{\# Perform differential expression analysis to identify significant variables}
+\NormalTok{dge }\OtherTok{\textless{}{-}} \FunctionTok{DGEList}\NormalTok{(}\AttributeTok{counts=}\NormalTok{explanatory, }\AttributeTok{group=}\NormalTok{response)}
+\NormalTok{dge }\OtherTok{\textless{}{-}} \FunctionTok{calcNormFactors}\NormalTok{(dge)}
+\NormalTok{design }\OtherTok{\textless{}{-}} \FunctionTok{model.matrix}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{response)}
+\NormalTok{fit }\OtherTok{\textless{}{-}} \FunctionTok{glmQLFit}\NormalTok{(dge, design)}
+\NormalTok{qlf }\OtherTok{\textless{}{-}} \FunctionTok{glmQLFTest}\NormalTok{(fit, }\AttributeTok{coef=}\DecValTok{2}\NormalTok{)}
+\NormalTok{significant\_vars }\OtherTok{\textless{}{-}} \FunctionTok{topTags}\NormalTok{(qlf, }\AttributeTok{n=}\DecValTok{100}\NormalTok{)}\SpecialCharTok{$}\NormalTok{table}\SpecialCharTok{$}\NormalTok{ID  }\CommentTok{\# select top 100 significant variables}
+
+\CommentTok{\# Fit a GLM model with regularization and variable selection}
+\NormalTok{fit.glm }\OtherTok{\textless{}{-}} \FunctionTok{cv.glmnet}\NormalTok{(}\AttributeTok{x=}\NormalTok{explanatory[,significant\_vars], }\AttributeTok{y=}\NormalTok{response, }\AttributeTok{family=}\StringTok{"binomial"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(fit.glm)}
+
+\CommentTok{\# Identify the most important variables}
+\FunctionTok{coef}\NormalTok{(fit.glm, }\AttributeTok{s=}\NormalTok{fit.glm}\SpecialCharTok{$}\NormalTok{lambda.min)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{generalised-linear-mixed-modelling}{%
 \subsection{Generalised linear mixed modelling (GLMM)}\label{generalised-linear-mixed-modelling}}
 
-Content to be added here.
+Generalised linear mixed models (GLMMs) are an extension of GLMs that allow for the analysis of data with non-independent errors, such as clustered or longitudinal data. GLMMs incorporate random effects, which account for the correlation between observations within groups or over time, and fixed effects, which represent the relationships between the response and explanatory variables. GLMMs are widely used in omics data analysis, particularly for the analysis of longitudinal or repeated measures data, and for the integration of multiple omics data layers.
+
+In GLMMs, the response variable y is related to the explanatory variables x through a link function g and a linear predictor:
 
 \begin{verbatim}
-#Example code goes here
+g(E[y | x]) = x * beta + Z * b
 \end{verbatim}
+
+where beta are the fixed effects coefficients, b are the random effects coefficients, Z is the design matrix for the random effects, and E{[}y \textbar{} x{]} is the expected value of the response variable given the explanatory variables x. The random effects account for the correlation between observations within groups or over time, and are assumed to be normally distributed with mean 0 and covariance matrix D. The link function g specifies the relationship between the expected value of the response variable and the linear predictor. The choice of link function depends on the nature of the response variable and can be any member of the exponential family of distributions.
+
+GLMMs are fitted using maximum likelihood estimation, which involves optimising the likelihood function with respect to the fixed and random effects coefficients, as well as the covariance matrix of the random effects. The likelihood function takes into account the correlation structure of the data and is typically evaluated using numerical methods such as the Laplace approximation or Monte Carlo Markov Chain (MCMC) methods.
+
+GLMMs can be used for a wide range of applications in omics data analysis, including the analysis of longitudinal or repeated measures data, the integration of multiple omics data layers, the analysis of data with non-independent errors, and the modelling of gene-environment interactions. However, GLMMs can be computationally intensive and require careful consideration of the correlation structure of the data and the appropriate choice of link function and distribution.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load the lme4 package}
+\FunctionTok{library}\NormalTok{(lme4)}
+
+\CommentTok{\# Load example data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\StringTok{"example\_omic\_data.txt"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{sep=}\StringTok{"}\SpecialCharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# Convert the Treatment treatment to a factor}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Treatment }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Treatment)}
+
+\CommentTok{\# Split the data into training and testing sets}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{train\_indices }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(data), }\FloatTok{0.7}\SpecialCharTok{*}\FunctionTok{nrow}\NormalTok{(data))}
+\NormalTok{train\_data }\OtherTok{\textless{}{-}}\NormalTok{ data[train\_indices,]}
+\NormalTok{test\_data }\OtherTok{\textless{}{-}}\NormalTok{ data[}\SpecialCharTok{{-}}\NormalTok{train\_indices,]}
+
+\CommentTok{\# Fit a GLMM with random intercept and slope}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{glmer}\NormalTok{(Treatment }\SpecialCharTok{\textasciitilde{}}\NormalTok{ . }\SpecialCharTok{+}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{|}\NormalTok{ Sepal.Length), }\AttributeTok{data =}\NormalTok{ train\_data, }\AttributeTok{family =}\NormalTok{ binomial)}
+
+\CommentTok{\# Predict on the test data}
+\NormalTok{test\_data}\SpecialCharTok{$}\NormalTok{predicted }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(model, }\AttributeTok{newdata =}\NormalTok{ test\_data, }\AttributeTok{type =} \StringTok{"response"}\NormalTok{)}
+
+\CommentTok{\# Calculate the accuracy of the predictions}
+\NormalTok{accuracy }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(test\_data}\SpecialCharTok{$}\NormalTok{predicted }\SpecialCharTok{\textgreater{}} \FloatTok{0.5} \SpecialCharTok{\&}\NormalTok{ test\_data}\SpecialCharTok{$}\NormalTok{Treatment }\SpecialCharTok{==} \StringTok{"versicolor"} \SpecialCharTok{|}
+\NormalTok{                  test\_data}\SpecialCharTok{$}\NormalTok{predicted }\SpecialCharTok{\textless{}=} \FloatTok{0.5} \SpecialCharTok{\&}\NormalTok{ test\_data}\SpecialCharTok{$}\NormalTok{Treatment }\SpecialCharTok{==} \StringTok{"setosa"} \SpecialCharTok{|}
+\NormalTok{                  test\_data}\SpecialCharTok{$}\NormalTok{Treatment }\SpecialCharTok{==} \StringTok{"virginica"}\NormalTok{) }\SpecialCharTok{/} \FunctionTok{nrow}\NormalTok{(test\_data)}
+
+\CommentTok{\# Print the accuracy}
+\FunctionTok{cat}\NormalTok{(}\FunctionTok{sprintf}\NormalTok{(}\StringTok{"Accuracy: \%.2f\%\%}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, accuracy}\SpecialCharTok{*}\DecValTok{100}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{classification-methods}{%
 \section{Classification methods}\label{classification-methods}}
 
-It is in classification problems where ML algorithms have proven most useful.
+Classification methods aim to learn a model that can predict the class labels of new samples based on their omic profiles. Classification methods are commonly used in supervised analysis of omic data to classify samples into different categories based on their expression levels of genes, metabolites, or other features. Overall, classification methods aim to learn a model that can accurately predict the class labels of new samples based on their omic profiles, and can be useful for identifying biomarkers that are predictive of disease or treatment response.
 
 \hypertarget{random-forests}{%
 \subsection{Random Forests (RF)}\label{random-forests}}
 
-Content to be added here.
+Random forests are an ensemble of decision trees that are trained on bootstrapped samples of the data and a random subset of the features, to reduce overfitting and improve accuracy.
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(randomForest)}
+
+\CommentTok{\# Load the dataset}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"mydata.csv"}\NormalTok{)}
+
+\CommentTok{\# Split the data into training and test sets}
+\NormalTok{trainIndex }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(data), }\FloatTok{0.7}\SpecialCharTok{*}\FunctionTok{nrow}\NormalTok{(data))}
+\NormalTok{trainData }\OtherTok{\textless{}{-}}\NormalTok{ data[trainIndex, ]}
+\NormalTok{testData }\OtherTok{\textless{}{-}}\NormalTok{ data[}\SpecialCharTok{{-}}\NormalTok{trainIndex, ]}
+
+\CommentTok{\# Train the random forest classifier}
+\NormalTok{rf }\OtherTok{\textless{}{-}} \FunctionTok{randomForest}\NormalTok{(class }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{trainData, }\AttributeTok{ntree=}\DecValTok{500}\NormalTok{, }\AttributeTok{importance=}\ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Make predictions on the test data}
+\NormalTok{predictions }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(rf, testData)}
+
+\CommentTok{\# Evaluate the performance of the classifier}
+\FunctionTok{confusionMatrix}\NormalTok{(predictions, testData}\SpecialCharTok{$}\NormalTok{class)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{support-vector-machines}{%
 \subsection{Support Vector Machines (SVM)}\label{support-vector-machines}}
 
-Content to be added here.
+Support vector machines (SVMs) aim to find a hyperplane that maximally separates the samples belonging to different classes in the feature space, and can handle both linear and nonlinear relationships between the features and the response variable.
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(e1071)}
+
+\CommentTok{\# Load the dataset}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"mydata.csv"}\NormalTok{)}
+
+\CommentTok{\# Split the data into training and test sets}
+\NormalTok{trainIndex }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(data), }\FloatTok{0.7}\SpecialCharTok{*}\FunctionTok{nrow}\NormalTok{(data))}
+\NormalTok{trainData }\OtherTok{\textless{}{-}}\NormalTok{ data[trainIndex, ]}
+\NormalTok{testData }\OtherTok{\textless{}{-}}\NormalTok{ data[}\SpecialCharTok{{-}}\NormalTok{trainIndex, ]}
+
+\CommentTok{\# Train the SVM classifier}
+\NormalTok{svm }\OtherTok{\textless{}{-}} \FunctionTok{svm}\NormalTok{(class }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{trainData, }\AttributeTok{kernel=}\StringTok{"radial"}\NormalTok{, }\AttributeTok{cost=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Make predictions on the test data}
+\NormalTok{predictions }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(svm, testData)}
+
+\CommentTok{\# Evaluate the performance of the classifier}
+\FunctionTok{confusionMatrix}\NormalTok{(predictions, testData}\SpecialCharTok{$}\NormalTok{class)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{multi-omic-integration}{%
 \chapter{Multi-omic integration}\label{multi-omic-integration}}
@@ -2526,16 +2710,24 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 
 In meta-dimensional analysis all omic datasets are analysed in a single, simultaneous analysis. This kind of approach typically avoids using domain knowledge-based procedures to independently reduce features in single omic datasets, and aims at integrating multi-omic datasets in their whole complexity. Meta-dimensional integration methods can be grouped following several criteria but here we briefly summarise the classification first coined by Ritchie et al.~(2015) \citep{Ritchie2015-qe} and recently reviewed by Reel et al.~(2021) \citep{Reel2021-wb} (we refer interested readers to those publications for a more in depth treatment of the topic), which classifies the methods into concatenation-based, model-based and transformation-based integration methods. The three kinds of integration methods can be used for unsupervised and supervised analysis of multi-omic data, including classification and regression tasks.
 
-\protect\hyperlink{multi-staged-omics-integration-concatenation-based}{Concatenation-based integration}
-\protect\hyperlink{multi-staged-omics-integration-transformation-based}{Transformation-based integration}
-\protect\hyperlink{multi-staged-omics-integration-model-based}{Model-based integration}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\protect\hyperlink{multi-staged-omics-integration-concatenation-based}{Concatenation-based integration}}
+\item
+  \textbf{\protect\hyperlink{multi-staged-omics-integration-transformation-based}{Transformation-based integration}}
+\item
+  \textbf{\protect\hyperlink{multi-staged-omics-integration-model-based}{Model-based integration}}
+\end{itemize}
 
 Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñaki Odriozola} and \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
 \hypertarget{multi-staged-omics-integration-concatenation-based}{%
 \section{Concatenation-based integration}\label{multi-staged-omics-integration-concatenation-based}}
 
-Concatenation-based integration combines multiple omic datasets, raw or pre-processed, into a single large matrix. One of the advantages of these approaches is their simplicity, since once the concatenation of multi-omic datasets is achieved, unsupervised and supervised analysis methods can be applied to the joint matrix, as in the case of the independent analysis of omic layers. One of the main challenges of concatenation-based approaches is to ensure that the features of the different omic layers are comparable.
+Concatenation-based integration combines multiple omic datasets, raw or pre-processed, into a single large matrix. One of the advantages of these approaches is their simplicity, since once the concatenation of multi-omic datasets is achieved, unsupervised and supervised analysis methods can be applied to the joint matrix, as in the case of the independent analysis of omic layers. Concatenation-based techniques offer a straightforward approach to utilising machine learning for the examination of both continuous and categorical data. Once the individual omics are concatenated, these methods can analyse all the combined features in an even-handed manner and pinpoint the most distinguishing features associated with a given phenotype. One of the main challenges of concatenation-based approaches is to ensure that the features of the different omic layers are comparable.
+
+Several examples of unsupervised concatenation-based methods for multi-omic integration have been developed in recent years, most of them based on matrix-factorisation \citep{Reel2021-wb}. Joint non-negative matrix factorisation (Joint NMF) allowed integrating non-negative multi-omic data by decomposing the joint matrix into factors and loadings \citep{Zhang2021-sn}. Joint and Individual Variation Explained (JIVE) is an adaptation of NMF framework \citep{Lock2013-rq} which was later improved by Joint Bayes Factor (JBF) to handle the problems derived from the high sparsity of multi-omic datasets \citep{Ray2014-mn}. iCluster framework is based in similar principles to NMF but allows integration of datasets having negative values \citep{Shen2009-xr}. MoCluster \citep{Meng2016-hv}, RLAcluster \citep{Wu2015-qf} and iClusterBayes \citep{Mo2018-ty} have further developed the framework and improved it in terms of diversity of handled data types, computation speed and clustering accuracy. Multi-Omics Factor Analysis (MOFA) is another recent development that allows discovering the principal sources of variability across different omic datasets \citep{Argelaguet2018-dl}. Regarding supervised analyses, any of the algorithms for supervised analysis of single omic layers can be used to analyse concatenated multi omic data. RF \citep{Acharjee2016-uc}, SVM \citep{Li2017-qk}, LASSO regression \citep{Lee2017-bv} or DL \citep{Zhang2018-ty} algorithms have been used, among others, for concatenation-based supervised analysis in multi-omic literature.
 
 Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñaki Odriozola} and \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
@@ -2546,8 +2738,6 @@ In transformation-based integration, omic datasets are first transformed into an
 
 There are several methods available for transformation-based unsupervised analysis. Regularised Multiple Kernel Learning for Locality Preserving Projections (rMKL-LPP) \citep{Speicher2015-sv} and PAMOGK \citep{Tepeli2021-as} are examples of kernel- and graph-based methods that can be used for clustering. Meta-analytic SVM (Meta-SVM) \citep{Kim2017-ao} and NEighborhood based Multi-Omics clustering (NEMO) \citep{Rappoport2019-zn} are other methods available for transformation-based unsupervised analysis. Most of the methods for transformation-based supervised analysis are kernel- or graph-based algorithms \citep[\citet{Yan2017-xh}]{Reel2021-wb}. The kernel-based integration approaches include Semi-Definite Programming SVM (SDP-SVM) \citep{Lanckriet2004-kw}, Multiple Kernel Learning with Feature Selection (FSMKL) \citep{Seoane2014-as}, Relevance Vector Machine (RVM) \citep{Tipping2001-tj} and Ada-boost RVM \citep{Wu2010-jd}. The graph-based integration approaches include graph-based semi-supervised learning (included in supervised analyses following Reel et al.~2021 \citep{Reel2021-wb}) \citep{Kim2015-kx}, graph sharpening \citep{Shin2010-rj} and composite network \citep{Mostafavi2010-aa}. Graph-based analyses have the advantage of easier interpretability and lower computational requirements whereas, overall, kernel-based methods provide higher predictive performance \citep{Yan2017-xh}. However, see Multi-Omics Graph Convolutional Networks (MOGONET) \citep{Wang2021-wb} for a high performing graph-based classification method.
 
-Several examples of unsupervised concatenation-based methods for multi-omic integration have been developed in recent years, most of them based on matrix-factorisation \citep{Reel2021-wb}. Joint non-negative matrix factorisation (Joint NMF) allowed integrating non-negative multi-omic data by decomposing the joint matrix into factors and loadings (Zhang et al., 2012). Joint and Individual Variation Explained (JIVE) is an adaptation of NMF framework (Lock et al., 2013) which was later improved by Joint Bayes Factor (JBF) to handle the problems derived from the high sparsity of multi-omic datasets (Ray et al., 2014). iCluster framework is based in similar principles to NMF but allows integration of datasets having negative values (Shen et al., 2009). iCluster+ (Mo et al., 2013), MoCluster (Meng et al., 2016), RLAcluster (Wu et al., 2015) and iClusterBayes (Mo et al., 2018) have further developed the framework and improved it in terms of diversity of handled data types, computation speed and clustering accuracy. Multi-Omics Factor Analysis (MOFA) is another recent development that allows discovering the principal sources of variability across different omic datasets (Argelaguet et al., 2018). Regarding supervised analyses, any of the algorithms for supervised analysis of single omic layers can be used to analyse concatenated multi omic data. RF (Fan et al., 2011; Acharjee et al., 2016; Li et al., 2015), SVM (Li et al., 2017), LASSO regression (Lee et al., 2017) or DL (Zhang etal., 2018) algorithms have been used, among others, for concatenation-based supervised analysis in multi-omic literature.
-
 Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñaki Odriozola} and \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 
 \hypertarget{multi-staged-omics-integration-model-based}{%
@@ -2555,7 +2745,7 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 
 Model-based integration builds intermediate models from each omic layer and then builds a final model combining all intermediate models. An advantage of this approach is that it allows merging multiple omic types that have been collected in different sets of sampling units, if the outcome of interest is the same across datasets (e.g.~specific disease). On the other hand, since the models are first built independently for different omic layers, these methods may fail to capture interactions between features belonging to different omic datasets, i.e.~if there are two features belonging to different omic layers that affect the outcome, but only through their interaction and not when evaluated independently. Therefore, the model-based integration is particularly suitable when the different omic datasets are extremely heterogeneous (even collected from different samples), and concatenating or transforming them to a common intermediate form is not possible.
 
-Model-based unsupervised integration methods include Format Concept Analysis (FCA) consensus clustering (Hristoskova et al., 2014), Bayesian consensus clustering (BCC) (Lock and Dunson, 2013) or Perturbation Clustering for Data Integration and Disease Subtyping (PINS+) (Nguyen et al., 2019). Network-based methods such as Lemon Tree (Bonnet et al., 2015) or Similarity Network Fusion (SNF) (Wang et al., 2014) are also available for association analysis. Model-based supervised integration can use a variety of frameworks for model development, including majority-based voting (Drăghici and Potter, 2003), hierarchical classifiers (Bavafaye Haghighi et al., 2019), ensemble-based approaches such as XGBoost (Ma et al., 2020) or DL methods (Poirion et al., 2021). Multi-omic data integration efforts such as ATHENA (Analysis Tool for Heritable and Environmental Network Associations) (Holzinger et al., 2014) or MOSAE (Multi-omics Supervised Autoencoder) (Tan et al., 2020) use model-based integration for disease prediction by combining a variety of modelling frameworks and algorithms.
+Model-based unsupervised integration methods include Format Concept Analysis (FCA) consensus clustering \citep{Hristoskova2014-pj}, Bayesian consensus clustering (BCC) \citep{Lock2013-uq} or Perturbation Clustering for Data Integration and Disease Subtyping (PINS+) \citep{Nguyen2019-pv}. Network-based methods such as Lemon Tree \citep{Bonnet2015-ff} or Similarity Network Fusion (SNF) \citep{Wang2014-jz} are also available for association analysis. Model-based supervised integration can use a variety of frameworks for model development, including majority-based voting \citep{Draghici2003-ht}, hierarchical classifiers \citep{Bavafaye_Haghighi2019-ee}, ensemble-based approaches such as XGBoost \citep{Ma2020-ce} or DL methods \citep{Poirion2020-cn}. Multi-omic data integration efforts such as ATHENA (Analysis Tool for Heritable and Environmental Network Associations) \citep{Holzinger2014-mn} or MOSAE (Multi-omics Supervised Autoencoder) \citep{Tan2020-lq} use model-based integration for disease prediction by combining a variety of modelling frameworks and algorithms.
 
 Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñaki Odriozola} and \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
 

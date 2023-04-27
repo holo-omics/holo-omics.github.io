@@ -327,6 +327,43 @@
   language  = "en"
 }
 
+@ARTICLE{Zhang2018-ty,
+  title    = "Deep {Learning-Based} {Multi-Omics} Data Integration Reveals Two
+              Prognostic Subtypes in {High-Risk} Neuroblastoma",
+  author   = "Zhang, Li and Lv, Chenkai and Jin, Yaqiong and Cheng, Ganqi and
+              Fu, Yibao and Yuan, Dongsheng and Tao, Yiran and Guo, Yongli and
+              Ni, Xin and Shi, Tieliu",
+  abstract = "High-risk neuroblastoma is a very aggressive disease, with
+              excessive tumor growth and poor outcomes. A proper stratification
+              of the high-risk patients by prognostic outcome is important for
+              treatment. However, there is still a lack of survival
+              stratification for the high-risk neuroblastoma. To fill the gap,
+              we adopt a deep learning algorithm, Autoencoder, to integrate
+              multi-omics data, and combine it with K-means clustering to
+              identify two subtypes with significant survival differences. By
+              comparing the Autoencoder with PCA, iCluster, and DGscore about
+              the classification based on multi-omics data integration,
+              Autoencoder-based classification outperforms the alternative
+              approaches. Furthermore, we also validated the classification in
+              two independent datasets by training machine-learning
+              classification models, and confirmed its robustness. Functional
+              analysis revealed that MYCN amplification was more frequently
+              occurred in the ultra-high-risk subtype, in accordance with the
+              overexpression of MYC/MYCN targets in this subtype. In summary,
+              prognostic subtypes identified by deep learning-based multi-omics
+              integration could not only improve our understanding of molecular
+              mechanism, but also help the clinicians make decisions.",
+  journal  = "Front. Genet.",
+  volume   =  9,
+  pages    = "477",
+  month    =  oct,
+  year     =  2018,
+  keywords = "MYCN amplification; deep learning; high-risk neuroblastoma;
+              machine learning; multi-omics data integration;machine
+              learning;autoencoder;Holo-Omics",
+  language = "en"
+}
+
 @ARTICLE{Mushegian2019-md,
   title     = "Environmental Sources of Bacteria and Genetic Variation in
                Behavior Influence {Host-Associated} Microbiota",
@@ -369,6 +406,28 @@
   year      =  2019,
   keywords  = "Holo-Omics",
   language  = "en"
+}
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{Argelaguet2018-dl,
+  title     = "{Multi-Omics} Factor Analysis---a framework for unsupervised
+               integration of multi-omics data sets",
+  author    = "Argelaguet, Ricard and Velten, Britta and Arnol, Damien and
+               Dietrich, Sascha and Zenz, Thorsten and Marioni, John C and
+               Buettner, Florian and Huber, Wolfgang and Stegle, Oliver",
+  abstract  = "Multi ‐ omics studies promise the improved characterization of
+               biological processes across molecular layers. However, methods
+               for the unsupervised integration of the resulting heterogeneous
+               data sets are lacking. We present Multi ‐ Omics Factor Analysis
+               (MOFA), a …",
+  journal   = "Mol. Syst. Biol.",
+  publisher = "embopress.org",
+  volume    =  14,
+  number    =  6,
+  pages     = "e8124",
+  year      =  2018,
+  keywords  = "Holo-Omics"
 }
 
 @ARTICLE{Fiedorova2019-yk,
@@ -496,6 +555,76 @@
   pages     = "8883--8900",
   month     =  sep,
   year      =  2020,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Nguyen2019-pv,
+  title     = "{PINSPlus}: a tool for tumor subtype discovery in integrated
+               genomic data",
+  author    = "Nguyen, Hung and Shrestha, Sangam and Draghici, Sorin and
+               Nguyen, Tin",
+  abstract  = "SUMMARY: Since cancer is a heterogeneous disease, tumor
+               subtyping is crucial for improved treatment and prognosis. We
+               have developed a subtype discovery tool, called PINSPlus, that
+               is: (i) robust against noise and unstable quantitative assays,
+               (ii) able to integrate multiple types of omics data in a single
+               analysis and (iii) dramatically superior to established
+               approaches in identifying known subtypes and novel subgroups
+               with significant survival differences. Our validation on 12,158
+               samples from 44 datasets shows that PINSPlus vastly outperforms
+               other approaches. The software is easy-to-use and can partition
+               hundreds of patients in a few minutes on a personal computer.
+               AVAILABILITY AND IMPLEMENTATION: The package is available at
+               https://cran.r-project.org/package=PINSPlus. Data and R script
+               used in this manuscript are available at
+               https://bioinformatics.cse.unr.edu/software/PINSPlus/.
+               SUPPLEMENTARY INFORMATION: Supplementary data are available at
+               Bioinformatics online.",
+  journal   = "Bioinformatics",
+  publisher = "academic.oup.com",
+  volume    =  35,
+  number    =  16,
+  pages     = "2843--2846",
+  month     =  aug,
+  year      =  2019,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Lock2013-uq,
+  title     = "Bayesian consensus clustering",
+  author    = "Lock, Eric F and Dunson, David B",
+  abstract  = "MOTIVATION: In biomedical research a growing number of platforms
+               and technologies are used to measure diverse but related
+               information, and the task of clustering a set of objects based
+               on multiple sources of data arises in several applications. Most
+               current approaches to multisource clustering either
+               independently determine a separate clustering for each data
+               source or determine a single 'joint' clustering for all data
+               sources. There is a need for more flexible approaches that
+               simultaneously model the dependence and the heterogeneity of the
+               data sources. RESULTS: We propose an integrative statistical
+               model that permits a separate clustering of the objects for each
+               data source. These separate clusterings adhere loosely to an
+               overall consensus clustering, and hence they are not
+               independent. We describe a computationally scalable Bayesian
+               framework for simultaneous estimation of both the consensus
+               clustering and the source-specific clusterings. We demonstrate
+               that this flexible approach is more robust than joint clustering
+               of all data sources, and is more powerful than clustering each
+               data source independently. We present an application to subtype
+               identification of breast cancer tumor samples using publicly
+               available data from The Cancer Genome Atlas. AVAILABILITY: R
+               code with instructions and examples is available at
+               http://people.duke.edu/\%7Eel113/software.html.",
+  journal   = "Bioinformatics",
+  publisher = "academic.oup.com",
+  volume    =  29,
+  number    =  20,
+  pages     = "2610--2616",
+  month     =  oct,
+  year      =  2013,
   keywords  = "Holo-Omics",
   language  = "en"
 }
@@ -678,6 +807,15 @@
   year     =  2022,
   keywords = "Holo-Omics",
   language = "en"
+}
+
+@ARTICLE{Poirion2020-cn,
+  title    = "Multi-omics-based pan-cancer prognosis prediction using an
+              ensemble of deep-learning and machine-learning models",
+  author   = "Poirion, O B and Chaudhary, K and Huang, S and Garmire, L X",
+  journal  = "medRxiv",
+  year     =  2020,
+  keywords = "Holo-Omics"
 }
 
 @ARTICLE{Reel2021-wb,
@@ -1061,6 +1199,105 @@
   year      =  2017,
   keywords  = "Holo-Omics",
   copyright = "http://creativecommons.org/licenses/by/4.0/",
+  language  = "en"
+}
+
+@ARTICLE{Holzinger2014-mn,
+  title     = "{ATHENA}: the analysis tool for heritable and environmental
+               network associations",
+  author    = "Holzinger, Emily R and Dudek, Scott M and Frase, Alex T and
+               Pendergrass, Sarah A and Ritchie, Marylyn D",
+  abstract  = "MOTIVATION: Advancements in high-throughput technology have
+               allowed researchers to examine the genetic etiology of complex
+               human traits in a robust fashion. Although genome-wide
+               association studies have identified many novel variants
+               associated with hundreds of traits, a large proportion of the
+               estimated trait heritability remains unexplained. One hypothesis
+               is that the commonly used statistical techniques and study
+               designs are not robust to the complex etiology that may underlie
+               these human traits. This etiology could include non-linear gene
+               $\times$ gene or gene $\times$ environment interactions.
+               Additionally, other levels of biological regulation may play a
+               large role in trait variability. RESULTS: To address the need
+               for computational tools that can explore enormous datasets to
+               detect complex susceptibility models, we have developed a
+               software package called the Analysis Tool for Heritable and
+               Environmental Network Associations (ATHENA). ATHENA combines
+               various variable filtering methods with machine learning
+               techniques to analyze high-throughput categorical (i.e. single
+               nucleotide polymorphisms) and quantitative (i.e. gene expression
+               levels) predictor variables to generate multivariable models
+               that predict either a categorical (i.e. disease status) or
+               quantitative (i.e. cholesterol levels) outcomes. The goal of
+               this article is to demonstrate the utility of ATHENA using
+               simulated and biological datasets that consist of both single
+               nucleotide polymorphisms and gene expression variables to
+               identify complex prediction models. Importantly, this method is
+               flexible and can be expanded to include other types of
+               high-throughput data (i.e. RNA-seq data and biomarker
+               measurements). AVAILABILITY: ATHENA is freely available for
+               download. The software, user manual and tutorial can be
+               downloaded from http://ritchielab.psu.edu/ritchielab/software.",
+  journal   = "Bioinformatics",
+  publisher = "academic.oup.com",
+  volume    =  30,
+  number    =  5,
+  pages     = "698--705",
+  month     =  mar,
+  year      =  2014,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Tan2020-lq,
+  title     = "A multi-omics supervised autoencoder for pan-cancer clinical
+               outcome endpoints prediction",
+  author    = "Tan, Kaiwen and Huang, Weixian and Hu, Jinlong and Dong, Shoubin",
+  abstract  = "BACKGROUND: With the rapid development of sequencing
+               technologies, collecting diverse types of cancer omics data
+               become more cost-effective. Many computational methods attempted
+               to represent and fuse multiple omics into a comprehensive view
+               of cancer. However, different types of omics are related and
+               heterogeneous. Most of the existing methods do not consider the
+               difference between omics, so the biological knowledge of
+               individual omics may not be fully excavated. And for a given
+               task (e.g. predicting overall survival), these methods prefer to
+               use sample similarity or domain knowledge to learn a more
+               reasonable representation of omics, but it's not enough.
+               METHODS: For the purpose of learning more useful representation
+               for individual omics and fusing them to improve the prediction
+               ability, we proposed an autoencoder-based method named MOSAE
+               (Multi-omics Supervised Autoencoder). In our method, a specific
+               autoencoder were designed for each omics according to their size
+               of dimension to generate omics-specific representations. Then, a
+               supervised autoencoder was constructed based on specific
+               autoencoder by using labels to enforce each specific autoencoder
+               to learn both omics-specific and task-specific representations.
+               Finally, representations of different omics that generate from
+               supervised autoencoders were fused in a traditional but powerful
+               way, and the fused representation was used for subsequent
+               predictive tasks. RESULTS: We applied our method over TCGA
+               Pan-Cancer dataset to predict four different clinical outcome
+               endpoints (OS, PFI, DFI, and DSS). Compared with traditional and
+               state-of-the-art methods, MOSAE achieved better predictive
+               performance. We also tested the effects of each improvement,
+               which all have a positive effect on predictive performance.
+               CONCLUSIONS: Predicting clinical outcome endpoints are very
+               important for precision medicine and personalized medicine. And
+               multi-omics fusion is an effective way to solve this problem.
+               MOSAE is a powerful multi-omics fusion method, which can
+               generate both omics-specific and task-specific representation
+               for given endpoint predictive tasks and improve the predictive
+               performance.",
+  journal   = "BMC Med. Inform. Decis. Mak.",
+  publisher = "Springer",
+  volume    =  20,
+  number    = "Suppl 3",
+  pages     = "129",
+  month     =  jul,
+  year      =  2020,
+  keywords  = "Autoencoder; Endpoints; Fusion; Multic-omics; Pan-Cancer;
+               Representation;Holo-Omics",
   language  = "en"
 }
 
@@ -1647,6 +1884,728 @@
   volume    =  10,
   pages     = "8",
   month     =  feb,
+  year      =  2017,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Hristoskova2014-pj,
+  title     = "A formal concept analysis approach to consensus clustering of
+               multi-experiment expression data",
+  author    = "Hristoskova, Anna and Boeva, Veselka and Tsiporkova, Elena",
+  abstract  = "BACKGROUND: Presently, with the increasing number and complexity
+               of available gene expression datasets, the combination of data
+               from multiple microarray studies addressing a similar biological
+               question is gaining importance. The analysis and integration of
+               multiple datasets are expected to yield more reliable and robust
+               results since they are based on a larger number of samples and
+               the effects of the individual study-specific biases are
+               diminished. This is supported by recent studies suggesting that
+               important biological signals are often preserved or enhanced by
+               multiple experiments. An approach to combining data from
+               different experiments is the aggregation of their clusterings
+               into a consensus or representative clustering solution which
+               increases the confidence in the common features of all the
+               datasets and reveals the important differences among them.
+               RESULTS: We propose a novel generic consensus clustering
+               technique that applies Formal Concept Analysis (FCA) approach
+               for the consolidation and analysis of clustering solutions
+               derived from several microarray datasets. These datasets are
+               initially divided into groups of related experiments with
+               respect to a predefined criterion. Subsequently, a consensus
+               clustering algorithm is applied to each group resulting in a
+               clustering solution per group.These solutions are pooled
+               together and further analysed by employing FCA which allows
+               extracting valuable insights from the data and generating a gene
+               partition over all the experiments. In order to validate the
+               FCA-enhanced approach two consensus clustering algorithms are
+               adapted to incorporate the FCA analysis. Their performance is
+               evaluated on gene expression data from multi-experiment study
+               examining the global cell-cycle control of fission yeast. The
+               FCA results derived from both methods demonstrate that, although
+               both algorithms optimize different clustering characteristics,
+               FCA is able to overcome and diminish these differences and
+               preserve some relevant biological signals. CONCLUSIONS: The
+               proposed FCA-enhanced consensus clustering technique is a
+               general approach to the combination of clustering algorithms
+               with FCA for deriving clustering solutions from multiple gene
+               expression matrices. The experimental results presented herein
+               demonstrate that it is a robust data integration technique able
+               to produce good quality clustering solution that is
+               representative for the whole set of expression matrices.",
+  journal   = "BMC Bioinformatics",
+  publisher = "Springer",
+  volume    =  15,
+  pages     = "151",
+  month     =  may,
+  year      =  2014,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Bonnet2015-ff,
+  title     = "Integrative multi-omics module network inference with
+               {Lemon-Tree}",
+  author    = "Bonnet, Eric and Calzone, Laurence and Michoel, Tom",
+  abstract  = "Module network inference is an established statistical method to
+               reconstruct co-expression modules and their upstream regulatory
+               programs from integrated multi-omics datasets measuring the
+               activity levels of various cellular components across different
+               individuals, experimental conditions or time points of a dynamic
+               process. We have developed Lemon-Tree, an open-source,
+               platform-independent, modular, extensible software package
+               implementing state-of-the-art ensemble methods for module
+               network inference. We benchmarked Lemon-Tree using large-scale
+               tumor datasets and showed that Lemon-Tree algorithms compare
+               favorably with state-of-the-art module network inference
+               software. We also analyzed a large dataset of somatic
+               copy-number alterations and gene expression levels measured in
+               glioblastoma samples from The Cancer Genome Atlas and found that
+               Lemon-Tree correctly identifies known glioblastoma oncogenes and
+               tumor suppressors as master regulators in the inferred module
+               network. Novel candidate driver genes predicted by Lemon-Tree
+               were validated using tumor pathway and survival analyses.
+               Lemon-Tree is available from http://lemon-tree.googlecode.com
+               under the GNU General Public License version 2.0.",
+  journal   = "PLoS Comput. Biol.",
+  publisher = "journals.plos.org",
+  volume    =  11,
+  number    =  2,
+  pages     = "e1003983",
+  month     =  feb,
+  year      =  2015,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Wang2014-jz,
+  title     = "Similarity network fusion for aggregating data types on a
+               genomic scale",
+  author    = "Wang, Bo and Mezlini, Aziz M and Demir, Feyyaz and Fiume, Marc
+               and Tu, Zhuowen and Brudno, Michael and Haibe-Kains, Benjamin
+               and Goldenberg, Anna",
+  abstract  = "Recent technologies have made it cost-effective to collect
+               diverse types of genome-wide data. Computational methods are
+               needed to combine these data to create a comprehensive view of a
+               given disease or a biological process. Similarity network fusion
+               (SNF) solves this problem by constructing networks of samples
+               (e.g., patients) for each available data type and then
+               efficiently fusing these into one network that represents the
+               full spectrum of underlying data. For example, to create a
+               comprehensive view of a disease given a cohort of patients, SNF
+               computes and fuses patient similarity networks obtained from
+               each of their data types separately, taking advantage of the
+               complementarity in the data. We used SNF to combine mRNA
+               expression, DNA methylation and microRNA (miRNA) expression data
+               for five cancer data sets. SNF substantially outperforms single
+               data type analysis and established integrative approaches when
+               identifying cancer subtypes and is effective for predicting
+               survival.",
+  journal   = "Nat. Methods",
+  publisher = "nature.com",
+  volume    =  11,
+  number    =  3,
+  pages     = "333--337",
+  month     =  mar,
+  year      =  2014,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Bavafaye_Haghighi2019-ee,
+  title     = "Hierarchical Classification of Cancers of Unknown Primary Using
+               {Multi-Omics} Data",
+  author    = "Bavafaye Haghighi, Elham and Knudsen, Michael and Elmedal
+               Laursen, Britt and Besenbacher, S{\o}ren",
+  abstract  = "A cancer of unknown primary (CUP) is a metastatic cancer for
+               which standard diagnostic tests fail to locate the primary
+               cancer. As standard treatments are based on the cancer type,
+               such cases are hard to treat and have very poor prognosis. Using
+               molecular data from the metastatic cancer to predict the primary
+               site can make treatment choice easier and enable targeted
+               therapy. In this article, we first examine the ability to
+               predict cancer type using different types of omics data.
+               Methylation data lead to slightly better prediction than gene
+               expression and both these are superior to classification using
+               somatic mutations. After using 3 data types independently, we
+               notice some differences between the classes that tend to be
+               misclassified, suggesting that integrating the data might
+               improve accuracy. In light of the different levels of
+               information provided by different omics types and to be able to
+               handle missing data, we perform multi-omics classification by
+               hierarchically combining the classifiers. The proposed
+               hierarchical method first classifies based on the most
+               informative type of omics data and then uses the other types of
+               omics data to classify samples that did not get a high
+               confidence classification in the first step. The resulting
+               hierarchical classifier has higher accuracy than any of the
+               single omics classifiers and thus proves that the combination of
+               different data types is beneficial. Our results show that using
+               multi-omics data can improve the classification of cancer types.
+               We confirm this by testing our method on metastatic cancers from
+               the MET500 dataset.",
+  journal   = "Cancer Inform.",
+  publisher = "journals.sagepub.com",
+  volume    =  18,
+  pages     = "1176935119872163",
+  month     =  aug,
+  year      =  2019,
+  keywords  = "Cancer of unknown primary; gene expression; hierarchical
+               classification; methylation; multi-omics data; somatic
+               variation; targeted therapy;Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Ma2020-ce,
+  title     = "Integrative Methods and Practical Challenges for {Single-Cell}
+               Multi-omics",
+  author    = "Ma, Anjun and McDermaid, Adam and Xu, Jennifer and Chang, Yuzhou
+               and Ma, Qin",
+  abstract  = "Fast-developing single-cell multimodal omics (scMulti-omics)
+               technologies enable the measurement of multiple modalities, such
+               as DNA methylation, chromatin accessibility, RNA expression,
+               protein abundance, gene perturbation, and spatial information,
+               from the same cell. scMulti-omics can comprehensively explore
+               and identify cell characteristics, while also presenting
+               challenges to the development of computational methods and tools
+               for integrative analyses. Here, we review these integrative
+               methods and summarize the existing tools for studying a variety
+               of scMulti-omics data. The various functionalities and practical
+               challenges in using the available tools in the public domain are
+               explored through several case studies. Finally, we identify
+               remaining challenges and future trends in scMulti-omics modeling
+               and analyses.",
+  journal   = "Trends Biotechnol.",
+  publisher = "Elsevier",
+  volume    =  38,
+  number    =  9,
+  pages     = "1007--1022",
+  month     =  sep,
+  year      =  2020,
+  keywords  = "analysis tools; integrative methods; single-cell multi-modality;
+               single-cell sequencing technology;Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Draghici2003-ht,
+  title     = "Predicting {HIV} drug resistance with neural networks",
+  author    = "Dr{\u a}ghici, Sorin and Potter, R Brian",
+  abstract  = "MOTIVATION: Drug resistance is a very important factor
+               influencing the failure of current HIV therapies. The ability to
+               predict the drug resistance of HIV protease mutants may be
+               useful in developing more effective and longer lasting treatment
+               regimens. METHODS: The HIV resistance is predicted to two
+               current protease inhibitors, Indinavir and Saquinavir. The
+               problem was approached from two perspectives. First, a predictor
+               was constructed based on the structural features of the HIV
+               protease-drug inhibitor complex. A particular structure was
+               represented by its list of contacts between the inhibitor and
+               the protease. Next, a classifier was constructed based on the
+               sequence data of various drug resistant mutants. In both cases,
+               self-organizing maps were first used to extract the important
+               features and cluster the patterns in an unsupervised manner.
+               This was followed by subsequent labelling based on the known
+               patterns in the training set. RESULTS: The prediction
+               performance of the classifiers was measured by cross-validation.
+               The classifier using the structure information correctly
+               classified previously unseen mutants with an accuracy of between
+               60 and 70\%. Several architectures were tested on the more
+               abundant sequence data. The best single classifier provided an
+               accuracy of 68\% and a coverage of 69\%. Multiple networks were
+               then combined into various majority voting schemes. The best
+               combination yielded an average of 85\% coverage and 78\%
+               accuracy on previously unseen data. This is more than two times
+               better than the 33\% accuracy expected from a random classifier.",
+  journal   = "Bioinformatics",
+  publisher = "academic.oup.com",
+  volume    =  19,
+  number    =  1,
+  pages     = "98--107",
+  month     =  jan,
+  year      =  2003,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Zhang2012-nb,
+  title     = "Discovery of multi-dimensional modules by integrative analysis
+               of cancer genomic data",
+  author    = "Zhang, Shihua and Liu, Chun-Chi and Li, Wenyuan and Shen, Hui
+               and Laird, Peter W and Zhou, Xianghong Jasmine",
+  abstract  = "Recent technology has made it possible to simultaneously perform
+               multi-platform genomic profiling (e.g. DNA methylation (DM) and
+               gene expression (GE)) of biological samples, resulting in
+               so-called 'multi-dimensional genomic data'. Such data provide
+               unique opportunities to study the coordination between
+               regulatory mechanisms on multiple levels. However, integrative
+               analysis of multi-dimensional genomics data for the discovery of
+               combinatorial patterns is currently lacking. Here, we adopt a
+               joint matrix factorization technique to address this challenge.
+               This method projects multiple types of genomic data onto a
+               common coordinate system, in which heterogeneous variables
+               weighted highly in the same projected direction form a
+               multi-dimensional module (md-module). Genomic variables in such
+               modules are characterized by significant correlations and likely
+               functional associations. We applied this method to the DM, GE,
+               and microRNA expression data of 385 ovarian cancer samples from
+               the The Cancer Genome Atlas project. These md-modules revealed
+               perturbed pathways that would have been overlooked with only a
+               single type of data, uncovered associations between different
+               layers of cellular activities and allowed the identification of
+               clinically distinct patient subgroups. Our study provides an
+               useful protocol for uncovering hidden patterns and their
+               biological implications in multi-dimensional 'omic' data.",
+  journal   = "Nucleic Acids Res.",
+  publisher = "academic.oup.com",
+  volume    =  40,
+  number    =  19,
+  pages     = "9379--9391",
+  month     =  oct,
+  year      =  2012,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Lock2013-rq,
+  title     = "{JOINT} {AND} {INDIVIDUAL} {VARIATION} {EXPLAINED} ({JIVE})
+               {FOR} {INTEGRATED} {ANALYSIS} {OF} {MULTIPLE} {DATA} {TYPES}",
+  author    = "Lock, Eric F and Hoadley, Katherine A and Marron, J S and Nobel,
+               Andrew B",
+  abstract  = "Research in several fields now requires the analysis of datasets
+               in which multiple high-dimensional types of data are available
+               for a common set of objects. In particular, The Cancer Genome
+               Atlas (TCGA) includes data from several diverse genomic
+               technologies on the same cancerous tumor samples. In this paper
+               we introduce Joint and Individual Variation Explained (JIVE), a
+               general decomposition of variation for the integrated analysis
+               of such datasets. The decomposition consists of three terms: a
+               low-rank approximation capturing joint variation across data
+               types, low-rank approximations for structured variation
+               individual to each data type, and residual noise. JIVE
+               quantifies the amount of joint variation between data types,
+               reduces the dimensionality of the data, and provides new
+               directions for the visual exploration of joint and individual
+               structure. The proposed method represents an extension of
+               Principal Component Analysis and has clear advantages over
+               popular two-block methods such as Canonical Correlation Analysis
+               and Partial Least Squares. A JIVE analysis of gene expression
+               and miRNA data on Glioblastoma Multiforme tumor samples reveals
+               gene-miRNA associations and provides better characterization of
+               tumor types.",
+  journal   = "Ann. Appl. Stat.",
+  publisher = "ncbi.nlm.nih.gov",
+  volume    =  7,
+  number    =  1,
+  pages     = "523--542",
+  month     =  mar,
+  year      =  2013,
+  keywords  = "Data fusion; Data integration; Multi-block data; Principal
+               Component Analysis;Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Ray2014-mn,
+  title     = "Bayesian joint analysis of heterogeneous genomics data",
+  author    = "Ray, Priyadip and Zheng, Lingling and Lucas, Joseph and Carin,
+               Lawrence",
+  abstract  = "SUMMARY: A non-parametric Bayesian factor model is proposed for
+               joint analysis of multi-platform genomics data. The approach is
+               based on factorizing the latent space (feature space) into a
+               shared component and a data-specific component with the
+               dimensionality of these components (spaces) inferred via a
+               beta-Bernoulli process. The proposed approach is demonstrated by
+               jointly analyzing gene expression/copy number variations and
+               gene expression/methylation data for ovarian cancer patients,
+               showing that the proposed model can potentially uncover key
+               drivers related to cancer. AVAILABILITY AND IMPLEMENTATION: The
+               source code for this model is written in MATLAB and has been
+               made publicly available at
+               https://sites.google.com/site/jointgenomics/. CONTACT:
+               catherine.ll.zheng@gmail.com SUPPLEMENTARY INFORMATION:
+               Supplementary data are available at Bioinformatics online.",
+  journal   = "Bioinformatics",
+  publisher = "academic.oup.com",
+  volume    =  30,
+  number    =  10,
+  pages     = "1370--1376",
+  month     =  may,
+  year      =  2014,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Shen2009-xr,
+  title     = "Integrative clustering of multiple genomic data types using a
+               joint latent variable model with application to breast and lung
+               cancer subtype analysis",
+  author    = "Shen, Ronglai and Olshen, Adam B and Ladanyi, Marc",
+  abstract  = "MOTIVATION: The molecular complexity of a tumor manifests itself
+               at the genomic, epigenomic, transcriptomic and proteomic levels.
+               Genomic profiling at these multiple levels should allow an
+               integrated characterization of tumor etiology. However, there is
+               a shortage of effective statistical and bioinformatic tools for
+               truly integrative data analysis. The standard approach to
+               integrative clustering is separate clustering followed by manual
+               integration. A more statistically powerful approach would
+               incorporate all data types simultaneously and generate a single
+               integrated cluster assignment. METHODS: We developed a joint
+               latent variable model for integrative clustering. We call the
+               resulting methodology iCluster. iCluster incorporates flexible
+               modeling of the associations between different data types and
+               the variance-covariance structure within data types in a single
+               framework, while simultaneously reducing the dimensionality of
+               the datasets. Likelihood-based inference is obtained through the
+               Expectation-Maximization algorithm. RESULTS: We demonstrate the
+               iCluster algorithm using two examples of joint analysis of copy
+               number and gene expression data, one from breast cancer and one
+               from lung cancer. In both cases, we identified subtypes
+               characterized by concordant DNA copy number changes and gene
+               expression as well as unique profiles specific to one or the
+               other in a completely automated fashion. In addition, the
+               algorithm discovers potentially novel subtypes by combining weak
+               yet consistent alteration patterns across data types.
+               AVAILABILITY: R code to implement iCluster can be downloaded at
+               http://www.mskcc.org/mskcc/html/85130.cfm",
+  journal   = "Bioinformatics",
+  publisher = "academic.oup.com",
+  volume    =  25,
+  number    =  22,
+  pages     = "2906--2912",
+  month     =  nov,
+  year      =  2009,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Mo2013-jj,
+  title     = "Pattern discovery and cancer gene identification in integrated
+               cancer genomic data",
+  author    = "Mo, Qianxing and Wang, Sijian and Seshan, Venkatraman E and
+               Olshen, Adam B and Schultz, Nikolaus and Sander, Chris and
+               Powers, R Scott and Ladanyi, Marc and Shen, Ronglai",
+  abstract  = "Large-scale integrated cancer genome characterization efforts
+               including the cancer genome atlas and the cancer cell line
+               encyclopedia have created unprecedented opportunities to study
+               cancer biology in the context of knowing the entire catalog of
+               genetic alterations. A clinically important challenge is to
+               discover cancer subtypes and their molecular drivers in a
+               comprehensive genetic context. Curtis et al. [Nature (2012)
+               486(7403):346-352] has recently shown that integrative
+               clustering of copy number and gene expression in 2,000 breast
+               tumors reveals novel subgroups beyond the classic expression
+               subtypes that show distinct clinical outcomes. To extend the
+               scope of integrative analysis for the inclusion of somatic
+               mutation data by massively parallel sequencing, we propose a
+               framework for joint modeling of discrete and continuous
+               variables that arise from integrated genomic, epigenomic, and
+               transcriptomic profiling. The core idea is motivated by the
+               hypothesis that diverse molecular phenotypes can be predicted by
+               a set of orthogonal latent variables that represent distinct
+               molecular drivers, and thus can reveal tumor subgroups of
+               biological and clinical importance. Using the cancer cell line
+               encyclopedia dataset, we demonstrate our method can accurately
+               group cell lines by their cell-of-origin for several cancer
+               types, and precisely pinpoint their known and potential cancer
+               driver genes. Our integrative analysis also demonstrates the
+               power for revealing subgroups that are not lineage-dependent,
+               but consist of different cancer types driven by a common genetic
+               alteration. Application of the cancer genome atlas colorectal
+               cancer data reveals distinct integrated tumor subtypes,
+               suggesting different genetic pathways in colon cancer
+               progression.",
+  journal   = "Proc. Natl. Acad. Sci. U. S. A.",
+  publisher = "National Acad Sciences",
+  volume    =  110,
+  number    =  11,
+  pages     = "4245--4250",
+  month     =  mar,
+  year      =  2013,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Meng2016-hv,
+  title     = "moCluster: Identifying Joint Patterns Across Multiple Omics Data
+               Sets",
+  author    = "Meng, Chen and Helm, Dominic and Frejno, Martin and Kuster,
+               Bernhard",
+  abstract  = "Increasingly, multiple omics approaches are being applied to
+               understand the complexity of biological systems. Yet,
+               computational approaches that enable the efficient integration
+               of such data are not well developed. Here, we describe a novel
+               algorithm, termed moCluster, which discovers joint patterns
+               among multiple omics data. The method first employs a multiblock
+               multivariate analysis to define a set of latent variables
+               representing joint patterns across input data sets, which is
+               further passed to an ordinary clustering algorithm in order to
+               discover joint clusters. Using simulated data, we show that
+               moCluster's performance is not compromised by issues present in
+               iCluster/iCluster+ (notably, the nondeterministic solution) and
+               that it operates 100$\times$ to 1000$\times$ faster than
+               iCluster/iCluster+. We used moCluster to cluster proteomic and
+               transcriptomic data from the NCI-60 cell line panel. The
+               resulting cluster model revealed different phenotypes across
+               cellular subtypes, such as doubling time and drug response.
+               Applying moCluster to methylation, mRNA, and protein data from a
+               large study on colorectal cancer patients identified four
+               molecular subtypes, including one characterized by
+               microsatellite instability and high expression of genes/proteins
+               involved in immunity, such as PDL1, a target of multiple drugs
+               currently in development. The other three subtypes have not been
+               discovered before using single data sets, which clearly
+               illustrates the molecular complexity of oncogenesis and the need
+               for holistic, multidata analysis strategies.",
+  journal   = "J. Proteome Res.",
+  publisher = "ACS Publications",
+  volume    =  15,
+  number    =  3,
+  pages     = "755--765",
+  month     =  mar,
+  year      =  2016,
+  keywords  = "Multiple omics data; cancer; clustering; data analysis;
+               stratification;Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Wu2015-qf,
+  title     = "Fast dimension reduction and integrative clustering of
+               multi-omics data using low-rank approximation: application to
+               cancer molecular classification",
+  author    = "Wu, Dingming and Wang, Dongfang and Zhang, Michael Q and Gu, Jin",
+  abstract  = "BACKGROUND: One major goal of large-scale cancer omics study is
+               to identify molecular subtypes for more accurate cancer
+               diagnoses and treatments. To deal with high-dimensional cancer
+               multi-omics data, a promising strategy is to find an effective
+               low-dimensional subspace of the original data and then cluster
+               cancer samples in the reduced subspace. However, due to
+               data-type diversity and big data volume, few methods can
+               integrative and efficiently find the principal low-dimensional
+               manifold of the high-dimensional cancer multi-omics data.
+               RESULTS: In this study, we proposed a novel low-rank
+               approximation based integrative probabilistic model to fast find
+               the shared principal subspace across multiple data types: the
+               convexity of the low-rank regularized likelihood function of the
+               probabilistic model ensures efficient and stable model fitting.
+               Candidate molecular subtypes can be identified by unsupervised
+               clustering hundreds of cancer samples in the reduced
+               low-dimensional subspace. On testing datasets, our method
+               LRAcluster (low-rank approximation based multi-omics data
+               clustering) runs much faster with better clustering performances
+               than the existing method. Then, we applied LRAcluster on
+               large-scale cancer multi-omics data from TCGA. The pan-cancer
+               analysis results show that the cancers of different tissue
+               origins are generally grouped as independent clusters, except
+               squamous-like carcinomas. While the single cancer type analysis
+               suggests that the omics data have different subtyping abilities
+               for different cancer types. CONCLUSIONS: LRAcluster is a very
+               useful method for fast dimension reduction and unsupervised
+               clustering of large-scale multi-omics data. LRAcluster is
+               implemented in R and freely available via
+               http://bioinfo.au.tsinghua.edu.cn/software/lracluster/ .",
+  journal   = "BMC Genomics",
+  publisher = "bmcgenomics.biomedcentral.com",
+  volume    =  16,
+  pages     = "1022",
+  month     =  dec,
+  year      =  2015,
+  keywords  = "Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Mo2018-ty,
+  title     = "A fully Bayesian latent variable model for integrative
+               clustering analysis of multi-type omics data",
+  author    = "Mo, Qianxing and Shen, Ronglai and Guo, Cui and Vannucci, Marina
+               and Chan, Keith S and Hilsenbeck, Susan G",
+  abstract  = "Identification of clinically relevant tumor subtypes and omics
+               signatures is an important task in cancer translational research
+               for precision medicine. Large-scale genomic profiling studies
+               such as The Cancer Genome Atlas (TCGA) Research Network have
+               generated vast amounts of genomic, transcriptomic, epigenomic,
+               and proteomic data. While these studies have provided great
+               resources for researchers to discover clinically relevant tumor
+               subtypes and driver molecular alterations, there are few
+               computationally efficient methods and tools for integrative
+               clustering analysis of these multi-type omics data. Therefore,
+               the aim of this article is to develop a fully Bayesian latent
+               variable method (called iClusterBayes) that can jointly model
+               omics data of continuous and discrete data types for
+               identification of tumor subtypes and relevant omics features.
+               Specifically, the proposed method uses a few latent variables to
+               capture the inherent structure of multiple omics data sets to
+               achieve joint dimension reduction. As a result, the tumor
+               samples can be clustered in the latent variable space and
+               relevant omics features that drive the sample clustering are
+               identified through Bayesian variable selection. This method
+               significantly improve on the existing integrative clustering
+               method iClusterPlus in terms of statistical inference and
+               computational speed. By analyzing TCGA and simulated data sets,
+               we demonstrate the excellent performance of the proposed method
+               in revealing clinically meaningful tumor subtypes and driver
+               omics features.",
+  journal   = "Biostatistics",
+  publisher = "academic.oup.com",
+  volume    =  19,
+  number    =  1,
+  pages     = "71--86",
+  month     =  jan,
+  year      =  2018,
+  keywords  = "Bayesian variable selection; Integrative clustering; Latent
+               variable model; Multi-type omics data; iCluster; iClusterBayes;
+               iClusterPlus;Holo-Omics",
+  language  = "en"
+}
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{Acharjee2016-uc,
+  title     = "Integration of multi-omics data for prediction of phenotypic
+               traits using random forest",
+  author    = "Acharjee, Animesh and Kloosterman, Bjorn and Visser, Richard G F
+               and Maliepaard, Chris",
+  abstract  = "BACKGROUND: In order to find genetic and metabolic pathways
+               related to phenotypic traits of interest, we analyzed gene
+               expression data, metabolite data obtained with GC-MS and LC-MS,
+               proteomics data and a selected set of tuber quality phenotypic
+               data from a diploid segregating mapping population of potato. In
+               this study we present an approach to integrate these ~ omics
+               data sets for the purpose of predicting phenotypic traits. This
+               gives us networks of relatively small sets of interrelated ~
+               omics variables that can predict, with higher accuracy, a
+               quality trait of interest. RESULTS: We used Random Forest
+               regression for integrating multiple ~ omics data for prediction
+               of four quality traits of potato: tuber flesh colour, DSC onset,
+               tuber shape and enzymatic discoloration. For tuber flesh colour
+               beta-carotene hydroxylase and zeaxanthin epoxidase were ranked
+               first and forty-fourth respectively both of which have
+               previously been associated with flesh colour in potato tubers.
+               Combining all the significant genes, LC-peaks, GC-peaks and
+               proteins, the variation explained was 75 \%, only slightly more
+               than what gene expression or LC-MS data explain by themselves
+               which indicates that there are correlations among the variables
+               across data sets. For tuber shape regressed on the gene
+               expression, LC-MS, GC-MS and proteomics data sets separately,
+               only gene expression data was found to explain significant
+               variation. For DSC onset, we found 12 significant gene
+               expression, 5 metabolite levels (GC) and 2 proteins that are
+               associated with the trait. Using those 19 significant variables,
+               the variation explained was 45 \%. Expression QTL (eQTL)
+               analyses showed many associations with genomic regions in
+               chromosome 2 with also the highest explained variation compared
+               to other chromosomes. Transcriptomics and metabolomics analysis
+               on enzymatic discoloration after 5 min resulted in 420
+               significant genes and 8 significant LC metabolites, among which
+               two were putatively identified as caffeoylquinic acid methyl
+               ester and tyrosine. CONCLUSIONS: In this study, we made a
+               strategy for selecting and integrating multiple ~ omics data
+               using random forest method and selected representative
+               individual peaks for networks based on eQTL, mQTL or pQTL
+               information. Network analysis was done to interpret how a
+               particular trait is associated with gene expression, metabolite
+               and protein data.",
+  journal   = "BMC Bioinformatics",
+  publisher = "bmcbioinformatics.biomedcentral …",
+  volume    = "17 Suppl 5",
+  number    = "Suppl 5",
+  pages     = "180",
+  month     =  jun,
+  year      =  2016,
+  keywords  = "Data integration; Genetical genomics; Networks; Random
+               forest;Holo-Omics",
+  language  = "en"
+}
+
+@ARTICLE{Li2017-qk,
+  title     = "Complex integrated analysis of {lncRNAs-miRNAs-mRNAs} in oral
+               squamous cell carcinoma",
+  author    = "Li, Simin and Chen, Xiujie and Liu, Xiangqiong and Yu, Yang and
+               Pan, Hongying and Haak, Rainer and Schmidt, Jana and Ziebolz,
+               Dirk and Schmalz, Gerhard",
+  abstract  = "OBJECTIVES: This study aims to reveal regulatory network of
+               lncRNAs-miRNAs-mRNAs in oral squamous cell carcinoma (OSCC)
+               through gene expression data. MATERIAL AND METHODS:
+               Differentially expressed lncRNAs, miRNAs and mRNAs (cut-off:
+               False discovery rate (FDR)1.5) were unveiled by package edgeR of
+               R. Cox regression analysis was performed to screen prognostic
+               factors in OSCC related with overall survival (OS) and
+               relapse-free survival (RFS). Protein-protein interaction (PPI)
+               network was constructed for differentially expressed mRNAs using
+               BioGRID, HPRD and DIP. Key hub genes were identified from top
+               100 differentially expressed mRNAs ranked by betweenness
+               centrality using recursive feature elimination. LncRNA-miRNA and
+               miRNA-mRNA regulatory network were constructed and combined into
+               ceRNAs regulatory network. Gene ontology biological terms and
+               Kyoto Encyclopedia of Genes and Genomes pathways were identified
+               using Fisher's exact test. RESULTS: A total of 929
+               differentially expressed mRNAs, 23 differentially expressed
+               lncRNAs and 29 differentially expressed miRNAs were identified.
+               59 mRNAs, 6 miRNAs (hsa-mir-133a-1, hsa-mir-1-2, hsa-mir-486,
+               hsa-mir-135b, hsa-mir-196b, hsa-mir-193b) and 6 lncRNAs
+               (C10orf91, C2orf48, SFTA1P, FLJ41941,PART1,TTTY14) were related
+               with OS; and 52 mRNAs, 4 miRNAs (hsa-mir-133a-1, hsa-mir-135b,
+               hsa-mir-196b, hsa-mir-193b) and 2 lncRNAs (PART1, TTTY14) were
+               associated with RFS. A support vector machine (SVM) classifier
+               containing 37 key hub genes was obtained. A ceRNA regulatory
+               network containing 417 nodes and 696 edges was constructed.
+               ECM-receptor interaction, cytokine-cytokine receptor
+               interaction, focal adhesion, arachidonic acid metabolism, and
+               p53 signaling pathway were significantly enriched in the
+               network. CONCLUSION: These findings uncover the pathogenesis of
+               OSCC and might provide potential therapeutic targets.",
+  journal   = "Oral Oncol.",
+  publisher = "Elsevier",
+  volume    =  73,
+  pages     = "1--9",
+  month     =  oct,
+  year      =  2017,
+  keywords  = "Biomarker; OSCC; Oral cancer; Prognosis; Regulatory network;
+               ceRNA; lncRNA; mRNA; miRNA;Holo-Omics",
+  language  = "en"
+}
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{Lee2017-bv,
+  title     = "Identifying subtype-specific associations between gene
+               expression and {DNA} methylation profiles in breast cancer",
+  author    = "Lee, Garam and Bang, Lisa and Kim, So Yeon and Kim, Dokyoon and
+               Sohn, Kyung-Ah",
+  abstract  = "BACKGROUND: Breast cancer is a complex disease in which
+               different genomic patterns exists depending on different
+               subtypes. Recent researches present that multiple subtypes of
+               breast cancer occur at different rates, and play a crucial role
+               in planning treatment. To better understand underlying
+               biological mechanisms on breast cancer subtypes, investigating
+               the specific gene regulatory system via different subtypes is
+               desirable. METHODS: Gene expression, as an intermediate
+               phenotype, is estimated based on methylation profiles to
+               identify the impact of epigenomic features on transcriptomic
+               changes in breast cancer. We propose a kernel weighted
+               l1-regularized regression model to incorporate tumor subtype
+               information and further reveal gene regulations affected by
+               different breast cancer subtypes. For the proper control of
+               subtype-specific estimation, samples from different breast
+               cancer subtype are learned at different rate based on target
+               estimates. Kolmogorov Smirnov test is conducted to determine
+               learning rate of each sample from different subtype. RESULTS: It
+               is observed that genes that might be sensitive to breast cancer
+               subtype show prediction improvement when estimated using our
+               proposed method. Comparing to a standard method, overall
+               performance is also enhanced by incorporating tumor subtypes. In
+               addition, we identified subtype-specific network structures
+               based on the associations between gene expression and DNA
+               methylation. CONCLUSIONS: In this study, kernel weighted lasso
+               model is proposed for identifying subtype-specific associations
+               between gene expressions and DNA methylation profiles.
+               Identification of subtype-specific gene expression associated
+               with epigenomic changes might be helpful for better planning
+               treatment and developing new therapies.",
+  journal   = "BMC Med. Genomics",
+  publisher = "bmcmedgenomics.biomedcentral …",
+  volume    =  10,
+  number    = "Suppl 1",
+  pages     = "28",
+  month     =  may,
   year      =  2017,
   keywords  = "Holo-Omics",
   language  = "en"

@@ -431,36 +431,157 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="regression-methods" class="section level2 hasAnchor" number="19.1">
 <h2><span class="header-section-number">19.1</span> Regression methods<a href="regression-methods.html#regression-methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Independently testing the effects of the experimental factors of interest on different omic layers can be very informative to get an overall picture of how the host and the microbiome are responding to the environment and/or the experimental treatment.</p>
+<p>Regression methods aim to model the relationship between the quantitative metrics of the omic features and the response variable. Regression methods are commonly used in supervised analysis of omic data to identify associations between the expression levels of different genes, metabolites, or other features and a particular outcome or response variable, such as a disease state or an experimental treatment.</p>
 <div id="permanova" class="section level3 hasAnchor" number="19.1.1">
 <h3><span class="header-section-number">19.1.1</span> PERMANOVA<a href="regression-methods.html#permanova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>PERMANOVA is a statistical method that tests for significant differences between groups in multivariate data by comparing the distribution of distance-based similarity matrices. This method can be used to identify biomarkers that differ significantly between groups, such as disease states or treatment groups, and determine whether there are significant differences in the overall pattern of gene expression, methylation, or other omic features between the groups.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="regression-methods.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb64-2"><a href="regression-methods.html#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="regression-methods.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate gene expression data with 100 samples and 1000 genes</span></span>
+<span id="cb64-4"><a href="regression-methods.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb64-5"><a href="regression-methods.html#cb64-5" aria-hidden="true" tabindex="-1"></a>exprs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span><span class="sc">*</span><span class="dv">1000</span>), <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> <span class="dv">1000</span>)</span>
+<span id="cb64-6"><a href="regression-methods.html#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="regression-methods.html#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create a grouping variable with 2 groups</span></span>
+<span id="cb64-8"><a href="regression-methods.html#cb64-8" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;treatment&quot;</span>), <span class="at">each =</span> <span class="dv">50</span>)</span>
+<span id="cb64-9"><a href="regression-methods.html#cb64-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-10"><a href="regression-methods.html#cb64-10" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate Euclidean distance matrix from gene expression data</span></span>
+<span id="cb64-11"><a href="regression-methods.html#cb64-11" aria-hidden="true" tabindex="-1"></a>dist_matrix <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(<span class="fu">t</span>(exprs), <span class="at">method =</span> <span class="st">&quot;euclidean&quot;</span>)</span>
+<span id="cb64-12"><a href="regression-methods.html#cb64-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-13"><a href="regression-methods.html#cb64-13" aria-hidden="true" tabindex="-1"></a><span class="co"># perform PERMANOVA analysis</span></span>
+<span id="cb64-14"><a href="regression-methods.html#cb64-14" aria-hidden="true" tabindex="-1"></a>permanova_results <span class="ot">&lt;-</span> <span class="fu">adonis</span>(dist_matrix <span class="sc">~</span> group)</span>
+<span id="cb64-15"><a href="regression-methods.html#cb64-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-16"><a href="regression-methods.html#cb64-16" aria-hidden="true" tabindex="-1"></a><span class="co"># view PERMANOVA results</span></span>
+<span id="cb64-17"><a href="regression-methods.html#cb64-17" aria-hidden="true" tabindex="-1"></a>permanova_results</span></code></pre></div>
 </div>
 <div id="anosim" class="section level3 hasAnchor" number="19.1.2">
 <h3><span class="header-section-number">19.1.2</span> ANOSIM<a href="regression-methods.html#anosim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>ANOSIM is a nonparametric statistical method that tests for significant differences in similarity between two or more groups of samples based on dissimilarity matrices. It is used to compare the dissimilarity between groups of samples based on their gene expression, metabolomics, or other omic data. The aim of ANOSIM is to determine if the differences in omic profiles between groups are significant and can be used to distinguish between groups.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="regression-methods.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb65-2"><a href="regression-methods.html#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="regression-methods.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
+<span id="cb65-4"><a href="regression-methods.html#cb65-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb65-5"><a href="regression-methods.html#cb65-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-6"><a href="regression-methods.html#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define grouping variable</span></span>
+<span id="cb65-7"><a href="regression-methods.html#cb65-7" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Group 1&quot;</span>, <span class="dv">5</span>), <span class="fu">rep</span>(<span class="st">&quot;Group 2&quot;</span>, <span class="dv">5</span>))</span>
+<span id="cb65-8"><a href="regression-methods.html#cb65-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-9"><a href="regression-methods.html#cb65-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate dissimilarity matrix</span></span>
+<span id="cb65-10"><a href="regression-methods.html#cb65-10" aria-hidden="true" tabindex="-1"></a>dissimilarity <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(data)</span>
+<span id="cb65-11"><a href="regression-methods.html#cb65-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-12"><a href="regression-methods.html#cb65-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform ANOSIM</span></span>
+<span id="cb65-13"><a href="regression-methods.html#cb65-13" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">anosim</span>(dissimilarity, group)</span>
+<span id="cb65-14"><a href="regression-methods.html#cb65-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-15"><a href="regression-methods.html#cb65-15" aria-hidden="true" tabindex="-1"></a><span class="co"># View ANOSIM results</span></span>
+<span id="cb65-16"><a href="regression-methods.html#cb65-16" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
 </div>
 <div id="redundancy-analysis" class="section level3 hasAnchor" number="19.1.3">
 <h3><span class="header-section-number">19.1.3</span> Redundancy analysis (RDA)<a href="regression-methods.html#redundancy-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>Redundancy Analysis (RDA) is a multivariate statistical technique that identifies the linear relationships between a response variable and a set of explanatory variables. It is an extension of Principal Component Analysis (PCA) that can handle both continuous and categorical variables. RDA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="regression-methods.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb66-2"><a href="regression-methods.html#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="regression-methods.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
+<span id="cb66-4"><a href="regression-methods.html#cb66-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb66-5"><a href="regression-methods.html#cb66-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="regression-methods.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load disease state data</span></span>
+<span id="cb66-7"><a href="regression-methods.html#cb66-7" aria-hidden="true" tabindex="-1"></a>disease <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;disease_state.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb66-8"><a href="regression-methods.html#cb66-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-9"><a href="regression-methods.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform RDA</span></span>
+<span id="cb66-10"><a href="regression-methods.html#cb66-10" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">rda</span>(data, disease)</span>
+<span id="cb66-11"><a href="regression-methods.html#cb66-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-12"><a href="regression-methods.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View RDA results</span></span>
+<span id="cb66-13"><a href="regression-methods.html#cb66-13" aria-hidden="true" tabindex="-1"></a>result</span>
+<span id="cb66-14"><a href="regression-methods.html#cb66-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-15"><a href="regression-methods.html#cb66-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot RDA biplot</span></span>
+<span id="cb66-16"><a href="regression-methods.html#cb66-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">display =</span> <span class="st">&quot;biplot&quot;</span>)</span></code></pre></div>
 </div>
 <div id="canonical-correspondence-analysis" class="section level3 hasAnchor" number="19.1.4">
 <h3><span class="header-section-number">19.1.4</span> Canonical Correspondence Analysis (CCA)<a href="regression-methods.html#canonical-correspondence-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>Canonical Correspondence Analysis (CCA) is a multivariate statistical technique that explores the relationship between a set of explanatory variables and a set of response variables. It is an extension of Correspondence Analysis (CA) that can handle both continuous and categorical variables. CCA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualize the relationship between the explanatory and response variables.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="regression-methods.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb67-2"><a href="regression-methods.html#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="regression-methods.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
+<span id="cb67-4"><a href="regression-methods.html#cb67-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb67-5"><a href="regression-methods.html#cb67-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-6"><a href="regression-methods.html#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load disease state data</span></span>
+<span id="cb67-7"><a href="regression-methods.html#cb67-7" aria-hidden="true" tabindex="-1"></a>disease <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;disease_state.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb67-8"><a href="regression-methods.html#cb67-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-9"><a href="regression-methods.html#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform CCA</span></span>
+<span id="cb67-10"><a href="regression-methods.html#cb67-10" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">cca</span>(data, disease)</span>
+<span id="cb67-11"><a href="regression-methods.html#cb67-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-12"><a href="regression-methods.html#cb67-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View CCA results</span></span>
+<span id="cb67-13"><a href="regression-methods.html#cb67-13" aria-hidden="true" tabindex="-1"></a>result</span>
+<span id="cb67-14"><a href="regression-methods.html#cb67-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-15"><a href="regression-methods.html#cb67-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot CCA biplot</span></span>
+<span id="cb67-16"><a href="regression-methods.html#cb67-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">display =</span> <span class="st">&quot;biplot&quot;</span>)</span></code></pre></div>
 </div>
 <div id="generalised-linear-modelling" class="section level3 hasAnchor" number="19.1.5">
 <h3><span class="header-section-number">19.1.5</span> Generalised linear modelling (GLM)<a href="regression-methods.html#generalised-linear-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>Generalised linear modelling (GLM) is a statistical framework that allows for the analysis of a wide range of response variables, including binary, count, and continuous data. In the context of supervised analysis of single omic layers, GLM can be used to identify associations between a specific response variable, such as disease status, and the omic data, such as gene expression or metabolite levels.</p>
+<p>The first step in using GLM for supervised analysis of omic data is to select the appropriate distribution for the response variable. For example, if the response variable is binary (e.g., healthy vs. diseased), then a binomial distribution can be used. If the response variable is a count (e.g., the number of mutations), then a Poisson or negative binomial distribution can be used. If the response variable is continuous (e.g., expression levels), then a Gaussian distribution can be used. Once the appropriate distribution is selected, a GLM can be constructed by specifying a linear relationship between the response variable and the omic data, using one or more explanatory variables. The explanatory variables can be selected based on prior knowledge or through a variable selection process, such as forward or backward selection. The GLM model can then be fit to the data using maximum likelihood estimation or other methods. After fitting the GLM model, the significance of each explanatory variable can be assessed using hypothesis testing, such as Wald tests or likelihood ratio tests. The explanatory variables that are found to be significant can then be interpreted as predictors of the response variable.</p>
+<p>Overall, GLM can be a useful tool for supervised analysis of single omic layers because it allows for the identification of specific predictors of a response variable, such as disease status, and can handle a wide range of response variable distributions. However, it is important to carefully select the appropriate distribution and explanatory variables to ensure the validity and accuracy of the model.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="regression-methods.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
+<span id="cb68-2"><a href="regression-methods.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edgeR)   <span class="co"># for differential expression analysis</span></span>
+<span id="cb68-3"><a href="regression-methods.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)  <span class="co"># for regularization and variable selection</span></span>
+<span id="cb68-4"><a href="regression-methods.html#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-5"><a href="regression-methods.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load example data</span></span>
+<span id="cb68-6"><a href="regression-methods.html#cb68-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;example_omic_data.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb68-7"><a href="regression-methods.html#cb68-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-8"><a href="regression-methods.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the response variable</span></span>
+<span id="cb68-9"><a href="regression-methods.html#cb68-9" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>disease_status)</span>
+<span id="cb68-10"><a href="regression-methods.html#cb68-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-11"><a href="regression-methods.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the explanatory variables</span></span>
+<span id="cb68-12"><a href="regression-methods.html#cb68-12" aria-hidden="true" tabindex="-1"></a>explanatory <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(data[,<span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(data)])  <span class="co"># omic data</span></span>
+<span id="cb68-13"><a href="regression-methods.html#cb68-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-14"><a href="regression-methods.html#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform differential expression analysis to identify significant variables</span></span>
+<span id="cb68-15"><a href="regression-methods.html#cb68-15" aria-hidden="true" tabindex="-1"></a>dge <span class="ot">&lt;-</span> <span class="fu">DGEList</span>(<span class="at">counts=</span>explanatory, <span class="at">group=</span>response)</span>
+<span id="cb68-16"><a href="regression-methods.html#cb68-16" aria-hidden="true" tabindex="-1"></a>dge <span class="ot">&lt;-</span> <span class="fu">calcNormFactors</span>(dge)</span>
+<span id="cb68-17"><a href="regression-methods.html#cb68-17" aria-hidden="true" tabindex="-1"></a>design <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span>response)</span>
+<span id="cb68-18"><a href="regression-methods.html#cb68-18" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glmQLFit</span>(dge, design)</span>
+<span id="cb68-19"><a href="regression-methods.html#cb68-19" aria-hidden="true" tabindex="-1"></a>qlf <span class="ot">&lt;-</span> <span class="fu">glmQLFTest</span>(fit, <span class="at">coef=</span><span class="dv">2</span>)</span>
+<span id="cb68-20"><a href="regression-methods.html#cb68-20" aria-hidden="true" tabindex="-1"></a>significant_vars <span class="ot">&lt;-</span> <span class="fu">topTags</span>(qlf, <span class="at">n=</span><span class="dv">100</span>)<span class="sc">$</span>table<span class="sc">$</span>ID  <span class="co"># select top 100 significant variables</span></span>
+<span id="cb68-21"><a href="regression-methods.html#cb68-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-22"><a href="regression-methods.html#cb68-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a GLM model with regularization and variable selection</span></span>
+<span id="cb68-23"><a href="regression-methods.html#cb68-23" aria-hidden="true" tabindex="-1"></a>fit.glm <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x=</span>explanatory[,significant_vars], <span class="at">y=</span>response, <span class="at">family=</span><span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb68-24"><a href="regression-methods.html#cb68-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit.glm)</span>
+<span id="cb68-25"><a href="regression-methods.html#cb68-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-26"><a href="regression-methods.html#cb68-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify the most important variables</span></span>
+<span id="cb68-27"><a href="regression-methods.html#cb68-27" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit.glm, <span class="at">s=</span>fit.glm<span class="sc">$</span>lambda.min)</span></code></pre></div>
 </div>
 <div id="generalised-linear-mixed-modelling" class="section level3 hasAnchor" number="19.1.6">
 <h3><span class="header-section-number">19.1.6</span> Generalised linear mixed modelling (GLMM)<a href="regression-methods.html#generalised-linear-mixed-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Content to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<p>Generalised linear mixed models (GLMMs) are an extension of GLMs that allow for the analysis of data with non-independent errors, such as clustered or longitudinal data. GLMMs incorporate random effects, which account for the correlation between observations within groups or over time, and fixed effects, which represent the relationships between the response and explanatory variables. GLMMs are widely used in omics data analysis, particularly for the analysis of longitudinal or repeated measures data, and for the integration of multiple omics data layers.</p>
+<p>In GLMMs, the response variable y is related to the explanatory variables x through a link function g and a linear predictor:</p>
+<pre><code>g(E[y | x]) = x * beta + Z * b</code></pre>
+<p>where beta are the fixed effects coefficients, b are the random effects coefficients, Z is the design matrix for the random effects, and E[y | x] is the expected value of the response variable given the explanatory variables x. The random effects account for the correlation between observations within groups or over time, and are assumed to be normally distributed with mean 0 and covariance matrix D. The link function g specifies the relationship between the expected value of the response variable and the linear predictor. The choice of link function depends on the nature of the response variable and can be any member of the exponential family of distributions.</p>
+<p>GLMMs are fitted using maximum likelihood estimation, which involves optimising the likelihood function with respect to the fixed and random effects coefficients, as well as the covariance matrix of the random effects. The likelihood function takes into account the correlation structure of the data and is typically evaluated using numerical methods such as the Laplace approximation or Monte Carlo Markov Chain (MCMC) methods.</p>
+<p>GLMMs can be used for a wide range of applications in omics data analysis, including the analysis of longitudinal or repeated measures data, the integration of multiple omics data layers, the analysis of data with non-independent errors, and the modelling of gene-environment interactions. However, GLMMs can be computationally intensive and require careful consideration of the correlation structure of the data and the appropriate choice of link function and distribution.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="regression-methods.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the lme4 package</span></span>
+<span id="cb70-2"><a href="regression-methods.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb70-3"><a href="regression-methods.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="regression-methods.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load example data</span></span>
+<span id="cb70-5"><a href="regression-methods.html#cb70-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;example_omic_data.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb70-6"><a href="regression-methods.html#cb70-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-7"><a href="regression-methods.html#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the Treatment treatment to a factor</span></span>
+<span id="cb70-8"><a href="regression-methods.html#cb70-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Treatment <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>Treatment)</span>
+<span id="cb70-9"><a href="regression-methods.html#cb70-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-10"><a href="regression-methods.html#cb70-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
+<span id="cb70-11"><a href="regression-methods.html#cb70-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb70-12"><a href="regression-methods.html#cb70-12" aria-hidden="true" tabindex="-1"></a>train_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(data), <span class="fl">0.7</span><span class="sc">*</span><span class="fu">nrow</span>(data))</span>
+<span id="cb70-13"><a href="regression-methods.html#cb70-13" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> data[train_indices,]</span>
+<span id="cb70-14"><a href="regression-methods.html#cb70-14" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> data[<span class="sc">-</span>train_indices,]</span>
+<span id="cb70-15"><a href="regression-methods.html#cb70-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-16"><a href="regression-methods.html#cb70-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a GLMM with random intercept and slope</span></span>
+<span id="cb70-17"><a href="regression-methods.html#cb70-17" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(Treatment <span class="sc">~</span> . <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Sepal.Length), <span class="at">data =</span> train_data, <span class="at">family =</span> binomial)</span>
+<span id="cb70-18"><a href="regression-methods.html#cb70-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-19"><a href="regression-methods.html#cb70-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on the test data</span></span>
+<span id="cb70-20"><a href="regression-methods.html#cb70-20" aria-hidden="true" tabindex="-1"></a>test_data<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> test_data, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb70-21"><a href="regression-methods.html#cb70-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-22"><a href="regression-methods.html#cb70-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the accuracy of the predictions</span></span>
+<span id="cb70-23"><a href="regression-methods.html#cb70-23" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sum</span>(test_data<span class="sc">$</span>predicted <span class="sc">&gt;</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span> <span class="sc">|</span></span>
+<span id="cb70-24"><a href="regression-methods.html#cb70-24" aria-hidden="true" tabindex="-1"></a>                  test_data<span class="sc">$</span>predicted <span class="sc">&lt;=</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span> <span class="sc">|</span></span>
+<span id="cb70-25"><a href="regression-methods.html#cb70-25" aria-hidden="true" tabindex="-1"></a>                  test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">/</span> <span class="fu">nrow</span>(test_data)</span>
+<span id="cb70-26"><a href="regression-methods.html#cb70-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-27"><a href="regression-methods.html#cb70-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the accuracy</span></span>
+<span id="cb70-28"><a href="regression-methods.html#cb70-28" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">&quot;Accuracy: %.2f%%</span><span class="sc">\n</span><span class="st">&quot;</span>, accuracy<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div>
 </div>
 </div>
             </section>
