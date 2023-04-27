@@ -50,11 +50,11 @@ for (i in 1:ncol(data)) {
 shapiro.test(data_transformed)
 ```
 
-## Transformations to account for compositional data {#data-transformation-compositional}
+### Transformations to account for compositional data {#data-transformation-compositional}
 
 When dealing with multi-omic datasets, it's important to determine if the measurements represent absolute or relative values. While HG provides qualitative information about host genomes, MG, HT, and MT provide quantitative information that's dependent on the amount of sequencing performed and thus are compositional. Consequently, raw quantitative values of genome abundance or gene expression across samples cannot be compared directly. To address this, the most common solution is to transform the raw abundance values into relative abundance data for comparison. However, this transformation reduces the independence of individual variables, which is an assumption for many statistical methods. An alternative is using ratio transformations like the centred log-ratio, which better suit compositional data analysis by removing the effect of the constant-sum constraint on the covariance and correlation matrices.
 
-### Transforming data using centred log-ratio {-}
+#### Transforming data using centred log-ratio {-}
 In this example, we first load the multivariate dataset and then apply the CLR transformation using the `clr()` function from the **`compositions`** package. The CLR transformation is a commonly used method for analyzing compositional data, where the data represents proportions or percentages that add up to a constant sum. The CLR transformation is designed to remove the constant sum constraint and make the data amenable to standard multivariate statistical methods.
 
 The resulting `data_transformed` object will be a transformed version of the original dataset, with each variable now representing the logarithm of the ratio between that variable and the geometric mean of the other variables. Note that the CLR transformation assumes that the data is non-negative, so it may not be appropriate for all types of multivariate data.
@@ -71,11 +71,11 @@ data_transformed <- clr(data)
 head(data_transformed)
 ```
 
-## Transformations to account for scaling {#data-transformation-scaling}
+### Transformations to account for scaling {#data-transformation-scaling}
 
 It's important to keep in mind that scaling can also impact the results when analsing multi-omic data. For instance, in ME data, certain metabolites such as ATP may have much higher concentrations than other important metabolites like signaling molecules, potentially overshadowing significant differences in the less abundant yet meaningful metabolites. In Transcriptomics, transcript length biases may also cause similar distortions. One solution is to standardise the features by using transformations like z-score normalisation, but this can amplify the influence of measurement error that is typically higher for less abundant features.
 
-### Transforming data using z-score normalisation {-}
+#### Transforming data using z-score normalisation {-}
 In this example, we first load the dataset and then use the `apply()` function to apply the z-score normalization to each variable in the dataset. The `apply()` function applies a function to either the rows or columns of a matrix, and the 2 argument specifies that we want to apply the function to the columns (i.e., variables) of the dataset. The function applied to each column calculates the z-score of each observation by subtracting the mean of the variable from each observation and dividing by the standard deviation of the variable. This centers the data around 0 and scales it to have a standard deviation of 1. The resulting `data_norm` object will be a normalized version of the original dataset, with each variable now having a mean of 0 and a standard deviation of 1.
 
 ```{r transformations-scaling, eval=FALSE}

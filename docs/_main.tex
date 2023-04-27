@@ -2143,13 +2143,13 @@ In this example, we first load the multivariate dataset and use the Shapiro-Wilk
 \end{Shaded}
 
 \hypertarget{data-transformation-compositional}{%
-\section{Transformations to account for compositional data}\label{data-transformation-compositional}}
+\subsection{Transformations to account for compositional data}\label{data-transformation-compositional}}
 
 When dealing with multi-omic datasets, it's important to determine if the measurements represent absolute or relative values. While HG provides qualitative information about host genomes, MG, HT, and MT provide quantitative information that's dependent on the amount of sequencing performed and thus are compositional. Consequently, raw quantitative values of genome abundance or gene expression across samples cannot be compared directly. To address this, the most common solution is to transform the raw abundance values into relative abundance data for comparison. However, this transformation reduces the independence of individual variables, which is an assumption for many statistical methods. An alternative is using ratio transformations like the centred log-ratio, which better suit compositional data analysis by removing the effect of the constant-sum constraint on the covariance and correlation matrices.
 
 \hypertarget{transforming-data-using-centred-log-ratio}{%
-\subsection*{Transforming data using centred log-ratio}\label{transforming-data-using-centred-log-ratio}}
-\addcontentsline{toc}{subsection}{Transforming data using centred log-ratio}
+\subsubsection*{Transforming data using centred log-ratio}\label{transforming-data-using-centred-log-ratio}}
+\addcontentsline{toc}{subsubsection}{Transforming data using centred log-ratio}
 
 In this example, we first load the multivariate dataset and then apply the CLR transformation using the \texttt{clr()} function from the \textbf{\texttt{compositions}} package. The CLR transformation is a commonly used method for analyzing compositional data, where the data represents proportions or percentages that add up to a constant sum. The CLR transformation is designed to remove the constant sum constraint and make the data amenable to standard multivariate statistical methods.
 
@@ -2170,13 +2170,13 @@ The resulting \texttt{data\_transformed} object will be a transformed version of
 \end{Shaded}
 
 \hypertarget{data-transformation-scaling}{%
-\section{Transformations to account for scaling}\label{data-transformation-scaling}}
+\subsection{Transformations to account for scaling}\label{data-transformation-scaling}}
 
 It's important to keep in mind that scaling can also impact the results when analsing multi-omic data. For instance, in ME data, certain metabolites such as ATP may have much higher concentrations than other important metabolites like signaling molecules, potentially overshadowing significant differences in the less abundant yet meaningful metabolites. In Transcriptomics, transcript length biases may also cause similar distortions. One solution is to standardise the features by using transformations like z-score normalisation, but this can amplify the influence of measurement error that is typically higher for less abundant features.
 
 \hypertarget{transforming-data-using-z-score-normalisation}{%
-\subsection*{Transforming data using z-score normalisation}\label{transforming-data-using-z-score-normalisation}}
-\addcontentsline{toc}{subsection}{Transforming data using z-score normalisation}
+\subsubsection*{Transforming data using z-score normalisation}\label{transforming-data-using-z-score-normalisation}}
+\addcontentsline{toc}{subsubsection}{Transforming data using z-score normalisation}
 
 In this example, we first load the dataset and then use the \texttt{apply()} function to apply the z-score normalization to each variable in the dataset. The \texttt{apply()} function applies a function to either the rows or columns of a matrix, and the 2 argument specifies that we want to apply the function to the columns (i.e., variables) of the dataset. The function applied to each column calculates the z-score of each observation by subtracting the mean of the variable from each observation and dividing by the standard deviation of the variable. This centers the data around 0 and scales it to have a standard deviation of 1. The resulting \texttt{data\_norm} object will be a normalized version of the original dataset, with each variable now having a mean of 0 and a standard deviation of 1.
 
@@ -2755,9 +2755,43 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \hypertarget{useful-links}{%
 \chapter{Useful links}\label{useful-links}}
 
+\hypertarget{links-data}{%
+\subsection{Data access}\label{links-data}}
+
+\hypertarget{host-reference-genomes}{%
+\subsubsection*{Host reference genomes}\label{host-reference-genomes}}
+\addcontentsline{toc}{subsubsection}{Host reference genomes}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\href{https://www.ncbi.nlm.nih.gov/genome/}{NCBI Genome} (website):} XX
+\item
+  \textbf{\href{https://www.ensembl.org/index.html}{Ensembl} (website):} XX
+\item
+  \textbf{\href{https://vertebrategenomesproject.org/}{Vertebrates Genome Project} (website):} XX
+\end{itemize}
+
+\hypertarget{metagenomic-data}{%
+\subsubsection*{Metagenomic data}\label{metagenomic-data}}
+\addcontentsline{toc}{subsubsection}{Metagenomic data}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\href{https://www.holofooddata.org/}{HoloFood Data Portal} (website):} XX
+\item
+  \textbf{\href{https://www.ebi.ac.uk/metagenomics/}{MGnify} (website):}
+\item
+  \textbf{\href{http://www.earthhologenome.org/database.html}{Earth Hologenome Initiative} (website):}
+\end{itemize}
+
+\hypertarget{links-documentation}{%
+\subsection{Documentation}\label{links-documentation}}
+
 \hypertarget{genomics}{%
-\subsection*{Genomics}\label{genomics}}
-\addcontentsline{toc}{subsection}{Genomics}
+\subsubsection*{Genomics}\label{genomics}}
+\addcontentsline{toc}{subsubsection}{Genomics}
 
 \begin{itemize}
 \tightlist
@@ -2766,8 +2800,8 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \end{itemize}
 
 \hypertarget{shell-command-line-usage}{%
-\subsection*{Shell command line usage}\label{shell-command-line-usage}}
-\addcontentsline{toc}{subsection}{Shell command line usage}
+\subsubsection*{Shell command line usage}\label{shell-command-line-usage}}
+\addcontentsline{toc}{subsubsection}{Shell command line usage}
 
 \begin{itemize}
 \tightlist
@@ -2776,8 +2810,8 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \end{itemize}
 
 \hypertarget{r-usage-general-usage-and-programming}{%
-\subsection*{R usage (General usage and programming)}\label{r-usage-general-usage-and-programming}}
-\addcontentsline{toc}{subsection}{R usage (General usage and programming)}
+\subsubsection*{R usage (General usage and programming)}\label{r-usage-general-usage-and-programming}}
+\addcontentsline{toc}{subsubsection}{R usage (General usage and programming)}
 
 \begin{itemize}
 \tightlist
@@ -2788,8 +2822,8 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \end{itemize}
 
 \hypertarget{r-usage-graphics-and-visualisation}{%
-\subsection*{R usage (Graphics and visualisation)}\label{r-usage-graphics-and-visualisation}}
-\addcontentsline{toc}{subsection}{R usage (Graphics and visualisation)}
+\subsubsection*{R usage (Graphics and visualisation)}\label{r-usage-graphics-and-visualisation}}
+\addcontentsline{toc}{subsubsection}{R usage (Graphics and visualisation)}
 
 \begin{itemize}
 \tightlist
@@ -2800,8 +2834,8 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \end{itemize}
 
 \hypertarget{statistics}{%
-\subsection*{Statistics}\label{statistics}}
-\addcontentsline{toc}{subsection}{Statistics}
+\subsubsection*{Statistics}\label{statistics}}
+\addcontentsline{toc}{subsubsection}{Statistics}
 
 \begin{itemize}
 \tightlist

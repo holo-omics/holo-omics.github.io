@@ -1,25 +1,41 @@
 # (PART) RESOURCES {-}
 # Useful links {#useful-links}
 
-### Genomics {-}
+### Data access {#links-data}
+
+#### Host reference genomes {-}
+
+* **[NCBI Genome](https://www.ncbi.nlm.nih.gov/genome/) (website):** XX
+* **[Ensembl](https://www.ensembl.org/index.html) (website):** XX
+* **[Vertebrates Genome Project](https://vertebrategenomesproject.org/) (website):** XX
+
+#### Metagenomic data {-}
+
+* **[HoloFood Data Portal](https://www.holofooddata.org/) (website):** XX
+* **[MGnify](https://www.ebi.ac.uk/metagenomics/) (website):**
+* **[Earth Hologenome Initiative](http://www.earthhologenome.org/database.html) (website):**
+
+### Documentation {#links-documentation}
+
+#### Genomics {-}
 
 * **[Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/) (website):**
 
-### Shell command line usage {-}
+#### Shell command line usage {-}
 
 * **[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/) (website):** general overview of basic command line usage.
 
-### R usage (General usage and programming) {-}
+#### R usage (General usage and programming) {-}
 
 * **[Intro to R and RStudio for Genomics](https://datacarpentry.org/genomics-r-intro/) (website):**
 * **[Efficient R programming](https://csgillespie.github.io/efficientR/index.html) (website):** best practices for programming in R.
 
-### R usage (Graphics and visualisation) {-}
+#### R usage (Graphics and visualisation) {-}
 
 * **[Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) (website):** guide to making visualisations that accurately reflect the data, tell a story, and look professional.
 * **[R Graphics Cookbook](https://r-graphics.org/index.html) (website):** a practical guide that provides more than 150 recipes to generate high-quality graphs using ggplot2.
 
-### Statistics {-}
+#### Statistics {-}
 
 * **[An Introduction to Statistical Learning](https://www.statlearning.com/) (book):** freely available book about general statistical learning covering regression and classification problems through linear modelling and machine learning.
 * **[High dimensional statistics with R](https://carpentries-incubator.github.io/high-dimensional-stats-r/) (website):** virtual lesson specialised in dealing with high dimensional data.
