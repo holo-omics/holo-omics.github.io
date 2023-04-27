@@ -72,16 +72,16 @@ Antton is an Associate Professor at the University of Copenhagen whose research 
 :::
 
 #### Morten Limborg {- #morten-limborg}
-Text to be included.
+Morten is an Associate Professor at the University of Copenhagen and the Head of the Section for Hologenomics at the Globe Institute. His research focuses on host-microbiota interactions in aquaculture fish species.
 
 #### Raphael Eisenhofer {- #raphael-eisenhofer}
-Text to be included.
+Raphael is a postdoctoral researcher working under the supervision of Alberdi. His research activity is mainly focused on metagenomic analyses and related tool development, as well as marsupial microbiome analysis.
 
 #### Iñaki Odriozola {- #inaki-odriozola}
-Text to be included.
+Iñaki is a postdoctoral researcher working at the Alberdi lab. He implements his statistical background in community ecology to multi-omic data integration in host-microbiota systems.
 
 #### Jacob A Rasmussen {- #jacob-rasmussen}
-Text to be included.
+Jacob is a postdoctoral researcher supervised by Limborg. He researches on fish-microbiota interactions using multi-omic tools, including genomics, metagenomics and metabolomics.
 
 #### Protocol and script contributors {-}
 
