@@ -468,6 +468,16 @@ $if(title)$
 $if(beamer)$
 \frame{\titlepage}
 $else$
+\title{%\vspace{-7cm} % adjust the vertical space as needed
+       %\includegraphics[width=14.5cm,height=14.5cm]{images/holo-omics_overview_nyholm.png} % adjust the figure size as needed
+       \vspace{0.5cm} % adjust the vertical space as needed
+       \fontsize{38}{38} % define font size
+       \fontfamily{phv} %define font family
+       \selectfont % select font size
+       \\ A Practical Guide to} %include bolded title
+\author{\fontsize{64}{64}\selectfont \textbf{Holo-omics}}
+\date{\fontsize{12}{14}\selectfont \textbf{\today}\\[6cm]
+      \includegraphics[width=7cm,height=7cm]{images/ceh_blue.png}}
 \maketitle
 $endif$
 $if(abstract)$

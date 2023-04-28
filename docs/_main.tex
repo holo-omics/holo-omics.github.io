@@ -122,6 +122,16 @@
 \date{}
 
 \begin{document}
+\title{%\vspace{-7cm} % adjust the vertical space as needed
+       %\includegraphics[width=14.5cm,height=14.5cm]{images/holo-omics_overview_nyholm.png} % adjust the figure size as needed
+       \vspace{0.5cm} % adjust the vertical space as needed
+       \fontsize{38}{38} % define font size
+       \fontfamily{phv} %define font family
+       \selectfont % select font size
+       \\ A Practical Guide to} %include bolded title
+\author{\fontsize{64}{64}\selectfont \textbf{Holo-omics}}
+\date{\fontsize{12}{14}\selectfont \textbf{\today}\\[6cm]
+      \includegraphics[width=7cm,height=7cm]{images/ceh_blue.png}}
 \maketitle
 
 {
@@ -134,7 +144,11 @@
 
 \includegraphics{images/holo-omics_overview_nyholm.png}
 
+\scriptsize
+
 Holo-omics overview. Modified from Nyholm et al.~2020 \citep{Nyholm2020-ua}
+
+\normalsize
 
 The \textbf{practical guide to holo-omics} is a compilation of methodological procedures to generate, analyse and integrate holo-omic data, i.e., multi-omic data jointly generated from hosts and associated microbial communities \citep{Nyholm2020-ua, Limborg2018-tf}. This guide extends the contents of the article \textbf{``A practical introduction to holo-omics''}, which aims at guiding researchers to the main critical steps and decision points to perform holo-omic studies. While the article focuses on discussing pros and cons of using multiple available options, the aim of this guide is to compile protocols and pipelines to be implemented by researchers. The \textbf{practical guide to holo-omics} is presented in two formats:
 
@@ -309,7 +323,10 @@ Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antt
 
 Nucleic acid sequencing and mass spectrometry technologies that enable tracking the biomolecular pathways linking host and microbial genomic sequences with biomolecular phenotypes by generating (meta)transcriptomes, (meta) proteomes, and (meta)metabolomes. The same technologies also enable epigenomic and exposomic profiling, which can further contribute to disentangling the biochemical associations between host-microbiota-environment interactions and their effect on host phenotypes.
 
+\scriptsize
+
 \includegraphics{images/omic_layers_limborg.png}
+\normalsize
 
 Overview of omic layers. Modified from Limborg et al.~2018 \citep{Limborg2018-tf}.
 
@@ -963,11 +980,15 @@ All bioinformatic analyses included in the \textbf{Holo-omics workbook} are cond
 
 If the comment chunks of the code (text after \#) is creating you problems, use the following code to disable interactive comments and avoid issues when copy-pasting code:
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{setopt}\NormalTok{ interactivecomments}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{required-software}{%
 \subsection*{Required software}\label{required-software}}
@@ -984,6 +1005,8 @@ Conda is an open-source package management system and environment management sys
 
 Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{conda} \AttributeTok{{-}V}
@@ -991,11 +1014,15 @@ Once conda or miniconda is installed in your system, you should be able to creat
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{install-mamba}{%
 \subsection*{Install mamba (optional)}\label{install-mamba}}
 \addcontentsline{toc}{subsection}{Install mamba (optional)}
 
 An optional step is to install \textbf{mamba}, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the \texttt{conda\ install} option.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1003,11 +1030,15 @@ An optional step is to install \textbf{mamba}, which is a reimplementation of th
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{create-conda-environment}{%
 \subsection*{Create a conda environment}\label{create-conda-environment}}
 \addcontentsline{toc}{subsection}{Create a conda environment}
 
 All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available \href{https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml}{here}, and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don't forget to provide the absolute path to the `holo-omics-env.yaml' file in the \texttt{mamba\ create} command.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1019,7 +1050,11 @@ All the bioinformatic analyses explained in this workbook will be run within an 
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can double-check whether the environment has been successfully created using the following script:
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1028,7 +1063,11 @@ As the environment contains dozens of softwares, the process of creating it will
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 The (holo-omics) specifies the environment you are at. To get out of the environment use:
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1038,11 +1077,15 @@ The (holo-omics) specifies the environment you are at. To get out of the environ
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{activate-the-holo-omics-conda-environment}{%
 \subsection*{Activate the holo-omics conda environment}\label{activate-the-holo-omics-conda-environment}}
 \addcontentsline{toc}{subsection}{Activate the holo-omics conda environment}
 
 Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command:
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1051,33 +1094,106 @@ Whenever running the holo-omic analyses explained in this workbook, it will be n
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{install-software-in-conda-environment}{%
 \subsection*{Install software in conda environment}\label{install-software-in-conda-environment}}
 \addcontentsline{toc}{subsection}{Install software in conda environment}
 
-Content to be added.
+Once the environment is activated, you can install the required software using the Conda package manager. For example, to install \textbf{metawrap}, run the following command:
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+\small
 
-\hypertarget{example-data-bioinformatics}{%
-\section{Example data for bioinformatics}\label{example-data-bioinformatics}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{conda}\NormalTok{ activate holo{-}omics}
+\ExtensionTok{conda}\NormalTok{ install }\AttributeTok{{-}y} \AttributeTok{{-}c}\NormalTok{ ursky metawrap{-}mg=1.2.2}
+\end{Highlighting}
+\end{Shaded}
 
-Contents to be added here.
-
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+\normalsize
 
 \hypertarget{using-snakemake}{%
 \section{Using snakemake for workflow management}\label{using-snakemake}}
 
-Contents to be added here.
+Snakemake is a workflow management system that helps automate the execution of computational workflows. It is designed to handle complex dependencies between the input files, output files, and the software tools used to process the data. Snakemake is based on the Python programming language and provides a simple and intuitive syntax for defining rules and dependencies.
 
-\begin{verbatim}
-#Example code goes here
-\end{verbatim}
+Here is a brief overview of how Snakemake works and its basic usage:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Define the input and output files:} In Snakemake, you define the input and output files for each step in your workflow. This allows Snakemake to determine when a step needs to be executed based on the availability of its inputs and the freshness of its outputs.
+\item
+  \textbf{Write rules:} Next, you write rules that describe the software tools and commands needed to process the input files into the output files. A rule consists of a name, input and output files, and a command to run.
+\item
+  \textbf{Create a workflow:} Once you have defined the rules, you create a workflow by specifying the order in which the rules should be executed. Snakemake automatically resolves the dependencies between the rules based on the input and output files.
+\item
+  \textbf{Run the workflow:} Finally, you run the workflow using the snakemake command. Snakemake analyzes the input and output files and executes the rules in the correct order to generate the desired output files.
+\end{enumerate}
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{rule}\NormalTok{ count\_reads:}
+    \ExtensionTok{input:}
+        \StringTok{"reads/sample1.fastq.gz"}\ExtensionTok{,}
+        \StringTok{"reads/sample2.fastq.gz"}
+    \ExtensionTok{output:}
+        \StringTok{"counts.txt"}
+    \ExtensionTok{shell:}
+        \StringTok{"fastqc \{input\} {-}o \{output\} {-}f fastq"}
+
+\ExtensionTok{rule}\NormalTok{ trim\_reads:}
+    \ExtensionTok{input:}
+        \StringTok{"reads/sample1.fastq.gz"}\ExtensionTok{,}
+        \StringTok{"reads/sample2.fastq.gz"}
+    \ExtensionTok{output:}
+        \StringTok{"trimmed/sample1.trimmed.fastq.gz"}\ExtensionTok{,}
+        \StringTok{"trimmed/sample2.trimmed.fastq.gz"}
+    \ExtensionTok{shell:}
+        \StringTok{"trimmomatic SE \{input\} \{output\} {-}threads 4"}
+
+\ExtensionTok{rule}\NormalTok{ align\_reads:}
+    \ExtensionTok{input:}
+        \StringTok{"trimmed/sample1.trimmed.fastq.gz"}\ExtensionTok{,}
+        \StringTok{"trimmed/sample2.trimmed.fastq.gz"}
+    \ExtensionTok{output:}
+        \StringTok{"aligned.bam"}
+    \ExtensionTok{shell:}
+        \StringTok{"bwa mem {-}t 4 genome.fa \{input\} | samtools view {-}Sb {-} \textgreater{} \{output\}"}
+
+\ExtensionTok{rule}\NormalTok{ call\_variants:}
+    \ExtensionTok{input:}
+        \StringTok{"aligned.bam"}
+    \ExtensionTok{output:}
+        \StringTok{"variants.vcf"}
+    \ExtensionTok{shell:}
+        \StringTok{"freebayes {-}f genome.fa \{input\} \textgreater{} \{output\}"}
+
+\ExtensionTok{workflow:}
+    \ExtensionTok{rule}\NormalTok{ count\_reads}
+    \ExtensionTok{rule}\NormalTok{ trim\_reads}
+    \ExtensionTok{rule}\NormalTok{ align\_reads}
+    \ExtensionTok{rule}\NormalTok{ call\_variants}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+To run this workflow, save the code to a file named Snakefile and execute the following command in your terminal:
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{snakemake}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \hypertarget{sequencing-data-preprocessing}{%
 \chapter{Sequencing data preprocessing}\label{sequencing-data-preprocessing}}
@@ -1091,6 +1207,8 @@ The first step of the bioinformatic pipeline is to pre-process the raw sequencin
 Raw sequencing data require an initial preprocessing to get rid off low-quality nucleotides and reads, as well as any remains of sequencing adaptors that can mess around in the downstream analyses. An efficient way to do so is to use the software \textbf{fastp}, which can perform all above-mentioned operations in a single go and directly on compressed files.
 
 \textbf{fastP} documentation \href{https://github.com/OpenGene/fastp}{can be found here}.
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1111,6 +1229,8 @@ Raw sequencing data require an initial preprocessing to get rid off low-quality 
 \end{Highlighting}
 \end{Shaded}
 
+\normalsize
+
 \hypertarget{splitting-host-and-non-host-data}{%
 \subsection*{Splitting host and non-host data}\label{splitting-host-and-non-host-data}}
 \addcontentsline{toc}{subsection}{Splitting host and non-host data}
@@ -1121,39 +1241,51 @@ Depending on the sample type employed for data generation, sequencing data might
 \subsubsection*{Index host genome}\label{index-host-genome}}
 \addcontentsline{toc}{subsubsection}{Index host genome}
 
+In order to map metagenomic reads to a reference host genome, it is necessary to index the genome. An index is a data structure that allows for efficient searching of the reference genome by breaking it down into smaller, more manageable pieces. Without an index, aligning reads to a reference genome would be prohibitively slow, especially for large genomes. Bowtie2 is a popular software tool for aligning reads to a reference genome, and it requires an index of the reference genome before alignment can be performed. Bowtie2 uses an index based on the Burrows-Wheeler transform (BWT) algorithm, which enables it to efficiently align reads to the reference genome. Here are the basic command to create a Bowtie2 index for a reference genome:
+
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{bowtie2{-}build} \DataTypeTok{\textbackslash{}}
     \AttributeTok{{-}{-}large{-}index} \DataTypeTok{\textbackslash{}}
     \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
-\NormalTok{        \{output.rn\_catted\_ref\} \{output.rn\_catted\_ref\}}
+\NormalTok{        \{input.genome\} \{output.index\}}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{map-samples-to-host-genomes}{%
 \subsubsection*{Map samples to host genomes}\label{map-samples-to-host-genomes}}
 \addcontentsline{toc}{subsubsection}{Map samples to host genomes}
 
+The next step is to map the reads against the reference genome, followed by a split between reads that have been mapped (in the example below are retained in a BAM/SAM file) and the reads that were not mapped (in the example below outputed to fastq files). The mapped reads can be used for performing population genomic analyses, while the unmapped reads can be used for metagenomic analyses.
+
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Map reads to catted reference using Bowtie2}
+\CommentTok{\# Map reads to the reference genome using Bowtie2}
 \ExtensionTok{bowtie2} \DataTypeTok{\textbackslash{}}
     \AttributeTok{{-}{-}time} \DataTypeTok{\textbackslash{}}
     \AttributeTok{{-}{-}threads}\NormalTok{ \{threads\} }\DataTypeTok{\textbackslash{}}
-    \AttributeTok{{-}x}\NormalTok{ \{input.catted\_ref\} }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}x}\NormalTok{ \{indexed.genome\} }\DataTypeTok{\textbackslash{}}
     \AttributeTok{{-}1}\NormalTok{ \{input.r1i\} }\DataTypeTok{\textbackslash{}}
     \AttributeTok{{-}2}\NormalTok{ \{input.r2i\} }\DataTypeTok{\textbackslash{}}
-\KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ view }\AttributeTok{{-}b} \AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}} \KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ sort }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}o}\NormalTok{ \{output.all\_bam\} }\AttributeTok{{-}} \KeywordTok{\&\&}
+\KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ view }\AttributeTok{{-}b} \AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}} \KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ sort }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}o}\NormalTok{ \{output.all\_bam\} }\AttributeTok{{-}}
 
-\CommentTok{\# Extract non{-}host reads (note we\textquotesingle{}re not compressing for nonpareil)}
+\CommentTok{\# Extract non{-}host reads}
 \ExtensionTok{samtools}\NormalTok{ view }\AttributeTok{{-}b} \AttributeTok{{-}f12} \AttributeTok{{-}@}\NormalTok{ \{threads\} \{output.all\_bam\} }\DataTypeTok{\textbackslash{}}
-\KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ fastq }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}1}\NormalTok{ \{output.non\_host\_r1\} }\AttributeTok{{-}2}\NormalTok{ \{output.non\_host\_r2\} }\AttributeTok{{-}} \KeywordTok{\&\&}
+\KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ fastq }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}1}\NormalTok{ \{output.non\_host\_r1\} }\AttributeTok{{-}2}\NormalTok{ \{output.non\_host\_r2\} }\AttributeTok{{-}}
 
 \CommentTok{\# Send host reads to BAM}
 \ExtensionTok{samtools}\NormalTok{ view }\AttributeTok{{-}b} \AttributeTok{{-}F12} \AttributeTok{{-}@}\NormalTok{ \{threads\} \{output.all\_bam\} }\DataTypeTok{\textbackslash{}}
 \KeywordTok{|} \ExtensionTok{samtools}\NormalTok{ sort }\AttributeTok{{-}@}\NormalTok{ \{threads\} }\AttributeTok{{-}o}\NormalTok{ \{output.host\_bam\} }\AttributeTok{{-}}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
 
 \hypertarget{host-genomics-data-processing}{%
 \chapter{Host genomics (HG) data processing}\label{host-genomics-data-processing}}
@@ -1173,9 +1305,7 @@ Overviews of both procedures are shown in the following chapters:
 \hypertarget{host-reference-genome}{%
 \section{Host reference genome}\label{host-reference-genome}}
 
-Genomes of eukaryotic organisms are generally complex, because they carry multiple copies of the same genome, genomes contain duplications, repetitive sequences, mobile elements, etc. In consequence, generating a high-quality reference genome that represents all this complexity is a complex effort, that today, requires multiple complementary molecular techniques to be merged. Although multiple genome assembly protocols exist, in this guidebook we will focus on the one employed in the Vertebrates Genomes Project, the largest consortium aiming at generating animal reference genomes in a standardised way \textbf{{[}RHIE 2021{]}}. The VGP assembly pipeline uses data generated by a variety of technologies, including PacBio HiFi reads, Bionano optical maps, and Hi-C chromatin interaction maps.
-
-\url{https://training.galaxyproject.org/training-material/topics/assembly/tutorials/vgp_genome_assembly/tutorial.html}
+Genomes of eukaryotic organisms are generally complex, because they carry multiple copies of the same genome, genomes contain duplications, repetitive sequences, mobile elements, etc. In consequence, generating a high-quality reference genome that represents all this complexity is a complex effort, that today, requires multiple complementary molecular techniques to be merged. Although multiple genome assembly protocols exist, in this guidebook we will focus on the one employed in the Vertebrates Genomes Project, the largest consortium aiming at generating animal reference genomes in a standardised way \citep{Rhie2021-cf}. The VGP assembly pipeline uses data generated by a variety of technologies, including PacBio HiFi reads, Bionano optical maps, and Hi-C chromatin interaction maps.
 
 \hypertarget{host-genome-quality}{%
 \subsection{Genome quality}\label{host-genome-quality}}
@@ -1189,28 +1319,41 @@ Before advancing with genome generation procedures, it is important to acknowled
 \hypertarget{host-genome-profile-analysis}{%
 \subsection{Genome profile analysis}\label{host-genome-profile-analysis}}
 
-Gathering metrics on genome properties before initiating a de novo genome assembly project is very helpful in setting expectations for the assembly. In the past, DNA flow cytometry was commonly used to estimate genome size, but computational approaches have become the preferred method in recent times (Wang et al., 2020). Currently, genome profiling is based on k-mer frequency analysis, which not only provides information on the genome's complexity, such as its size and levels of heterozygosity and repeat content, but also on the quality of the data.
+Gathering metrics on genome properties before initiating a de novo genome assembly project is very helpful in setting expectations for the assembly. In the past, DNA flow cytometry was commonly used to estimate genome size, but computational approaches have become the preferred method in recent times \citep{Wang2020-fj}. Currently, genome profiling is based on k-mer frequency analysis, which not only provides information on the genome's complexity, such as its size and levels of heterozygosity and repeat content, but also on the quality of the data.
 
 k-mer spectra can be generated with Meryl, which generates k-mer profile by decomposing the sequencing data into k-length substrings, counting the occurrence of each k-mer and determining its frequency.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{Meryl}\NormalTok{ code chunk}
-\end{Highlighting}
-\end{Shaded}
-
-The k-mer histogram produced by Meryl can be used to deduce genome properties with the help of GenomeScope2. This tool utilizes a nonlinear least-squares optimization to fit a combination of negative binomial distributions, providing estimates for genome size, repetitiveness, and heterozygosity rates (Ranallo-Benavidez et al., 2020).
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{GenomeScope2}\NormalTok{ code chunk}
+\CommentTok{\#Create a k{-}mer database}
+\ExtensionTok{meryl}\NormalTok{ count k=31 mer=both output reads.meryl threads=4 }\DataTypeTok{\textbackslash{}}
+\NormalTok{     input reads\_1.fastq reads\_2.fastq}
+
+\CommentTok{\#Generate a k{-}mer spectrum}
+\ExtensionTok{meryl}\NormalTok{ histogram reads.meryl }\OperatorTok{\textgreater{}}\NormalTok{ reads.hist}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
+
+The k-mer histogram produced by Meryl can be used to deduce genome properties with the help of GenomeScope2. This tool utilises a nonlinear least-squares optimisation to fit a combination of negative binomial distributions, providing estimates for genome size, repetitiveness, and heterozygosity rates \citep{Ranallo-Benavidez2020-am}.
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./genomescope2.pl} \AttributeTok{{-}k}\NormalTok{ 31 }\AttributeTok{{-}i}\NormalTok{ reads.hist }\AttributeTok{{-}o}\NormalTok{ reads\_genomescope}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \hypertarget{host-genome-assembly-hifiasm}{%
 \subsection{Genome assembly using hifiasm}\label{host-genome-assembly-hifiasm}}
 
-Hifiasm is a powerful de novo assembler specifically developed for PacBio HiFi reads. One of the key advantages of hifiasm is that it allows us to resolve near-identical, but not exactly identical, sequences, such as repeats and segmental duplications (Cheng et al.~2021). Hifiasm can be run in multiple modes depending on data availability:
+Hifiasm is a powerful de novo assembler specifically developed for PacBio HiFi reads. One of the key advantages of hifiasm is that it allows us to resolve near-identical, but not exactly identical, sequences, such as repeats and segmental duplications \citep{Cheng2021-nh}. Hifiasm can be run in multiple modes depending on data availability:
 
 \hypertarget{host-genome-assembly-hifiasm-solo}{%
 \subsubsection*{Solo mode}\label{host-genome-assembly-hifiasm-solo}}
@@ -1237,9 +1380,9 @@ Assemblies can be evaluated using a variety of approaches that assess different 
 
 gfastats can be used or summary statistics (e.g., contig count, N50, NG50, etc.)
 
-BUSCO assesses genome completeness based on an evolutionary functional perspective. BUSCO genes are anticipated to exist in a single-copy haplotype for a particular clade, and their presence, absence, or duplication can help researchers determine whether an assembly is deficient in significant regions or has multiple copies, which may necessitate purging (Simão et al., 2015).
+BUSCO assesses genome completeness based on an evolutionary functional perspective. BUSCO genes are anticipated to exist in a single-copy haplotype for a particular clade, and their presence, absence, or duplication can help researchers determine whether an assembly is deficient in significant regions or has multiple copies, which may necessitate purging \citep{Simao2015-ex}.
 
-Merqury performs a reference-free assessment of assembly completeness and phasing based on k-mers. Merqury compares k-mers in the reads to the k-mers found in the assemblies, as well as the copy number (CN) of each k-mer in the assemblies (Rhie et al.~2020).
+Merqury performs a reference-free assessment of assembly completeness and phasing based on k-mers. Merqury compares k-mers in the reads to the k-mers found in the assemblies, as well as the copy number (CN) of each k-mer in the assemblies \citep{Rhie2020-hw}.
 
 \hypertarget{host-genome-scaffolding}{%
 \subsection{Assembly scaffolding}\label{host-genome-scaffolding}}
@@ -1273,7 +1416,103 @@ Content to be added.
 \hypertarget{host-resequencing}{%
 \section{Host genome resequencing}\label{host-resequencing}}
 
-Once a reference genome is available, the processing of resequencing data is straightforward.
+Once a reference genome is available, short-read sequencing data can be used for generating single nucleotide polymorphism (SNP) data. Although multiple options exists, the pipeline below describes a typical workflow to process data using Bowtie2 for read mapping, Picard for marking duplicates, and GATK for performing variant calling. The resulting SNP data can be used for a wide range of downstream analyses, such as identifying genetic variants associated with diseases, studying population genetics, and performing genome-wide association studies (GWAS). The pipeline is customisable and can be modified to suit the specific needs of the researcher, such as changing the parameters of the tools used or incorporating additional analysis steps. Overall, this pipeline is a powerful tool for investigating genetic variation in genomes and can provide valuable insights into the genetic basis of various biological processes.
+
+The first step is to map the reads agains the reference genome:
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{bowtie2} \AttributeTok{{-}x}\NormalTok{ reference\_genome\_index }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}1}\NormalTok{ forward\_reads.fq }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}2}\NormalTok{ reverse\_reads.fq }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}S}\NormalTok{ mapped\_reads.sam}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+If the mapping file is saved to an uncompressed SAM file, this should be compressed, and sorted for downstream analyses.
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{samtools}\NormalTok{ view }\AttributeTok{{-}bS}\NormalTok{ mapped\_reads.sam }\OperatorTok{\textgreater{}}\NormalTok{ mapped\_reads.bam}
+\ExtensionTok{samtools}\NormalTok{ sort mapped\_reads.bam }\AttributeTok{{-}o}\NormalTok{ sorted\_mapped\_reads.bam}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+Picard can be then used to mark duplicates in the sorted BAM file.
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{java} \AttributeTok{{-}jar}\NormalTok{ picard.jar MarkDuplicates }\DataTypeTok{\textbackslash{}}
+\NormalTok{      INPUT=sorted\_mapped\_reads.bam }\DataTypeTok{\textbackslash{}}
+\NormalTok{      OUTPUT=dedup\_sorted\_mapped\_reads.bam }\DataTypeTok{\textbackslash{}}
+\NormalTok{      METRICS\_FILE=metrics.txt VALIDATION\_STRINGENCY=LENIENT}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+The deduplicated BAM file without redundant reads must be done indexed before starting the variant calling.
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{samtools}\NormalTok{ index dedup\_sorted\_mapped\_reads.bam}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+GATK4 is the used to perform local realignment around indels.
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{gatk} \AttributeTok{{-}{-}java{-}options} \StringTok{"{-}Xmx4g"}\NormalTok{ IndelRealigner }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}R}\NormalTok{ reference\_genome.fa }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}I}\NormalTok{ dedup\_sorted\_mapped\_reads.bam}
+      \ExtensionTok{{-}O}\NormalTok{ realigned\_reads.bam }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}targetIntervals}\NormalTok{ intervals.list}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+Then, base quality score recalibration is performed using GATK4.
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{gatk} \AttributeTok{{-}{-}java{-}options} \StringTok{"{-}Xmx4g"}\NormalTok{ BaseRecalibrator }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}R}\NormalTok{ reference\_genome.fa}
+      \ExtensionTok{{-}I}\NormalTok{ realigned\_reads.bam}
+      \ExtensionTok{{-}{-}known{-}sites}\NormalTok{ known\_snps.vcf }\DataTypeTok{\textbackslash{}}
+      \AttributeTok{{-}O}\NormalTok{ recal\_data.table}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+Subsequently, base quality score recalibration is applied to the.
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{gatk} \AttributeTok{{-}{-}java{-}options} \StringTok{"{-}Xmx4g"}\NormalTok{ ApplyBQSR }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}R}\NormalTok{ reference\_genome.fa}
+    \ExtensionTok{{-}I}\NormalTok{ realigned\_reads.bam}
+    \ExtensionTok{{-}{-}bqsr{-}recal{-}file}\NormalTok{ recal\_data.table }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}O}\NormalTok{ recal\_reads.bam}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \hypertarget{microbial-metagenomics-data-processing}{%
 \chapter{Microbial metagenomics (MG) data processing}\label{microbial-metagenomics-data-processing}}
@@ -2951,7 +3190,8 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \chapter{Useful links}\label{useful-links}}
 
 \hypertarget{links-data}{%
-\subsection{Data access}\label{links-data}}
+\subsection*{Data access}\label{links-data}}
+\addcontentsline{toc}{subsection}{Data access}
 
 \hypertarget{host-reference-genomes}{%
 \subsubsection*{Host reference genomes}\label{host-reference-genomes}}
@@ -2960,11 +3200,11 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \begin{itemize}
 \tightlist
 \item
-  \textbf{\href{https://www.ncbi.nlm.nih.gov/genome/}{NCBI Genome} (website):} XX
+  \textbf{\href{https://www.ncbi.nlm.nih.gov/genome/}{NCBI Genome} (website):}
 \item
-  \textbf{\href{https://www.ensembl.org/index.html}{Ensembl} (website):} XX
+  \textbf{\href{https://www.ensembl.org/index.html}{Ensembl} (website):}
 \item
-  \textbf{\href{https://vertebrategenomesproject.org/}{Vertebrates Genome Project} (website):} XX
+  \textbf{\href{https://vertebrategenomesproject.org/}{Vertebrates Genome Project} (website):}
 \end{itemize}
 
 \hypertarget{metagenomic-data}{%
@@ -2974,7 +3214,7 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \begin{itemize}
 \tightlist
 \item
-  \textbf{\href{https://www.holofooddata.org/}{HoloFood Data Portal} (website):} XX
+  \textbf{\href{https://www.holofooddata.org/}{HoloFood Data Portal} (website):}
 \item
   \textbf{\href{https://www.ebi.ac.uk/metagenomics/}{MGnify} (website):}
 \item
@@ -2982,7 +3222,8 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \end{itemize}
 
 \hypertarget{links-documentation}{%
-\subsection{Documentation}\label{links-documentation}}
+\subsection*{Documentation}\label{links-documentation}}
+\addcontentsline{toc}{subsection}{Documentation}
 
 \hypertarget{genomics}{%
 \subsubsection*{Genomics}\label{genomics}}
@@ -2992,6 +3233,8 @@ Contents of this section were created by \protect\hyperlink{inaki-odriozola}{Iñ
 \tightlist
 \item
   \textbf{\href{https://datacarpentry.org/wrangling-genomics/}{Data Wrangling and Processing for Genomics} (website):}
+\item
+  \textbf{\href{https://training.galaxyproject.org/training-material/topics/assembly/tutorials/vgp_genome_assembly/tutorial.html}{Vertebrate Genomes Project assembly pipeline tutorial} (website):}
 \end{itemize}
 
 \hypertarget{shell-command-line-usage}{%

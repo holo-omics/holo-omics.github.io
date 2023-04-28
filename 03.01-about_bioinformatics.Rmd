@@ -15,9 +15,11 @@ All bioinformatic analyses included in the **Holo-omics workbook** are conducted
 
 If the comment chunks of the code (text after #) is creating you problems, use the following code to disable interactive comments and avoid issues when copy-pasting code:
 
+\small
 ``` {sh eval=FALSE}
 setopt interactivecomments
 ```
+\normalsize
 
 ### Required software {- #required-software}
 
@@ -30,23 +32,28 @@ https://docs.conda.io/en/latest/miniconda.html
 
 Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:
 
+\small
 ``` {sh eval=FALSE}
 conda -V
 #> conda 22.11.1 #or whatever version you have installed
 ```
+\normalsize
 
 ### Install mamba (optional) {- #install-mamba}
 
 An optional  step is to install **mamba**, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the `conda install` option.
 
+\small
 ``` {sh eval=FALSE}
 conda install mamba -n base -c conda-forge
 ```
+\normalsize
 
 ### Create a conda environment {- #create-conda-environment}
 
 All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available [here](https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml), and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don't forget to provide the absolute path to the 'holo-omics-env.yaml' file in the `mamba create` command.
 
+\small
 ``` {sh eval=FALSE}
 wget https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml #download installer file
 conda update conda #to ensure everything is updated
@@ -54,51 +61,110 @@ conda deactivate #deactivate any conda environment before creating a new one
 conda env create -f holo-omics-env.yml
 rm holo-omics-env.yaml #remove installer file
 ```
+\normalsize
 
 As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can double-check whether the environment has been successfully created using the following script:
 
+\small
 ``` {sh eval=FALSE}
 conda activate holo-omics
 #> (holo-omics) anttonalberdi@Anttons-MBP ~ %
 ```
+\normalsize
 
 The (holo-omics) specifies the environment you are at. To get out of the environment use:
 
+\small
 ``` {sh eval=FALSE}
 conda env list
 #> base                  *  /Users/anttonalberdi/miniconda3
 #> holo-omics               /Users/anttonalberdi/miniconda3/envs/holo-omics
 ```
+\normalsize
 
 ### Activate the holo-omics conda environment {-}
 
 Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command:
 
+\small
 ``` {sh eval=FALSE}
 conda activate holo-omics
 #> (holo-omics) anttonalberdi@Anttons-MBP ~ %
 ```
+\normalsize
 
 ### Install software in conda environment {-}
 
-Content to be added.
+Once the environment is activated, you can install the required software using the Conda package manager. For example, to install **metawrap**, run the following command:
 
+\small
+``` {sh eval=FALSE}
+conda activate holo-omics
+conda install -y -c ursky metawrap-mg=1.2.2
 ```
-#Example code goes here
-```
-
-## Example data for bioinformatics {#example-data-bioinformatics}
-
-Contents to be added here.
-
-```
-#Example code goes here
-```
+\normalsize
 
 ## Using snakemake for workflow management {#using-snakemake}
 
-Contents to be added here.
+Snakemake is a workflow management system that helps automate the execution of computational workflows. It is designed to handle complex dependencies between the input files, output files, and the software tools used to process the data. Snakemake is based on the Python programming language and provides a simple and intuitive syntax for defining rules and dependencies.
 
+Here is a brief overview of how Snakemake works and its basic usage:
+
+1. **Define the input and output files:** In Snakemake, you define the input and output files for each step in your workflow. This allows Snakemake to determine when a step needs to be executed based on the availability of its inputs and the freshness of its outputs.
+2. **Write rules:** Next, you write rules that describe the software tools and commands needed to process the input files into the output files. A rule consists of a name, input and output files, and a command to run.
+3. **Create a workflow:** Once you have defined the rules, you create a workflow by specifying the order in which the rules should be executed. Snakemake automatically resolves the dependencies between the rules based on the input and output files.
+4. **Run the workflow:** Finally, you run the workflow using the snakemake command. Snakemake analyzes the input and output files and executes the rules in the correct order to generate the desired output files.
+
+\small
+``` {sh eval=FALSE}
+rule count_reads:
+    input:
+        "reads/sample1.fastq.gz",
+        "reads/sample2.fastq.gz"
+    output:
+        "counts.txt"
+    shell:
+        "fastqc {input} -o {output} -f fastq"
+
+rule trim_reads:
+    input:
+        "reads/sample1.fastq.gz",
+        "reads/sample2.fastq.gz"
+    output:
+        "trimmed/sample1.trimmed.fastq.gz",
+        "trimmed/sample2.trimmed.fastq.gz"
+    shell:
+        "trimmomatic SE {input} {output} -threads 4"
+
+rule align_reads:
+    input:
+        "trimmed/sample1.trimmed.fastq.gz",
+        "trimmed/sample2.trimmed.fastq.gz"
+    output:
+        "aligned.bam"
+    shell:
+        "bwa mem -t 4 genome.fa {input} | samtools view -Sb - > {output}"
+
+rule call_variants:
+    input:
+        "aligned.bam"
+    output:
+        "variants.vcf"
+    shell:
+        "freebayes -f genome.fa {input} > {output}"
+
+workflow:
+    rule count_reads
+    rule trim_reads
+    rule align_reads
+    rule call_variants
 ```
-#Example code goes here
+\normalsize
+
+To run this workflow, save the code to a file named Snakefile and execute the following command in your terminal:
+
+\small
+```{sh eval=FALSE}
+snakemake
 ```
+\normalsize

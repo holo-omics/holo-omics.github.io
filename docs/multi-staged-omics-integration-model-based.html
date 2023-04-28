@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -422,7 +421,7 @@ div.csl-indent {
 <div id="multi-staged-omics-integration-model-based" class="section level2 hasAnchor" number="22.3">
 <h2><span class="header-section-number">22.3</span> Model-based integration<a href="multi-staged-omics-integration-model-based.html#multi-staged-omics-integration-model-based" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Model-based integration builds intermediate models from each omic layer and then builds a final model combining all intermediate models. An advantage of this approach is that it allows merging multiple omic types that have been collected in different sets of sampling units, if the outcome of interest is the same across datasets (e.g. specific disease). On the other hand, since the models are first built independently for different omic layers, these methods may fail to capture interactions between features belonging to different omic datasets, i.e. if there are two features belonging to different omic layers that affect the outcome, but only through their interaction and not when evaluated independently. Therefore, the model-based integration is particularly suitable when the different omic datasets are extremely heterogeneous (even collected from different samples), and concatenating or transforming them to a common intermediate form is not possible.</p>
-<p>Model-based unsupervised integration methods include Format Concept Analysis (FCA) consensus clustering <span class="citation">[<a href="#ref-Hristoskova2014-pj" role="doc-biblioref">58</a>]</span>, Bayesian consensus clustering (BCC) <span class="citation">[<a href="#ref-Lock2013-uq" role="doc-biblioref">59</a>]</span> or Perturbation Clustering for Data Integration and Disease Subtyping (PINS+) <span class="citation">[<a href="#ref-Nguyen2019-pv" role="doc-biblioref">60</a>]</span>. Network-based methods such as Lemon Tree <span class="citation">[<a href="#ref-Bonnet2015-ff" role="doc-biblioref">61</a>]</span> or Similarity Network Fusion (SNF) <span class="citation">[<a href="#ref-Wang2014-jz" role="doc-biblioref">62</a>]</span> are also available for association analysis. Model-based supervised integration can use a variety of frameworks for model development, including majority-based voting <span class="citation">[<a href="#ref-Draghici2003-ht" role="doc-biblioref">63</a>]</span>, hierarchical classifiers <span class="citation">[<a href="#ref-Bavafaye_Haghighi2019-ee" role="doc-biblioref">64</a>]</span>, ensemble-based approaches such as XGBoost <span class="citation">[<a href="#ref-Ma2020-ce" role="doc-biblioref">65</a>]</span> or DL methods <span class="citation">[<a href="#ref-Poirion2020-cn" role="doc-biblioref">66</a>]</span>. Multi-omic data integration efforts such as ATHENA (Analysis Tool for Heritable and Environmental Network Associations) <span class="citation">[<a href="#ref-Holzinger2014-mn" role="doc-biblioref">67</a>]</span> or MOSAE (Multi-omics Supervised Autoencoder) <span class="citation">[<a href="#ref-Tan2020-lq" role="doc-biblioref">68</a>]</span> use model-based integration for disease prediction by combining a variety of modelling frameworks and algorithms.</p>
+<p>Model-based unsupervised integration methods include Format Concept Analysis (FCA) consensus clustering <span class="citation">[<a href="#ref-Hristoskova2014-pj" role="doc-biblioref">64</a>]</span>, Bayesian consensus clustering (BCC) <span class="citation">[<a href="#ref-Lock2013-uq" role="doc-biblioref">65</a>]</span> or Perturbation Clustering for Data Integration and Disease Subtyping (PINS+) <span class="citation">[<a href="#ref-Nguyen2019-pv" role="doc-biblioref">66</a>]</span>. Network-based methods such as Lemon Tree <span class="citation">[<a href="#ref-Bonnet2015-ff" role="doc-biblioref">67</a>]</span> or Similarity Network Fusion (SNF) <span class="citation">[<a href="#ref-Wang2014-jz" role="doc-biblioref">68</a>]</span> are also available for association analysis. Model-based supervised integration can use a variety of frameworks for model development, including majority-based voting <span class="citation">[<a href="#ref-Draghici2003-ht" role="doc-biblioref">69</a>]</span>, hierarchical classifiers <span class="citation">[<a href="#ref-Bavafaye_Haghighi2019-ee" role="doc-biblioref">70</a>]</span>, ensemble-based approaches such as XGBoost <span class="citation">[<a href="#ref-Ma2020-ce" role="doc-biblioref">71</a>]</span> or DL methods <span class="citation">[<a href="#ref-Poirion2020-cn" role="doc-biblioref">72</a>]</span>. Multi-omic data integration efforts such as ATHENA (Analysis Tool for Heritable and Environmental Network Associations) <span class="citation">[<a href="#ref-Holzinger2014-mn" role="doc-biblioref">73</a>]</span> or MOSAE (Multi-omics Supervised Autoencoder) <span class="citation">[<a href="#ref-Tan2020-lq" role="doc-biblioref">74</a>]</span> use model-based integration for disease prediction by combining a variety of modelling frameworks and algorithms.</p>
 <div class="authorbox">
 <p>Contents of this section were created by <a href="index.html#inaki-odriozola">Iñaki Odriozola</a> and <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
 </div>
@@ -435,37 +434,37 @@ div.csl-indent {
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-Hristoskova2014-pj" class="csl-entry">
-58. Hristoskova A, Boeva V, Tsiporkova E. A formal concept analysis approach to consensus clustering of multi-experiment expression data. BMC Bioinformatics. 2014;15:151.
+64. Hristoskova A, Boeva V, Tsiporkova E. A formal concept analysis approach to consensus clustering of multi-experiment expression data. BMC Bioinformatics. 2014;15:151.
 </div>
 <div id="ref-Lock2013-uq" class="csl-entry">
-59. Lock EF, Dunson DB. Bayesian consensus clustering. Bioinformatics. 2013;29:2610–6.
+65. Lock EF, Dunson DB. Bayesian consensus clustering. Bioinformatics. 2013;29:2610–6.
 </div>
 <div id="ref-Nguyen2019-pv" class="csl-entry">
-60. Nguyen H, Shrestha S, Draghici S, Nguyen T. <span>PINSPlus</span>: A tool for tumor subtype discovery in integrated genomic data. Bioinformatics. 2019;35:2843–6.
+66. Nguyen H, Shrestha S, Draghici S, Nguyen T. <span>PINSPlus</span>: A tool for tumor subtype discovery in integrated genomic data. Bioinformatics. 2019;35:2843–6.
 </div>
 <div id="ref-Bonnet2015-ff" class="csl-entry">
-61. Bonnet E, Calzone L, Michoel T. Integrative multi-omics module network inference with <span>Lemon-Tree</span>. PLoS Comput Biol. 2015;11:e1003983.
+67. Bonnet E, Calzone L, Michoel T. Integrative multi-omics module network inference with <span>Lemon-Tree</span>. PLoS Comput Biol. 2015;11:e1003983.
 </div>
 <div id="ref-Wang2014-jz" class="csl-entry">
-62. Wang B, Mezlini AM, Demir F, Fiume M, Tu Z, Brudno M, et al. Similarity network fusion for aggregating data types on a genomic scale. Nat Methods. 2014;11:333–7.
+68. Wang B, Mezlini AM, Demir F, Fiume M, Tu Z, Brudno M, et al. Similarity network fusion for aggregating data types on a genomic scale. Nat Methods. 2014;11:333–7.
 </div>
 <div id="ref-Draghici2003-ht" class="csl-entry">
-63. Drăghici S, Potter RB. Predicting <span>HIV</span> drug resistance with neural networks. Bioinformatics. 2003;19:98–107.
+69. Drăghici S, Potter RB. Predicting <span>HIV</span> drug resistance with neural networks. Bioinformatics. 2003;19:98–107.
 </div>
 <div id="ref-Bavafaye_Haghighi2019-ee" class="csl-entry">
-64. Bavafaye Haghighi E, Knudsen M, Elmedal Laursen B, Besenbacher S. Hierarchical classification of cancers of unknown primary using <span>Multi-Omics</span> data. Cancer Inform. 2019;18:1176935119872163.
+70. Bavafaye Haghighi E, Knudsen M, Elmedal Laursen B, Besenbacher S. Hierarchical classification of cancers of unknown primary using <span>Multi-Omics</span> data. Cancer Inform. 2019;18:1176935119872163.
 </div>
 <div id="ref-Ma2020-ce" class="csl-entry">
-65. Ma A, McDermaid A, Xu J, Chang Y, Ma Q. Integrative methods and practical challenges for <span>Single-Cell</span> multi-omics. Trends Biotechnol. 2020;38:1007–22.
+71. Ma A, McDermaid A, Xu J, Chang Y, Ma Q. Integrative methods and practical challenges for <span>Single-Cell</span> multi-omics. Trends Biotechnol. 2020;38:1007–22.
 </div>
 <div id="ref-Poirion2020-cn" class="csl-entry">
-66. Poirion OB, Chaudhary K, Huang S, Garmire LX. Multi-omics-based pan-cancer prognosis prediction using an ensemble of deep-learning and machine-learning models. medRxiv. 2020.
+72. Poirion OB, Chaudhary K, Huang S, Garmire LX. Multi-omics-based pan-cancer prognosis prediction using an ensemble of deep-learning and machine-learning models. medRxiv. 2020.
 </div>
 <div id="ref-Holzinger2014-mn" class="csl-entry">
-67. Holzinger ER, Dudek SM, Frase AT, Pendergrass SA, Ritchie MD. <span>ATHENA</span>: The analysis tool for heritable and environmental network associations. Bioinformatics. 2014;30:698–705.
+73. Holzinger ER, Dudek SM, Frase AT, Pendergrass SA, Ritchie MD. <span>ATHENA</span>: The analysis tool for heritable and environmental network associations. Bioinformatics. 2014;30:698–705.
 </div>
 <div id="ref-Tan2020-lq" class="csl-entry">
-68. Tan K, Huang W, Hu J, Dong S. A multi-omics supervised autoencoder for pan-cancer clinical outcome endpoints prediction. BMC Med Inform Decis Mak. 2020;20 Suppl 3:129.
+74. Tan K, Huang W, Hu J, Dong S. A multi-omics supervised autoencoder for pan-cancer clinical outcome endpoints prediction. BMC Med Inform Decis Mak. 2020;20 Suppl 3:129.
 </div>
 </div>
             </section>

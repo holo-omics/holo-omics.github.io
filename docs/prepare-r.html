@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -421,7 +420,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="prepare-r" class="section level2 hasAnchor" number="15.1">
 <h2><span class="header-section-number">15.1</span> Prepare your R environment<a href="prepare-r.html#prepare-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>All statistical analyses included in the <strong>Holo-omics workbook</strong> are conducted in <a href="https://en.wikipedia.org/wiki/R_(programming_language)">R environment</a> <span class="citation">[<a href="#ref-R_Development_Core_Team2008-gd" role="doc-biblioref">31</a>]</span>. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, <a href="https://cran.r-project.org/">R</a> or <a href="https://posit.co/downloads/">RStudio</a> must be installed in your local computer or remote server.</p>
+<p>All statistical analyses included in the <strong>Holo-omics workbook</strong> are conducted in <a href="https://en.wikipedia.org/wiki/R_(programming_language)">R environment</a> <span class="citation">[<a href="#ref-R_Development_Core_Team2008-gd" role="doc-biblioref">37</a>]</span>. R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS, and in order to use it, <a href="https://cran.r-project.org/">R</a> or <a href="https://posit.co/downloads/">RStudio</a> must be installed in your local computer or remote server.</p>
 <div id="required-packages" class="section level3 unnumbered hasAnchor">
 <h3>Required packages<a href="prepare-r.html#required-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to reproduce the analyses shown in the workbook, a rather long list of R packages must be installed. Packages are the fundamental units of reproducible R code, which include reusable R functions, the documentation that describes how to use them, and sample data.</p>
@@ -441,26 +440,26 @@ div.csl-indent {
 <div id="install-package-from-cran" class="section level4 unnumbered hasAnchor">
 <h4>Install package from CRAN<a href="prepare-r.html#install-package-from-cran" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R. Packages stored in CRAN can be installed using the following code:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="prepare-r.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;package_name&quot;</span>)</span>
-<span id="cb49-2"><a href="prepare-r.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb49-3"><a href="prepare-r.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="prepare-r.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;package_name&quot;</span>)</span>
+<span id="cb56-2"><a href="prepare-r.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb56-3"><a href="prepare-r.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
 </div>
 <div id="install-package-from-bioconductor" class="section level4 unnumbered hasAnchor">
 <h4>Install package from Bioconductor<a href="prepare-r.html#install-package-from-bioconductor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Bioconductor is a free, open source and open development software project for the analysis and comprehension of genomic data generated by wet lab experiments in molecular biology. Packages included in Bioconductor can be installed using the following code:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="prepare-r.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb50-2"><a href="prepare-r.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb50-3"><a href="prepare-r.html#cb50-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;package_name&quot;</span>)</span>
-<span id="cb50-4"><a href="prepare-r.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb50-5"><a href="prepare-r.html#cb50-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="prepare-r.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;BiocManager&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb57-2"><a href="prepare-r.html#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb57-3"><a href="prepare-r.html#cb57-3" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;package_name&quot;</span>)</span>
+<span id="cb57-4"><a href="prepare-r.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb57-5"><a href="prepare-r.html#cb57-5" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;DESeq2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="install-package-from-github" class="section level4 unnumbered hasAnchor">
 <h4>Install package from Github<a href="prepare-r.html#install-package-from-github" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>GitHub is a code hosting platform for version control and collaboration. Packages stored in R can be installed using the following code after installing the package devtools:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="prepare-r.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb51-2"><a href="prepare-r.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;github_repository_name_of_the_package&quot;</span>)</span>
-<span id="cb51-3"><a href="prepare-r.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
-<span id="cb51-4"><a href="prepare-r.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;anttonalberdi/distillR&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="prepare-r.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb58-2"><a href="prepare-r.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;github_repository_name_of_the_package&quot;</span>)</span>
+<span id="cb58-3"><a href="prepare-r.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co">#e.g.</span></span>
+<span id="cb58-4"><a href="prepare-r.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;anttonalberdi/distillR&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -469,7 +468,7 @@ div.csl-indent {
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-R_Development_Core_Team2008-gd" class="csl-entry">
-31. R Development Core Team. R: A language and environment for statistical computing. Vienna, Austria; 2008.
+37. R Development Core Team. R: A language and environment for statistical computing. Vienna, Austria; 2008.
 </div>
 </div>
             </section>

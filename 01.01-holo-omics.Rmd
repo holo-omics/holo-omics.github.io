@@ -20,7 +20,9 @@ Contents of this section were created by [Antton Alberdi](#antton-alberdi) and [
 
 Nucleic acid sequencing and mass spectrometry technologies that enable tracking the biomolecular pathways linking host and microbial genomic sequences with biomolecular phenotypes by generating (meta)transcriptomes, (meta) proteomes, and (meta)metabolomes. The same technologies also enable epigenomic and exposomic profiling, which can further contribute to disentangling the biochemical associations between host-microbiota-environment interactions and their effect on host phenotypes.
 
+\scriptsize
 ![](images/omic_layers_limborg.png)
+\normalsize
 
 :::: {.imagenote}
 Overview of omic layers. Modified from Limborg et al. 2018 [@Limborg2018-tf].

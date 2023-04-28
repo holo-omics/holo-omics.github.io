@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -448,25 +447,27 @@ div.csl-indent {
 <p>Depending on the sample type employed for data generation, sequencing data might contain only host reads, only microbial reads, or a mixture of both. For example, blood sampled from an animal is expected to only contain host DNA/RNA reads (unless an infection is ongoing), while DNA extracted from a microbial culture is only expected to contain microbial DNA/RNA reads (unless human contamination has happened). In contrast, intestinal content samples, faecal samples, leave samples or root samples can contain both host and microbial nucleic acids.</p>
 <div id="index-host-genome" class="section level4 unnumbered hasAnchor">
 <h4>Index host genome<a href="sequencing-data-preprocessing.html#index-host-genome" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In order to map metagenomic reads to a reference host genome, it is necessary to index the genome. An index is a data structure that allows for efficient searching of the reference genome by breaking it down into smaller, more manageable pieces. Without an index, aligning reads to a reference genome would be prohibitively slow, especially for large genomes. Bowtie2 is a popular software tool for aligning reads to a reference genome, and it requires an index of the reference genome before alignment can be performed. Bowtie2 uses an index based on the Burrows-Wheeler transform (BWT) algorithm, which enables it to efficiently align reads to the reference genome. Here are the basic command to create a Bowtie2 index for a reference genome:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="sequencing-data-preprocessing.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2-build</span> <span class="dt">\</span></span>
 <span id="cb15-2"><a href="sequencing-data-preprocessing.html#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--large-index</span> <span class="dt">\</span></span>
 <span id="cb15-3"><a href="sequencing-data-preprocessing.html#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
-<span id="cb15-4"><a href="sequencing-data-preprocessing.html#cb15-4" aria-hidden="true" tabindex="-1"></a>        {output.rn_catted_ref} {output.rn_catted_ref}</span></code></pre></div>
+<span id="cb15-4"><a href="sequencing-data-preprocessing.html#cb15-4" aria-hidden="true" tabindex="-1"></a>        {input.genome} {output.index}</span></code></pre></div>
 </div>
 <div id="map-samples-to-host-genomes" class="section level4 unnumbered hasAnchor">
 <h4>Map samples to host genomes<a href="sequencing-data-preprocessing.html#map-samples-to-host-genomes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="sequencing-data-preprocessing.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map reads to catted reference using Bowtie2</span></span>
+<p>The next step is to map the reads against the reference genome, followed by a split between reads that have been mapped (in the example below are retained in a BAM/SAM file) and the reads that were not mapped (in the example below outputed to fastq files). The mapped reads can be used for performing population genomic analyses, while the unmapped reads can be used for metagenomic analyses.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="sequencing-data-preprocessing.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map reads to the reference genome using Bowtie2</span></span>
 <span id="cb16-2"><a href="sequencing-data-preprocessing.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="dt">\</span></span>
 <span id="cb16-3"><a href="sequencing-data-preprocessing.html#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--time</span> <span class="dt">\</span></span>
 <span id="cb16-4"><a href="sequencing-data-preprocessing.html#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
-<span id="cb16-5"><a href="sequencing-data-preprocessing.html#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-x</span> {input.catted_ref} <span class="dt">\</span></span>
+<span id="cb16-5"><a href="sequencing-data-preprocessing.html#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-x</span> {indexed.genome} <span class="dt">\</span></span>
 <span id="cb16-6"><a href="sequencing-data-preprocessing.html#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> {input.r1i} <span class="dt">\</span></span>
 <span id="cb16-7"><a href="sequencing-data-preprocessing.html#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">-2</span> {input.r2i} <span class="dt">\</span></span>
-<span id="cb16-8"><a href="sequencing-data-preprocessing.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-@</span> {threads} <span class="at">-</span> <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output.all_bam} <span class="at">-</span> <span class="kw">&amp;&amp;</span></span>
+<span id="cb16-8"><a href="sequencing-data-preprocessing.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-@</span> {threads} <span class="at">-</span> <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output.all_bam} <span class="at">-</span></span>
 <span id="cb16-9"><a href="sequencing-data-preprocessing.html#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="sequencing-data-preprocessing.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract non-host reads (note we&#39;re not compressing for nonpareil)</span></span>
+<span id="cb16-10"><a href="sequencing-data-preprocessing.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract non-host reads</span></span>
 <span id="cb16-11"><a href="sequencing-data-preprocessing.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-f12</span> <span class="at">-@</span> {threads} {output.all_bam} <span class="dt">\</span></span>
-<span id="cb16-12"><a href="sequencing-data-preprocessing.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> fastq <span class="at">-@</span> {threads} <span class="at">-1</span> {output.non_host_r1} <span class="at">-2</span> {output.non_host_r2} <span class="at">-</span> <span class="kw">&amp;&amp;</span></span>
+<span id="cb16-12"><a href="sequencing-data-preprocessing.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">samtools</span> fastq <span class="at">-@</span> {threads} <span class="at">-1</span> {output.non_host_r1} <span class="at">-2</span> {output.non_host_r2} <span class="at">-</span></span>
 <span id="cb16-13"><a href="sequencing-data-preprocessing.html#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-14"><a href="sequencing-data-preprocessing.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Send host reads to BAM</span></span>
 <span id="cb16-15"><a href="sequencing-data-preprocessing.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-b</span> <span class="at">-F12</span> <span class="at">-@</span> {threads} {output.all_bam} <span class="dt">\</span></span>

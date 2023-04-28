@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7.3 Using snakemake for workflow management | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="7.3 Using snakemake for workflow management | A Practical Guide to Holo-Omics" />
+  <title>7.2 Using snakemake for workflow management | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="7.2 Using snakemake for workflow management | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7.3 Using snakemake for workflow management | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="7.2 Using snakemake for workflow management | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7.3 Using snakemake for workflow management | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="7.2 Using snakemake for workflow management | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="example-data-bioinformatics.html"/>
+<link rel="prev" href="prepare-shell.html"/>
 <link rel="next" href="sequencing-data-preprocessing.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -419,10 +418,59 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="using-snakemake" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> Using snakemake for workflow management<a href="using-snakemake.html#using-snakemake" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Contents to be added here.</p>
-<pre><code>#Example code goes here</code></pre>
+<div id="using-snakemake" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Using snakemake for workflow management<a href="using-snakemake.html#using-snakemake" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Snakemake is a workflow management system that helps automate the execution of computational workflows. It is designed to handle complex dependencies between the input files, output files, and the software tools used to process the data. Snakemake is based on the Python programming language and provides a simple and intuitive syntax for defining rules and dependencies.</p>
+<p>Here is a brief overview of how Snakemake works and its basic usage:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Define the input and output files:</strong> In Snakemake, you define the input and output files for each step in your workflow. This allows Snakemake to determine when a step needs to be executed based on the availability of its inputs and the freshness of its outputs.</li>
+<li><strong>Write rules:</strong> Next, you write rules that describe the software tools and commands needed to process the input files into the output files. A rule consists of a name, input and output files, and a command to run.</li>
+<li><strong>Create a workflow:</strong> Once you have defined the rules, you create a workflow by specifying the order in which the rules should be executed. Snakemake automatically resolves the dependencies between the rules based on the input and output files.</li>
+<li><strong>Run the workflow:</strong> Finally, you run the workflow using the snakemake command. Snakemake analyzes the input and output files and executes the rules in the correct order to generate the desired output files.</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="using-snakemake.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rule</span> count_reads:</span>
+<span id="cb12-2"><a href="using-snakemake.html#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">input:</span></span>
+<span id="cb12-3"><a href="using-snakemake.html#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;reads/sample1.fastq.gz&quot;</span><span class="ex">,</span></span>
+<span id="cb12-4"><a href="using-snakemake.html#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;reads/sample2.fastq.gz&quot;</span></span>
+<span id="cb12-5"><a href="using-snakemake.html#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output:</span></span>
+<span id="cb12-6"><a href="using-snakemake.html#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;counts.txt&quot;</span></span>
+<span id="cb12-7"><a href="using-snakemake.html#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">shell:</span></span>
+<span id="cb12-8"><a href="using-snakemake.html#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;fastqc {input} -o {output} -f fastq&quot;</span></span>
+<span id="cb12-9"><a href="using-snakemake.html#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="using-snakemake.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">rule</span> trim_reads:</span>
+<span id="cb12-11"><a href="using-snakemake.html#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">input:</span></span>
+<span id="cb12-12"><a href="using-snakemake.html#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;reads/sample1.fastq.gz&quot;</span><span class="ex">,</span></span>
+<span id="cb12-13"><a href="using-snakemake.html#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;reads/sample2.fastq.gz&quot;</span></span>
+<span id="cb12-14"><a href="using-snakemake.html#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output:</span></span>
+<span id="cb12-15"><a href="using-snakemake.html#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;trimmed/sample1.trimmed.fastq.gz&quot;</span><span class="ex">,</span></span>
+<span id="cb12-16"><a href="using-snakemake.html#cb12-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;trimmed/sample2.trimmed.fastq.gz&quot;</span></span>
+<span id="cb12-17"><a href="using-snakemake.html#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="ex">shell:</span></span>
+<span id="cb12-18"><a href="using-snakemake.html#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;trimmomatic SE {input} {output} -threads 4&quot;</span></span>
+<span id="cb12-19"><a href="using-snakemake.html#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="using-snakemake.html#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="ex">rule</span> align_reads:</span>
+<span id="cb12-21"><a href="using-snakemake.html#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">input:</span></span>
+<span id="cb12-22"><a href="using-snakemake.html#cb12-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;trimmed/sample1.trimmed.fastq.gz&quot;</span><span class="ex">,</span></span>
+<span id="cb12-23"><a href="using-snakemake.html#cb12-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;trimmed/sample2.trimmed.fastq.gz&quot;</span></span>
+<span id="cb12-24"><a href="using-snakemake.html#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output:</span></span>
+<span id="cb12-25"><a href="using-snakemake.html#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;aligned.bam&quot;</span></span>
+<span id="cb12-26"><a href="using-snakemake.html#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">shell:</span></span>
+<span id="cb12-27"><a href="using-snakemake.html#cb12-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;bwa mem -t 4 genome.fa {input} | samtools view -Sb - &gt; {output}&quot;</span></span>
+<span id="cb12-28"><a href="using-snakemake.html#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="using-snakemake.html#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="ex">rule</span> call_variants:</span>
+<span id="cb12-30"><a href="using-snakemake.html#cb12-30" aria-hidden="true" tabindex="-1"></a>    <span class="ex">input:</span></span>
+<span id="cb12-31"><a href="using-snakemake.html#cb12-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;aligned.bam&quot;</span></span>
+<span id="cb12-32"><a href="using-snakemake.html#cb12-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">output:</span></span>
+<span id="cb12-33"><a href="using-snakemake.html#cb12-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;variants.vcf&quot;</span></span>
+<span id="cb12-34"><a href="using-snakemake.html#cb12-34" aria-hidden="true" tabindex="-1"></a>    <span class="ex">shell:</span></span>
+<span id="cb12-35"><a href="using-snakemake.html#cb12-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;freebayes -f genome.fa {input} &gt; {output}&quot;</span></span>
+<span id="cb12-36"><a href="using-snakemake.html#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="using-snakemake.html#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="ex">workflow:</span></span>
+<span id="cb12-38"><a href="using-snakemake.html#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="ex">rule</span> count_reads</span>
+<span id="cb12-39"><a href="using-snakemake.html#cb12-39" aria-hidden="true" tabindex="-1"></a>    <span class="ex">rule</span> trim_reads</span>
+<span id="cb12-40"><a href="using-snakemake.html#cb12-40" aria-hidden="true" tabindex="-1"></a>    <span class="ex">rule</span> align_reads</span>
+<span id="cb12-41"><a href="using-snakemake.html#cb12-41" aria-hidden="true" tabindex="-1"></a>    <span class="ex">rule</span> call_variants</span></code></pre></div>
+<p>To run this workflow, save the code to a file named Snakefile and execute the following command in your terminal:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="using-snakemake.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">snakemake</span></span></code></pre></div>
 
 </div>
 <!-- </div> -->
@@ -431,7 +479,7 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="example-data-bioinformatics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="prepare-shell.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="sequencing-data-preprocessing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

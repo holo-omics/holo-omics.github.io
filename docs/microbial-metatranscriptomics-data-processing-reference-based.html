@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -425,49 +424,49 @@ div.csl-indent {
 <div id="quality-filtering-1" class="section level3 unnumbered hasAnchor">
 <h3>Quality filtering<a href="microbial-metatranscriptomics-data-processing-reference-based.html#quality-filtering-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb42-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="dt">\</span></span>
-<span id="cb42-2"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--in1</span> {input.r1i} <span class="at">--in2</span> {input.r2i} <span class="dt">\</span></span>
-<span id="cb42-3"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out1</span> {output.r1o} <span class="at">--out2</span> {output.r2o} <span class="dt">\</span></span>
-<span id="cb42-4"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_g</span> <span class="dt">\</span></span>
-<span id="cb42-5"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_x</span> <span class="dt">\</span></span>
-<span id="cb42-6"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--n_base_limit</span> 5 <span class="dt">\</span></span>
-<span id="cb42-7"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--qualified_quality_phred</span> 20 <span class="dt">\</span></span>
-<span id="cb42-8"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--length_required</span> 60 <span class="dt">\</span></span>
-<span id="cb42-9"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">--thread</span> {threads} <span class="dt">\</span></span>
-<span id="cb42-10"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">--html</span> {output.fastp_html} <span class="dt">\</span></span>
-<span id="cb42-11"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">--json</span> {output.fastp_json} <span class="dt">\</span></span>
-<span id="cb42-12"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence</span> CTGTCTCTTATACACATCT <span class="dt">\</span></span>
-<span id="cb42-13"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb42-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence_r2</span> CTGTCTCTTATACACATCT</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb49-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="dt">\</span></span>
+<span id="cb49-2"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--in1</span> {input.r1i} <span class="at">--in2</span> {input.r2i} <span class="dt">\</span></span>
+<span id="cb49-3"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out1</span> {output.r1o} <span class="at">--out2</span> {output.r2o} <span class="dt">\</span></span>
+<span id="cb49-4"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_g</span> <span class="dt">\</span></span>
+<span id="cb49-5"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_x</span> <span class="dt">\</span></span>
+<span id="cb49-6"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--n_base_limit</span> 5 <span class="dt">\</span></span>
+<span id="cb49-7"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--qualified_quality_phred</span> 20 <span class="dt">\</span></span>
+<span id="cb49-8"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--length_required</span> 60 <span class="dt">\</span></span>
+<span id="cb49-9"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">--thread</span> {threads} <span class="dt">\</span></span>
+<span id="cb49-10"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">--html</span> {output.fastp_html} <span class="dt">\</span></span>
+<span id="cb49-11"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">--json</span> {output.fastp_json} <span class="dt">\</span></span>
+<span id="cb49-12"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence</span> CTGTCTCTTATACACATCT <span class="dt">\</span></span>
+<span id="cb49-13"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb49-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence_r2</span> CTGTCTCTTATACACATCT</span></code></pre></div>
 </div>
 <div id="ribosomal-rna-removal-1" class="section level3 unnumbered hasAnchor">
 <h3>Ribosomal RNA removal<a href="microbial-metatranscriptomics-data-processing-reference-based.html#ribosomal-rna-removal-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ribodetector can be used for efficient removal of rRNA sequences from microbial metatranscriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb43-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb50-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
 </div>
 <div id="host-genome-indexing" class="section level3 unnumbered hasAnchor">
 <h3>Host genome indexing<a href="microbial-metatranscriptomics-data-processing-reference-based.html#host-genome-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which can be used for multiple RNA-seq experiments.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb44-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb51-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
 </div>
 <div id="host-genome-mapping" class="section level3 unnumbered hasAnchor">
 <h3>Host genome mapping<a href="microbial-metatranscriptomics-data-processing-reference-based.html#host-genome-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>STAR (Spliced Transcripts Alignment to a Reference) can be used for efficiently mapping host reads against a selected reference genome, and thus filter them out from subsequent metatranscriptomic analyses.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb45-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb52-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
 </div>
 <div id="generating-and-indexing-the-microbial-genome-catalogue" class="section level3 unnumbered hasAnchor">
 <h3>Generating and indexing the microbial genome catalogue<a href="microbial-metatranscriptomics-data-processing-reference-based.html#generating-and-indexing-the-microbial-genome-catalogue" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Explanations to be added here.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb46-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb53-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
 </div>
 <div id="mapping-against-the-microbial-genome-catalogue" class="section level3 unnumbered hasAnchor">
 <h3>Mapping against the microbial genome catalogue<a href="microbial-metatranscriptomics-data-processing-reference-based.html#mapping-against-the-microbial-genome-catalogue" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Explanations to be added here.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb47-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb54-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
 </div>
 <div id="calculate-gene-counts" class="section level3 unnumbered hasAnchor">
 <h3>Calculate gene counts<a href="microbial-metatranscriptomics-data-processing-reference-based.html#calculate-gene-counts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Explanations to be added here.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb48-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb55-1"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to be added here</span></span></code></pre></div>
 </div>
 </div>
             </section>

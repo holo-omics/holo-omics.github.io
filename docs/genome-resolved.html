@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -434,77 +433,77 @@ div.csl-indent {
 <p>Two of the most relevant structural properties to group contigs into bins are oligonucleotide composition of contigs and present of universally conserved genes in contigs. MaxBin, for example, relies on such universally conserved genes to initialize clusters, which are then expanded using the oligonucleotide composition of contigs. Besides structural attributes of contigs, the main quantitative measure used for binning is differential coverage, which is computed by counting the number of reads from different samples mapped to the assembly. This information is used by binning algorithms CONCOCT and MetaBat, for example.</p>
 <p>Metabat and Maxbin require a depth file to be generated first.
 </p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="genome-resolved.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jgi_summarize_bam_contig_depths</span> <span class="dt">\</span></span>
-<span id="cb27-2"><a href="genome-resolved.html#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--outputDepth</span> {output.depth} <span class="dt">\</span></span>
-<span id="cb27-3"><a href="genome-resolved.html#cb27-3" aria-hidden="true" tabindex="-1"></a>    {input.assemblybampath}</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb34-1"><a href="genome-resolved.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jgi_summarize_bam_contig_depths</span> <span class="dt">\</span></span>
+<span id="cb34-2"><a href="genome-resolved.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--outputDepth</span> {output.depth} <span class="dt">\</span></span>
+<span id="cb34-3"><a href="genome-resolved.html#cb34-3" aria-hidden="true" tabindex="-1"></a>    {input.assemblybampath}</span></code></pre></div>
 <p>Example code for launching metabat2.
 </p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="genome-resolved.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metabat2</span> <span class="dt">\</span></span>
-<span id="cb28-2"><a href="genome-resolved.html#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-i</span> {input.assemblypath} <span class="dt">\</span></span>
-<span id="cb28-3"><a href="genome-resolved.html#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-a</span> {input.depth} <span class="dt">\</span></span>
-<span id="cb28-4"><a href="genome-resolved.html#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {output.basepath} <span class="dt">\</span></span>
-<span id="cb28-5"><a href="genome-resolved.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 1500 <span class="dt">\</span></span>
-<span id="cb28-6"><a href="genome-resolved.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
-<span id="cb28-7"><a href="genome-resolved.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--unbinned</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb35-1"><a href="genome-resolved.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metabat2</span> <span class="dt">\</span></span>
+<span id="cb35-2"><a href="genome-resolved.html#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-i</span> {input.assemblypath} <span class="dt">\</span></span>
+<span id="cb35-3"><a href="genome-resolved.html#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-a</span> {input.depth} <span class="dt">\</span></span>
+<span id="cb35-4"><a href="genome-resolved.html#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {output.basepath} <span class="dt">\</span></span>
+<span id="cb35-5"><a href="genome-resolved.html#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 1500 <span class="dt">\</span></span>
+<span id="cb35-6"><a href="genome-resolved.html#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb35-7"><a href="genome-resolved.html#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--unbinned</span></span></code></pre></div>
 <p>Example code for launching MaxBin.
 </p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb29-1"><a href="genome-resolved.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">run_MaxBin.pl</span> <span class="dt">\</span></span>
-<span id="cb29-2"><a href="genome-resolved.html#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-contig</span> {input.assemblypath} <span class="dt">\</span></span>
-<span id="cb29-3"><a href="genome-resolved.html#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-abund</span> {input.depth} <span class="dt">\</span></span>
-<span id="cb29-4"><a href="genome-resolved.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-out</span> {output.basepath} <span class="dt">\</span></span>
-<span id="cb29-5"><a href="genome-resolved.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-thread</span> {threads}</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="genome-resolved.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">run_MaxBin.pl</span> <span class="dt">\</span></span>
+<span id="cb36-2"><a href="genome-resolved.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-contig</span> {input.assemblypath} <span class="dt">\</span></span>
+<span id="cb36-3"><a href="genome-resolved.html#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-abund</span> {input.depth} <span class="dt">\</span></span>
+<span id="cb36-4"><a href="genome-resolved.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-out</span> {output.basepath} <span class="dt">\</span></span>
+<span id="cb36-5"><a href="genome-resolved.html#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-thread</span> {threads}</span></code></pre></div>
 </div>
 <div id="genome-resolved-refinement" class="section level3 unnumbered hasAnchor">
 <h3>Bin refinement<a href="genome-resolved.html#genome-resolved-refinement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as “bin refinement,” and can be performed using tools like metaWRAP <span class="citation">[<a href="#ref-Uritskiy2018-my" role="doc-biblioref">21</a>]</span> or Dastool <span class="citation">[<a href="#ref-Sieber2018-fp" role="doc-biblioref">22</a>]</span>. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.</p>
+<p>The performance of the binning algorithms is largely dependent on the specific properties of each sample. A software that performs very well with a given sample can be easily outcompeted by another one in the next sample. In consequence, many researchers opt for ensemble approaches whereby assemblies are binned using multiple algorithms, followed by a refinement step that merges all generated information to yield consensus bins. This final step is ofter referred to as “bin refinement,” and can be performed using tools like metaWRAP <span class="citation">[<a href="#ref-Uritskiy2018-my" role="doc-biblioref">27</a>]</span> or Dastool <span class="citation">[<a href="#ref-Sieber2018-fp" role="doc-biblioref">28</a>]</span>. Several benchmarking studies have shown that such ensemble approaches are usually better than individual binning tools.</p>
 <p>The following code can be used to run an ensemble binning using metaWRAP.
 </p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb30-1"><a href="genome-resolved.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metawrap</span> binning <span class="at">-o</span> {params.outdir} <span class="dt">\</span></span>
-<span id="cb30-2"><a href="genome-resolved.html#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
-<span id="cb30-3"><a href="genome-resolved.html#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> {params.memory} <span class="dt">\</span></span>
-<span id="cb30-4"><a href="genome-resolved.html#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-a</span> {params.assembly} <span class="dt">\</span></span>
-<span id="cb30-5"><a href="genome-resolved.html#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-l</span> 1500 <span class="dt">\</span></span>
-<span id="cb30-6"><a href="genome-resolved.html#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--metabat2</span> <span class="dt">\</span></span>
-<span id="cb30-7"><a href="genome-resolved.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--maxbin2</span> <span class="dt">\</span></span>
-<span id="cb30-8"><a href="genome-resolved.html#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">--concoct</span> <span class="dt">\</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb37-1"><a href="genome-resolved.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metawrap</span> binning <span class="at">-o</span> {params.outdir} <span class="dt">\</span></span>
+<span id="cb37-2"><a href="genome-resolved.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb37-3"><a href="genome-resolved.html#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> {params.memory} <span class="dt">\</span></span>
+<span id="cb37-4"><a href="genome-resolved.html#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-a</span> {params.assembly} <span class="dt">\</span></span>
+<span id="cb37-5"><a href="genome-resolved.html#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-l</span> 1500 <span class="dt">\</span></span>
+<span id="cb37-6"><a href="genome-resolved.html#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--metabat2</span> <span class="dt">\</span></span>
+<span id="cb37-7"><a href="genome-resolved.html#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--maxbin2</span> <span class="dt">\</span></span>
+<span id="cb37-8"><a href="genome-resolved.html#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">--concoct</span> <span class="dt">\</span></span></code></pre></div>
 <p>The following code can be used to refine binds using metaWRAP.
 </p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="genome-resolved.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metawrap</span> bin_refinement <span class="dt">\</span></span>
-<span id="cb31-2"><a href="genome-resolved.html#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> {params.memory} <span class="dt">\</span></span>
-<span id="cb31-3"><a href="genome-resolved.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
-<span id="cb31-4"><a href="genome-resolved.html#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {params.outdir} <span class="dt">\</span></span>
-<span id="cb31-5"><a href="genome-resolved.html#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-A</span> {params.concoct} <span class="dt">\</span></span>
-<span id="cb31-6"><a href="genome-resolved.html#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-B</span> {params.maxbin2} <span class="dt">\</span></span>
-<span id="cb31-7"><a href="genome-resolved.html#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">-C</span> {params.metabat2} <span class="dt">\</span></span>
-<span id="cb31-8"><a href="genome-resolved.html#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">-c</span> 70 <span class="dt">\</span></span>
-<span id="cb31-9"><a href="genome-resolved.html#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">-x</span> 10</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb38-1"><a href="genome-resolved.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metawrap</span> bin_refinement <span class="dt">\</span></span>
+<span id="cb38-2"><a href="genome-resolved.html#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> {params.memory} <span class="dt">\</span></span>
+<span id="cb38-3"><a href="genome-resolved.html#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb38-4"><a href="genome-resolved.html#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> {params.outdir} <span class="dt">\</span></span>
+<span id="cb38-5"><a href="genome-resolved.html#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-A</span> {params.concoct} <span class="dt">\</span></span>
+<span id="cb38-6"><a href="genome-resolved.html#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-B</span> {params.maxbin2} <span class="dt">\</span></span>
+<span id="cb38-7"><a href="genome-resolved.html#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">-C</span> {params.metabat2} <span class="dt">\</span></span>
+<span id="cb38-8"><a href="genome-resolved.html#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">-c</span> 70 <span class="dt">\</span></span>
+<span id="cb38-9"><a href="genome-resolved.html#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">-x</span> 10</span></code></pre></div>
 </div>
 <div id="genome-resolved-qc" class="section level3 unnumbered hasAnchor">
 <h3>Bin quality assessment<a href="genome-resolved.html#genome-resolved-qc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Metagenomic binning is a powerful yet complex procedure that yields many bins that do not properly represent bacterial genomes. It is therefore essential to assess the quality of those bins before considering them representative of bacterial genomes. The two main parameters used for bin assessment are completeness and contamination. Completeness refers to the fraction of a given bacterial genome estimated to be represented in the bin, while contamination refers to the proportion of the bin estimated to belong to a different genome. The most commonly employed software to assess bin quality is CheckM, which yields completeness and contamination metrics based on single-copy core genes.</p>
-<p>Based on completeness and contamination metrics, a group of experts proposed some community standards to classify bins according to their quality and establish minimum quality requirements for considering a bin as a MAG <span class="citation">[<a href="#ref-Bowers2017-kj" role="doc-biblioref">23</a>]</span>.</p>
+<p>Based on completeness and contamination metrics, a group of experts proposed some community standards to classify bins according to their quality and establish minimum quality requirements for considering a bin as a MAG <span class="citation">[<a href="#ref-Bowers2017-kj" role="doc-biblioref">29</a>]</span>.</p>
 </div>
 <div id="genome-resolved-curation" class="section level3 unnumbered hasAnchor">
 <h3>Bin curation<a href="genome-resolved.html#genome-resolved-curation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi’o suite <span class="citation">[<a href="#ref-Eren2015-tt" role="doc-biblioref">24</a>]</span> provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner <span class="citation">[<a href="#ref-Orakov2021-pt" role="doc-biblioref">25</a>]</span>.</p>
+<p>Contamination is an issue that in certain cases can be minimised by curating bins. The Anvi’o suite <span class="citation">[<a href="#ref-Eren2015-tt" role="doc-biblioref">30</a>]</span> provides a powerful visual interface to manually curate bins by dropping contigs that display distinct features (e.g., taxonomic annotation, coverage, GC%) to the rest of the contigs included in a bin. GUNC provides a way to implement a similar curation step in a more automatised manner <span class="citation">[<a href="#ref-Orakov2021-pt" role="doc-biblioref">31</a>]</span>.</p>
 </div>
 <div id="genome-resolved-dereplication" class="section level3 unnumbered hasAnchor">
 <h3>Dereplication<a href="genome-resolved.html#genome-resolved-dereplication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dereplication is the reduction of a set of MAGs based on high sequence similarity between them <span class="citation">[<a href="#ref-Evans2020-hs" role="doc-biblioref">26</a>]</span>. Although this step is neither essential nor meaningful in certain cases (e.g., when studying straing-level variation or pangenomes), in most cases it contributes to overcome issues such as excessive computational demans, inflated diversity or inspecific read mapping. If the catalogue of MAGs used to map sequencing reads to (see <a href="genome-resolved.html#genome-resolved-mapping">read mapping</a> section below) contains many similar genomes, read mapping results in multiple high-quality alignments. Depending on the software used and parameters chosen, this leads to sequencing reads either being randomly distributed across the redundant genomes or being reported at all redundant locations. This can bias quantitative estimations of relative representation of each MAG in a given metagenomic sample.</p>
-<p>Dereplication is based on pairwise comparisons of average nucleotide identity (ANI) between MAGs. This implies that the number of comparisons scales quadratically with an increasing amount of MAGs, which requires for efficient strategies to perform dereplication in a cost-efficient way. A popular tool used for dereplicating MAGs is dRep <span class="citation">[<a href="#ref-Olm2017-nx" role="doc-biblioref">27</a>]</span>, which combines the fast yet innacurate algorithm MASH with the slow but accurate gANI computation to yield a fast and accurate estimation of ANIs between MAGs. An optimal threshold that balances between retaining genome diversity while minimising cross-mapping issues has been found to be 98% ANI.</p>
+<p>Dereplication is the reduction of a set of MAGs based on high sequence similarity between them <span class="citation">[<a href="#ref-Evans2020-hs" role="doc-biblioref">32</a>]</span>. Although this step is neither essential nor meaningful in certain cases (e.g., when studying straing-level variation or pangenomes), in most cases it contributes to overcome issues such as excessive computational demans, inflated diversity or inspecific read mapping. If the catalogue of MAGs used to map sequencing reads to (see <a href="genome-resolved.html#genome-resolved-mapping">read mapping</a> section below) contains many similar genomes, read mapping results in multiple high-quality alignments. Depending on the software used and parameters chosen, this leads to sequencing reads either being randomly distributed across the redundant genomes or being reported at all redundant locations. This can bias quantitative estimations of relative representation of each MAG in a given metagenomic sample.</p>
+<p>Dereplication is based on pairwise comparisons of average nucleotide identity (ANI) between MAGs. This implies that the number of comparisons scales quadratically with an increasing amount of MAGs, which requires for efficient strategies to perform dereplication in a cost-efficient way. A popular tool used for dereplicating MAGs is dRep <span class="citation">[<a href="#ref-Olm2017-nx" role="doc-biblioref">33</a>]</span>, which combines the fast yet innacurate algorithm MASH with the slow but accurate gANI computation to yield a fast and accurate estimation of ANIs between MAGs. An optimal threshold that balances between retaining genome diversity while minimising cross-mapping issues has been found to be 98% ANI.</p>
 </div>
 <div id="genome-resolved-taxonomy" class="section level3 unnumbered hasAnchor">
 <h3>Taxonomic annotation<a href="genome-resolved.html#genome-resolved-taxonomy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Although not necessary for conducting most of the downstream analyses, taxonomic annotation of MAGs is an important step to provide context, improve comparability and facilitate result interpretation in holo-omic studies. MAGs can be taxonomically annotated using different algorithms and reference databases, but the Genome Taxonomy Database (GTDB) <span class="citation">[<a href="#ref-Parks2022-zl" role="doc-biblioref">28</a>]</span> and associated taxonomic classification toolkit (GTDB-Tk) <span class="citation">[<a href="#ref-Chaumeil2022-jr" role="doc-biblioref">29</a>]</span> have become the preferred option for many researchers.</p>
+<p>Although not necessary for conducting most of the downstream analyses, taxonomic annotation of MAGs is an important step to provide context, improve comparability and facilitate result interpretation in holo-omic studies. MAGs can be taxonomically annotated using different algorithms and reference databases, but the Genome Taxonomy Database (GTDB) <span class="citation">[<a href="#ref-Parks2022-zl" role="doc-biblioref">34</a>]</span> and associated taxonomic classification toolkit (GTDB-Tk) <span class="citation">[<a href="#ref-Chaumeil2022-jr" role="doc-biblioref">35</a>]</span> have become the preferred option for many researchers.</p>
 </div>
 <div id="genome-resolved-function" class="section level3 unnumbered hasAnchor">
 <h3>Functional annotation<a href="genome-resolved.html#genome-resolved-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases. As explained in the <strong><a href="assembly-based.html#assembly-based">assembly-based approach</a></strong>, the first step is to predict genes in the MAGs (unless these are available from the assembly), followed by functional annotation by matching the protein sequences predicted from the genes with reference databases. Currently, multiple tools exist that perform all these procedures in a single pipeline, such as DFAST <span class="citation">[<a href="#ref-Tanizawa2017-uy" role="doc-biblioref">19</a>]</span> and DRAM <span class="citation">[<a href="#ref-Shaffer2020-kp" role="doc-biblioref">20</a>]</span>. DFAST annotates genes against the TIGRFAM and Clusters of Orthologous Groups (COG) databases, while DRAM performs the annotation using Pfam, KEGG, UniProt, CAZY and MEROPS databases.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb32-1"><a href="genome-resolved.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">DRAM.py</span> annotate <span class="dt">\</span></span>
-<span id="cb32-2"><a href="genome-resolved.html#cb32-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-i</span> {input.MAG} <span class="dt">\</span></span>
-<span id="cb32-3"><a href="genome-resolved.html#cb32-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-o</span> {outdir} <span class="dt">\</span></span>
-<span id="cb32-4"><a href="genome-resolved.html#cb32-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
-<span id="cb32-5"><a href="genome-resolved.html#cb32-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--min_contig_size</span> 1500</span></code></pre></div>
+<p>Functional annotation refers to the process of identifying putative functions of genes present in MAGs based on information available in reference databases. As explained in the <strong><a href="assembly-based.html#assembly-based">assembly-based approach</a></strong>, the first step is to predict genes in the MAGs (unless these are available from the assembly), followed by functional annotation by matching the protein sequences predicted from the genes with reference databases. Currently, multiple tools exist that perform all these procedures in a single pipeline, such as DFAST <span class="citation">[<a href="#ref-Tanizawa2017-uy" role="doc-biblioref">25</a>]</span> and DRAM <span class="citation">[<a href="#ref-Shaffer2020-kp" role="doc-biblioref">26</a>]</span>. DFAST annotates genes against the TIGRFAM and Clusters of Orthologous Groups (COG) databases, while DRAM performs the annotation using Pfam, KEGG, UniProt, CAZY and MEROPS databases.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb39-1"><a href="genome-resolved.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">DRAM.py</span> annotate <span class="dt">\</span></span>
+<span id="cb39-2"><a href="genome-resolved.html#cb39-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-i</span> {input.MAG} <span class="dt">\</span></span>
+<span id="cb39-3"><a href="genome-resolved.html#cb39-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-o</span> {outdir} <span class="dt">\</span></span>
+<span id="cb39-4"><a href="genome-resolved.html#cb39-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
+<span id="cb39-5"><a href="genome-resolved.html#cb39-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--min_contig_size</span> 1500</span></code></pre></div>
 <p>These functional annotations can be used for performing functional gene enrichment analyses, distilling them into genome-inferred functional traits, and many other downstrean operations explained in the <a href="about-statistics.html#about-statistics">statistics part</a>.</p>
 </div>
 <div id="genome-resolved-mapping" class="section level3 unnumbered hasAnchor">
@@ -512,40 +511,40 @@ div.csl-indent {
 <p>When the objective of a genome-resolved metagenomic analysis is to reconstruct and analyse a microbiome, researchers usually require relative abundance information to measure how abundant or rare each bacteria was in the analysed sample. In order to achieve this, it is necessary to map the reads of each sample back to the MAG catalogue and retrieve mapping statistics. The procedure is identical to that explained in the <a href="assembly-based.html#assembly-read-mapping">assembly read-mapping</a> section, yet using the MAG catalogue as a reference database rather than the metagenomic assembly. This procedure usually happens in two steps. In the first step, reads are mapped to the MAG catalogue to generate BAM or CRAM mapping files. In the second step, these mapping files are used to extract quantitative read-abundance information in the form of a table in which the amount of reads mapped to each MAG in each sample is displayed.</p>
 <p>First, all MAGs need to be concatenated into a single file, which will become the reference MAG catalogue or database.
 </p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb33-1"><a href="genome-resolved.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> {MAG.path}/<span class="pp">*</span>.fa.gz <span class="op">&gt;</span> {all_MAGs}.fa.gz</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb40-1"><a href="genome-resolved.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> {MAG.path}/<span class="pp">*</span>.fa.gz <span class="op">&gt;</span> {all_MAGs}.fa.gz</span></code></pre></div>
 <p>The MAG catalogue needs to be indexed before the mapping.
 </p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb34-1"><a href="genome-resolved.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2-build</span> <span class="dt">\</span></span>
-<span id="cb34-2"><a href="genome-resolved.html#cb34-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--large-index</span> <span class="dt">\</span></span>
-<span id="cb34-3"><a href="genome-resolved.html#cb34-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
-<span id="cb34-4"><a href="genome-resolved.html#cb34-4" aria-hidden="true" tabindex="-1"></a>       {all_MAGs}.fa.gz</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb41-1"><a href="genome-resolved.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2-build</span> <span class="dt">\</span></span>
+<span id="cb41-2"><a href="genome-resolved.html#cb41-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--large-index</span> <span class="dt">\</span></span>
+<span id="cb41-3"><a href="genome-resolved.html#cb41-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
+<span id="cb41-4"><a href="genome-resolved.html#cb41-4" aria-hidden="true" tabindex="-1"></a>       {all_MAGs}.fa.gz</span></code></pre></div>
 <p>Then, the following step needs to be iterated for each sample, yielding a BAM mapping file for each sample.
 </p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb35-1"><a href="genome-resolved.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="dt">\</span></span>
-<span id="cb35-2"><a href="genome-resolved.html#cb35-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--time</span> <span class="dt">\</span></span>
-<span id="cb35-3"><a href="genome-resolved.html#cb35-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
-<span id="cb35-4"><a href="genome-resolved.html#cb35-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-x</span> {all_MAGs} <span class="dt">\</span></span>
-<span id="cb35-5"><a href="genome-resolved.html#cb35-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-1</span> {input.r1} <span class="dt">\</span></span>
-<span id="cb35-6"><a href="genome-resolved.html#cb35-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
-<span id="cb35-7"><a href="genome-resolved.html#cb35-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output}</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb42-1"><a href="genome-resolved.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="dt">\</span></span>
+<span id="cb42-2"><a href="genome-resolved.html#cb42-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--time</span> <span class="dt">\</span></span>
+<span id="cb42-3"><a href="genome-resolved.html#cb42-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--threads</span> {threads} <span class="dt">\</span></span>
+<span id="cb42-4"><a href="genome-resolved.html#cb42-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-x</span> {all_MAGs} <span class="dt">\</span></span>
+<span id="cb42-5"><a href="genome-resolved.html#cb42-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-1</span> {input.r1} <span class="dt">\</span></span>
+<span id="cb42-6"><a href="genome-resolved.html#cb42-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">-2</span> {input.r2} <span class="dt">\</span></span>
+<span id="cb42-7"><a href="genome-resolved.html#cb42-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> {threads} <span class="at">-o</span> {output}</span></code></pre></div>
 <p>Finally, CoverM can be used to extract the required stats, such as covered fraction per MAG per sample.
 </p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="genome-resolved.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">coverm</span> genome <span class="dt">\</span></span>
-<span id="cb36-2"><a href="genome-resolved.html#cb36-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-b</span> {input} <span class="dt">\</span></span>
-<span id="cb36-3"><a href="genome-resolved.html#cb36-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-s</span> ^ <span class="dt">\</span></span>
-<span id="cb36-4"><a href="genome-resolved.html#cb36-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-m</span> count covered_fraction length <span class="dt">\</span></span>
-<span id="cb36-5"><a href="genome-resolved.html#cb36-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-t</span> {threads} <span class="dt">\</span></span>
-<span id="cb36-6"><a href="genome-resolved.html#cb36-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--min-covered-fraction</span> 0 <span class="dt">\</span></span>
-<span id="cb36-7"><a href="genome-resolved.html#cb36-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">&gt;</span> {output.count_table}</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb43-1"><a href="genome-resolved.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">coverm</span> genome <span class="dt">\</span></span>
+<span id="cb43-2"><a href="genome-resolved.html#cb43-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-b</span> {input} <span class="dt">\</span></span>
+<span id="cb43-3"><a href="genome-resolved.html#cb43-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-s</span> ^ <span class="dt">\</span></span>
+<span id="cb43-4"><a href="genome-resolved.html#cb43-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-m</span> count covered_fraction length <span class="dt">\</span></span>
+<span id="cb43-5"><a href="genome-resolved.html#cb43-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb43-6"><a href="genome-resolved.html#cb43-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--min-covered-fraction</span> 0 <span class="dt">\</span></span>
+<span id="cb43-7"><a href="genome-resolved.html#cb43-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">&gt;</span> {output.count_table}</span></code></pre></div>
 <p>Or relative abundance per MAG per sample.
 </p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb37-1"><a href="genome-resolved.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">coverm</span> genome <span class="dt">\</span></span>
-<span id="cb37-2"><a href="genome-resolved.html#cb37-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-b</span> {params.BAMs}/<span class="pp">*</span>.bam <span class="dt">\</span></span>
-<span id="cb37-3"><a href="genome-resolved.html#cb37-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-s</span> ^ <span class="dt">\</span></span>
-<span id="cb37-4"><a href="genome-resolved.html#cb37-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-m</span> relative_abundance <span class="dt">\</span></span>
-<span id="cb37-5"><a href="genome-resolved.html#cb37-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-t</span> {threads} <span class="dt">\</span></span>
-<span id="cb37-6"><a href="genome-resolved.html#cb37-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--min-covered-fraction</span> 0 <span class="dt">\</span></span>
-<span id="cb37-7"><a href="genome-resolved.html#cb37-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">&gt;</span> {output.mapping_rate}</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb44-1"><a href="genome-resolved.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">coverm</span> genome <span class="dt">\</span></span>
+<span id="cb44-2"><a href="genome-resolved.html#cb44-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-b</span> {params.BAMs}/<span class="pp">*</span>.bam <span class="dt">\</span></span>
+<span id="cb44-3"><a href="genome-resolved.html#cb44-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-s</span> ^ <span class="dt">\</span></span>
+<span id="cb44-4"><a href="genome-resolved.html#cb44-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-m</span> relative_abundance <span class="dt">\</span></span>
+<span id="cb44-5"><a href="genome-resolved.html#cb44-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-t</span> {threads} <span class="dt">\</span></span>
+<span id="cb44-6"><a href="genome-resolved.html#cb44-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--min-covered-fraction</span> 0 <span class="dt">\</span></span>
+<span id="cb44-7"><a href="genome-resolved.html#cb44-7" aria-hidden="true" tabindex="-1"></a>      <span class="op">&gt;</span> {output.mapping_rate}</span></code></pre></div>
 <div class="authorbox">
 <p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
 </div>
@@ -556,37 +555,37 @@ div.csl-indent {
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-Tanizawa2017-uy" class="csl-entry">
-19. Tanizawa Y, Fujisawa T, Nakamura Y. <span>DFAST</span>: A flexible prokaryotic genome annotation pipeline for faster genome publication. Bioinformatics. 2017;34:1037–9.
+25. Tanizawa Y, Fujisawa T, Nakamura Y. <span>DFAST</span>: A flexible prokaryotic genome annotation pipeline for faster genome publication. Bioinformatics. 2017;34:1037–9.
 </div>
 <div id="ref-Shaffer2020-kp" class="csl-entry">
-20. Shaffer M, Borton MA, McGivern BB, Zayed AA, La Rosa SL, Solden LM, et al. <span>DRAM</span> for distilling microbial metabolism to automate the curation of microbiome function. Nucleic Acids Res. 2020;48:8883–900.
+26. Shaffer M, Borton MA, McGivern BB, Zayed AA, La Rosa SL, Solden LM, et al. <span>DRAM</span> for distilling microbial metabolism to automate the curation of microbiome function. Nucleic Acids Res. 2020;48:8883–900.
 </div>
 <div id="ref-Uritskiy2018-my" class="csl-entry">
-21. Uritskiy GV, DiRuggiero J, Taylor J. <span class="nocase">MetaWRAP—a</span> flexible pipeline for genome-resolved metagenomic data analysis. Microbiome. 2018;6:1–3.
+27. Uritskiy GV, DiRuggiero J, Taylor J. <span class="nocase">MetaWRAP—a</span> flexible pipeline for genome-resolved metagenomic data analysis. Microbiome. 2018;6:1–3.
 </div>
 <div id="ref-Sieber2018-fp" class="csl-entry">
-22. Sieber CMK, Probst AJ, Sharrar A, Thomas BC, Hess M, Tringe SG, et al. Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy. Nat Microbiol. 2018;3:836–43.
+28. Sieber CMK, Probst AJ, Sharrar A, Thomas BC, Hess M, Tringe SG, et al. Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy. Nat Microbiol. 2018;3:836–43.
 </div>
 <div id="ref-Bowers2017-kj" class="csl-entry">
-23. Bowers RM, Kyrpides NC, Stepanauskas R, Harmon-Smith M, Doud D, Reddy TBK, et al. Minimum information about a single amplified genome (<span>MISAG</span>) and a metagenome-assembled genome (<span>MIMAG</span>) of bacteria and archaea. Nat Biotechnol. 2017;35:725–31.
+29. Bowers RM, Kyrpides NC, Stepanauskas R, Harmon-Smith M, Doud D, Reddy TBK, et al. Minimum information about a single amplified genome (<span>MISAG</span>) and a metagenome-assembled genome (<span>MIMAG</span>) of bacteria and archaea. Nat Biotechnol. 2017;35:725–31.
 </div>
 <div id="ref-Eren2015-tt" class="csl-entry">
-24. Eren AM, Esen ÖC, Quince C, Vineis JH, Morrison HG, Sogin ML, et al. Anvi’o: An advanced analysis and visualization platform for ’omics data. PeerJ. 2015;3:e1319.
+30. Eren AM, Esen ÖC, Quince C, Vineis JH, Morrison HG, Sogin ML, et al. Anvi’o: An advanced analysis and visualization platform for ’omics data. PeerJ. 2015;3:e1319.
 </div>
 <div id="ref-Orakov2021-pt" class="csl-entry">
-25. Orakov A, Fullam A, Coelho LP, Khedkar S, Szklarczyk D, Mende DR, et al. <span>GUNC</span>: Detection of chimerism and contamination in prokaryotic genomes. Genome Biol. 2021;22:178.
+31. Orakov A, Fullam A, Coelho LP, Khedkar S, Szklarczyk D, Mende DR, et al. <span>GUNC</span>: Detection of chimerism and contamination in prokaryotic genomes. Genome Biol. 2021;22:178.
 </div>
 <div id="ref-Evans2020-hs" class="csl-entry">
-26. Evans JT, Denef VJ. To dereplicate or not to dereplicate? mSphere. 2020;5.
+32. Evans JT, Denef VJ. To dereplicate or not to dereplicate? mSphere. 2020;5.
 </div>
 <div id="ref-Olm2017-nx" class="csl-entry">
-27. Olm MR, Brown CT, Brooks B, Banfield JF. dRep: A tool for fast and accurate genomic comparisons that enables improved genome recovery from metagenomes through de-replication. ISME J. 2017;11:2864–8.
+33. Olm MR, Brown CT, Brooks B, Banfield JF. dRep: A tool for fast and accurate genomic comparisons that enables improved genome recovery from metagenomes through de-replication. ISME J. 2017;11:2864–8.
 </div>
 <div id="ref-Parks2022-zl" class="csl-entry">
-28. Parks DH, Chuvochina M, Rinke C, Mussig AJ, Chaumeil P-A, Hugenholtz P. <span>GTDB</span>: An ongoing census of bacterial and archaeal diversity through a phylogenetically consistent, rank normalized and complete genome-based taxonomy. Nucleic Acids Res. 2022;50:D785–94.
+34. Parks DH, Chuvochina M, Rinke C, Mussig AJ, Chaumeil P-A, Hugenholtz P. <span>GTDB</span>: An ongoing census of bacterial and archaeal diversity through a phylogenetically consistent, rank normalized and complete genome-based taxonomy. Nucleic Acids Res. 2022;50:D785–94.
 </div>
 <div id="ref-Chaumeil2022-jr" class="csl-entry">
-29. Chaumeil P-A, Mussig AJ, Hugenholtz P, Parks DH. <span>GTDB-Tk</span> v2: Memory friendly classification with the genome taxonomy database. Bioinformatics. 2022;38:5315–6.
+35. Chaumeil P-A, Mussig AJ, Hugenholtz P, Parks DH. <span>GTDB-Tk</span> v2: Memory friendly classification with the genome taxonomy database. Bioinformatics. 2022;38:5315–6.
 </div>
 </div>
             </section>

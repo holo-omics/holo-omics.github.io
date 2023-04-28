@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -421,7 +420,47 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="host-resequencing" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> Host genome resequencing<a href="host-resequencing.html#host-resequencing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once a reference genome is available, the processing of resequencing data is straightforward.</p>
+<p>Once a reference genome is available, short-read sequencing data can be used for generating single nucleotide polymorphism (SNP) data. Although multiple options exists, the pipeline below describes a typical workflow to process data using Bowtie2 for read mapping, Picard for marking duplicates, and GATK for performing variant calling. The resulting SNP data can be used for a wide range of downstream analyses, such as identifying genetic variants associated with diseases, studying population genetics, and performing genome-wide association studies (GWAS). The pipeline is customisable and can be modified to suit the specific needs of the researcher, such as changing the parameters of the tools used or incorporating additional analysis steps. Overall, this pipeline is a powerful tool for investigating genetic variation in genomes and can provide valuable insights into the genetic basis of various biological processes.</p>
+<p>The first step is to map the reads agains the reference genome:
+</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="host-resequencing.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="at">-x</span> reference_genome_index <span class="dt">\</span></span>
+<span id="cb19-2"><a href="host-resequencing.html#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> forward_reads.fq <span class="dt">\</span></span>
+<span id="cb19-3"><a href="host-resequencing.html#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-2</span> reverse_reads.fq <span class="dt">\</span></span>
+<span id="cb19-4"><a href="host-resequencing.html#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-S</span> mapped_reads.sam</span></code></pre></div>
+<p>If the mapping file is saved to an uncompressed SAM file, this should be compressed, and sorted for downstream analyses.
+</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="host-resequencing.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-bS</span> mapped_reads.sam <span class="op">&gt;</span> mapped_reads.bam</span>
+<span id="cb20-2"><a href="host-resequencing.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> sort mapped_reads.bam <span class="at">-o</span> sorted_mapped_reads.bam</span></code></pre></div>
+<p>Picard can be then used to mark duplicates in the sorted BAM file.
+</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="host-resequencing.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">java</span> <span class="at">-jar</span> picard.jar MarkDuplicates <span class="dt">\</span></span>
+<span id="cb21-2"><a href="host-resequencing.html#cb21-2" aria-hidden="true" tabindex="-1"></a>      INPUT=sorted_mapped_reads.bam <span class="dt">\</span></span>
+<span id="cb21-3"><a href="host-resequencing.html#cb21-3" aria-hidden="true" tabindex="-1"></a>      OUTPUT=dedup_sorted_mapped_reads.bam <span class="dt">\</span></span>
+<span id="cb21-4"><a href="host-resequencing.html#cb21-4" aria-hidden="true" tabindex="-1"></a>      METRICS_FILE=metrics.txt VALIDATION_STRINGENCY=LENIENT</span></code></pre></div>
+<p>The deduplicated BAM file without redundant reads must be done indexed before starting the variant calling.
+</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="host-resequencing.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index dedup_sorted_mapped_reads.bam</span></code></pre></div>
+<p>GATK4 is the used to perform local realignment around indels.
+</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="host-resequencing.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gatk</span> <span class="at">--java-options</span> <span class="st">&quot;-Xmx4g&quot;</span> IndelRealigner <span class="dt">\</span></span>
+<span id="cb23-2"><a href="host-resequencing.html#cb23-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-R</span> reference_genome.fa <span class="dt">\</span></span>
+<span id="cb23-3"><a href="host-resequencing.html#cb23-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-I</span> dedup_sorted_mapped_reads.bam</span>
+<span id="cb23-4"><a href="host-resequencing.html#cb23-4" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-O</span> realigned_reads.bam <span class="dt">\</span></span>
+<span id="cb23-5"><a href="host-resequencing.html#cb23-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-targetIntervals</span> intervals.list</span></code></pre></div>
+<p>Then, base quality score recalibration is performed using GATK4.
+</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="host-resequencing.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gatk</span> <span class="at">--java-options</span> <span class="st">&quot;-Xmx4g&quot;</span> BaseRecalibrator <span class="dt">\</span></span>
+<span id="cb24-2"><a href="host-resequencing.html#cb24-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-R</span> reference_genome.fa</span>
+<span id="cb24-3"><a href="host-resequencing.html#cb24-3" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-I</span> realigned_reads.bam</span>
+<span id="cb24-4"><a href="host-resequencing.html#cb24-4" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--known-sites</span> known_snps.vcf <span class="dt">\</span></span>
+<span id="cb24-5"><a href="host-resequencing.html#cb24-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-O</span> recal_data.table</span></code></pre></div>
+<p>Subsequently, base quality score recalibration is applied to the.
+</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="host-resequencing.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gatk</span> <span class="at">--java-options</span> <span class="st">&quot;-Xmx4g&quot;</span> ApplyBQSR <span class="dt">\</span></span>
+<span id="cb25-2"><a href="host-resequencing.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-R</span> reference_genome.fa</span>
+<span id="cb25-3"><a href="host-resequencing.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-I</span> realigned_reads.bam</span>
+<span id="cb25-4"><a href="host-resequencing.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">--bqsr-recal-file</span> recal_data.table <span class="dt">\</span></span>
+<span id="cb25-5"><a href="host-resequencing.html#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-O</span> recal_reads.bam</span></code></pre></div>
 
 </div>
 <!-- </div> -->

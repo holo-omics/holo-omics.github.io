@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -422,7 +421,7 @@ div.csl-indent {
 <div id="multi-staged-omics-integration-concatenation-based" class="section level2 hasAnchor" number="22.1">
 <h2><span class="header-section-number">22.1</span> Concatenation-based integration<a href="multi-staged-omics-integration-concatenation-based.html#multi-staged-omics-integration-concatenation-based" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Concatenation-based integration combines multiple omic datasets, raw or pre-processed, into a single large matrix. One of the advantages of these approaches is their simplicity, since once the concatenation of multi-omic datasets is achieved, unsupervised and supervised analysis methods can be applied to the joint matrix, as in the case of the independent analysis of omic layers. Concatenation-based techniques offer a straightforward approach to utilising machine learning for the examination of both continuous and categorical data. Once the individual omics are concatenated, these methods can analyse all the combined features in an even-handed manner and pinpoint the most distinguishing features associated with a given phenotype. One of the main challenges of concatenation-based approaches is to ensure that the features of the different omic layers are comparable.</p>
-<p>Several examples of unsupervised concatenation-based methods for multi-omic integration have been developed in recent years, most of them based on matrix-factorisation <span class="citation">[<a href="#ref-Reel2021-wb" role="doc-biblioref">33</a>]</span>. Joint non-negative matrix factorisation (Joint NMF) allowed integrating non-negative multi-omic data by decomposing the joint matrix into factors and loadings <span class="citation">[<a href="#ref-Zhang2021-sn" role="doc-biblioref">9</a>]</span>. Joint and Individual Variation Explained (JIVE) is an adaptation of NMF framework <span class="citation">[<a href="#ref-Lock2013-rq" role="doc-biblioref">34</a>]</span> which was later improved by Joint Bayes Factor (JBF) to handle the problems derived from the high sparsity of multi-omic datasets <span class="citation">[<a href="#ref-Ray2014-mn" role="doc-biblioref">35</a>]</span>. iCluster framework is based in similar principles to NMF but allows integration of datasets having negative values <span class="citation">[<a href="#ref-Shen2009-xr" role="doc-biblioref">36</a>]</span>. MoCluster <span class="citation">[<a href="#ref-Meng2016-hv" role="doc-biblioref">37</a>]</span>, RLAcluster <span class="citation">[<a href="#ref-Wu2015-qf" role="doc-biblioref">38</a>]</span> and iClusterBayes <span class="citation">[<a href="#ref-Mo2018-ty" role="doc-biblioref">39</a>]</span> have further developed the framework and improved it in terms of diversity of handled data types, computation speed and clustering accuracy. Multi-Omics Factor Analysis (MOFA) is another recent development that allows discovering the principal sources of variability across different omic datasets <span class="citation">[<a href="#ref-Argelaguet2018-dl" role="doc-biblioref">40</a>]</span>. Regarding supervised analyses, any of the algorithms for supervised analysis of single omic layers can be used to analyse concatenated multi omic data. RF <span class="citation">[<a href="#ref-Acharjee2016-uc" role="doc-biblioref">41</a>]</span>, SVM <span class="citation">[<a href="#ref-Li2017-qk" role="doc-biblioref">42</a>]</span>, LASSO regression <span class="citation">[<a href="#ref-Lee2017-bv" role="doc-biblioref">43</a>]</span> or DL <span class="citation">[<a href="#ref-Zhang2018-ty" role="doc-biblioref">44</a>]</span> algorithms have been used, among others, for concatenation-based supervised analysis in multi-omic literature.</p>
+<p>Several examples of unsupervised concatenation-based methods for multi-omic integration have been developed in recent years, most of them based on matrix-factorisation <span class="citation">[<a href="#ref-Reel2021-wb" role="doc-biblioref">39</a>]</span>. Joint non-negative matrix factorisation (Joint NMF) allowed integrating non-negative multi-omic data by decomposing the joint matrix into factors and loadings <span class="citation">[<a href="#ref-Zhang2021-sn" role="doc-biblioref">9</a>]</span>. Joint and Individual Variation Explained (JIVE) is an adaptation of NMF framework <span class="citation">[<a href="#ref-Lock2013-rq" role="doc-biblioref">40</a>]</span> which was later improved by Joint Bayes Factor (JBF) to handle the problems derived from the high sparsity of multi-omic datasets <span class="citation">[<a href="#ref-Ray2014-mn" role="doc-biblioref">41</a>]</span>. iCluster framework is based in similar principles to NMF but allows integration of datasets having negative values <span class="citation">[<a href="#ref-Shen2009-xr" role="doc-biblioref">42</a>]</span>. MoCluster <span class="citation">[<a href="#ref-Meng2016-hv" role="doc-biblioref">43</a>]</span>, RLAcluster <span class="citation">[<a href="#ref-Wu2015-qf" role="doc-biblioref">44</a>]</span> and iClusterBayes <span class="citation">[<a href="#ref-Mo2018-ty" role="doc-biblioref">45</a>]</span> have further developed the framework and improved it in terms of diversity of handled data types, computation speed and clustering accuracy. Multi-Omics Factor Analysis (MOFA) is another recent development that allows discovering the principal sources of variability across different omic datasets <span class="citation">[<a href="#ref-Argelaguet2018-dl" role="doc-biblioref">46</a>]</span>. Regarding supervised analyses, any of the algorithms for supervised analysis of single omic layers can be used to analyse concatenated multi omic data. RF <span class="citation">[<a href="#ref-Acharjee2016-uc" role="doc-biblioref">47</a>]</span>, SVM <span class="citation">[<a href="#ref-Li2017-qk" role="doc-biblioref">48</a>]</span>, LASSO regression <span class="citation">[<a href="#ref-Lee2017-bv" role="doc-biblioref">49</a>]</span> or DL <span class="citation">[<a href="#ref-Zhang2018-ty" role="doc-biblioref">50</a>]</span> algorithms have been used, among others, for concatenation-based supervised analysis in multi-omic literature.</p>
 <div class="authorbox">
 <p>Contents of this section were created by <a href="index.html#inaki-odriozola">Iñaki Odriozola</a> and <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
 </div>
@@ -433,40 +432,40 @@ div.csl-indent {
 9. Zhang B, Brock M, Arana C, Dende C, Oers NS van, Hooper LV, et al. Impact of <span>Bead-Beating</span> intensity on the genus- and <span>Species-Level</span> characterization of the gut microbiome using amplicon and complete <span>16S</span> <span class="nocase">rRNA</span> gene sequencing. Front Cell Infect Microbiol. 2021;11:678522.
 </div>
 <div id="ref-Reel2021-wb" class="csl-entry">
-33. Reel PS, Reel S, Pearson E, Trucco E, Jefferson E. Using machine learning approaches for multi-omics data analysis: A review. Biotechnol Adv. 2021;49:107739.
+39. Reel PS, Reel S, Pearson E, Trucco E, Jefferson E. Using machine learning approaches for multi-omics data analysis: A review. Biotechnol Adv. 2021;49:107739.
 </div>
 <div id="ref-Lock2013-rq" class="csl-entry">
-34. Lock EF, Hoadley KA, Marron JS, Nobel AB. <span>JOINT</span> <span>AND</span> <span>INDIVIDUAL</span> <span>VARIATION</span> <span>EXPLAINED</span> (<span>JIVE</span>) <span>FOR</span> <span>INTEGRATED</span> <span>ANALYSIS</span> <span>OF</span> <span>MULTIPLE</span> <span>DATA</span> <span>TYPES</span>. Ann Appl Stat. 2013;7:523–42.
+40. Lock EF, Hoadley KA, Marron JS, Nobel AB. <span>JOINT</span> <span>AND</span> <span>INDIVIDUAL</span> <span>VARIATION</span> <span>EXPLAINED</span> (<span>JIVE</span>) <span>FOR</span> <span>INTEGRATED</span> <span>ANALYSIS</span> <span>OF</span> <span>MULTIPLE</span> <span>DATA</span> <span>TYPES</span>. Ann Appl Stat. 2013;7:523–42.
 </div>
 <div id="ref-Ray2014-mn" class="csl-entry">
-35. Ray P, Zheng L, Lucas J, Carin L. Bayesian joint analysis of heterogeneous genomics data. Bioinformatics. 2014;30:1370–6.
+41. Ray P, Zheng L, Lucas J, Carin L. Bayesian joint analysis of heterogeneous genomics data. Bioinformatics. 2014;30:1370–6.
 </div>
 <div id="ref-Shen2009-xr" class="csl-entry">
-36. Shen R, Olshen AB, Ladanyi M. Integrative clustering of multiple genomic data types using a joint latent variable model with application to breast and lung cancer subtype analysis. Bioinformatics. 2009;25:2906–12.
+42. Shen R, Olshen AB, Ladanyi M. Integrative clustering of multiple genomic data types using a joint latent variable model with application to breast and lung cancer subtype analysis. Bioinformatics. 2009;25:2906–12.
 </div>
 <div id="ref-Meng2016-hv" class="csl-entry">
-37. Meng C, Helm D, Frejno M, Kuster B. moCluster: Identifying joint patterns across multiple omics data sets. J Proteome Res. 2016;15:755–65.
+43. Meng C, Helm D, Frejno M, Kuster B. moCluster: Identifying joint patterns across multiple omics data sets. J Proteome Res. 2016;15:755–65.
 </div>
 <div id="ref-Wu2015-qf" class="csl-entry">
-38. Wu D, Wang D, Zhang MQ, Gu J. Fast dimension reduction and integrative clustering of multi-omics data using low-rank approximation: Application to cancer molecular classification. BMC Genomics. 2015;16:1022.
+44. Wu D, Wang D, Zhang MQ, Gu J. Fast dimension reduction and integrative clustering of multi-omics data using low-rank approximation: Application to cancer molecular classification. BMC Genomics. 2015;16:1022.
 </div>
 <div id="ref-Mo2018-ty" class="csl-entry">
-39. Mo Q, Shen R, Guo C, Vannucci M, Chan KS, Hilsenbeck SG. A fully bayesian latent variable model for integrative clustering analysis of multi-type omics data. Biostatistics. 2018;19:71–86.
+45. Mo Q, Shen R, Guo C, Vannucci M, Chan KS, Hilsenbeck SG. A fully bayesian latent variable model for integrative clustering analysis of multi-type omics data. Biostatistics. 2018;19:71–86.
 </div>
 <div id="ref-Argelaguet2018-dl" class="csl-entry">
-40. Argelaguet R, Velten B, Arnol D, Dietrich S, Zenz T, Marioni JC, et al. <span>Multi-Omics</span> factor analysis—a framework for unsupervised integration of multi-omics data sets. Mol Syst Biol. 2018;14:e8124.
+46. Argelaguet R, Velten B, Arnol D, Dietrich S, Zenz T, Marioni JC, et al. <span>Multi-Omics</span> factor analysis—a framework for unsupervised integration of multi-omics data sets. Mol Syst Biol. 2018;14:e8124.
 </div>
 <div id="ref-Acharjee2016-uc" class="csl-entry">
-41. Acharjee A, Kloosterman B, Visser RGF, Maliepaard C. Integration of multi-omics data for prediction of phenotypic traits using random forest. BMC Bioinformatics. 2016;17 Suppl 5 Suppl 5:180.
+47. Acharjee A, Kloosterman B, Visser RGF, Maliepaard C. Integration of multi-omics data for prediction of phenotypic traits using random forest. BMC Bioinformatics. 2016;17 Suppl 5 Suppl 5:180.
 </div>
 <div id="ref-Li2017-qk" class="csl-entry">
-42. Li S, Chen X, Liu X, Yu Y, Pan H, Haak R, et al. Complex integrated analysis of <span class="nocase">lncRNAs-miRNAs-mRNAs</span> in oral squamous cell carcinoma. Oral Oncol. 2017;73:1–9.
+48. Li S, Chen X, Liu X, Yu Y, Pan H, Haak R, et al. Complex integrated analysis of <span class="nocase">lncRNAs-miRNAs-mRNAs</span> in oral squamous cell carcinoma. Oral Oncol. 2017;73:1–9.
 </div>
 <div id="ref-Lee2017-bv" class="csl-entry">
-43. Lee G, Bang L, Kim SY, Kim D, Sohn K-A. Identifying subtype-specific associations between gene expression and <span>DNA</span> methylation profiles in breast cancer. BMC Med Genomics. 2017;10 Suppl 1:28.
+49. Lee G, Bang L, Kim SY, Kim D, Sohn K-A. Identifying subtype-specific associations between gene expression and <span>DNA</span> methylation profiles in breast cancer. BMC Med Genomics. 2017;10 Suppl 1:28.
 </div>
 <div id="ref-Zhang2018-ty" class="csl-entry">
-44. Zhang L, Lv C, Jin Y, Cheng G, Fu Y, Yuan D, et al. Deep <span>Learning-Based</span> <span>Multi-Omics</span> data integration reveals two prognostic subtypes in <span>High-Risk</span> neuroblastoma. Front Genet. 2018;9:477.
+50. Zhang L, Lv C, Jin Y, Cheng G, Fu Y, Yuan D, et al. Deep <span>Learning-Based</span> <span>Multi-Omics</span> data integration reveals two prognostic subtypes in <span>High-Risk</span> neuroblastoma. Front Genet. 2018;9:477.
 </div>
 </div>
             </section>

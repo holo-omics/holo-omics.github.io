@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -424,55 +423,55 @@ div.csl-indent {
 <div id="quality-filtering" class="section level3 unnumbered hasAnchor">
 <h3>Quality-filtering<a href="host-transcriptomics-data-processing-reference-based.html#quality-filtering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Fastp is a high-performance FASTQ preprocessor that can be used to clean up raw sequencing reads from Illumina platforms. It provides various quality control, filtering, and trimming options to remove low-quality bases, contaminants, and adapter sequences. The code provided performs a number of these steps, including trimming of poly-G and poly-X tails, which are commonly observed in Illumina reads, filtering reads based on quality and length, and removing adapter sequences. The resulting cleaned reads are then written to the specified output files. Additionally, fastp provides comprehensive quality control reports in both HTML and JSON formats, which can be used to assess the quality of the input reads and the impact of the processing steps. Overall, pre-processing raw sequencing reads with fastp is a critical step in ensuring the accuracy and reliability of downstream bioinformatics analyses.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb38-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="dt">\</span></span>
-<span id="cb38-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--in1</span> {input.read1} <span class="at">--in2</span> {input.read2} <span class="dt">\</span></span>
-<span id="cb38-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out1</span> {output.read1} <span class="at">--out2</span> {output.read2} <span class="dt">\</span></span>
-<span id="cb38-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_g</span> <span class="dt">\</span></span>
-<span id="cb38-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_x</span> <span class="dt">\</span></span>
-<span id="cb38-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--low_complexity_filter</span> <span class="dt">\</span></span>
-<span id="cb38-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--n_base_limit</span> 5 <span class="dt">\</span></span>
-<span id="cb38-8"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--qualified_quality_phred</span> 20 <span class="dt">\</span></span>
-<span id="cb38-9"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">--length_required</span> 60 <span class="dt">\</span></span>
-<span id="cb38-10"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">--thread</span> {threads} <span class="dt">\</span></span>
-<span id="cb38-11"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">--html</span> {output.fastp_html} <span class="dt">\</span></span>
-<span id="cb38-12"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">--json</span> {output.fastp_json} <span class="dt">\</span></span>
-<span id="cb38-13"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence</span> AGATCGGAAGAGCACACGTCTGAACTCCAGTCA <span class="dt">\</span></span>
-<span id="cb38-14"><a href="host-transcriptomics-data-processing-reference-based.html#cb38-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence_r2</span>  AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb45-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastp</span> <span class="dt">\</span></span>
+<span id="cb45-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--in1</span> {input.read1} <span class="at">--in2</span> {input.read2} <span class="dt">\</span></span>
+<span id="cb45-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--out1</span> {output.read1} <span class="at">--out2</span> {output.read2} <span class="dt">\</span></span>
+<span id="cb45-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_g</span> <span class="dt">\</span></span>
+<span id="cb45-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--trim_poly_x</span> <span class="dt">\</span></span>
+<span id="cb45-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--low_complexity_filter</span> <span class="dt">\</span></span>
+<span id="cb45-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--n_base_limit</span> 5 <span class="dt">\</span></span>
+<span id="cb45-8"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--qualified_quality_phred</span> 20 <span class="dt">\</span></span>
+<span id="cb45-9"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">--length_required</span> 60 <span class="dt">\</span></span>
+<span id="cb45-10"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">--thread</span> {threads} <span class="dt">\</span></span>
+<span id="cb45-11"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">--html</span> {output.fastp_html} <span class="dt">\</span></span>
+<span id="cb45-12"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">--json</span> {output.fastp_json} <span class="dt">\</span></span>
+<span id="cb45-13"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence</span> AGATCGGAAGAGCACACGTCTGAACTCCAGTCA <span class="dt">\</span></span>
+<span id="cb45-14"><a href="host-transcriptomics-data-processing-reference-based.html#cb45-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">--adapter_sequence_r2</span>  AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT</span></code></pre></div>
 </div>
 <div id="ribosomal-rna-removal" class="section level3 unnumbered hasAnchor">
 <h3>Ribosomal RNA removal<a href="host-transcriptomics-data-processing-reference-based.html#ribosomal-rna-removal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ribodetector can be used for efficient removal of rRNA sequences from host transcriptomics data, improving accuracy and reducing computational time. This tool helps to better identify transcripts and understand gene expression in complex microbiomes.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb39-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ribodetector_cpu</span> <span class="dt">\</span></span>
-<span id="cb39-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb39-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-t</span> 24 <span class="dt">\</span></span>
-<span id="cb39-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb39-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-l</span> 150 <span class="dt">\</span></span>
-<span id="cb39-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb39-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-i</span> {input.r1} {input.r2} <span class="dt">\</span></span>
-<span id="cb39-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb39-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-e</span> rrna <span class="dt">\</span></span>
-<span id="cb39-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb39-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">-o</span> {output.non_rna_r1} {output.non_rna_r2}</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb46-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ribodetector_cpu</span> <span class="dt">\</span></span>
+<span id="cb46-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb46-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">-t</span> 24 <span class="dt">\</span></span>
+<span id="cb46-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb46-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">-l</span> 150 <span class="dt">\</span></span>
+<span id="cb46-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb46-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">-i</span> {input.r1} {input.r2} <span class="dt">\</span></span>
+<span id="cb46-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb46-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">-e</span> rrna <span class="dt">\</span></span>
+<span id="cb46-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb46-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">-o</span> {output.non_rna_r1} {output.non_rna_r2}</span></code></pre></div>
 </div>
 <div id="reference-genome-indexing" class="section level3 unnumbered hasAnchor">
 <h3>Reference genome indexing<a href="host-transcriptomics-data-processing-reference-based.html#reference-genome-indexing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to use STAR for host transcriptomics, it is neccesary to first generates a genome index, which can be used for multiple RNA-seq experiments.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb40-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span> <span class="dt">\</span></span>
-<span id="cb40-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb40-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runMode</span> genomeGenerate <span class="dt">\</span></span>
-<span id="cb40-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb40-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runThreadN</span> {threads} <span class="dt">\</span></span>
-<span id="cb40-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb40-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeDir</span> {input} <span class="dt">\</span></span>
-<span id="cb40-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb40-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeFastaFiles</span> {input}/<span class="pp">*</span>.fna <span class="dt">\</span></span>
-<span id="cb40-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb40-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--sjdbGTFfile</span> {input}/<span class="pp">*</span>.gtf <span class="dt">\</span></span>
-<span id="cb40-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb40-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--sjdbOverhang</span> {params.readlength}</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb47-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span> <span class="dt">\</span></span>
+<span id="cb47-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb47-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runMode</span> genomeGenerate <span class="dt">\</span></span>
+<span id="cb47-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb47-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runThreadN</span> {threads} <span class="dt">\</span></span>
+<span id="cb47-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb47-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeDir</span> {input} <span class="dt">\</span></span>
+<span id="cb47-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb47-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeFastaFiles</span> {input}/<span class="pp">*</span>.fna <span class="dt">\</span></span>
+<span id="cb47-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb47-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--sjdbGTFfile</span> {input}/<span class="pp">*</span>.gtf <span class="dt">\</span></span>
+<span id="cb47-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb47-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--sjdbOverhang</span> {params.readlength}</span></code></pre></div>
 </div>
 <div id="read-mapping-against-reference-genome" class="section level3 unnumbered hasAnchor">
 <h3>Read mapping against reference genome<a href="host-transcriptomics-data-processing-reference-based.html#read-mapping-against-reference-genome" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>STAR (Spliced Transcripts Alignment to a Reference) is a fast and efficient method for aligning RNA-seq reads to a reference genome. It uses a two-pass alignment approach to detect spliced transcripts, improve accuracy and speed up the alignment process.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb41-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span> <span class="dt">\</span></span>
-<span id="cb41-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runMode</span> alignReads <span class="dt">\</span></span>
-<span id="cb41-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runThreadN</span> {threads} <span class="dt">\</span></span>
-<span id="cb41-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeDir</span> {params.genome} <span class="dt">\</span></span>
-<span id="cb41-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--readFilesIn</span> {input.read1} {input.read2} <span class="dt">\</span></span>
-<span id="cb41-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outFileNamePrefix</span> {wildcards.sample} <span class="dt">\</span></span>
-<span id="cb41-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outSAMtype</span> BAM SortedByCoordinate <span class="dt">\</span></span>
-<span id="cb41-8"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outReadsUnmapped</span> Fastx <span class="dt">\</span></span>
-<span id="cb41-9"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">--readFilesCommand</span> zcat <span class="dt">\</span></span>
-<span id="cb41-10"><a href="host-transcriptomics-data-processing-reference-based.html#cb41-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">--quantMode</span> GeneCounts</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb48-1"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span> <span class="dt">\</span></span>
+<span id="cb48-2"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runMode</span> alignReads <span class="dt">\</span></span>
+<span id="cb48-3"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">--runThreadN</span> {threads} <span class="dt">\</span></span>
+<span id="cb48-4"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">--genomeDir</span> {params.genome} <span class="dt">\</span></span>
+<span id="cb48-5"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">--readFilesIn</span> {input.read1} {input.read2} <span class="dt">\</span></span>
+<span id="cb48-6"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outFileNamePrefix</span> {wildcards.sample} <span class="dt">\</span></span>
+<span id="cb48-7"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outSAMtype</span> BAM SortedByCoordinate <span class="dt">\</span></span>
+<span id="cb48-8"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">--outReadsUnmapped</span> Fastx <span class="dt">\</span></span>
+<span id="cb48-9"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">--readFilesCommand</span> zcat <span class="dt">\</span></span>
+<span id="cb48-10"><a href="host-transcriptomics-data-processing-reference-based.html#cb48-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">--quantMode</span> GeneCounts</span></code></pre></div>
 <div class="authorbox">
 <p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a> and <a href="index.html#raphael-eisenhofer">Raphael Eisenhofer</a>.</p>
 </div>

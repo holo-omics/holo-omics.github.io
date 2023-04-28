@@ -263,8 +263,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="example-data-bioinformatics.html"><a href="example-data-bioinformatics.html"><i class="fa fa-check"></i><b>7.2</b> Example data for bioinformatics</a></li>
-<li class="chapter" data-level="7.3" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.3</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
 <ul>
@@ -398,8 +397,8 @@ div.csl-indent {
 <li class="part"><span><b>V RESOURCES</b></span></li>
 <li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
 <ul>
-<li class="chapter" data-level="23.0.1" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i><b>23.0.1</b> Data access</a></li>
-<li class="chapter" data-level="23.0.2" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i><b>23.0.2</b> Documentation</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
+<li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
 </ul>
@@ -421,8 +420,8 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="multi-staged-omics-integration-transformation-based" class="section level2 hasAnchor" number="22.2">
 <h2><span class="header-section-number">22.2</span> Transformation-based integration<a href="multi-staged-omics-integration-transformation-based.html#multi-staged-omics-integration-transformation-based" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In transformation-based integration, omic datasets are first transformed into an intermediate representation, typically a graph or a kernel matrix, and they are then merged before building the final model. This approach preserves the specific properties of each omic layer if they are transformed into appropriate intermediate representations, and a wide range of omic data can be combined as long as they share a unique identifier (i.e. a sample ID). Graph-based analyses have the advantage of easier interpretability and lower computational requirements whereas, overall, kernel-based methods provide higher predictive performance <span class="citation">[<a href="#ref-Yan2017-xh" role="doc-biblioref">45</a>]</span>.</p>
-<p>There are several methods available for transformation-based unsupervised analysis. Regularised Multiple Kernel Learning for Locality Preserving Projections (rMKL-LPP) <span class="citation">[<a href="#ref-Speicher2015-sv" role="doc-biblioref">46</a>]</span> and PAMOGK <span class="citation">[<a href="#ref-Tepeli2021-as" role="doc-biblioref">47</a>]</span> are examples of kernel- and graph-based methods that can be used for clustering. Meta-analytic SVM (Meta-SVM) <span class="citation">[<a href="#ref-Kim2017-ao" role="doc-biblioref">48</a>]</span> and NEighborhood based Multi-Omics clustering (NEMO) <span class="citation">[<a href="#ref-Rappoport2019-zn" role="doc-biblioref">49</a>]</span> are other methods available for transformation-based unsupervised analysis. Most of the methods for transformation-based supervised analysis are kernel- or graph-based algorithms <span class="citation">[<a href="#ref-Yan2017-xh" role="doc-biblioref">45</a>]</span>. The kernel-based integration approaches include Semi-Definite Programming SVM (SDP-SVM) <span class="citation">[<a href="#ref-Lanckriet2004-kw" role="doc-biblioref">50</a>]</span>, Multiple Kernel Learning with Feature Selection (FSMKL) <span class="citation">[<a href="#ref-Seoane2014-as" role="doc-biblioref">51</a>]</span>, Relevance Vector Machine (RVM) <span class="citation">[<a href="#ref-Tipping2001-tj" role="doc-biblioref">52</a>]</span> and Ada-boost RVM <span class="citation">[<a href="#ref-Wu2010-jd" role="doc-biblioref">53</a>]</span>. The graph-based integration approaches include graph-based semi-supervised learning (included in supervised analyses following Reel et al. 2021 <span class="citation">[<a href="#ref-Reel2021-wb" role="doc-biblioref">33</a>]</span>) <span class="citation">[<a href="#ref-Kim2015-kx" role="doc-biblioref">54</a>]</span>, graph sharpening <span class="citation">[<a href="#ref-Shin2010-rj" role="doc-biblioref">55</a>]</span> and composite network <span class="citation">[<a href="#ref-Mostafavi2010-aa" role="doc-biblioref">56</a>]</span>. Graph-based analyses have the advantage of easier interpretability and lower computational requirements whereas, overall, kernel-based methods provide higher predictive performance <span class="citation">[<a href="#ref-Yan2017-xh" role="doc-biblioref">45</a>]</span>. However, see Multi-Omics Graph Convolutional Networks (MOGONET) <span class="citation">[<a href="#ref-Wang2021-wb" role="doc-biblioref">57</a>]</span> for a high performing graph-based classification method.</p>
+<p>In transformation-based integration, omic datasets are first transformed into an intermediate representation, typically a graph or a kernel matrix, and they are then merged before building the final model. This approach preserves the specific properties of each omic layer if they are transformed into appropriate intermediate representations, and a wide range of omic data can be combined as long as they share a unique identifier (i.e. a sample ID). Graph-based analyses have the advantage of easier interpretability and lower computational requirements whereas, overall, kernel-based methods provide higher predictive performance <span class="citation">[<a href="#ref-Yan2017-xh" role="doc-biblioref">51</a>]</span>.</p>
+<p>There are several methods available for transformation-based unsupervised analysis. Regularised Multiple Kernel Learning for Locality Preserving Projections (rMKL-LPP) <span class="citation">[<a href="#ref-Speicher2015-sv" role="doc-biblioref">52</a>]</span> and PAMOGK <span class="citation">[<a href="#ref-Tepeli2021-as" role="doc-biblioref">53</a>]</span> are examples of kernel- and graph-based methods that can be used for clustering. Meta-analytic SVM (Meta-SVM) <span class="citation">[<a href="#ref-Kim2017-ao" role="doc-biblioref">54</a>]</span> and NEighborhood based Multi-Omics clustering (NEMO) <span class="citation">[<a href="#ref-Rappoport2019-zn" role="doc-biblioref">55</a>]</span> are other methods available for transformation-based unsupervised analysis. Most of the methods for transformation-based supervised analysis are kernel- or graph-based algorithms <span class="citation">[<a href="#ref-Yan2017-xh" role="doc-biblioref">51</a>]</span>. The kernel-based integration approaches include Semi-Definite Programming SVM (SDP-SVM) <span class="citation">[<a href="#ref-Lanckriet2004-kw" role="doc-biblioref">56</a>]</span>, Multiple Kernel Learning with Feature Selection (FSMKL) <span class="citation">[<a href="#ref-Seoane2014-as" role="doc-biblioref">57</a>]</span>, Relevance Vector Machine (RVM) <span class="citation">[<a href="#ref-Tipping2001-tj" role="doc-biblioref">58</a>]</span> and Ada-boost RVM <span class="citation">[<a href="#ref-Wu2010-jd" role="doc-biblioref">59</a>]</span>. The graph-based integration approaches include graph-based semi-supervised learning (included in supervised analyses following Reel et al. 2021 <span class="citation">[<a href="#ref-Reel2021-wb" role="doc-biblioref">39</a>]</span>) <span class="citation">[<a href="#ref-Kim2015-kx" role="doc-biblioref">60</a>]</span>, graph sharpening <span class="citation">[<a href="#ref-Shin2010-rj" role="doc-biblioref">61</a>]</span> and composite network <span class="citation">[<a href="#ref-Mostafavi2010-aa" role="doc-biblioref">62</a>]</span>. Graph-based analyses have the advantage of easier interpretability and lower computational requirements whereas, overall, kernel-based methods provide higher predictive performance <span class="citation">[<a href="#ref-Yan2017-xh" role="doc-biblioref">51</a>]</span>. However, see Multi-Omics Graph Convolutional Networks (MOGONET) <span class="citation">[<a href="#ref-Wang2021-wb" role="doc-biblioref">63</a>]</span> for a high performing graph-based classification method.</p>
 <div class="authorbox">
 <p>Contents of this section were created by <a href="index.html#inaki-odriozola">Iñaki Odriozola</a> and <a href="index.html#antton-alberdi">Antton Alberdi</a>.</p>
 </div>
@@ -430,46 +429,46 @@ div.csl-indent {
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body">
 <div id="ref-Reel2021-wb" class="csl-entry">
-33. Reel PS, Reel S, Pearson E, Trucco E, Jefferson E. Using machine learning approaches for multi-omics data analysis: A review. Biotechnol Adv. 2021;49:107739.
+39. Reel PS, Reel S, Pearson E, Trucco E, Jefferson E. Using machine learning approaches for multi-omics data analysis: A review. Biotechnol Adv. 2021;49:107739.
 </div>
 <div id="ref-Yan2017-xh" class="csl-entry">
-45. Yan KK, Zhao H, Pang H. A comparison of graph- and kernel-based –omics data integration algorithms for classifying complex traits. BMC Bioinformatics. 2017;18.
+51. Yan KK, Zhao H, Pang H. A comparison of graph- and kernel-based –omics data integration algorithms for classifying complex traits. BMC Bioinformatics. 2017;18.
 </div>
 <div id="ref-Speicher2015-sv" class="csl-entry">
-46. Speicher NK, Pfeifer N. Integrating different data types by regularized unsupervised multiple kernel learning with application to cancer subtype discovery. Bioinformatics. 2015;31:i268–75.
+52. Speicher NK, Pfeifer N. Integrating different data types by regularized unsupervised multiple kernel learning with application to cancer subtype discovery. Bioinformatics. 2015;31:i268–75.
 </div>
 <div id="ref-Tepeli2021-as" class="csl-entry">
-47. Tepeli YI, Ünal AB, Akdemir FM, Tastan O. <span>PAMOGK</span>: A pathway graph kernel-based multiomics approach for patient clustering. Bioinformatics. 2021;36:5237–46.
+53. Tepeli YI, Ünal AB, Akdemir FM, Tastan O. <span>PAMOGK</span>: A pathway graph kernel-based multiomics approach for patient clustering. Bioinformatics. 2021;36:5237–46.
 </div>
 <div id="ref-Kim2017-ao" class="csl-entry">
-48. Kim S, Jhong J-H, Lee J, Koo J-Y. Erratum to: Meta-analytic support vector machine for integrating multiple omics data. BioData Min. 2017;10:8.
+54. Kim S, Jhong J-H, Lee J, Koo J-Y. Erratum to: Meta-analytic support vector machine for integrating multiple omics data. BioData Min. 2017;10:8.
 </div>
 <div id="ref-Rappoport2019-zn" class="csl-entry">
-49. Rappoport N, Shamir R. <span>NEMO</span>: Cancer subtyping by integration of partial multi-omic data. Bioinformatics. 2019;35:3348–56.
+55. Rappoport N, Shamir R. <span>NEMO</span>: Cancer subtyping by integration of partial multi-omic data. Bioinformatics. 2019;35:3348–56.
 </div>
 <div id="ref-Lanckriet2004-kw" class="csl-entry">
-50. Lanckriet GRG, De Bie T, Cristianini N, Jordan MI, Noble WS. A statistical framework for genomic data fusion. Bioinformatics. 2004;20:2626–35.
+56. Lanckriet GRG, De Bie T, Cristianini N, Jordan MI, Noble WS. A statistical framework for genomic data fusion. Bioinformatics. 2004;20:2626–35.
 </div>
 <div id="ref-Seoane2014-as" class="csl-entry">
-51. Seoane JA, Day INM, Gaunt TR, Campbell C. A pathway-based data integration framework for prediction of disease progression. Bioinformatics. 2014;30:838–45.
+57. Seoane JA, Day INM, Gaunt TR, Campbell C. A pathway-based data integration framework for prediction of disease progression. Bioinformatics. 2014;30:838–45.
 </div>
 <div id="ref-Tipping2001-tj" class="csl-entry">
-52. Tipping ME. Sparse bayesian learning and the relevance vector machine. 2001.
+58. Tipping ME. Sparse bayesian learning and the relevance vector machine. 2001.
 </div>
 <div id="ref-Wu2010-jd" class="csl-entry">
-53. Wu C-C, Asgharzadeh S, Triche TJ, D’Argenio DZ. Prediction of human functional genetic networks from heterogeneous data using <span class="nocase">RVM-based</span> ensemble learning. Bioinformatics. 2010;26:807–13.
+59. Wu C-C, Asgharzadeh S, Triche TJ, D’Argenio DZ. Prediction of human functional genetic networks from heterogeneous data using <span class="nocase">RVM-based</span> ensemble learning. Bioinformatics. 2010;26:807–13.
 </div>
 <div id="ref-Kim2015-kx" class="csl-entry">
-54. Kim D, Joung J-G, Sohn K-A, Shin H, Park YR, Ritchie MD, et al. Knowledge boosting: A graph-based integration approach with multi-omics data and genomic knowledge for cancer clinical outcome prediction. J Am Med Inform Assoc. 2015;22:109–20.
+60. Kim D, Joung J-G, Sohn K-A, Shin H, Park YR, Ritchie MD, et al. Knowledge boosting: A graph-based integration approach with multi-omics data and genomic knowledge for cancer clinical outcome prediction. J Am Med Inform Assoc. 2015;22:109–20.
 </div>
 <div id="ref-Shin2010-rj" class="csl-entry">
-55. Shin H, Hill NJ, Lisewski AM, Park J-S. Graph sharpening. Expert Syst Appl. 2010;37:7870–9.
+61. Shin H, Hill NJ, Lisewski AM, Park J-S. Graph sharpening. Expert Syst Appl. 2010;37:7870–9.
 </div>
 <div id="ref-Mostafavi2010-aa" class="csl-entry">
-56. Mostafavi S, Morris Q. Fast integration of heterogeneous data sources for predicting gene function with limited annotation. Bioinformatics. 2010;26:1759–65.
+62. Mostafavi S, Morris Q. Fast integration of heterogeneous data sources for predicting gene function with limited annotation. Bioinformatics. 2010;26:1759–65.
 </div>
 <div id="ref-Wang2021-wb" class="csl-entry">
-57. Wang T, Shao W, Huang Z, Tang H, Zhang J, Ding Z, et al. <span>MOGONET</span> integrates multi-omics data using graph convolutional networks allowing patient classification and biomarker identification. Nat Commun. 2021;12:3445.
+63. Wang T, Shao W, Huang Z, Tang H, Zhang J, Ding Z, et al. <span>MOGONET</span> integrates multi-omics data using graph convolutional networks allowing patient classification and biomarker identification. Nat Commun. 2021;12:3445.
 </div>
 </div>
             </section>

@@ -10,6 +10,7 @@ Raw sequencing data require an initial preprocessing to get rid off low-quality 
 **fastP** documentation [can be found here](https://github.com/OpenGene/fastp).
 :::
 
+\small
 ```{sh eval=FALSE}
 fastp \
     --in1 {input.r1i} --in2 {input.r2i} \
@@ -26,6 +27,7 @@ fastp \
     --adapter_sequence {params.adapter1} \
     --adapter_sequence_r2 {params.adapter2}
 ```
+\normalsize
 
 ### Splitting host and non-host data {-}
 
@@ -33,30 +35,38 @@ Depending on the sample type employed for data generation, sequencing data might
 
 #### Index host genome {-}
 
+In order to map metagenomic reads to a reference host genome, it is necessary to index the genome. An index is a data structure that allows for efficient searching of the reference genome by breaking it down into smaller, more manageable pieces. Without an index, aligning reads to a reference genome would be prohibitively slow, especially for large genomes. Bowtie2 is a popular software tool for aligning reads to a reference genome, and it requires an index of the reference genome before alignment can be performed. Bowtie2 uses an index based on the Burrows-Wheeler transform (BWT) algorithm, which enables it to efficiently align reads to the reference genome. Here are the basic command to create a Bowtie2 index for a reference genome:
+
+\small
 ```{sh eval=FALSE}
 bowtie2-build \
     --large-index \
     --threads {threads} \
-        {output.rn_catted_ref} {output.rn_catted_ref}
+        {input.genome} {output.index}
 ```
+\normalsize
 
 #### Map samples to host genomes {-}
 
+The next step is to map the reads against the reference genome, followed by a split between reads that have been mapped (in the example below are retained in a BAM/SAM file) and the reads that were not mapped (in the example below outputed to fastq files). The mapped reads can be used for performing population genomic analyses, while the unmapped reads can be used for metagenomic analyses.
+
+\small
 ```{sh eval=FALSE}
-# Map reads to catted reference using Bowtie2
+# Map reads to the reference genome using Bowtie2
 bowtie2 \
     --time \
     --threads {threads} \
-    -x {input.catted_ref} \
+    -x {indexed.genome} \
     -1 {input.r1i} \
     -2 {input.r2i} \
-| samtools view -b -@ {threads} - | samtools sort -@ {threads} -o {output.all_bam} - &&
+| samtools view -b -@ {threads} - | samtools sort -@ {threads} -o {output.all_bam} -
 
-# Extract non-host reads (note we're not compressing for nonpareil)
+# Extract non-host reads
 samtools view -b -f12 -@ {threads} {output.all_bam} \
-| samtools fastq -@ {threads} -1 {output.non_host_r1} -2 {output.non_host_r2} - &&
+| samtools fastq -@ {threads} -1 {output.non_host_r1} -2 {output.non_host_r2} -
 
 # Send host reads to BAM
 samtools view -b -F12 -@ {threads} {output.all_bam} \
 | samtools sort -@ {threads} -o {output.host_bam} -
 ```
+\normalsize

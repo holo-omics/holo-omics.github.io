@@ -1,25 +1,27 @@
 # (PART) RESOURCES {-}
 # Useful links {#useful-links}
 
-### Data access {#links-data}
+### Data access {- #links-data}
 
 #### Host reference genomes {-}
 
-* **[NCBI Genome](https://www.ncbi.nlm.nih.gov/genome/) (website):** XX
-* **[Ensembl](https://www.ensembl.org/index.html) (website):** XX
-* **[Vertebrates Genome Project](https://vertebrategenomesproject.org/) (website):** XX
+* **[NCBI Genome](https://www.ncbi.nlm.nih.gov/genome/) (website):**
+* **[Ensembl](https://www.ensembl.org/index.html) (website):**
+* **[Vertebrates Genome Project](https://vertebrategenomesproject.org/) (website):**
 
 #### Metagenomic data {-}
 
-* **[HoloFood Data Portal](https://www.holofooddata.org/) (website):** XX
+* **[HoloFood Data Portal](https://www.holofooddata.org/) (website):**
 * **[MGnify](https://www.ebi.ac.uk/metagenomics/) (website):**
 * **[Earth Hologenome Initiative](http://www.earthhologenome.org/database.html) (website):**
 
-### Documentation {#links-documentation}
+### Documentation {- #links-documentation}
 
 #### Genomics {-}
 
 * **[Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/) (website):**
+* **[Vertebrate Genomes Project assembly pipeline tutorial](https://training.galaxyproject.org/training-material/topics/assembly/tutorials/vgp_genome_assembly/tutorial.html) (website):**
+
 
 #### Shell command line usage {-}
 
