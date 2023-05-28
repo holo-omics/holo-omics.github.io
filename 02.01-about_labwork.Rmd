@@ -7,19 +7,31 @@ Although the generation of each omic data layer requires dedicated protocols to 
 
 #### External contamination {- #external-contamination}
 
-The risk of external contamination is a relevant issue that must be actively tackled when generating multi-omic data. External contamination refers to any molecule of interest that unintendedly is added to the sample, and analysed with the target molecules. As shotgun sequencing entails analysing all available nucleic acids in a sample, human saliva, skin microbiome, or microbes present in water and reagents are some of the sources of external contamination. Incorporating DNA and RNA from these sources can distort the biological signal, which can lead researchers into incorrect conclusions. The following measures contribute to minimise external contamination:
+DNA-based molecular techniques are remarkably sensitive. However, this sensitivity can be a double-edged sword if the appropriate experimental controls and proceedures are not implemented. External contamination refers to any molecule that is unintendedly added to the sample. Examples of common contaminant sources include human cells and oral/skin microbes (introduced from sample handling) and microbial DNA/cells present in the laboratory environment or reagents (don't assume that reagents are clean!). 
+
+Incorporating DNA and RNA from these sources can distort the biological signal, which can lead researchers to incorrect conclusions. The following measures can help in minimising external contamination:
 
 * Always wear gloves and work in sterile environments, such as clean laminar flow cabinets.
 * Use filtered pipette tips.
 * Separate pre-PCR and post-PCR laboratories.
-* Process and sequence blank controls.
+* Process and sequence sampling- and extraction-blank controls.
 
-#### Internal cross-contamination {- #internal-cross-contamination}
+External contamination disproportionately affects samples with low microbial biomass. Consider a bag with 2 marbles in it. Adding 1 or 2 marbles (external contamination) would represent a 50 or 100% increase of marbles. Contrast this with a bag containing 1000's of marbles -- 1 or 2 more are unlikely to change the distribution of marbles in the bag. The microbial biomass of a sample can be estimated through qPCR of the 16S rRNA gene. These results, in conjunction with sampling and extraction-blank controls, can allow researchers to estimate their study's limit of detection:
+https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-018-0575-4/figures/1
+
+ For more reading on how external contamination can confound biological interpretations, and guidelines for mitigating it, we recommend Eisenhofer et al. 2019.
+
+:::: {.graybox}
+**Do all organisms (or body sites) need a microbiome?**
+Many papers from the microbiome literature contain lines such as: "All animals require symbiotic microbes to survive". While it is undisputed that microbes are important for some animals (e.g. herbivores, humans, aphids), should we assume that this is the case for all life? Should we view all organisms through the lens of what we know from well-studied model organisms? In addition, should we assume that all body sites are akin the most studied (faecal)? If we don't account for external contamination and assume that all organisms (and body sites) have a microbiome, we're going to see one. There is evidence that some lineages of animals are 'microbiome-free' -- and this may make sense when one considers their lifestyles (e.g. short lifespans with diets of high nutritional value). At the organism-level some body sites have been erroneously ascribed a microbiome (e.g. the placenta, brain, blood). In summary, we caution holo-omic researchers not to assume that their organism/body site of study contains a microbiome. For more on this topic, we highly recommend reading the excellent article by Hammer et al. 2019 (https://academic.oup.com/femsle/article/366/10/fnz117/5499024).
+:::
+
+#### Cross-sample contamination {- #Cross-sample contamination}
 
 Another common type of contamination is that happening among samples. During the many pipetting actions laboratory protocols entail, is not uncommon to transfer small amounts of samples to adjacent tubes or wells. This can obviously distort the sample, and lead researchers into incorrect conclusions. The following measures contribute to minimise internal cross-contamination:
 
 * Process all batches in an identical way for errors to be detectable.
-* Avoid pipetting from the top of the tube to minimise sprays.
+* Avoid pipetting from the top of the tube to minimise aerosolization.
 * Process and sequence blank controls.
 
 #### Batch effects {- #batch-effects}
@@ -38,3 +50,7 @@ This chapter contains sections dedicated to each of the omic layers included in 
 * **Mass spectrometry-based approaches**
     * Protein extraction for **[HP](#host-proteomics)** and **[MP](#microbial-metaproteomics)**
     * Metabolite extraction for **[ME](#meta-metabolomics)**
+
+:::: {.authorbox}
+Contents of this section were created by [Raphael Eisenhofer](#raphael-eisenhofer) and [Antton Alberdi](#antton-alberdi).  
+:::
