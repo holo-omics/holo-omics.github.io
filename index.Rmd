@@ -78,6 +78,9 @@ Antton is an Associate Professor at the University of Copenhagen whose research 
 #### Morten Limborg {- #morten-limborg}
 Morten is an Associate Professor at the University of Copenhagen and the Head of the Section for Hologenomics at the Globe Institute. His research focuses on host-microbiota interactions in aquaculture fish species.
 
+#### Ostaizka Aizpurua {- #ostaizka-aizpurua}
+Ostaizka Aizpurua is an Assistant Professor at the University of Copenhagen and the Head of the Section for Hologenomics at the Globe Institute. Her research focuses on host-microbiota interactions, especially using gut-on-a-chip technology.
+
 #### Raphael Eisenhofer {- #raphael-eisenhofer}
 Raphael is a postdoctoral researcher working under the supervision of Alberdi. His research activity is mainly focused on metagenomic analyses and related tool development, as well as marsupial microbiome analysis.
 

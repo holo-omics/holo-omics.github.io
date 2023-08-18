@@ -1,0 +1,10 @@
+### Config file for detection limit pipeline
+
+#genomes
+human_genome: 1_References/GCF_000001405.40_GRCh38.p14_genomic.fna.gz
+chicken_genome: 1_References/GCF_016699485.2_bGalGal1.mat.broiler.GRCg7b_genomic.fna.gz
+metagenome: 1_References/mag_catalogue.fna.gz
+
+#fastp
+adapter1: AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+adapter2: AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10.1 Prepare your shell environment | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <title>5 Sample preservation | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="5 Sample preservation | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="5 Sample preservation | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="5 Sample preservation | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="about-bioinformatics.html"/>
-<link rel="next" href="using-snakemake.html"/>
+<link rel="prev" href="fieldwork-sample-collection.html"/>
+<link rel="next" href="about-labwork.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -426,54 +426,163 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prepare-shell" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Prepare your shell environment<a href="prepare-shell.html#prepare-shell" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If the comment chunks of the code (text after #) is creating you problems, use the following code to disable interactive comments and avoid issues when copy-pasting code:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="prepare-shell.html#cb4-1" tabindex="-1"></a><span class="ex">setopt</span> interactivecomments</span></code></pre></div>
-<div id="required-software" class="section level3 unnumbered hasAnchor">
-<h3>Required software<a href="prepare-shell.html#required-software" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Bioinformatic pipelines for processing omic data require the use of dozens of software. All the required software are listed in the conda environment installation file available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>.</p>
+<div id="fieldwork-sample-preservation" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Sample preservation<a href="fieldwork-sample-preservation.html#fieldwork-sample-preservation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Utilising liquid nitrogen for snap-freezing samples is widely regarded as the benchmark method for extracting pristine DNA from an unmodified microbial community. Nevertheless, the feasibility of promptly freezing samples while maintaining an unbroken cold chain isn’t always achievable, especially during field sampling missions. Consequently, dependable substitutes become imperative. This necessity has spurred the creation of various preservatives, enabling samples to be preserved at room temperature over prolonged durations. Nonetheless, research has unveiled that these preservatives can impart significant biases during the generation of diverse omic layers <span class="citation">[<a href="#ref-Perez-Losada2016-nc">15</a>]</span>. Therefore, maintaining uniformity in the selection of preservatives is of paramount importance to ensure consistency across analyses.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Preservative</th>
+<th>HG/MG</th>
+<th>HT/MT</th>
+<th>MP</th>
+<th>ME</th>
+<th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Snap frozen</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td><span class="citation">[<a href="#ref-De_Spiegeleer2020-qc">16</a>]</span></td>
+</tr>
+<tr class="even">
+<td>RNAlater</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td><span class="citation">[<a href="#ref-Van_Eijsden2013-dx">17</a>]</span></td>
+</tr>
+<tr class="odd">
+<td>DNA/RNA Shield</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td><span class="citation">[<a href="#ref-Schweighardt2015-xk">18</a>]</span></td>
+</tr>
+<tr class="even">
+<td>OMNIgene GUT</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td><span class="citation">[<a href="#ref-Wang2018-fs">19</a>]</span></td>
+</tr>
+<tr class="odd">
+<td>Tris-EDTA Buffer</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td><span class="citation">[<a href="#ref-Barra2015-nv">20</a>]</span></td>
+</tr>
+<tr class="even">
+<td>Guanidine thiocyanate</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td><span class="citation">[<a href="#ref-Weidner2022-da">21</a>]</span></td>
+</tr>
+<tr class="odd">
+<td>TRIzol</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td><span class="citation">[<a href="#ref-Simoes2013-xh">22</a>]</span></td>
+</tr>
+<tr class="even">
+<td>Protease inhibitors</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td><span class="citation">[<a href="#ref-Ryan2017-pl">23</a>]</span></td>
+</tr>
+<tr class="odd">
+<td>FTA Cards</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td><span class="citation">[<a href="#ref-Bolt_Botnen2023-ql">24</a>]</span></td>
+</tr>
+<tr class="even">
+<td>Methanol</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td><span class="citation">[<a href="#ref-Straughen2023-ia">25</a>]</span></td>
+</tr>
+<tr class="odd">
+<td>Ammonium bicarbonate</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td><span class="citation">[<a href="#ref-Hedges2013-ip">26</a>]</span></td>
+</tr>
+</tbody>
+</table>
+<p>Numerous preservatives necessitate removal before extraction, such as ethanol, NAP buffer, and RNAlater. However, this removal process can inadvertently eliminate non-pelleting entities, including bacteriophages and other viruses. Conversely, certain preservatives also serve as lysis buffers, exemplified by Zymo’s DNA/RNA Shield. Notably advantageous, these buffers directly participate in DNA extraction. Although these preservatives do not stabilise DNA within cells, they initiate cellular degradation while stabilising DNA in the matrix. Maintaining the recommended material-to-buffer ratio is imperative across all these buffers to ensure optimal outcomes. Overloading with biological material can negate the beneficial effects of the buffers.</p>
+<p>Avoiding freeze-thaw cycles is ideal, as they are recognised sources of DNA degradation and variations in microbial community composition, especially when samples are repetitively thawed <span class="citation">[<a href="#ref-Cuthbertson2015-uy">27</a>]</span>. Opting for small aliquots tailored to the extraction protocol during sample collection, rather than bulk collection, facilitates thawing only the sample intended for processing. This practice sidesteps detrimental thaw-freeze cycles and diminishes the risk of cross-contamination from other samples.</p>
+<p>Furthermore, the biological and chemical characteristics of molecules (e.g., DNA, RNA, proteins, metabolites) used in omic data generation must be acknowledged. Host DNA’s abundance and stability render HG less sensitive. Conversely, MG warrants more cautious handling due to potential microbial community fluctuations post-sampling, unless biochemical reactions are halted. HT and MT demand even swifter preservation to capture representative gene expression patterns. Lastly, metabolites exhibit diverse chemical properties, ranging from stable steroids to highly volatile short-chain fatty acids. Thus, judicious selection of appropriate preservatives becomes paramount when generating multiple omic layers. This decision involves determining whether omic data will be sourced from a single biological sample, necessitating a universal preservative, or multiple samples, each potentially requiring a distinct preservative.</p>
+<p>Importantly, the diverse physicochemical properties of samples mandate that collection and storage methods validated for one sample type cannot be universally assumed optimal for others. Therefore, preliminary optimisation tests are prudent, and methodological consistency emerges as a prerequisite for the production of dependable omic data.</p>
+<div class="authorbox">
+<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a>, <a href="index.html#ostaizka-aizpurua">Ostaizka Aizpurua</a> and <a href="index.html#jacob-rasmussen">Jacob A Rasmussen</a>.</p>
 </div>
-<div id="install-conda-miniconda" class="section level3 unnumbered hasAnchor">
-<h3>Install conda / miniconda<a href="prepare-shell.html#install-conda-miniconda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Conda is an open-source package management system and environment management system that quickly installs, runs, and updates packages and their dependencies. If <strong>conda</strong> is not installed in your system, the first step is to install <strong>miniconda</strong> (a free minimal installer for conda, enough to run the bioinformatic analyses explained in the workbook). Miniconda installers for Linux, Mac and Windows operating systems can be found in the following website:
-<a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></p>
-<p>Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="prepare-shell.html#cb5-1" tabindex="-1"></a><span class="ex">conda</span> <span class="at">-V</span></span>
-<span id="cb5-2"><a href="prepare-shell.html#cb5-2" tabindex="-1"></a><span class="co">#&gt; conda 22.11.1 #or whatever version you have installed</span></span></code></pre></div>
+
 </div>
-<div id="install-mamba" class="section level3 unnumbered hasAnchor">
-<h3>Install mamba (optional)<a href="prepare-shell.html#install-mamba" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An optional step is to install <strong>mamba</strong>, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the <code>conda install</code> option.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="prepare-shell.html#cb6-1" tabindex="-1"></a><span class="ex">conda</span> install mamba <span class="at">-n</span> base <span class="at">-c</span> conda-forge</span></code></pre></div>
+
+
+
+<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Perez-Losada2016-nc" class="csl-entry">
+15. Pérez-Losada M, Crandall KA, Freishtat RJ. Two sampling methods yield distinct microbial signatures in the nasopharynges of asthmatic children. Microbiome. 2016;4:25.
 </div>
-<div id="create-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Create a conda environment<a href="prepare-shell.html#create-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>, and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don’t forget to provide the absolute path to the ‘holo-omics-env.yaml’ file in the <code>mamba create</code> command.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="prepare-shell.html#cb7-1" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml <span class="co">#download installer file</span></span>
-<span id="cb7-2"><a href="prepare-shell.html#cb7-2" tabindex="-1"></a><span class="ex">conda</span> update conda <span class="co">#to ensure everything is updated</span></span>
-<span id="cb7-3"><a href="prepare-shell.html#cb7-3" tabindex="-1"></a><span class="ex">conda</span> deactivate <span class="co">#deactivate any conda environment before creating a new one</span></span>
-<span id="cb7-4"><a href="prepare-shell.html#cb7-4" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> holo-omics-env.yml</span>
-<span id="cb7-5"><a href="prepare-shell.html#cb7-5" tabindex="-1"></a><span class="fu">rm</span> holo-omics-env.yaml <span class="co">#remove installer file</span></span></code></pre></div>
-<p>As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can double-check whether the environment has been successfully created using the following script:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="prepare-shell.html#cb8-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb8-2"><a href="prepare-shell.html#cb8-2" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
-<p>The (holo-omics) specifies the environment you are at. To get out of the environment use:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="prepare-shell.html#cb9-1" tabindex="-1"></a><span class="ex">conda</span> env list</span>
-<span id="cb9-2"><a href="prepare-shell.html#cb9-2" tabindex="-1"></a><span class="co">#&gt; base                  *  /Users/anttonalberdi/miniconda3</span></span>
-<span id="cb9-3"><a href="prepare-shell.html#cb9-3" tabindex="-1"></a><span class="co">#&gt; holo-omics               /Users/anttonalberdi/miniconda3/envs/holo-omics</span></span></code></pre></div>
+<div id="ref-De_Spiegeleer2020-qc" class="csl-entry">
+16. De Spiegeleer M, De Graeve M, Huysman S, Vanderbeke A, Van Meulebroek L, Vanhaecke L. Impact of storage conditions on the human stool metabolome and lipidome: Preserving the most accurate fingerprint. Anal Chim Acta. 2020;1108:79–88.
 </div>
-<div id="activate-the-holo-omics-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Activate the holo-omics conda environment<a href="prepare-shell.html#activate-the-holo-omics-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="prepare-shell.html#cb10-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb10-2"><a href="prepare-shell.html#cb10-2" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
+<div id="ref-Van_Eijsden2013-dx" class="csl-entry">
+17. Eijsden RGE van, Stassen C, Daenen L, Van Mulders SE, Bapat PM, Siewers V, et al. A universal fixation method based on quaternary ammonium salts (<span>RNAlater</span>) for omics-technologies: Saccharomyces cerevisiae as a case study. Biotechnol Lett. 2013;35:891–900.
 </div>
-<div id="install-software-in-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Install software in conda environment<a href="prepare-shell.html#install-software-in-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Once the environment is activated, you can install the required software using the Conda package manager. For example, to install <strong>metawrap</strong>, run the following command:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="prepare-shell.html#cb11-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb11-2"><a href="prepare-shell.html#cb11-2" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-y</span> <span class="at">-c</span> ursky metawrap-mg=1.2.2</span></code></pre></div>
+<div id="ref-Schweighardt2015-xk" class="csl-entry">
+18. Schweighardt AJ, Tate CM, Scott KA, Harper KA, Robertson JM. Evaluation of commercial kits for dual extraction of <span>DNA</span> and <span>RNA</span> from human body fluids. J Forensic Sci. 2015;60:157–65.
+</div>
+<div id="ref-Wang2018-fs" class="csl-entry">
+19. Wang Z, Zolnik CP, Qiu Y, Usyk M, Wang T, Strickler HD, et al. Comparison of fecal collection methods for microbiome and metabolomics studies. Front Cell Infect Microbiol. 2018;8:301.
+</div>
+<div id="ref-Barra2015-nv" class="csl-entry">
+20. Barra GB, Santa Rita TH, Almeida Vasques J de, Chianca CF, Nery LFA, Santana Soares Costa S. <span class="nocase">EDTA-mediated</span> inhibition of <span>DNases</span> protects circulating cell-free <span>DNA</span> from ex vivo degradation in blood samples. Clin Biochem. 2015;48:976–81.
+</div>
+<div id="ref-Weidner2022-da" class="csl-entry">
+21. Weidner L, Laner-Plamberger S, Horner D, Pistorius C, Jurkin J, Karbiener M, et al. Sample buffer containing <span>Guanidine-Hydrochloride</span> combines biological safety and <span>RNA</span> preservation for <span>SARS-CoV-2</span> molecular diagnostics. Diagnostics (Basel). 2022;12.
+</div>
+<div id="ref-Simoes2013-xh" class="csl-entry">
+22. Simões AES, Pereira DM, Amaral JD, Nunes AF, Gomes SE, Rodrigues PM, et al. Efficient recovery of proteins from multiple source samples after trizol or <span class="nocase">trizolLS</span> <span>RNA</span> extraction and long-term storage. BMC Genomics. 2013;14:1–15.
+</div>
+<div id="ref-Ryan2017-pl" class="csl-entry">
+23. Ryan BJ, Henehan GT. Avoiding proteolysis during protein purification. Methods Mol Biol. 2017;1485:53–69.
+</div>
+<div id="ref-Bolt_Botnen2023-ql" class="csl-entry">
+24. Bolt Botnen A, Bjørnsen MB, Alberdi A, Gilbert MTP, Aizpurua O. A simplified protocol for <span>DNA</span> extraction from <span>FTA</span> cards for faecal microbiome studies. Heliyon. 2023;e12861.
+</div>
+<div id="ref-Straughen2023-ia" class="csl-entry">
+25. Straughen JK, Sitarik AR, Jones AD, Li J, Allo G, Salafia C, et al. Comparison of methanol fixation versus cryopreservation of the placenta for metabolomics analysis. Sci Rep. 2023;13:4063.
+</div>
+<div id="ref-Hedges2013-ip" class="csl-entry">
+26. Hedges JB, Vahidi S, Yue X, Konermann L. Effects of ammonium bicarbonate on the electrospray mass spectra of proteins: Evidence for bubble-induced unfolding. Anal Chem. 2013;85:6469–76.
+</div>
+<div id="ref-Cuthbertson2015-uy" class="csl-entry">
+27. Cuthbertson L, Rogers GB, Walker AW, Oliver A, Hoffman LR, Carroll MP, et al. Implications of multiple freeze-thawing on respiratory samples for culture-independent analyses. J Cyst Fibros. 2015;14:464–7.
 </div>
 </div>
             </section>
@@ -481,8 +590,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="about-bioinformatics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="using-snakemake.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="fieldwork-sample-collection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-labwork.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -47,13 +47,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -61,7 +61,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -70,7 +70,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -231,6 +231,12 @@ Antton is an Associate Professor at the University of Copenhagen whose research 
 \addcontentsline{toc}{subsubsection}{Morten Limborg}
 
 Morten is an Associate Professor at the University of Copenhagen and the Head of the Section for Hologenomics at the Globe Institute. His research focuses on host-microbiota interactions in aquaculture fish species.
+
+\hypertarget{ostaizka-aizpurua}{%
+\subsubsection*{Ostaizka Aizpurua}\label{ostaizka-aizpurua}}
+\addcontentsline{toc}{subsubsection}{Ostaizka Aizpurua}
+
+Ostaizka Aizpurua is an Assistant Professor at the University of Copenhagen and the Head of the Section for Hologenomics at the Globe Institute. Her research focuses on host-microbiota interactions, especially using gut-on-a-chip technology.
 
 \hypertarget{raphael-eisenhofer}{%
 \subsubsection*{Raphael Eisenhofer}\label{raphael-eisenhofer}}
@@ -539,6 +545,64 @@ When studying how core host genomic features, which contribute to shaping phenot
 
 This model assumes the inverse causal directionality between the host genome and microbial metagenome to that described above. Candidate host genes related to microbiota features can be identified through GWAS in which the metagenotype (or derived metrics such as diversity or abundance of specific microbial taxa, genes or metabolic functions) are treated as a phenotypic trait. For instance, the increased abundance of lactose degrader Bifidobacteria in humans has been shown to be associated with lactase nonpersister genotype and consumption of milk (envirotype). Once candidate genes are known, targeted analyses in which natural or human-controlled genomic variability (such as the number of copies of the amylase-encoding gene in humans) can be contrasted under controlled environmental conditions to ascertain the effect on metagenotypes (such as the abundance of Ruminococcaceae bacteria in the gut microbiota).
 
+\hypertarget{part-field-procedures}{%
+\part{FIELD PROCEDURES}\label{part-field-procedures}}
+
+\hypertarget{about-fieldwork}{%
+\chapter{About fieldwork}\label{about-fieldwork}}
+
+Some contents of this section have been extracted and modified from the article \href{https://www.nature.com/articles/s41576-021-00421-0}{Field and laboratory guidelines for reliable bioinformatic and statistical analysis of bacterial shotgun metagenomic data} published in \textbf{\emph{Critical Reviews in Biotechnology}} in 2023 by the authors of the \textbf{Holo-omics Workbook}.
+
+\hypertarget{fieldwork-sample-collection}{%
+\chapter{Sample collection}\label{fieldwork-sample-collection}}
+
+Sample collection is a nuanced process that necessitates careful consideration before embarking into the field. Determining what samples to gather, when to obtain them, and how to procure them are three critical decisions that should be made in advance to ensure an effective sampling endeavour.
+
+Researchers must bear in mind that due to the intricate and dynamic nature of microbial communities, any samples acquired may already deviate from their original state \citep{Probandt2018-mn}. This discrepancy can be attributed to temporal shifts, spatial disparities, and distinctions between the sampled substrate and the subject of study. An illustrative instance is the collection of faecal samples, which is notorious for not perfectly representing the true community within the lower intestine \citep{Yan2019-nb}.
+
+Furthermore, if faecal samples are sourced from the environment rather than directly from the host animal, the microbial communities within them may undergo alterations due to shifts in physicochemical parameters (such as oxygen levels and temperature) caused by exposure to air and sunlight \citep{Fofanov2018-wu}. Additionally, colonisation by new bacteria from the surrounding environment can influence the samples. Hence, it is advisable to obtain faecal samples directly from the animals or from sterile containers in which animals are temporarily housed, thereby minimising environmental influences.
+
+It is important to acknowledge that samples typically exhibit spatial structure \citep{Ji2019-wj}. Consequently, when subsampling is performed, the composition of the subset will depend on the precise location (down to the micron level) from which the sample was taken. In cases where acquiring faecal samples from the environment is unavoidable, biases introduced by exposure can be mitigated by targeting internal subsamples and avoiding external layers. However, this approach might introduce its own spatial biases \citep{Griffin2021-pt}.
+
+Dealing with sizeable samples often imposes constraints related to DNA preservation and extraction methods, limiting the amount of material that can be processed. As a result, researchers may consider gathering multiple small subsamples using either random or structured subsampling strategies. This approach captures the spatial diversity of the sample, as opposed to relying on a single large sample. Subsequently, these subsamples could be aggregated to represent the entire sample or, ideally, processed individually as distinct biological replicates. This practice could potentially enhance metagenomic binning procedures.
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi} and \protect\hyperlink{ostaizka-aizpurua}{Ostaizka Aizpurua}.
+
+\hypertarget{fieldwork-sample-preservation}{%
+\chapter{Sample preservation}\label{fieldwork-sample-preservation}}
+
+Utilising liquid nitrogen for snap-freezing samples is widely regarded as the benchmark method for extracting pristine DNA from an unmodified microbial community. Nevertheless, the feasibility of promptly freezing samples while maintaining an unbroken cold chain isn't always achievable, especially during field sampling missions. Consequently, dependable substitutes become imperative. This necessity has spurred the creation of various preservatives, enabling samples to be preserved at room temperature over prolonged durations. Nonetheless, research has unveiled that these preservatives can impart significant biases during the generation of diverse omic layers \citep[\citet{Perez-Losada2016-nc}]{Bjerre2019-mb}. Therefore, maintaining uniformity in the selection of preservatives is of paramount importance to ensure consistency across analyses.
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+Preservative & HG/MG & HT/MT & MP & ME & Reference \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Snap frozen & Yes & Yes & Yes & Yes & \citep{De_Spiegeleer2020-qc} \\
+RNAlater & Yes & Yes & Yes & No & \citep{Van_Eijsden2013-dx} \\
+DNA/RNA Shield & Yes & Yes & No & No & \citep{Schweighardt2015-xk} \\
+OMNIgene GUT & Yes & Yes & No & No & \citep{Wang2018-fs} \\
+Tris-EDTA Buffer & Yes & Yes & No & No & \citep{Barra2015-nv} \\
+Guanidine thiocyanate & Yes & Yes & No & No & \citep{Weidner2022-da} \\
+TRIzol & Yes & Yes & Yes & No & \citep{Simoes2013-xh} \\
+Protease inhibitors & No & No & Yes & No & \citep{Ryan2017-pl} \\
+FTA Cards & Yes & Yes & No & Yes & \citep{Bolt_Botnen2023-ql} \\
+Methanol & No & No & No & Yes & \citep{Straughen2023-ia} \\
+Ammonium bicarbonate & No & No & Yes & No & \citet{Hedges2013-ip} \\
+\end{longtable}
+
+Numerous preservatives necessitate removal before extraction, such as ethanol, NAP buffer, and RNAlater. However, this removal process can inadvertently eliminate non-pelleting entities, including bacteriophages and other viruses. Conversely, certain preservatives also serve as lysis buffers, exemplified by Zymo's DNA/RNA Shield. Notably advantageous, these buffers directly participate in DNA extraction. Although these preservatives do not stabilise DNA within cells, they initiate cellular degradation while stabilising DNA in the matrix. Maintaining the recommended material-to-buffer ratio is imperative across all these buffers to ensure optimal outcomes. Overloading with biological material can negate the beneficial effects of the buffers.
+
+Avoiding freeze-thaw cycles is ideal, as they are recognised sources of DNA degradation and variations in microbial community composition, especially when samples are repetitively thawed \citep{Cuthbertson2015-uy}. Opting for small aliquots tailored to the extraction protocol during sample collection, rather than bulk collection, facilitates thawing only the sample intended for processing. This practice sidesteps detrimental thaw-freeze cycles and diminishes the risk of cross-contamination from other samples.
+
+Furthermore, the biological and chemical characteristics of molecules (e.g., DNA, RNA, proteins, metabolites) used in omic data generation must be acknowledged. Host DNA's abundance and stability render HG less sensitive. Conversely, MG warrants more cautious handling due to potential microbial community fluctuations post-sampling, unless biochemical reactions are halted. HT and MT demand even swifter preservation to capture representative gene expression patterns. Lastly, metabolites exhibit diverse chemical properties, ranging from stable steroids to highly volatile short-chain fatty acids. Thus, judicious selection of appropriate preservatives becomes paramount when generating multiple omic layers. This decision involves determining whether omic data will be sourced from a single biological sample, necessitating a universal preservative, or multiple samples, each potentially requiring a distinct preservative.
+
+Importantly, the diverse physicochemical properties of samples mandate that collection and storage methods validated for one sample type cannot be universally assumed optimal for others. Therefore, preliminary optimisation tests are prudent, and methodological consistency emerges as a prerequisite for the production of dependable omic data.
+
+Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}, \protect\hyperlink{ostaizka-aizpurua}{Ostaizka Aizpurua} and \protect\hyperlink{jacob-rasmussen}{Jacob A Rasmussen}.
+
 \hypertarget{part-laboratory-procedures}{%
 \part{LABORATORY PROCEDURES}\label{part-laboratory-procedures}}
 
@@ -713,11 +777,11 @@ Library features are specific to each sequencing platform, which requires select
 Sequencing enterprises, as well as auxiliary biotechnological companies, provide library preparation kits that can be more or less customised for different purposes.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}@{}}
-\toprule
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Technology
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -727,14 +791,15 @@ Sequencing type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Company
 \end{minipage} \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Sequencing by synthesis (SBS) & MiSeq, NovaSeq & Short-read sequencing & \href{https://www.illumina.com/}{Illumina} \\
 Combinatorial probe-anchor synthesis (cPAS) & DNBSeq & Short-read sequencing & \href{https://www.bgi.com/global}{BGI} \\
 Sequencing by binding (SBB) technology & Onso & Short-read sequencing & \href{https://www.pacb.com/}{PacBio} \\
 Single Molecule Real-Time sequencing (SMRT) & Sequel, Revio & Long-read sequencing & \href{https://www.pacb.com/}{PacBio} \\
 Nanopore sequencing & MinION, GridION, PromethION & Long-read sequencing & \href{https://nanoporetech.com/}{Oxford Nanopore} \\
-\bottomrule
 \end{longtable}
 
 Some of the most widely used sequencing technologies and platforms.
@@ -801,11 +866,11 @@ An example of a sticky-end molecule:
 \addcontentsline{toc}{subsection}{List of available protocols}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}@{}}
-\toprule
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -815,13 +880,14 @@ Author/owner
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Protocol/Article
 \end{minipage} \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 SRS & Blunt-End Single-Tube (BEST) library prep protocol & Open access & \href{https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12871}{Article} \\
 SRS & Santa Cruz Reaction (SCR) single-stranded library prep protocol & Open access & \href{https://academic.oup.com/jhered/article/112/3/241/6188529?login=true}{Article} \\
 SRS & & Illumina & \protect\hyperlink{}{Protocol} \\
 LRS & SMRTbell prep kit 3.0 for PacBio HiFi Sequencing & Pacbio & \href{https://www.pacb.com/wp-content/uploads/Procedure-checklist-Preparing-whole-genome-and-metagenome-libraries-using-SMRTbell-prep-kit-3.0.pdf}{Protocol} \\
-\bottomrule
 \end{longtable}
 
 \hypertarget{library-host-transcriptomics}{%
@@ -894,14 +960,27 @@ The most broadly employed strategies to deplete rRNA through poly-A enrichment r
 \subsection*{List of available protocols}\label{rrna-polya-depletion-protocols}}
 \addcontentsline{toc}{subsection}{List of available protocols}
 
-\begin{longtable}[]{@{}llll@{}}
-\toprule
-Type & Name & Author/owner & Protocol/Article \\
-\midrule
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Author/owner
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Protocol/Article
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 oligo(dT) hybridisation & Dynabeads Oligo (dT)25-61005 & Thermo Fisher & \href{https://www.thermofisher.com/dk/en/home/references/protocols/nucleic-acid-purification-and-analysis/mrna-protocols/dynabeads-oligo-dt-25-61002.html}{Protocol} \\
 oligo(dT) priming & & & \\
-\bottomrule
 \end{longtable}
 
 Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.
@@ -934,11 +1013,11 @@ The newest method of all three relies on the DNA claveage capacity of the Cas9 e
 \addcontentsline{toc}{subsection}{List of available protocols}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.25}}@{}}
-\toprule
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Name
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -948,15 +1027,16 @@ Author/owner
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Protocol/Article
 \end{minipage} \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Custom capture-based depletion & Capture-based & Open Source & \href{https://www.nature.com/articles/s41598-019-48692-2}{Article} \citep{Kraus2019-fq} \\
 Legacy Ribo-Zero & Capture-based & Illumina & \\
 Custom RNAse-based depletion & RNAse-based & Open Source & \href{https://academic.oup.com/nar/article/48/4/e20/5687826}{Article} \citep{Huang2020-xf} \\
 Ribo-Zero Plus & RNAse-based & Illumina & \\
 NEBNext® rRNA Depletion Kit & RNAse-based & NEB & \\
 DASH & Cas9-based & Open Source & \href{https://rnajournal.cshlp.org/content/26/8/1069.full}{Article} \citep{Prezza2020-ln} \\
-\bottomrule
 \end{longtable}
 
 Contents of this section were created by \protect\hyperlink{antton-alberdi}{Antton Alberdi}.

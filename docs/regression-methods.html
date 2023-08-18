@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>19.1 Regression methods | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="19.1 Regression methods | A Practical Guide to Holo-Omics" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <title>22.1 Regression methods | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="22.1 Regression methods | A Practical Guide to Holo-Omics" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="19.1 Regression methods | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="22.1 Regression methods | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="19.1 Regression methods | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="22.1 Regression methods | A Practical Guide to Holo-Omics" />
   
   
   
@@ -99,11 +99,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
+code span.at { color: #204a87; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -112,14 +112,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -127,6 +127,10 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -215,35 +219,39 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="explanatory-and-response-variables.html"><a href="explanatory-and-response-variables.html#m-g-e"><i class="fa fa-check"></i>Metagenotype as a product of genotype and envirotype</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>II LABORATORY PROCEDURES</b></span></li>
-<li class="chapter" data-level="3" data-path="about-labwork.html"><a href="about-labwork.html"><i class="fa fa-check"></i><b>3</b> About labwork</a>
+<li class="part"><span><b>II FIELD PROCEDURES</b></span></li>
+<li class="chapter" data-level="3" data-path="about-fieldwork.html"><a href="about-fieldwork.html"><i class="fa fa-check"></i><b>3</b> About fieldwork</a></li>
+<li class="chapter" data-level="4" data-path="fieldwork-sample-collection.html"><a href="fieldwork-sample-collection.html"><i class="fa fa-check"></i><b>4</b> Sample collection</a></li>
+<li class="chapter" data-level="5" data-path="fieldwork-sample-preservation.html"><a href="fieldwork-sample-preservation.html"><i class="fa fa-check"></i><b>5</b> Sample preservation</a></li>
+<li class="part"><span><b>III LABORATORY PROCEDURES</b></span></li>
+<li class="chapter" data-level="6" data-path="about-labwork.html"><a href="about-labwork.html"><i class="fa fa-check"></i><b>6</b> About labwork</a>
 <ul>
 <li class="chapter" data-level="" data-path="about-labwork.html"><a href="about-labwork.html#laboratory-general-considerations"><i class="fa fa-check"></i>General considerations</a></li>
 <li class="chapter" data-level="" data-path="about-labwork.html"><a href="about-labwork.html#laboratory-procedures"><i class="fa fa-check"></i>Procedures for generating multi-omic data</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="dna-rna-extraction.html"><a href="dna-rna-extraction.html"><i class="fa fa-check"></i><b>4</b> DNA/RNA extraction</a>
+<li class="chapter" data-level="7" data-path="dna-rna-extraction.html"><a href="dna-rna-extraction.html"><i class="fa fa-check"></i><b>7</b> DNA/RNA extraction</a>
 <ul>
 <li class="chapter" data-level="" data-path="dna-rna-extraction.html"><a href="dna-rna-extraction.html#sample-preprocessing"><i class="fa fa-check"></i>Sample preprocessing</a></li>
 <li class="chapter" data-level="" data-path="dna-rna-extraction.html"><a href="dna-rna-extraction.html#chemical-isolation"><i class="fa fa-check"></i>Chemical isolation</a></li>
 <li class="chapter" data-level="" data-path="dna-rna-extraction.html"><a href="dna-rna-extraction.html#physicochemical-isolation"><i class="fa fa-check"></i>Physicochemical isolation</a></li>
 <li class="chapter" data-level="" data-path="dna-rna-extraction.html"><a href="dna-rna-extraction.html#available-protocols"><i class="fa fa-check"></i>Available protocols</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="protein-metabolite-extraction.html"><a href="protein-metabolite-extraction.html"><i class="fa fa-check"></i><b>5</b> Protein/metabolite extraction</a></li>
-<li class="chapter" data-level="6" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html"><i class="fa fa-check"></i><b>6</b> Sequencing library preparation</a>
+<li class="chapter" data-level="8" data-path="protein-metabolite-extraction.html"><a href="protein-metabolite-extraction.html"><i class="fa fa-check"></i><b>8</b> Protein/metabolite extraction</a></li>
+<li class="chapter" data-level="9" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html"><i class="fa fa-check"></i><b>9</b> Sequencing library preparation</a>
 <ul>
 <li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#sequencing-strategies-platforms"><i class="fa fa-check"></i>Sequencing strategies and platforms</a></li>
 <li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#pcr-library"><i class="fa fa-check"></i>PCR-based vs. PCR-free library preparation</a></li>
 <li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#indices-multiplexing"><i class="fa fa-check"></i>Indices and multiplexing</a></li>
 <li class="chapter" data-level="" data-path="sequencing-library-preparation.html"><a href="sequencing-library-preparation.html#unique-molecular-identifiers"><i class="fa fa-check"></i>Unique molecular identifiers (UMIs)</a></li>
-<li class="chapter" data-level="6.1" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html"><i class="fa fa-check"></i><b>6.1</b> Host genomics and microbial metagenomics</a>
+<li class="chapter" data-level="9.1" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html"><i class="fa fa-check"></i><b>9.1</b> Host genomics and microbial metagenomics</a>
 <ul>
 <li class="chapter" data-level="" data-path="library-meta-genomics.html"><a href="library-meta-genomics.html#library-meta-genomics-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html"><i class="fa fa-check"></i><b>6.2</b> Host transcriptomics</a>
+<li class="chapter" data-level="9.2" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html"><i class="fa fa-check"></i><b>9.2</b> Host transcriptomics</a>
 <ul>
 <li class="chapter" data-level="" data-path="library-host-transcriptomics.html"><a href="library-host-transcriptomics.html#rrna-polya-depletion-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html"><i class="fa fa-check"></i><b>6.3</b> Microbial metatranscriptomics</a>
+<li class="chapter" data-level="9.3" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html"><i class="fa fa-check"></i><b>9.3</b> Microbial metatranscriptomics</a>
 <ul>
 <li class="chapter" data-level="" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html#capture-based-rrna-depletion"><i class="fa fa-check"></i>Capture-based rRNA depletion</a></li>
 <li class="chapter" data-level="" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html#rnase-based-rrna-depletion"><i class="fa fa-check"></i>RNAse-based rRNA depletion</a></li>
@@ -251,10 +259,10 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="library-microbial-metatranscriptomics.html"><a href="library-microbial-metatranscriptomics.html#rrna-depletion-protocols"><i class="fa fa-check"></i>List of available protocols</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>III BIOINFORMATIC PROCEDURES</b></span></li>
-<li class="chapter" data-level="7" data-path="about-bioinformatics.html"><a href="about-bioinformatics.html"><i class="fa fa-check"></i><b>7</b> About bioinformatics</a>
+<li class="part"><span><b>IV BIOINFORMATIC PROCEDURES</b></span></li>
+<li class="chapter" data-level="10" data-path="about-bioinformatics.html"><a href="about-bioinformatics.html"><i class="fa fa-check"></i><b>10</b> About bioinformatics</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="prepare-shell.html"><a href="prepare-shell.html"><i class="fa fa-check"></i><b>7.1</b> Prepare your shell environment</a>
+<li class="chapter" data-level="10.1" data-path="prepare-shell.html"><a href="prepare-shell.html"><i class="fa fa-check"></i><b>10.1</b> Prepare your shell environment</a>
 <ul>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#required-software"><i class="fa fa-check"></i>Required software</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-conda-miniconda"><i class="fa fa-check"></i>Install conda / miniconda</a></li>
@@ -263,38 +271,38 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#activate-the-holo-omics-conda-environment"><i class="fa fa-check"></i>Activate the holo-omics conda environment</a></li>
 <li class="chapter" data-level="" data-path="prepare-shell.html"><a href="prepare-shell.html#install-software-in-conda-environment"><i class="fa fa-check"></i>Install software in conda environment</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>7.2</b> Using snakemake for workflow management</a></li>
+<li class="chapter" data-level="10.2" data-path="using-snakemake.html"><a href="using-snakemake.html"><i class="fa fa-check"></i><b>10.2</b> Using snakemake for workflow management</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>8</b> Sequencing data preprocessing</a>
+<li class="chapter" data-level="11" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html"><i class="fa fa-check"></i><b>11</b> Sequencing data preprocessing</a>
 <ul>
 <li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#preprocess-the-reads-using-fastp"><i class="fa fa-check"></i>Preprocess the reads using fastp</a></li>
 <li class="chapter" data-level="" data-path="sequencing-data-preprocessing.html"><a href="sequencing-data-preprocessing.html#splitting-host-and-non-host-data"><i class="fa fa-check"></i>Splitting host and non-host data</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="host-genomics-data-processing.html"><a href="host-genomics-data-processing.html"><i class="fa fa-check"></i><b>9</b> Host genomics (HG) data processing</a>
+<li class="chapter" data-level="12" data-path="host-genomics-data-processing.html"><a href="host-genomics-data-processing.html"><i class="fa fa-check"></i><b>12</b> Host genomics (HG) data processing</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>9.1</b> Host reference genome</a>
+<li class="chapter" data-level="12.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html"><i class="fa fa-check"></i><b>12.1</b> Host reference genome</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-quality"><i class="fa fa-check"></i><b>9.1.1</b> Genome quality</a></li>
-<li class="chapter" data-level="9.1.2" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-profile-analysis"><i class="fa fa-check"></i><b>9.1.2</b> Genome profile analysis</a></li>
-<li class="chapter" data-level="9.1.3" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-assembly-hifiasm"><i class="fa fa-check"></i><b>9.1.3</b> Genome assembly using hifiasm</a></li>
-<li class="chapter" data-level="9.1.4" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-assembly-evaluation"><i class="fa fa-check"></i><b>9.1.4</b> Assembly evaluation</a></li>
-<li class="chapter" data-level="9.1.5" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-scaffolding"><i class="fa fa-check"></i><b>9.1.5</b> Assembly scaffolding</a></li>
-<li class="chapter" data-level="9.1.6" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-final-evaluation"><i class="fa fa-check"></i><b>9.1.6</b> Final genome evaluation</a></li>
-<li class="chapter" data-level="9.1.7" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-annotation"><i class="fa fa-check"></i><b>9.1.7</b> Reference genome annotation</a></li>
+<li class="chapter" data-level="12.1.1" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-quality"><i class="fa fa-check"></i><b>12.1.1</b> Genome quality</a></li>
+<li class="chapter" data-level="12.1.2" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-profile-analysis"><i class="fa fa-check"></i><b>12.1.2</b> Genome profile analysis</a></li>
+<li class="chapter" data-level="12.1.3" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-assembly-hifiasm"><i class="fa fa-check"></i><b>12.1.3</b> Genome assembly using hifiasm</a></li>
+<li class="chapter" data-level="12.1.4" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-assembly-evaluation"><i class="fa fa-check"></i><b>12.1.4</b> Assembly evaluation</a></li>
+<li class="chapter" data-level="12.1.5" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-scaffolding"><i class="fa fa-check"></i><b>12.1.5</b> Assembly scaffolding</a></li>
+<li class="chapter" data-level="12.1.6" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-final-evaluation"><i class="fa fa-check"></i><b>12.1.6</b> Final genome evaluation</a></li>
+<li class="chapter" data-level="12.1.7" data-path="host-reference-genome.html"><a href="host-reference-genome.html#host-genome-annotation"><i class="fa fa-check"></i><b>12.1.7</b> Reference genome annotation</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="host-resequencing.html"><a href="host-resequencing.html"><i class="fa fa-check"></i><b>9.2</b> Host genome resequencing</a></li>
+<li class="chapter" data-level="12.2" data-path="host-resequencing.html"><a href="host-resequencing.html"><i class="fa fa-check"></i><b>12.2</b> Host genome resequencing</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="microbial-metagenomics-data-processing.html"><a href="microbial-metagenomics-data-processing.html"><i class="fa fa-check"></i><b>10</b> Microbial metagenomics (MG) data processing</a>
+<li class="chapter" data-level="13" data-path="microbial-metagenomics-data-processing.html"><a href="microbial-metagenomics-data-processing.html"><i class="fa fa-check"></i><b>13</b> Microbial metagenomics (MG) data processing</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="reference-based.html"><a href="reference-based.html"><i class="fa fa-check"></i><b>10.1</b> Reference-based</a></li>
-<li class="chapter" data-level="10.2" data-path="assembly-based.html"><a href="assembly-based.html"><i class="fa fa-check"></i><b>10.2</b> Assembly-based</a>
+<li class="chapter" data-level="13.1" data-path="reference-based.html"><a href="reference-based.html"><i class="fa fa-check"></i><b>13.1</b> Reference-based</a></li>
+<li class="chapter" data-level="13.2" data-path="assembly-based.html"><a href="assembly-based.html"><i class="fa fa-check"></i><b>13.2</b> Assembly-based</a>
 <ul>
 <li class="chapter" data-level="" data-path="assembly-based.html"><a href="assembly-based.html#individual-assembly-based"><i class="fa fa-check"></i>Individual assembly-based</a></li>
 <li class="chapter" data-level="" data-path="assembly-based.html"><a href="assembly-based.html#coassembly-based"><i class="fa fa-check"></i>Coassembly-based</a></li>
 <li class="chapter" data-level="" data-path="assembly-based.html"><a href="assembly-based.html#assembly-gene-annotation"><i class="fa fa-check"></i>Gene annotation</a></li>
 <li class="chapter" data-level="" data-path="assembly-based.html"><a href="assembly-based.html#assembly-read-mapping"><i class="fa fa-check"></i>Read mapping</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>10.3</b> Genome-resolved</a>
+<li class="chapter" data-level="13.3" data-path="genome-resolved.html"><a href="genome-resolved.html"><i class="fa fa-check"></i><b>13.3</b> Genome-resolved</a>
 <ul>
 <li class="chapter" data-level="" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-binning"><i class="fa fa-check"></i>Binning</a></li>
 <li class="chapter" data-level="" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-refinement"><i class="fa fa-check"></i>Bin refinement</a></li>
@@ -306,20 +314,20 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="genome-resolved.html"><a href="genome-resolved.html#genome-resolved-mapping"><i class="fa fa-check"></i>Read mapping</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>11</b> Host transcriptomics (HT) data processing</a>
+<li class="chapter" data-level="14" data-path="host-transcriptomics-data-processing.html"><a href="host-transcriptomics-data-processing.html"><i class="fa fa-check"></i><b>14</b> Host transcriptomics (HT) data processing</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html"><i class="fa fa-check"></i><b>11.1</b> Reference-based host transcriptomics (HT) data processing</a>
+<li class="chapter" data-level="14.1" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html"><i class="fa fa-check"></i><b>14.1</b> Reference-based host transcriptomics (HT) data processing</a>
 <ul>
 <li class="chapter" data-level="" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html#quality-filtering"><i class="fa fa-check"></i>Quality-filtering</a></li>
 <li class="chapter" data-level="" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html#ribosomal-rna-removal"><i class="fa fa-check"></i>Ribosomal RNA removal</a></li>
 <li class="chapter" data-level="" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html#reference-genome-indexing"><i class="fa fa-check"></i>Reference genome indexing</a></li>
 <li class="chapter" data-level="" data-path="host-transcriptomics-data-processing-reference-based.html"><a href="host-transcriptomics-data-processing-reference-based.html#read-mapping-against-reference-genome"><i class="fa fa-check"></i>Read mapping against reference genome</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="host-transcriptomics-data-processing-reference-free.html"><a href="host-transcriptomics-data-processing-reference-free.html"><i class="fa fa-check"></i><b>11.2</b> Reference-free host transcriptomics (HT) data processing</a></li>
+<li class="chapter" data-level="14.2" data-path="host-transcriptomics-data-processing-reference-free.html"><a href="host-transcriptomics-data-processing-reference-free.html"><i class="fa fa-check"></i><b>14.2</b> Reference-free host transcriptomics (HT) data processing</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="microbial-metatranscriptomics-data-processing.html"><a href="microbial-metatranscriptomics-data-processing.html"><i class="fa fa-check"></i><b>12</b> Microbial metatranscriptomics (HT) data processing</a>
+<li class="chapter" data-level="15" data-path="microbial-metatranscriptomics-data-processing.html"><a href="microbial-metatranscriptomics-data-processing.html"><i class="fa fa-check"></i><b>15</b> Microbial metatranscriptomics (HT) data processing</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="microbial-metatranscriptomics-data-processing-reference-based.html"><a href="microbial-metatranscriptomics-data-processing-reference-based.html"><i class="fa fa-check"></i><b>12.1</b> Reference-based microbial metatranscriptomics (MT) data processing</a>
+<li class="chapter" data-level="15.1" data-path="microbial-metatranscriptomics-data-processing-reference-based.html"><a href="microbial-metatranscriptomics-data-processing-reference-based.html"><i class="fa fa-check"></i><b>15.1</b> Reference-based microbial metatranscriptomics (MT) data processing</a>
 <ul>
 <li class="chapter" data-level="" data-path="microbial-metatranscriptomics-data-processing-reference-based.html"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#quality-filtering-1"><i class="fa fa-check"></i>Quality filtering</a></li>
 <li class="chapter" data-level="" data-path="microbial-metatranscriptomics-data-processing-reference-based.html"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#ribosomal-rna-removal-1"><i class="fa fa-check"></i>Ribosomal RNA removal</a></li>
@@ -329,78 +337,78 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="microbial-metatranscriptomics-data-processing-reference-based.html"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#mapping-against-the-microbial-genome-catalogue"><i class="fa fa-check"></i>Mapping against the microbial genome catalogue</a></li>
 <li class="chapter" data-level="" data-path="microbial-metatranscriptomics-data-processing-reference-based.html"><a href="microbial-metatranscriptomics-data-processing-reference-based.html#calculate-gene-counts"><i class="fa fa-check"></i>Calculate gene counts</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="microbial-metatranscriptomics-data-processing-reference-free.html"><a href="microbial-metatranscriptomics-data-processing-reference-free.html"><i class="fa fa-check"></i><b>12.2</b> Reference-free microbial metatranscriptomics (MT) data processing</a></li>
+<li class="chapter" data-level="15.2" data-path="microbial-metatranscriptomics-data-processing-reference-free.html"><a href="microbial-metatranscriptomics-data-processing-reference-free.html"><i class="fa fa-check"></i><b>15.2</b> Reference-free microbial metatranscriptomics (MT) data processing</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="host-proteomics-data-processing.html"><a href="host-proteomics-data-processing.html"><i class="fa fa-check"></i><b>13</b> Host proteomics (HP) data processing</a></li>
-<li class="chapter" data-level="14" data-path="microbial-metaproteomics-data-processing.html"><a href="microbial-metaproteomics-data-processing.html"><i class="fa fa-check"></i><b>14</b> Microbial metaproteomics (MP) data processing</a></li>
-<li class="part"><span><b>IV STATISTICAL PROCEDURES</b></span></li>
-<li class="chapter" data-level="15" data-path="about-statistics.html"><a href="about-statistics.html"><i class="fa fa-check"></i><b>15</b> About statistics</a>
+<li class="chapter" data-level="16" data-path="host-proteomics-data-processing.html"><a href="host-proteomics-data-processing.html"><i class="fa fa-check"></i><b>16</b> Host proteomics (HP) data processing</a></li>
+<li class="chapter" data-level="17" data-path="microbial-metaproteomics-data-processing.html"><a href="microbial-metaproteomics-data-processing.html"><i class="fa fa-check"></i><b>17</b> Microbial metaproteomics (MP) data processing</a></li>
+<li class="part"><span><b>V STATISTICAL PROCEDURES</b></span></li>
+<li class="chapter" data-level="18" data-path="about-statistics.html"><a href="about-statistics.html"><i class="fa fa-check"></i><b>18</b> About statistics</a>
 <ul>
 <li class="chapter" data-level="" data-path="about-statistics.html"><a href="about-statistics.html#a-step-by-step-approach"><i class="fa fa-check"></i>A step-by-step approach</a></li>
-<li class="chapter" data-level="15.1" data-path="prepare-r.html"><a href="prepare-r.html"><i class="fa fa-check"></i><b>15.1</b> Prepare your R environment</a>
+<li class="chapter" data-level="18.1" data-path="prepare-r.html"><a href="prepare-r.html"><i class="fa fa-check"></i><b>18.1</b> Prepare your R environment</a>
 <ul>
 <li class="chapter" data-level="" data-path="prepare-r.html"><a href="prepare-r.html#required-packages"><i class="fa fa-check"></i>Required packages</a></li>
 <li class="chapter" data-level="" data-path="prepare-r.html"><a href="prepare-r.html#package-installation"><i class="fa fa-check"></i>Package installation</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>16</b> Single omic analyses</a></li>
-<li class="chapter" data-level="17" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>17</b> Data transformations</a>
+<li class="chapter" data-level="19" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>19</b> Single omic analyses</a></li>
+<li class="chapter" data-level="20" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>20</b> Data transformations</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html"><i class="fa fa-check"></i><b>17.1</b> Transformations to account for statistical assumptions</a>
+<li class="chapter" data-level="20.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html"><i class="fa fa-check"></i><b>20.1</b> Transformations to account for statistical assumptions</a>
 <ul>
 <li class="chapter" data-level="" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption"><i class="fa fa-check"></i>Transforming data to meet normality assumption</a></li>
-<li class="chapter" data-level="17.1.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#data-transformation-compositional"><i class="fa fa-check"></i><b>17.1.1</b> Transformations to account for compositional data</a></li>
-<li class="chapter" data-level="17.1.2" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#data-transformation-scaling"><i class="fa fa-check"></i><b>17.1.2</b> Transformations to account for scaling</a></li>
+<li class="chapter" data-level="20.1.1" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#data-transformation-compositional"><i class="fa fa-check"></i><b>20.1.1</b> Transformations to account for compositional data</a></li>
+<li class="chapter" data-level="20.1.2" data-path="data-transformation-assumptions.html"><a href="data-transformation-assumptions.html#data-transformation-scaling"><i class="fa fa-check"></i><b>20.1.2</b> Transformations to account for scaling</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>18</b> Unsupervised exploration</a>
+<li class="chapter" data-level="21" data-path="unsupervised-exploration.html"><a href="unsupervised-exploration.html"><i class="fa fa-check"></i><b>21</b> Unsupervised exploration</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html"><i class="fa fa-check"></i><b>18.1</b> Cluster analysis</a>
+<li class="chapter" data-level="21.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html"><i class="fa fa-check"></i><b>21.1</b> Cluster analysis</a>
 <ul>
-<li class="chapter" data-level="18.1.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#hierarchical-clustering"><i class="fa fa-check"></i><b>18.1.1</b> Hierarchical clustering</a></li>
-<li class="chapter" data-level="18.1.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#disjoint-clustering"><i class="fa fa-check"></i><b>18.1.2</b> Disjoint clustering</a></li>
+<li class="chapter" data-level="21.1.1" data-path="cluster-analysis.html"><a href="cluster-analysis.html#hierarchical-clustering"><i class="fa fa-check"></i><b>21.1.1</b> Hierarchical clustering</a></li>
+<li class="chapter" data-level="21.1.2" data-path="cluster-analysis.html"><a href="cluster-analysis.html#disjoint-clustering"><i class="fa fa-check"></i><b>21.1.2</b> Disjoint clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html"><i class="fa fa-check"></i><b>18.2</b> Dimension reduction and ordination</a>
+<li class="chapter" data-level="21.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html"><i class="fa fa-check"></i><b>21.2</b> Dimension reduction and ordination</a>
 <ul>
-<li class="chapter" data-level="18.2.1" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pca"><i class="fa fa-check"></i><b>18.2.1</b> Principal Component Analysis (PCA)</a></li>
-<li class="chapter" data-level="18.2.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pcoa"><i class="fa fa-check"></i><b>18.2.2</b> Principal Coordinate Analysis (PCoA)</a></li>
-<li class="chapter" data-level="18.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>18.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
-<li class="chapter" data-level="18.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>18.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
-<li class="chapter" data-level="18.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>18.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
+<li class="chapter" data-level="21.2.1" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pca"><i class="fa fa-check"></i><b>21.2.1</b> Principal Component Analysis (PCA)</a></li>
+<li class="chapter" data-level="21.2.2" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#pcoa"><i class="fa fa-check"></i><b>21.2.2</b> Principal Coordinate Analysis (PCoA)</a></li>
+<li class="chapter" data-level="21.2.3" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#nmds"><i class="fa fa-check"></i><b>21.2.3</b> Non-metric Multidimensional Scaling (NMDS)</a></li>
+<li class="chapter" data-level="21.2.4" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#t-sne"><i class="fa fa-check"></i><b>21.2.4</b> t-Distributed Stochastic Neighbour Embedding (t-SNE)</a></li>
+<li class="chapter" data-level="21.2.5" data-path="dimension-reduction-ordination.html"><a href="dimension-reduction-ordination.html#umap"><i class="fa fa-check"></i><b>21.2.5</b> Uniform manifold approximation and projection (UMAP)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>19</b> Supervised analysis</a>
+<li class="chapter" data-level="22" data-path="supervised-analysis.html"><a href="supervised-analysis.html"><i class="fa fa-check"></i><b>22</b> Supervised analysis</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="regression-methods.html"><a href="regression-methods.html"><i class="fa fa-check"></i><b>19.1</b> Regression methods</a>
+<li class="chapter" data-level="22.1" data-path="regression-methods.html"><a href="regression-methods.html"><i class="fa fa-check"></i><b>22.1</b> Regression methods</a>
 <ul>
-<li class="chapter" data-level="19.1.1" data-path="regression-methods.html"><a href="regression-methods.html#permanova"><i class="fa fa-check"></i><b>19.1.1</b> PERMANOVA</a></li>
-<li class="chapter" data-level="19.1.2" data-path="regression-methods.html"><a href="regression-methods.html#anosim"><i class="fa fa-check"></i><b>19.1.2</b> ANOSIM</a></li>
-<li class="chapter" data-level="19.1.3" data-path="regression-methods.html"><a href="regression-methods.html#redundancy-analysis"><i class="fa fa-check"></i><b>19.1.3</b> Redundancy analysis (RDA)</a></li>
-<li class="chapter" data-level="19.1.4" data-path="regression-methods.html"><a href="regression-methods.html#canonical-correspondence-analysis"><i class="fa fa-check"></i><b>19.1.4</b> Canonical Correspondence Analysis (CCA)</a></li>
-<li class="chapter" data-level="19.1.5" data-path="regression-methods.html"><a href="regression-methods.html#generalised-linear-modelling"><i class="fa fa-check"></i><b>19.1.5</b> Generalised linear modelling (GLM)</a></li>
-<li class="chapter" data-level="19.1.6" data-path="regression-methods.html"><a href="regression-methods.html#generalised-linear-mixed-modelling"><i class="fa fa-check"></i><b>19.1.6</b> Generalised linear mixed modelling (GLMM)</a></li>
+<li class="chapter" data-level="22.1.1" data-path="regression-methods.html"><a href="regression-methods.html#permanova"><i class="fa fa-check"></i><b>22.1.1</b> PERMANOVA</a></li>
+<li class="chapter" data-level="22.1.2" data-path="regression-methods.html"><a href="regression-methods.html#anosim"><i class="fa fa-check"></i><b>22.1.2</b> ANOSIM</a></li>
+<li class="chapter" data-level="22.1.3" data-path="regression-methods.html"><a href="regression-methods.html#redundancy-analysis"><i class="fa fa-check"></i><b>22.1.3</b> Redundancy analysis (RDA)</a></li>
+<li class="chapter" data-level="22.1.4" data-path="regression-methods.html"><a href="regression-methods.html#canonical-correspondence-analysis"><i class="fa fa-check"></i><b>22.1.4</b> Canonical Correspondence Analysis (CCA)</a></li>
+<li class="chapter" data-level="22.1.5" data-path="regression-methods.html"><a href="regression-methods.html#generalised-linear-modelling"><i class="fa fa-check"></i><b>22.1.5</b> Generalised linear modelling (GLM)</a></li>
+<li class="chapter" data-level="22.1.6" data-path="regression-methods.html"><a href="regression-methods.html#generalised-linear-mixed-modelling"><i class="fa fa-check"></i><b>22.1.6</b> Generalised linear mixed modelling (GLMM)</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2" data-path="classification-methods.html"><a href="classification-methods.html"><i class="fa fa-check"></i><b>19.2</b> Classification methods</a>
+<li class="chapter" data-level="22.2" data-path="classification-methods.html"><a href="classification-methods.html"><i class="fa fa-check"></i><b>22.2</b> Classification methods</a>
 <ul>
-<li class="chapter" data-level="19.2.1" data-path="classification-methods.html"><a href="classification-methods.html#random-forests"><i class="fa fa-check"></i><b>19.2.1</b> Random Forests (RF)</a></li>
-<li class="chapter" data-level="19.2.2" data-path="classification-methods.html"><a href="classification-methods.html#support-vector-machines"><i class="fa fa-check"></i><b>19.2.2</b> Support Vector Machines (SVM)</a></li>
+<li class="chapter" data-level="22.2.1" data-path="classification-methods.html"><a href="classification-methods.html#random-forests"><i class="fa fa-check"></i><b>22.2.1</b> Random Forests (RF)</a></li>
+<li class="chapter" data-level="22.2.2" data-path="classification-methods.html"><a href="classification-methods.html#support-vector-machines"><i class="fa fa-check"></i><b>22.2.2</b> Support Vector Machines (SVM)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="multi-omic-integration.html"><a href="multi-omic-integration.html"><i class="fa fa-check"></i><b>20</b> Multi-omic integration</a></li>
-<li class="chapter" data-level="21" data-path="multi-staged-omics-integration.html"><a href="multi-staged-omics-integration.html"><i class="fa fa-check"></i><b>21</b> Multi-staged omics integration</a></li>
-<li class="chapter" data-level="22" data-path="meta-dimensional-omics-integration.html"><a href="meta-dimensional-omics-integration.html"><i class="fa fa-check"></i><b>22</b> Meta-dimensional omics integration</a>
+<li class="chapter" data-level="23" data-path="multi-omic-integration.html"><a href="multi-omic-integration.html"><i class="fa fa-check"></i><b>23</b> Multi-omic integration</a></li>
+<li class="chapter" data-level="24" data-path="multi-staged-omics-integration.html"><a href="multi-staged-omics-integration.html"><i class="fa fa-check"></i><b>24</b> Multi-staged omics integration</a></li>
+<li class="chapter" data-level="25" data-path="meta-dimensional-omics-integration.html"><a href="meta-dimensional-omics-integration.html"><i class="fa fa-check"></i><b>25</b> Meta-dimensional omics integration</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="multi-staged-omics-integration-concatenation-based.html"><a href="multi-staged-omics-integration-concatenation-based.html"><i class="fa fa-check"></i><b>22.1</b> Concatenation-based integration</a></li>
-<li class="chapter" data-level="22.2" data-path="multi-staged-omics-integration-transformation-based.html"><a href="multi-staged-omics-integration-transformation-based.html"><i class="fa fa-check"></i><b>22.2</b> Transformation-based integration</a></li>
-<li class="chapter" data-level="22.3" data-path="multi-staged-omics-integration-model-based.html"><a href="multi-staged-omics-integration-model-based.html"><i class="fa fa-check"></i><b>22.3</b> Model-based integration</a></li>
+<li class="chapter" data-level="25.1" data-path="multi-staged-omics-integration-concatenation-based.html"><a href="multi-staged-omics-integration-concatenation-based.html"><i class="fa fa-check"></i><b>25.1</b> Concatenation-based integration</a></li>
+<li class="chapter" data-level="25.2" data-path="multi-staged-omics-integration-transformation-based.html"><a href="multi-staged-omics-integration-transformation-based.html"><i class="fa fa-check"></i><b>25.2</b> Transformation-based integration</a></li>
+<li class="chapter" data-level="25.3" data-path="multi-staged-omics-integration-model-based.html"><a href="multi-staged-omics-integration-model-based.html"><i class="fa fa-check"></i><b>25.3</b> Model-based integration</a></li>
 </ul></li>
-<li class="part"><span><b>V RESOURCES</b></span></li>
-<li class="chapter" data-level="23" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>23</b> Useful links</a>
+<li class="part"><span><b>VI RESOURCES</b></span></li>
+<li class="chapter" data-level="26" data-path="useful-links.html"><a href="useful-links.html"><i class="fa fa-check"></i><b>26</b> Useful links</a>
 <ul>
 <li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-data"><i class="fa fa-check"></i>Data access</a></li>
 <li class="chapter" data-level="" data-path="useful-links.html"><a href="useful-links.html#links-documentation"><i class="fa fa-check"></i>Documentation</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>24</b> References</a></li>
+<li class="chapter" data-level="27" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>27</b> References</a></li>
 </ul>
 
       </nav>
@@ -418,159 +426,159 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regression-methods" class="section level2 hasAnchor" number="19.1">
-<h2><span class="header-section-number">19.1</span> Regression methods<a href="regression-methods.html#regression-methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="regression-methods" class="section level2 hasAnchor" number="22.1">
+<h2><span class="header-section-number">22.1</span> Regression methods<a href="regression-methods.html#regression-methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Regression methods aim to model the relationship between the quantitative metrics of the omic features and the response variable. Regression methods are commonly used in supervised analysis of omic data to identify associations between the expression levels of different genes, metabolites, or other features and a particular outcome or response variable, such as a disease state or an experimental treatment.</p>
-<div id="permanova" class="section level3 hasAnchor" number="19.1.1">
-<h3><span class="header-section-number">19.1.1</span> PERMANOVA<a href="regression-methods.html#permanova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="permanova" class="section level3 hasAnchor" number="22.1.1">
+<h3><span class="header-section-number">22.1.1</span> PERMANOVA<a href="regression-methods.html#permanova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>PERMANOVA is a statistical method that tests for significant differences between groups in multivariate data by comparing the distribution of distance-based similarity matrices. This method can be used to identify biomarkers that differ significantly between groups, such as disease states or treatment groups, and determine whether there are significant differences in the overall pattern of gene expression, methylation, or other omic features between the groups.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="regression-methods.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb71-2"><a href="regression-methods.html#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-3"><a href="regression-methods.html#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate gene expression data with 100 samples and 1000 genes</span></span>
-<span id="cb71-4"><a href="regression-methods.html#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb71-5"><a href="regression-methods.html#cb71-5" aria-hidden="true" tabindex="-1"></a>exprs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span><span class="sc">*</span><span class="dv">1000</span>), <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> <span class="dv">1000</span>)</span>
-<span id="cb71-6"><a href="regression-methods.html#cb71-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-7"><a href="regression-methods.html#cb71-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create a grouping variable with 2 groups</span></span>
-<span id="cb71-8"><a href="regression-methods.html#cb71-8" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;treatment&quot;</span>), <span class="at">each =</span> <span class="dv">50</span>)</span>
-<span id="cb71-9"><a href="regression-methods.html#cb71-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-10"><a href="regression-methods.html#cb71-10" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate Euclidean distance matrix from gene expression data</span></span>
-<span id="cb71-11"><a href="regression-methods.html#cb71-11" aria-hidden="true" tabindex="-1"></a>dist_matrix <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(<span class="fu">t</span>(exprs), <span class="at">method =</span> <span class="st">&quot;euclidean&quot;</span>)</span>
-<span id="cb71-12"><a href="regression-methods.html#cb71-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-13"><a href="regression-methods.html#cb71-13" aria-hidden="true" tabindex="-1"></a><span class="co"># perform PERMANOVA analysis</span></span>
-<span id="cb71-14"><a href="regression-methods.html#cb71-14" aria-hidden="true" tabindex="-1"></a>permanova_results <span class="ot">&lt;-</span> <span class="fu">adonis</span>(dist_matrix <span class="sc">~</span> group)</span>
-<span id="cb71-15"><a href="regression-methods.html#cb71-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-16"><a href="regression-methods.html#cb71-16" aria-hidden="true" tabindex="-1"></a><span class="co"># view PERMANOVA results</span></span>
-<span id="cb71-17"><a href="regression-methods.html#cb71-17" aria-hidden="true" tabindex="-1"></a>permanova_results</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="regression-methods.html#cb71-1" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb71-2"><a href="regression-methods.html#cb71-2" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="regression-methods.html#cb71-3" tabindex="-1"></a><span class="co"># simulate gene expression data with 100 samples and 1000 genes</span></span>
+<span id="cb71-4"><a href="regression-methods.html#cb71-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb71-5"><a href="regression-methods.html#cb71-5" tabindex="-1"></a>exprs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span><span class="sc">*</span><span class="dv">1000</span>), <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> <span class="dv">1000</span>)</span>
+<span id="cb71-6"><a href="regression-methods.html#cb71-6" tabindex="-1"></a></span>
+<span id="cb71-7"><a href="regression-methods.html#cb71-7" tabindex="-1"></a><span class="co"># create a grouping variable with 2 groups</span></span>
+<span id="cb71-8"><a href="regression-methods.html#cb71-8" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;treatment&quot;</span>), <span class="at">each =</span> <span class="dv">50</span>)</span>
+<span id="cb71-9"><a href="regression-methods.html#cb71-9" tabindex="-1"></a></span>
+<span id="cb71-10"><a href="regression-methods.html#cb71-10" tabindex="-1"></a><span class="co"># calculate Euclidean distance matrix from gene expression data</span></span>
+<span id="cb71-11"><a href="regression-methods.html#cb71-11" tabindex="-1"></a>dist_matrix <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(<span class="fu">t</span>(exprs), <span class="at">method =</span> <span class="st">&quot;euclidean&quot;</span>)</span>
+<span id="cb71-12"><a href="regression-methods.html#cb71-12" tabindex="-1"></a></span>
+<span id="cb71-13"><a href="regression-methods.html#cb71-13" tabindex="-1"></a><span class="co"># perform PERMANOVA analysis</span></span>
+<span id="cb71-14"><a href="regression-methods.html#cb71-14" tabindex="-1"></a>permanova_results <span class="ot">&lt;-</span> <span class="fu">adonis</span>(dist_matrix <span class="sc">~</span> group)</span>
+<span id="cb71-15"><a href="regression-methods.html#cb71-15" tabindex="-1"></a></span>
+<span id="cb71-16"><a href="regression-methods.html#cb71-16" tabindex="-1"></a><span class="co"># view PERMANOVA results</span></span>
+<span id="cb71-17"><a href="regression-methods.html#cb71-17" tabindex="-1"></a>permanova_results</span></code></pre></div>
 </div>
-<div id="anosim" class="section level3 hasAnchor" number="19.1.2">
-<h3><span class="header-section-number">19.1.2</span> ANOSIM<a href="regression-methods.html#anosim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="anosim" class="section level3 hasAnchor" number="22.1.2">
+<h3><span class="header-section-number">22.1.2</span> ANOSIM<a href="regression-methods.html#anosim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ANOSIM is a nonparametric statistical method that tests for significant differences in similarity between two or more groups of samples based on dissimilarity matrices. It is used to compare the dissimilarity between groups of samples based on their gene expression, metabolomics, or other omic data. The aim of ANOSIM is to determine if the differences in omic profiles between groups are significant and can be used to distinguish between groups.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="regression-methods.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb72-2"><a href="regression-methods.html#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-3"><a href="regression-methods.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
-<span id="cb72-4"><a href="regression-methods.html#cb72-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb72-5"><a href="regression-methods.html#cb72-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-6"><a href="regression-methods.html#cb72-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define grouping variable</span></span>
-<span id="cb72-7"><a href="regression-methods.html#cb72-7" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Group 1&quot;</span>, <span class="dv">5</span>), <span class="fu">rep</span>(<span class="st">&quot;Group 2&quot;</span>, <span class="dv">5</span>))</span>
-<span id="cb72-8"><a href="regression-methods.html#cb72-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-9"><a href="regression-methods.html#cb72-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate dissimilarity matrix</span></span>
-<span id="cb72-10"><a href="regression-methods.html#cb72-10" aria-hidden="true" tabindex="-1"></a>dissimilarity <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(data)</span>
-<span id="cb72-11"><a href="regression-methods.html#cb72-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-12"><a href="regression-methods.html#cb72-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform ANOSIM</span></span>
-<span id="cb72-13"><a href="regression-methods.html#cb72-13" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">anosim</span>(dissimilarity, group)</span>
-<span id="cb72-14"><a href="regression-methods.html#cb72-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-15"><a href="regression-methods.html#cb72-15" aria-hidden="true" tabindex="-1"></a><span class="co"># View ANOSIM results</span></span>
-<span id="cb72-16"><a href="regression-methods.html#cb72-16" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="regression-methods.html#cb72-1" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb72-2"><a href="regression-methods.html#cb72-2" tabindex="-1"></a></span>
+<span id="cb72-3"><a href="regression-methods.html#cb72-3" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
+<span id="cb72-4"><a href="regression-methods.html#cb72-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb72-5"><a href="regression-methods.html#cb72-5" tabindex="-1"></a></span>
+<span id="cb72-6"><a href="regression-methods.html#cb72-6" tabindex="-1"></a><span class="co"># Define grouping variable</span></span>
+<span id="cb72-7"><a href="regression-methods.html#cb72-7" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Group 1&quot;</span>, <span class="dv">5</span>), <span class="fu">rep</span>(<span class="st">&quot;Group 2&quot;</span>, <span class="dv">5</span>))</span>
+<span id="cb72-8"><a href="regression-methods.html#cb72-8" tabindex="-1"></a></span>
+<span id="cb72-9"><a href="regression-methods.html#cb72-9" tabindex="-1"></a><span class="co"># Calculate dissimilarity matrix</span></span>
+<span id="cb72-10"><a href="regression-methods.html#cb72-10" tabindex="-1"></a>dissimilarity <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(data)</span>
+<span id="cb72-11"><a href="regression-methods.html#cb72-11" tabindex="-1"></a></span>
+<span id="cb72-12"><a href="regression-methods.html#cb72-12" tabindex="-1"></a><span class="co"># Perform ANOSIM</span></span>
+<span id="cb72-13"><a href="regression-methods.html#cb72-13" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">anosim</span>(dissimilarity, group)</span>
+<span id="cb72-14"><a href="regression-methods.html#cb72-14" tabindex="-1"></a></span>
+<span id="cb72-15"><a href="regression-methods.html#cb72-15" tabindex="-1"></a><span class="co"># View ANOSIM results</span></span>
+<span id="cb72-16"><a href="regression-methods.html#cb72-16" tabindex="-1"></a>result</span></code></pre></div>
 </div>
-<div id="redundancy-analysis" class="section level3 hasAnchor" number="19.1.3">
-<h3><span class="header-section-number">19.1.3</span> Redundancy analysis (RDA)<a href="regression-methods.html#redundancy-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="redundancy-analysis" class="section level3 hasAnchor" number="22.1.3">
+<h3><span class="header-section-number">22.1.3</span> Redundancy analysis (RDA)<a href="regression-methods.html#redundancy-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Redundancy Analysis (RDA) is a multivariate statistical technique that identifies the linear relationships between a response variable and a set of explanatory variables. It is an extension of Principal Component Analysis (PCA) that can handle both continuous and categorical variables. RDA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualise the relationship between the explanatory and response variables.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="regression-methods.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb73-2"><a href="regression-methods.html#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-3"><a href="regression-methods.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
-<span id="cb73-4"><a href="regression-methods.html#cb73-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb73-5"><a href="regression-methods.html#cb73-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-6"><a href="regression-methods.html#cb73-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load disease state data</span></span>
-<span id="cb73-7"><a href="regression-methods.html#cb73-7" aria-hidden="true" tabindex="-1"></a>disease <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;disease_state.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb73-8"><a href="regression-methods.html#cb73-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-9"><a href="regression-methods.html#cb73-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform RDA</span></span>
-<span id="cb73-10"><a href="regression-methods.html#cb73-10" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">rda</span>(data, disease)</span>
-<span id="cb73-11"><a href="regression-methods.html#cb73-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-12"><a href="regression-methods.html#cb73-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View RDA results</span></span>
-<span id="cb73-13"><a href="regression-methods.html#cb73-13" aria-hidden="true" tabindex="-1"></a>result</span>
-<span id="cb73-14"><a href="regression-methods.html#cb73-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-15"><a href="regression-methods.html#cb73-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot RDA biplot</span></span>
-<span id="cb73-16"><a href="regression-methods.html#cb73-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">display =</span> <span class="st">&quot;biplot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="regression-methods.html#cb73-1" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb73-2"><a href="regression-methods.html#cb73-2" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="regression-methods.html#cb73-3" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
+<span id="cb73-4"><a href="regression-methods.html#cb73-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb73-5"><a href="regression-methods.html#cb73-5" tabindex="-1"></a></span>
+<span id="cb73-6"><a href="regression-methods.html#cb73-6" tabindex="-1"></a><span class="co"># Load disease state data</span></span>
+<span id="cb73-7"><a href="regression-methods.html#cb73-7" tabindex="-1"></a>disease <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;disease_state.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb73-8"><a href="regression-methods.html#cb73-8" tabindex="-1"></a></span>
+<span id="cb73-9"><a href="regression-methods.html#cb73-9" tabindex="-1"></a><span class="co"># Perform RDA</span></span>
+<span id="cb73-10"><a href="regression-methods.html#cb73-10" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">rda</span>(data, disease)</span>
+<span id="cb73-11"><a href="regression-methods.html#cb73-11" tabindex="-1"></a></span>
+<span id="cb73-12"><a href="regression-methods.html#cb73-12" tabindex="-1"></a><span class="co"># View RDA results</span></span>
+<span id="cb73-13"><a href="regression-methods.html#cb73-13" tabindex="-1"></a>result</span>
+<span id="cb73-14"><a href="regression-methods.html#cb73-14" tabindex="-1"></a></span>
+<span id="cb73-15"><a href="regression-methods.html#cb73-15" tabindex="-1"></a><span class="co"># Plot RDA biplot</span></span>
+<span id="cb73-16"><a href="regression-methods.html#cb73-16" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">display =</span> <span class="st">&quot;biplot&quot;</span>)</span></code></pre></div>
 </div>
-<div id="canonical-correspondence-analysis" class="section level3 hasAnchor" number="19.1.4">
-<h3><span class="header-section-number">19.1.4</span> Canonical Correspondence Analysis (CCA)<a href="regression-methods.html#canonical-correspondence-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="canonical-correspondence-analysis" class="section level3 hasAnchor" number="22.1.4">
+<h3><span class="header-section-number">22.1.4</span> Canonical Correspondence Analysis (CCA)<a href="regression-methods.html#canonical-correspondence-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Canonical Correspondence Analysis (CCA) is a multivariate statistical technique that explores the relationship between a set of explanatory variables and a set of response variables. It is an extension of Correspondence Analysis (CA) that can handle both continuous and categorical variables. CCA is used to identify the genes, metabolites, or other omic variables that are most strongly associated with a specific outcome or response variable, such as a disease state or drug response. It can also be used to visualise the relationship between the explanatory and response variables.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="regression-methods.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
-<span id="cb74-2"><a href="regression-methods.html#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-3"><a href="regression-methods.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
-<span id="cb74-4"><a href="regression-methods.html#cb74-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb74-5"><a href="regression-methods.html#cb74-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-6"><a href="regression-methods.html#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load disease state data</span></span>
-<span id="cb74-7"><a href="regression-methods.html#cb74-7" aria-hidden="true" tabindex="-1"></a>disease <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;disease_state.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb74-8"><a href="regression-methods.html#cb74-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-9"><a href="regression-methods.html#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform CCA</span></span>
-<span id="cb74-10"><a href="regression-methods.html#cb74-10" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">cca</span>(data, disease)</span>
-<span id="cb74-11"><a href="regression-methods.html#cb74-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-12"><a href="regression-methods.html#cb74-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View CCA results</span></span>
-<span id="cb74-13"><a href="regression-methods.html#cb74-13" aria-hidden="true" tabindex="-1"></a>result</span>
-<span id="cb74-14"><a href="regression-methods.html#cb74-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-15"><a href="regression-methods.html#cb74-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot CCA biplot</span></span>
-<span id="cb74-16"><a href="regression-methods.html#cb74-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">display =</span> <span class="st">&quot;biplot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="regression-methods.html#cb74-1" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb74-2"><a href="regression-methods.html#cb74-2" tabindex="-1"></a></span>
+<span id="cb74-3"><a href="regression-methods.html#cb74-3" tabindex="-1"></a><span class="co"># Load gene expression data</span></span>
+<span id="cb74-4"><a href="regression-methods.html#cb74-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;gene_expression_data.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb74-5"><a href="regression-methods.html#cb74-5" tabindex="-1"></a></span>
+<span id="cb74-6"><a href="regression-methods.html#cb74-6" tabindex="-1"></a><span class="co"># Load disease state data</span></span>
+<span id="cb74-7"><a href="regression-methods.html#cb74-7" tabindex="-1"></a>disease <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;disease_state.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb74-8"><a href="regression-methods.html#cb74-8" tabindex="-1"></a></span>
+<span id="cb74-9"><a href="regression-methods.html#cb74-9" tabindex="-1"></a><span class="co"># Perform CCA</span></span>
+<span id="cb74-10"><a href="regression-methods.html#cb74-10" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">cca</span>(data, disease)</span>
+<span id="cb74-11"><a href="regression-methods.html#cb74-11" tabindex="-1"></a></span>
+<span id="cb74-12"><a href="regression-methods.html#cb74-12" tabindex="-1"></a><span class="co"># View CCA results</span></span>
+<span id="cb74-13"><a href="regression-methods.html#cb74-13" tabindex="-1"></a>result</span>
+<span id="cb74-14"><a href="regression-methods.html#cb74-14" tabindex="-1"></a></span>
+<span id="cb74-15"><a href="regression-methods.html#cb74-15" tabindex="-1"></a><span class="co"># Plot CCA biplot</span></span>
+<span id="cb74-16"><a href="regression-methods.html#cb74-16" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">display =</span> <span class="st">&quot;biplot&quot;</span>)</span></code></pre></div>
 </div>
-<div id="generalised-linear-modelling" class="section level3 hasAnchor" number="19.1.5">
-<h3><span class="header-section-number">19.1.5</span> Generalised linear modelling (GLM)<a href="regression-methods.html#generalised-linear-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="generalised-linear-modelling" class="section level3 hasAnchor" number="22.1.5">
+<h3><span class="header-section-number">22.1.5</span> Generalised linear modelling (GLM)<a href="regression-methods.html#generalised-linear-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Generalised linear modelling (GLM) is a statistical framework that allows for the analysis of a wide range of response variables, including binary, count, and continuous data. In the context of supervised analysis of single omic layers, GLM can be used to identify associations between a specific response variable, such as disease status, and the omic data, such as gene expression or metabolite levels.</p>
 <p>The first step in using GLM for supervised analysis of omic data is to select the appropriate distribution for the response variable. For example, if the response variable is binary (e.g., healthy vs. diseased), then a binomial distribution can be used. If the response variable is a count (e.g., the number of mutations), then a Poisson or negative binomial distribution can be used. If the response variable is continuous (e.g., expression levels), then a Gaussian distribution can be used. Once the appropriate distribution is selected, a GLM can be constructed by specifying a linear relationship between the response variable and the omic data, using one or more explanatory variables. The explanatory variables can be selected based on prior knowledge or through a variable selection process, such as forward or backward selection. The GLM model can then be fit to the data using maximum likelihood estimation or other methods. After fitting the GLM model, the significance of each explanatory variable can be assessed using hypothesis testing, such as Wald tests or likelihood ratio tests. The explanatory variables that are found to be significant can then be interpreted as predictors of the response variable.</p>
 <p>Overall, GLM can be a useful tool for supervised analysis of single omic layers because it allows for the identification of specific predictors of a response variable, such as disease status, and can handle a wide range of response variable distributions. However, it is important to carefully select the appropriate distribution and explanatory variables to ensure the validity and accuracy of the model.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="regression-methods.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
-<span id="cb75-2"><a href="regression-methods.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(edgeR)   <span class="co"># for differential expression analysis</span></span>
-<span id="cb75-3"><a href="regression-methods.html#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)  <span class="co"># for regularization and variable selection</span></span>
-<span id="cb75-4"><a href="regression-methods.html#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-5"><a href="regression-methods.html#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load example data</span></span>
-<span id="cb75-6"><a href="regression-methods.html#cb75-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;example_omic_data.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb75-7"><a href="regression-methods.html#cb75-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-8"><a href="regression-methods.html#cb75-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the response variable</span></span>
-<span id="cb75-9"><a href="regression-methods.html#cb75-9" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>disease_status)</span>
-<span id="cb75-10"><a href="regression-methods.html#cb75-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-11"><a href="regression-methods.html#cb75-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the explanatory variables</span></span>
-<span id="cb75-12"><a href="regression-methods.html#cb75-12" aria-hidden="true" tabindex="-1"></a>explanatory <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(data[,<span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(data)])  <span class="co"># omic data</span></span>
-<span id="cb75-13"><a href="regression-methods.html#cb75-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-14"><a href="regression-methods.html#cb75-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform differential expression analysis to identify significant variables</span></span>
-<span id="cb75-15"><a href="regression-methods.html#cb75-15" aria-hidden="true" tabindex="-1"></a>dge <span class="ot">&lt;-</span> <span class="fu">DGEList</span>(<span class="at">counts=</span>explanatory, <span class="at">group=</span>response)</span>
-<span id="cb75-16"><a href="regression-methods.html#cb75-16" aria-hidden="true" tabindex="-1"></a>dge <span class="ot">&lt;-</span> <span class="fu">calcNormFactors</span>(dge)</span>
-<span id="cb75-17"><a href="regression-methods.html#cb75-17" aria-hidden="true" tabindex="-1"></a>design <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span>response)</span>
-<span id="cb75-18"><a href="regression-methods.html#cb75-18" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glmQLFit</span>(dge, design)</span>
-<span id="cb75-19"><a href="regression-methods.html#cb75-19" aria-hidden="true" tabindex="-1"></a>qlf <span class="ot">&lt;-</span> <span class="fu">glmQLFTest</span>(fit, <span class="at">coef=</span><span class="dv">2</span>)</span>
-<span id="cb75-20"><a href="regression-methods.html#cb75-20" aria-hidden="true" tabindex="-1"></a>significant_vars <span class="ot">&lt;-</span> <span class="fu">topTags</span>(qlf, <span class="at">n=</span><span class="dv">100</span>)<span class="sc">$</span>table<span class="sc">$</span>ID  <span class="co"># select top 100 significant variables</span></span>
-<span id="cb75-21"><a href="regression-methods.html#cb75-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-22"><a href="regression-methods.html#cb75-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a GLM model with regularization and variable selection</span></span>
-<span id="cb75-23"><a href="regression-methods.html#cb75-23" aria-hidden="true" tabindex="-1"></a>fit.glm <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x=</span>explanatory[,significant_vars], <span class="at">y=</span>response, <span class="at">family=</span><span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb75-24"><a href="regression-methods.html#cb75-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit.glm)</span>
-<span id="cb75-25"><a href="regression-methods.html#cb75-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-26"><a href="regression-methods.html#cb75-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify the most important variables</span></span>
-<span id="cb75-27"><a href="regression-methods.html#cb75-27" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit.glm, <span class="at">s=</span>fit.glm<span class="sc">$</span>lambda.min)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="regression-methods.html#cb75-1" tabindex="-1"></a><span class="co"># Load required packages</span></span>
+<span id="cb75-2"><a href="regression-methods.html#cb75-2" tabindex="-1"></a><span class="fu">library</span>(edgeR)   <span class="co"># for differential expression analysis</span></span>
+<span id="cb75-3"><a href="regression-methods.html#cb75-3" tabindex="-1"></a><span class="fu">library</span>(glmnet)  <span class="co"># for regularization and variable selection</span></span>
+<span id="cb75-4"><a href="regression-methods.html#cb75-4" tabindex="-1"></a></span>
+<span id="cb75-5"><a href="regression-methods.html#cb75-5" tabindex="-1"></a><span class="co"># Load example data</span></span>
+<span id="cb75-6"><a href="regression-methods.html#cb75-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;example_omic_data.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb75-7"><a href="regression-methods.html#cb75-7" tabindex="-1"></a></span>
+<span id="cb75-8"><a href="regression-methods.html#cb75-8" tabindex="-1"></a><span class="co"># Define the response variable</span></span>
+<span id="cb75-9"><a href="regression-methods.html#cb75-9" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>disease_status)</span>
+<span id="cb75-10"><a href="regression-methods.html#cb75-10" tabindex="-1"></a></span>
+<span id="cb75-11"><a href="regression-methods.html#cb75-11" tabindex="-1"></a><span class="co"># Define the explanatory variables</span></span>
+<span id="cb75-12"><a href="regression-methods.html#cb75-12" tabindex="-1"></a>explanatory <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(data[,<span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(data)])  <span class="co"># omic data</span></span>
+<span id="cb75-13"><a href="regression-methods.html#cb75-13" tabindex="-1"></a></span>
+<span id="cb75-14"><a href="regression-methods.html#cb75-14" tabindex="-1"></a><span class="co"># Perform differential expression analysis to identify significant variables</span></span>
+<span id="cb75-15"><a href="regression-methods.html#cb75-15" tabindex="-1"></a>dge <span class="ot">&lt;-</span> <span class="fu">DGEList</span>(<span class="at">counts=</span>explanatory, <span class="at">group=</span>response)</span>
+<span id="cb75-16"><a href="regression-methods.html#cb75-16" tabindex="-1"></a>dge <span class="ot">&lt;-</span> <span class="fu">calcNormFactors</span>(dge)</span>
+<span id="cb75-17"><a href="regression-methods.html#cb75-17" tabindex="-1"></a>design <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span>response)</span>
+<span id="cb75-18"><a href="regression-methods.html#cb75-18" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glmQLFit</span>(dge, design)</span>
+<span id="cb75-19"><a href="regression-methods.html#cb75-19" tabindex="-1"></a>qlf <span class="ot">&lt;-</span> <span class="fu">glmQLFTest</span>(fit, <span class="at">coef=</span><span class="dv">2</span>)</span>
+<span id="cb75-20"><a href="regression-methods.html#cb75-20" tabindex="-1"></a>significant_vars <span class="ot">&lt;-</span> <span class="fu">topTags</span>(qlf, <span class="at">n=</span><span class="dv">100</span>)<span class="sc">$</span>table<span class="sc">$</span>ID  <span class="co"># select top 100 significant variables</span></span>
+<span id="cb75-21"><a href="regression-methods.html#cb75-21" tabindex="-1"></a></span>
+<span id="cb75-22"><a href="regression-methods.html#cb75-22" tabindex="-1"></a><span class="co"># Fit a GLM model with regularization and variable selection</span></span>
+<span id="cb75-23"><a href="regression-methods.html#cb75-23" tabindex="-1"></a>fit.glm <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x=</span>explanatory[,significant_vars], <span class="at">y=</span>response, <span class="at">family=</span><span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb75-24"><a href="regression-methods.html#cb75-24" tabindex="-1"></a><span class="fu">plot</span>(fit.glm)</span>
+<span id="cb75-25"><a href="regression-methods.html#cb75-25" tabindex="-1"></a></span>
+<span id="cb75-26"><a href="regression-methods.html#cb75-26" tabindex="-1"></a><span class="co"># Identify the most important variables</span></span>
+<span id="cb75-27"><a href="regression-methods.html#cb75-27" tabindex="-1"></a><span class="fu">coef</span>(fit.glm, <span class="at">s=</span>fit.glm<span class="sc">$</span>lambda.min)</span></code></pre></div>
 </div>
-<div id="generalised-linear-mixed-modelling" class="section level3 hasAnchor" number="19.1.6">
-<h3><span class="header-section-number">19.1.6</span> Generalised linear mixed modelling (GLMM)<a href="regression-methods.html#generalised-linear-mixed-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="generalised-linear-mixed-modelling" class="section level3 hasAnchor" number="22.1.6">
+<h3><span class="header-section-number">22.1.6</span> Generalised linear mixed modelling (GLMM)<a href="regression-methods.html#generalised-linear-mixed-modelling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Generalised linear mixed models (GLMMs) are an extension of GLMs that allow for the analysis of data with non-independent errors, such as clustered or longitudinal data. GLMMs incorporate random effects, which account for the correlation between observations within groups or over time, and fixed effects, which represent the relationships between the response and explanatory variables. GLMMs are widely used in omics data analysis, particularly for the analysis of longitudinal or repeated measures data, and for the integration of multiple omics data layers.</p>
 <p>In GLMMs, the response variable y is related to the explanatory variables x through a link function g and a linear predictor:</p>
 <pre><code>g(E[y | x]) = x * beta + Z * b</code></pre>
 <p>where beta are the fixed effects coefficients, b are the random effects coefficients, Z is the design matrix for the random effects, and E[y | x] is the expected value of the response variable given the explanatory variables x. The random effects account for the correlation between observations within groups or over time, and are assumed to be normally distributed with mean 0 and covariance matrix D. The link function g specifies the relationship between the expected value of the response variable and the linear predictor. The choice of link function depends on the nature of the response variable and can be any member of the exponential family of distributions.</p>
 <p>GLMMs are fitted using maximum likelihood estimation, which involves optimising the likelihood function with respect to the fixed and random effects coefficients, as well as the covariance matrix of the random effects. The likelihood function takes into account the correlation structure of the data and is typically evaluated using numerical methods such as the Laplace approximation or Monte Carlo Markov Chain (MCMC) methods.</p>
 <p>GLMMs can be used for a wide range of applications in omics data analysis, including the analysis of longitudinal or repeated measures data, the integration of multiple omics data layers, the analysis of data with non-independent errors, and the modelling of gene-environment interactions. However, GLMMs can be computationally intensive and require careful consideration of the correlation structure of the data and the appropriate choice of link function and distribution.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="regression-methods.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the lme4 package</span></span>
-<span id="cb77-2"><a href="regression-methods.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb77-3"><a href="regression-methods.html#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-4"><a href="regression-methods.html#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load example data</span></span>
-<span id="cb77-5"><a href="regression-methods.html#cb77-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;example_omic_data.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb77-6"><a href="regression-methods.html#cb77-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-7"><a href="regression-methods.html#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the Treatment treatment to a factor</span></span>
-<span id="cb77-8"><a href="regression-methods.html#cb77-8" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Treatment <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>Treatment)</span>
-<span id="cb77-9"><a href="regression-methods.html#cb77-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-10"><a href="regression-methods.html#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
-<span id="cb77-11"><a href="regression-methods.html#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb77-12"><a href="regression-methods.html#cb77-12" aria-hidden="true" tabindex="-1"></a>train_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(data), <span class="fl">0.7</span><span class="sc">*</span><span class="fu">nrow</span>(data))</span>
-<span id="cb77-13"><a href="regression-methods.html#cb77-13" aria-hidden="true" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> data[train_indices,]</span>
-<span id="cb77-14"><a href="regression-methods.html#cb77-14" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> data[<span class="sc">-</span>train_indices,]</span>
-<span id="cb77-15"><a href="regression-methods.html#cb77-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-16"><a href="regression-methods.html#cb77-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a GLMM with random intercept and slope</span></span>
-<span id="cb77-17"><a href="regression-methods.html#cb77-17" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(Treatment <span class="sc">~</span> . <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Sepal.Length), <span class="at">data =</span> train_data, <span class="at">family =</span> binomial)</span>
-<span id="cb77-18"><a href="regression-methods.html#cb77-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-19"><a href="regression-methods.html#cb77-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on the test data</span></span>
-<span id="cb77-20"><a href="regression-methods.html#cb77-20" aria-hidden="true" tabindex="-1"></a>test_data<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> test_data, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb77-21"><a href="regression-methods.html#cb77-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-22"><a href="regression-methods.html#cb77-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the accuracy of the predictions</span></span>
-<span id="cb77-23"><a href="regression-methods.html#cb77-23" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sum</span>(test_data<span class="sc">$</span>predicted <span class="sc">&gt;</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span> <span class="sc">|</span></span>
-<span id="cb77-24"><a href="regression-methods.html#cb77-24" aria-hidden="true" tabindex="-1"></a>                  test_data<span class="sc">$</span>predicted <span class="sc">&lt;=</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span> <span class="sc">|</span></span>
-<span id="cb77-25"><a href="regression-methods.html#cb77-25" aria-hidden="true" tabindex="-1"></a>                  test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">/</span> <span class="fu">nrow</span>(test_data)</span>
-<span id="cb77-26"><a href="regression-methods.html#cb77-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-27"><a href="regression-methods.html#cb77-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the accuracy</span></span>
-<span id="cb77-28"><a href="regression-methods.html#cb77-28" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">&quot;Accuracy: %.2f%%</span><span class="sc">\n</span><span class="st">&quot;</span>, accuracy<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="regression-methods.html#cb77-1" tabindex="-1"></a><span class="co"># Load the lme4 package</span></span>
+<span id="cb77-2"><a href="regression-methods.html#cb77-2" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb77-3"><a href="regression-methods.html#cb77-3" tabindex="-1"></a></span>
+<span id="cb77-4"><a href="regression-methods.html#cb77-4" tabindex="-1"></a><span class="co"># Load example data</span></span>
+<span id="cb77-5"><a href="regression-methods.html#cb77-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;example_omic_data.txt&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb77-6"><a href="regression-methods.html#cb77-6" tabindex="-1"></a></span>
+<span id="cb77-7"><a href="regression-methods.html#cb77-7" tabindex="-1"></a><span class="co"># Convert the Treatment treatment to a factor</span></span>
+<span id="cb77-8"><a href="regression-methods.html#cb77-8" tabindex="-1"></a>data<span class="sc">$</span>Treatment <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>Treatment)</span>
+<span id="cb77-9"><a href="regression-methods.html#cb77-9" tabindex="-1"></a></span>
+<span id="cb77-10"><a href="regression-methods.html#cb77-10" tabindex="-1"></a><span class="co"># Split the data into training and testing sets</span></span>
+<span id="cb77-11"><a href="regression-methods.html#cb77-11" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb77-12"><a href="regression-methods.html#cb77-12" tabindex="-1"></a>train_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(data), <span class="fl">0.7</span><span class="sc">*</span><span class="fu">nrow</span>(data))</span>
+<span id="cb77-13"><a href="regression-methods.html#cb77-13" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> data[train_indices,]</span>
+<span id="cb77-14"><a href="regression-methods.html#cb77-14" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> data[<span class="sc">-</span>train_indices,]</span>
+<span id="cb77-15"><a href="regression-methods.html#cb77-15" tabindex="-1"></a></span>
+<span id="cb77-16"><a href="regression-methods.html#cb77-16" tabindex="-1"></a><span class="co"># Fit a GLMM with random intercept and slope</span></span>
+<span id="cb77-17"><a href="regression-methods.html#cb77-17" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(Treatment <span class="sc">~</span> . <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Sepal.Length), <span class="at">data =</span> train_data, <span class="at">family =</span> binomial)</span>
+<span id="cb77-18"><a href="regression-methods.html#cb77-18" tabindex="-1"></a></span>
+<span id="cb77-19"><a href="regression-methods.html#cb77-19" tabindex="-1"></a><span class="co"># Predict on the test data</span></span>
+<span id="cb77-20"><a href="regression-methods.html#cb77-20" tabindex="-1"></a>test_data<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> test_data, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb77-21"><a href="regression-methods.html#cb77-21" tabindex="-1"></a></span>
+<span id="cb77-22"><a href="regression-methods.html#cb77-22" tabindex="-1"></a><span class="co"># Calculate the accuracy of the predictions</span></span>
+<span id="cb77-23"><a href="regression-methods.html#cb77-23" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sum</span>(test_data<span class="sc">$</span>predicted <span class="sc">&gt;</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span> <span class="sc">|</span></span>
+<span id="cb77-24"><a href="regression-methods.html#cb77-24" tabindex="-1"></a>                  test_data<span class="sc">$</span>predicted <span class="sc">&lt;=</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span> <span class="sc">|</span></span>
+<span id="cb77-25"><a href="regression-methods.html#cb77-25" tabindex="-1"></a>                  test_data<span class="sc">$</span>Treatment <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>) <span class="sc">/</span> <span class="fu">nrow</span>(test_data)</span>
+<span id="cb77-26"><a href="regression-methods.html#cb77-26" tabindex="-1"></a></span>
+<span id="cb77-27"><a href="regression-methods.html#cb77-27" tabindex="-1"></a><span class="co"># Print the accuracy</span></span>
+<span id="cb77-28"><a href="regression-methods.html#cb77-28" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">&quot;Accuracy: %.2f%%</span><span class="sc">\n</span><span class="st">&quot;</span>, accuracy<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div>
 </div>
 </div>
             </section>

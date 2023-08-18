@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10.1 Prepare your shell environment | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <title>3 About fieldwork | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="3 About fieldwork | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="3 About fieldwork | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="3 About fieldwork | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="about-bioinformatics.html"/>
-<link rel="next" href="using-snakemake.html"/>
+<link rel="prev" href="explanatory-and-response-variables.html"/>
+<link rel="next" href="fieldwork-sample-collection.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -426,54 +426,10 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prepare-shell" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Prepare your shell environment<a href="prepare-shell.html#prepare-shell" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If the comment chunks of the code (text after #) is creating you problems, use the following code to disable interactive comments and avoid issues when copy-pasting code:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="prepare-shell.html#cb4-1" tabindex="-1"></a><span class="ex">setopt</span> interactivecomments</span></code></pre></div>
-<div id="required-software" class="section level3 unnumbered hasAnchor">
-<h3>Required software<a href="prepare-shell.html#required-software" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Bioinformatic pipelines for processing omic data require the use of dozens of software. All the required software are listed in the conda environment installation file available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>.</p>
-</div>
-<div id="install-conda-miniconda" class="section level3 unnumbered hasAnchor">
-<h3>Install conda / miniconda<a href="prepare-shell.html#install-conda-miniconda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Conda is an open-source package management system and environment management system that quickly installs, runs, and updates packages and their dependencies. If <strong>conda</strong> is not installed in your system, the first step is to install <strong>miniconda</strong> (a free minimal installer for conda, enough to run the bioinformatic analyses explained in the workbook). Miniconda installers for Linux, Mac and Windows operating systems can be found in the following website:
-<a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></p>
-<p>Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="prepare-shell.html#cb5-1" tabindex="-1"></a><span class="ex">conda</span> <span class="at">-V</span></span>
-<span id="cb5-2"><a href="prepare-shell.html#cb5-2" tabindex="-1"></a><span class="co">#&gt; conda 22.11.1 #or whatever version you have installed</span></span></code></pre></div>
-</div>
-<div id="install-mamba" class="section level3 unnumbered hasAnchor">
-<h3>Install mamba (optional)<a href="prepare-shell.html#install-mamba" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An optional step is to install <strong>mamba</strong>, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the <code>conda install</code> option.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="prepare-shell.html#cb6-1" tabindex="-1"></a><span class="ex">conda</span> install mamba <span class="at">-n</span> base <span class="at">-c</span> conda-forge</span></code></pre></div>
-</div>
-<div id="create-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Create a conda environment<a href="prepare-shell.html#create-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>, and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don’t forget to provide the absolute path to the ‘holo-omics-env.yaml’ file in the <code>mamba create</code> command.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="prepare-shell.html#cb7-1" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml <span class="co">#download installer file</span></span>
-<span id="cb7-2"><a href="prepare-shell.html#cb7-2" tabindex="-1"></a><span class="ex">conda</span> update conda <span class="co">#to ensure everything is updated</span></span>
-<span id="cb7-3"><a href="prepare-shell.html#cb7-3" tabindex="-1"></a><span class="ex">conda</span> deactivate <span class="co">#deactivate any conda environment before creating a new one</span></span>
-<span id="cb7-4"><a href="prepare-shell.html#cb7-4" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> holo-omics-env.yml</span>
-<span id="cb7-5"><a href="prepare-shell.html#cb7-5" tabindex="-1"></a><span class="fu">rm</span> holo-omics-env.yaml <span class="co">#remove installer file</span></span></code></pre></div>
-<p>As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can double-check whether the environment has been successfully created using the following script:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="prepare-shell.html#cb8-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb8-2"><a href="prepare-shell.html#cb8-2" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
-<p>The (holo-omics) specifies the environment you are at. To get out of the environment use:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="prepare-shell.html#cb9-1" tabindex="-1"></a><span class="ex">conda</span> env list</span>
-<span id="cb9-2"><a href="prepare-shell.html#cb9-2" tabindex="-1"></a><span class="co">#&gt; base                  *  /Users/anttonalberdi/miniconda3</span></span>
-<span id="cb9-3"><a href="prepare-shell.html#cb9-3" tabindex="-1"></a><span class="co">#&gt; holo-omics               /Users/anttonalberdi/miniconda3/envs/holo-omics</span></span></code></pre></div>
-</div>
-<div id="activate-the-holo-omics-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Activate the holo-omics conda environment<a href="prepare-shell.html#activate-the-holo-omics-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="prepare-shell.html#cb10-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb10-2"><a href="prepare-shell.html#cb10-2" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
-</div>
-<div id="install-software-in-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Install software in conda environment<a href="prepare-shell.html#install-software-in-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Once the environment is activated, you can install the required software using the Conda package manager. For example, to install <strong>metawrap</strong>, run the following command:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="prepare-shell.html#cb11-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb11-2"><a href="prepare-shell.html#cb11-2" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-y</span> <span class="at">-c</span> ursky metawrap-mg=1.2.2</span></code></pre></div>
+<div id="about-fieldwork" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> About fieldwork<a href="about-fieldwork.html#about-fieldwork" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="graybox">
+<p>Some contents of this section have been extracted and modified from the article <a href="https://www.nature.com/articles/s41576-021-00421-0">Field and laboratory guidelines for reliable bioinformatic and statistical analysis of bacterial shotgun metagenomic data</a> published in <strong><em>Critical Reviews in Biotechnology</em></strong> in 2023 by the authors of the <strong>Holo-omics Workbook</strong>.</p>
 </div>
 </div>
             </section>
@@ -481,8 +437,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="about-bioinformatics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="using-snakemake.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="explanatory-and-response-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fieldwork-sample-collection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10.1 Prepare your shell environment | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <title>4 Sample collection | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="4 Sample collection | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="4 Sample collection | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10.1 Prepare your shell environment | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="4 Sample collection | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="about-bioinformatics.html"/>
-<link rel="next" href="using-snakemake.html"/>
+<link rel="prev" href="about-fieldwork.html"/>
+<link rel="next" href="fieldwork-sample-preservation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -426,54 +426,33 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prepare-shell" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Prepare your shell environment<a href="prepare-shell.html#prepare-shell" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If the comment chunks of the code (text after #) is creating you problems, use the following code to disable interactive comments and avoid issues when copy-pasting code:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="prepare-shell.html#cb4-1" tabindex="-1"></a><span class="ex">setopt</span> interactivecomments</span></code></pre></div>
-<div id="required-software" class="section level3 unnumbered hasAnchor">
-<h3>Required software<a href="prepare-shell.html#required-software" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Bioinformatic pipelines for processing omic data require the use of dozens of software. All the required software are listed in the conda environment installation file available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>.</p>
+<div id="fieldwork-sample-collection" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Sample collection<a href="fieldwork-sample-collection.html#fieldwork-sample-collection" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Sample collection is a nuanced process that necessitates careful consideration before embarking into the field. Determining what samples to gather, when to obtain them, and how to procure them are three critical decisions that should be made in advance to ensure an effective sampling endeavour.</p>
+<p>Researchers must bear in mind that due to the intricate and dynamic nature of microbial communities, any samples acquired may already deviate from their original state <span class="citation">[<a href="#ref-Probandt2018-mn">9</a>]</span>. This discrepancy can be attributed to temporal shifts, spatial disparities, and distinctions between the sampled substrate and the subject of study. An illustrative instance is the collection of faecal samples, which is notorious for not perfectly representing the true community within the lower intestine <span class="citation">[<a href="#ref-Yan2019-nb">10</a>]</span>.</p>
+<p>Furthermore, if faecal samples are sourced from the environment rather than directly from the host animal, the microbial communities within them may undergo alterations due to shifts in physicochemical parameters (such as oxygen levels and temperature) caused by exposure to air and sunlight <span class="citation">[<a href="#ref-Fofanov2018-wu">11</a>]</span>. Additionally, colonisation by new bacteria from the surrounding environment can influence the samples. Hence, it is advisable to obtain faecal samples directly from the animals or from sterile containers in which animals are temporarily housed, thereby minimising environmental influences.</p>
+<p>It is important to acknowledge that samples typically exhibit spatial structure <span class="citation">[<a href="#ref-Ji2019-wj">12</a>]</span>. Consequently, when subsampling is performed, the composition of the subset will depend on the precise location (down to the micron level) from which the sample was taken. In cases where acquiring faecal samples from the environment is unavoidable, biases introduced by exposure can be mitigated by targeting internal subsamples and avoiding external layers. However, this approach might introduce its own spatial biases <span class="citation">[<a href="#ref-Griffin2021-pt">13</a>]</span>.</p>
+<p>Dealing with sizeable samples often imposes constraints related to DNA preservation and extraction methods, limiting the amount of material that can be processed. As a result, researchers may consider gathering multiple small subsamples using either random or structured subsampling strategies. This approach captures the spatial diversity of the sample, as opposed to relying on a single large sample. Subsequently, these subsamples could be aggregated to represent the entire sample or, ideally, processed individually as distinct biological replicates. This practice could potentially enhance metagenomic binning procedures.</p>
+<div class="authorbox">
+<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a> and <a href="index.html#ostaizka-aizpurua">Ostaizka Aizpurua</a>.</p>
 </div>
-<div id="install-conda-miniconda" class="section level3 unnumbered hasAnchor">
-<h3>Install conda / miniconda<a href="prepare-shell.html#install-conda-miniconda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Conda is an open-source package management system and environment management system that quickly installs, runs, and updates packages and their dependencies. If <strong>conda</strong> is not installed in your system, the first step is to install <strong>miniconda</strong> (a free minimal installer for conda, enough to run the bioinformatic analyses explained in the workbook). Miniconda installers for Linux, Mac and Windows operating systems can be found in the following website:
-<a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></p>
-<p>Once conda or miniconda is installed in your system, you should be able to create and manage your conda environments. You can test whether conda has been succesfully installed using the following code:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="prepare-shell.html#cb5-1" tabindex="-1"></a><span class="ex">conda</span> <span class="at">-V</span></span>
-<span id="cb5-2"><a href="prepare-shell.html#cb5-2" tabindex="-1"></a><span class="co">#&gt; conda 22.11.1 #or whatever version you have installed</span></span></code></pre></div>
 </div>
-<div id="install-mamba" class="section level3 unnumbered hasAnchor">
-<h3>Install mamba (optional)<a href="prepare-shell.html#install-mamba" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An optional step is to install <strong>mamba</strong>, which is a reimplementation of the conda package manager in C++, which speeds up many of the processes. Mamba can be installed through the command line using the <code>conda install</code> option.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="prepare-shell.html#cb6-1" tabindex="-1"></a><span class="ex">conda</span> install mamba <span class="at">-n</span> base <span class="at">-c</span> conda-forge</span></code></pre></div>
+<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-Probandt2018-mn" class="csl-entry">
+9. Probandt D, Eickhorst T, Ellrott A, Amann R, Knittel K. Microbial life on a sand grain: From bulk sediment to single grains. ISME J. 2018;12:623–33.
 </div>
-<div id="create-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Create a conda environment<a href="prepare-shell.html#create-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>All the bioinformatic analyses explained in this workbook will be run within an environment containing all the necessary software. The file that specifies which software to install in the environment is available <a href="https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml">here</a>, and can be retrieved using wget (as shown in the code below), or downloading from the Internet browser. If using the latter option, don’t forget to provide the absolute path to the ‘holo-omics-env.yaml’ file in the <code>mamba create</code> command.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="prepare-shell.html#cb7-1" tabindex="-1"></a><span class="fu">wget</span> https://raw.githubusercontent.com/holo-omics/holo-omics.github.io/main/bin/holo-omics-env.yaml <span class="co">#download installer file</span></span>
-<span id="cb7-2"><a href="prepare-shell.html#cb7-2" tabindex="-1"></a><span class="ex">conda</span> update conda <span class="co">#to ensure everything is updated</span></span>
-<span id="cb7-3"><a href="prepare-shell.html#cb7-3" tabindex="-1"></a><span class="ex">conda</span> deactivate <span class="co">#deactivate any conda environment before creating a new one</span></span>
-<span id="cb7-4"><a href="prepare-shell.html#cb7-4" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> holo-omics-env.yml</span>
-<span id="cb7-5"><a href="prepare-shell.html#cb7-5" tabindex="-1"></a><span class="fu">rm</span> holo-omics-env.yaml <span class="co">#remove installer file</span></span></code></pre></div>
-<p>As the environment contains dozens of softwares, the process of creating it will take a while. It is recommended to have a good Internet connection to speed-up software download. Once the installation is over, you can double-check whether the environment has been successfully created using the following script:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="prepare-shell.html#cb8-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb8-2"><a href="prepare-shell.html#cb8-2" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
-<p>The (holo-omics) specifies the environment you are at. To get out of the environment use:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="prepare-shell.html#cb9-1" tabindex="-1"></a><span class="ex">conda</span> env list</span>
-<span id="cb9-2"><a href="prepare-shell.html#cb9-2" tabindex="-1"></a><span class="co">#&gt; base                  *  /Users/anttonalberdi/miniconda3</span></span>
-<span id="cb9-3"><a href="prepare-shell.html#cb9-3" tabindex="-1"></a><span class="co">#&gt; holo-omics               /Users/anttonalberdi/miniconda3/envs/holo-omics</span></span></code></pre></div>
+<div id="ref-Yan2019-nb" class="csl-entry">
+10. Yan W, Sun C, Zheng J, Wen C, Ji C, Zhang D, et al. Efficacy of fecal sampling as a gut proxy in the study of chicken gut microbiota. Front Microbiol. 2019;10:2126.
 </div>
-<div id="activate-the-holo-omics-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Activate the holo-omics conda environment<a href="prepare-shell.html#activate-the-holo-omics-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Whenever running the holo-omic analyses explained in this workbook, it will be necessary to activate the holo-omics environment through the following command:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="prepare-shell.html#cb10-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb10-2"><a href="prepare-shell.html#cb10-2" tabindex="-1"></a><span class="co">#&gt; (holo-omics) anttonalberdi@Anttons-MBP ~ %</span></span></code></pre></div>
+<div id="ref-Fofanov2018-wu" class="csl-entry">
+11. Fofanov VY, Furstenau TN, Sanchez D, Hepp CM, Cocking J, Sobek C, et al. Guano exposed: Impact of aerobic conditions on bat fecal microbiota. Ecol Evol. 2018;8:5563–74.
 </div>
-<div id="install-software-in-conda-environment" class="section level3 unnumbered hasAnchor">
-<h3>Install software in conda environment<a href="prepare-shell.html#install-software-in-conda-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Once the environment is activated, you can install the required software using the Conda package manager. For example, to install <strong>metawrap</strong>, run the following command:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="prepare-shell.html#cb11-1" tabindex="-1"></a><span class="ex">conda</span> activate holo-omics</span>
-<span id="cb11-2"><a href="prepare-shell.html#cb11-2" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-y</span> <span class="at">-c</span> ursky metawrap-mg=1.2.2</span></code></pre></div>
+<div id="ref-Ji2019-wj" class="csl-entry">
+12. Ji BW, Sheth RU, Dixit PD, Huang Y, Kaufman A, Wang HH, et al. Quantifying spatiotemporal variability and noise in absolute microbiota abundances using replicate sampling. Nat Methods. 2019;16:731–6.
+</div>
+<div id="ref-Griffin2021-pt" class="csl-entry">
+13. Griffin TW, Baer JG, Ward JE. Direct comparison of fecal and gut microbiota in the blue mussel (mytilus edulis) discourages fecal sampling as a proxy for resident gut community. Microb Ecol. 2021;81:180–92.
 </div>
 </div>
             </section>
@@ -481,8 +460,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="about-bioinformatics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="using-snakemake.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="about-fieldwork.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fieldwork-sample-preservation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
