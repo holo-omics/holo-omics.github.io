@@ -1,6 +1,6 @@
 # Sequencing library preparation
 
-Sequencing of DNA and RNA molecules require sequencing libraries to be prepared, which entails modifying original nucleic acid molecules to allow sequencing platforms to identify the target molecules and perform the sequencing.
+Sequencing library preparation is a crucial step in the process of DNA sequencing. It involves the conversion of fragmented DNA molecules into a format that is compatible with the sequencing platform. The goal of library preparation is to create a collection of DNA fragments, each with sequencing adapters attached, which enables high-throughput sequencing of the DNA molecules. This process ensures that the genetic information contained in the DNA sample can be accurately and efficiently read by the sequencing instrument.
 
 ### Sequencing strategies and platforms {- #sequencing-strategies-platforms}
 

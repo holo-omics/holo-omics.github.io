@@ -350,6 +350,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-r.html"><a href="prepare-r.html#required-packages"><i class="fa fa-check"></i>Required packages</a></li>
 <li class="chapter" data-level="" data-path="prepare-r.html"><a href="prepare-r.html#package-installation"><i class="fa fa-check"></i>Package installation</a></li>
 </ul></li>
+<li class="chapter" data-level="18.2" data-path="github-r.html"><a href="github-r.html"><i class="fa fa-check"></i><b>18.2</b> Create / clone a Github repository</a>
+<ul>
+<li class="chapter" data-level="" data-path="github-r.html"><a href="github-r.html#install-git-in-you-local-computer"><i class="fa fa-check"></i>Install git in you local computer</a></li>
+<li class="chapter" data-level="" data-path="github-r.html"><a href="github-r.html#create-a-github-repository"><i class="fa fa-check"></i>Create a Github repository</a></li>
+<li class="chapter" data-level="" data-path="github-r.html"><a href="github-r.html#create-a-version-control-project"><i class="fa fa-check"></i>Create a version-control project</a></li>
+<li class="chapter" data-level="" data-path="github-r.html"><a href="github-r.html#set-up-rstudio-github-connection"><i class="fa fa-check"></i>Set-up RStudio-Github connection</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>19</b> Single omic analyses</a></li>
 <li class="chapter" data-level="20" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>20</b> Data transformations</a>
@@ -449,23 +456,23 @@ div.csl-indent {
 <div id="transforming-data-to-meet-normality-assumption" class="section level3 unnumbered hasAnchor">
 <h3>Transforming data to meet normality assumption<a href="data-transformation-assumptions.html#transforming-data-to-meet-normality-assumption" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this example, we first load the multivariate dataset and use the Shapiro-Wilk test to check for normality. We then loop through each variable in the dataset and apply the Box-Cox transformation using the boxcox function from the MASS package if the Shapiro-Wilk test indicates that the variable is not normally distributed. Finally, we use the Shapiro-Wilk test again to check for normality of the transformed data.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-transformation-assumptions.html#cb59-1" tabindex="-1"></a><span class="co"># Load the multivariate dataset</span></span>
-<span id="cb59-2"><a href="data-transformation-assumptions.html#cb59-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
-<span id="cb59-3"><a href="data-transformation-assumptions.html#cb59-3" tabindex="-1"></a></span>
-<span id="cb59-4"><a href="data-transformation-assumptions.html#cb59-4" tabindex="-1"></a><span class="co"># Check for normality using Shapiro-Wilk test</span></span>
-<span id="cb59-5"><a href="data-transformation-assumptions.html#cb59-5" tabindex="-1"></a><span class="fu">shapiro.test</span>(data)</span>
-<span id="cb59-6"><a href="data-transformation-assumptions.html#cb59-6" tabindex="-1"></a></span>
-<span id="cb59-7"><a href="data-transformation-assumptions.html#cb59-7" tabindex="-1"></a><span class="co"># Apply Box-Cox transformation to each variable</span></span>
-<span id="cb59-8"><a href="data-transformation-assumptions.html#cb59-8" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb59-9"><a href="data-transformation-assumptions.html#cb59-9" tabindex="-1"></a>data_transformed <span class="ot">&lt;-</span> data</span>
-<span id="cb59-10"><a href="data-transformation-assumptions.html#cb59-10" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(data)) {</span>
-<span id="cb59-11"><a href="data-transformation-assumptions.html#cb59-11" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">shapiro.test</span>(data[,i])<span class="sc">$</span>p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>) { <span class="co"># if not normal</span></span>
-<span id="cb59-12"><a href="data-transformation-assumptions.html#cb59-12" tabindex="-1"></a>    data_transformed[,i] <span class="ot">&lt;-</span> <span class="fu">boxcox</span>(data[,i]) <span class="co"># apply Box-Cox transformation</span></span>
-<span id="cb59-13"><a href="data-transformation-assumptions.html#cb59-13" tabindex="-1"></a>  }</span>
-<span id="cb59-14"><a href="data-transformation-assumptions.html#cb59-14" tabindex="-1"></a>}</span>
-<span id="cb59-15"><a href="data-transformation-assumptions.html#cb59-15" tabindex="-1"></a></span>
-<span id="cb59-16"><a href="data-transformation-assumptions.html#cb59-16" tabindex="-1"></a><span class="co"># Check for normality again using Shapiro-Wilk test</span></span>
-<span id="cb59-17"><a href="data-transformation-assumptions.html#cb59-17" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_transformed)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-transformation-assumptions.html#cb60-1" tabindex="-1"></a><span class="co"># Load the multivariate dataset</span></span>
+<span id="cb60-2"><a href="data-transformation-assumptions.html#cb60-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb60-3"><a href="data-transformation-assumptions.html#cb60-3" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="data-transformation-assumptions.html#cb60-4" tabindex="-1"></a><span class="co"># Check for normality using Shapiro-Wilk test</span></span>
+<span id="cb60-5"><a href="data-transformation-assumptions.html#cb60-5" tabindex="-1"></a><span class="fu">shapiro.test</span>(data)</span>
+<span id="cb60-6"><a href="data-transformation-assumptions.html#cb60-6" tabindex="-1"></a></span>
+<span id="cb60-7"><a href="data-transformation-assumptions.html#cb60-7" tabindex="-1"></a><span class="co"># Apply Box-Cox transformation to each variable</span></span>
+<span id="cb60-8"><a href="data-transformation-assumptions.html#cb60-8" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb60-9"><a href="data-transformation-assumptions.html#cb60-9" tabindex="-1"></a>data_transformed <span class="ot">&lt;-</span> data</span>
+<span id="cb60-10"><a href="data-transformation-assumptions.html#cb60-10" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(data)) {</span>
+<span id="cb60-11"><a href="data-transformation-assumptions.html#cb60-11" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">shapiro.test</span>(data[,i])<span class="sc">$</span>p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>) { <span class="co"># if not normal</span></span>
+<span id="cb60-12"><a href="data-transformation-assumptions.html#cb60-12" tabindex="-1"></a>    data_transformed[,i] <span class="ot">&lt;-</span> <span class="fu">boxcox</span>(data[,i]) <span class="co"># apply Box-Cox transformation</span></span>
+<span id="cb60-13"><a href="data-transformation-assumptions.html#cb60-13" tabindex="-1"></a>  }</span>
+<span id="cb60-14"><a href="data-transformation-assumptions.html#cb60-14" tabindex="-1"></a>}</span>
+<span id="cb60-15"><a href="data-transformation-assumptions.html#cb60-15" tabindex="-1"></a></span>
+<span id="cb60-16"><a href="data-transformation-assumptions.html#cb60-16" tabindex="-1"></a><span class="co"># Check for normality again using Shapiro-Wilk test</span></span>
+<span id="cb60-17"><a href="data-transformation-assumptions.html#cb60-17" tabindex="-1"></a><span class="fu">shapiro.test</span>(data_transformed)</span></code></pre></div>
 </div>
 <div id="data-transformation-compositional" class="section level3 hasAnchor" number="20.1.1">
 <h3><span class="header-section-number">20.1.1</span> Transformations to account for compositional data<a href="data-transformation-assumptions.html#data-transformation-compositional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -474,15 +481,15 @@ div.csl-indent {
 <h4>Transforming data using centred log-ratio<a href="data-transformation-assumptions.html#transforming-data-using-centred-log-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In this example, we first load the multivariate dataset and then apply the CLR transformation using the <code>clr()</code> function from the <strong><code>compositions</code></strong> package. The CLR transformation is a commonly used method for analyzing compositional data, where the data represents proportions or percentages that add up to a constant sum. The CLR transformation is designed to remove the constant sum constraint and make the data amenable to standard multivariate statistical methods.</p>
 <p>The resulting <code>data_transformed</code> object will be a transformed version of the original dataset, with each variable now representing the logarithm of the ratio between that variable and the geometric mean of the other variables. Note that the CLR transformation assumes that the data is non-negative, so it may not be appropriate for all types of multivariate data.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-transformation-assumptions.html#cb60-1" tabindex="-1"></a><span class="co"># Load the multivariate dataset</span></span>
-<span id="cb60-2"><a href="data-transformation-assumptions.html#cb60-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
-<span id="cb60-3"><a href="data-transformation-assumptions.html#cb60-3" tabindex="-1"></a></span>
-<span id="cb60-4"><a href="data-transformation-assumptions.html#cb60-4" tabindex="-1"></a><span class="co"># Apply CLR transformation using the compositions package</span></span>
-<span id="cb60-5"><a href="data-transformation-assumptions.html#cb60-5" tabindex="-1"></a><span class="fu">library</span>(compositions)</span>
-<span id="cb60-6"><a href="data-transformation-assumptions.html#cb60-6" tabindex="-1"></a>data_transformed <span class="ot">&lt;-</span> <span class="fu">clr</span>(data)</span>
-<span id="cb60-7"><a href="data-transformation-assumptions.html#cb60-7" tabindex="-1"></a></span>
-<span id="cb60-8"><a href="data-transformation-assumptions.html#cb60-8" tabindex="-1"></a><span class="co"># View the transformed data</span></span>
-<span id="cb60-9"><a href="data-transformation-assumptions.html#cb60-9" tabindex="-1"></a><span class="fu">head</span>(data_transformed)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-transformation-assumptions.html#cb61-1" tabindex="-1"></a><span class="co"># Load the multivariate dataset</span></span>
+<span id="cb61-2"><a href="data-transformation-assumptions.html#cb61-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb61-3"><a href="data-transformation-assumptions.html#cb61-3" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="data-transformation-assumptions.html#cb61-4" tabindex="-1"></a><span class="co"># Apply CLR transformation using the compositions package</span></span>
+<span id="cb61-5"><a href="data-transformation-assumptions.html#cb61-5" tabindex="-1"></a><span class="fu">library</span>(compositions)</span>
+<span id="cb61-6"><a href="data-transformation-assumptions.html#cb61-6" tabindex="-1"></a>data_transformed <span class="ot">&lt;-</span> <span class="fu">clr</span>(data)</span>
+<span id="cb61-7"><a href="data-transformation-assumptions.html#cb61-7" tabindex="-1"></a></span>
+<span id="cb61-8"><a href="data-transformation-assumptions.html#cb61-8" tabindex="-1"></a><span class="co"># View the transformed data</span></span>
+<span id="cb61-9"><a href="data-transformation-assumptions.html#cb61-9" tabindex="-1"></a><span class="fu">head</span>(data_transformed)</span></code></pre></div>
 </div>
 </div>
 <div id="data-transformation-scaling" class="section level3 hasAnchor" number="20.1.2">
@@ -491,14 +498,14 @@ div.csl-indent {
 <div id="transforming-data-using-z-score-normalisation" class="section level4 unnumbered hasAnchor">
 <h4>Transforming data using z-score normalisation<a href="data-transformation-assumptions.html#transforming-data-using-z-score-normalisation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In this example, we first load the dataset and then use the <code>apply()</code> function to apply the z-score normalization to each variable in the dataset. The <code>apply()</code> function applies a function to either the rows or columns of a matrix, and the 2 argument specifies that we want to apply the function to the columns (i.e., variables) of the dataset. The function applied to each column calculates the z-score of each observation by subtracting the mean of the variable from each observation and dividing by the standard deviation of the variable. This centers the data around 0 and scales it to have a standard deviation of 1. The resulting <code>data_norm</code> object will be a normalized version of the original dataset, with each variable now having a mean of 0 and a standard deviation of 1.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-transformation-assumptions.html#cb61-1" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
-<span id="cb61-2"><a href="data-transformation-assumptions.html#cb61-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
-<span id="cb61-3"><a href="data-transformation-assumptions.html#cb61-3" tabindex="-1"></a></span>
-<span id="cb61-4"><a href="data-transformation-assumptions.html#cb61-4" tabindex="-1"></a><span class="co"># Apply z-score normalization to each variable</span></span>
-<span id="cb61-5"><a href="data-transformation-assumptions.html#cb61-5" tabindex="-1"></a>data_norm <span class="ot">&lt;-</span> <span class="fu">apply</span>(data, <span class="dv">2</span>, <span class="cf">function</span>(x) (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x))</span>
-<span id="cb61-6"><a href="data-transformation-assumptions.html#cb61-6" tabindex="-1"></a></span>
-<span id="cb61-7"><a href="data-transformation-assumptions.html#cb61-7" tabindex="-1"></a><span class="co"># View the normalized data</span></span>
-<span id="cb61-8"><a href="data-transformation-assumptions.html#cb61-8" tabindex="-1"></a><span class="fu">head</span>(data_norm)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-transformation-assumptions.html#cb62-1" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb62-2"><a href="data-transformation-assumptions.html#cb62-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb62-3"><a href="data-transformation-assumptions.html#cb62-3" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="data-transformation-assumptions.html#cb62-4" tabindex="-1"></a><span class="co"># Apply z-score normalization to each variable</span></span>
+<span id="cb62-5"><a href="data-transformation-assumptions.html#cb62-5" tabindex="-1"></a>data_norm <span class="ot">&lt;-</span> <span class="fu">apply</span>(data, <span class="dv">2</span>, <span class="cf">function</span>(x) (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x))</span>
+<span id="cb62-6"><a href="data-transformation-assumptions.html#cb62-6" tabindex="-1"></a></span>
+<span id="cb62-7"><a href="data-transformation-assumptions.html#cb62-7" tabindex="-1"></a><span class="co"># View the normalized data</span></span>
+<span id="cb62-8"><a href="data-transformation-assumptions.html#cb62-8" tabindex="-1"></a><span class="fu">head</span>(data_norm)</span></code></pre></div>
 
 </div>
 </div>

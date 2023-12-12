@@ -692,7 +692,7 @@ This chapter contains sections dedicated to each of the omic layers included in 
 \hypertarget{dna-rna-extraction}{%
 \chapter{DNA/RNA extraction}\label{dna-rna-extraction}}
 
-Hundreds or (probably) thousands of different protocols and variations exist for extracting and purifying nucleic acids. Protocols can be classified based on methodological (e.g., chemical vs.~physical DNA/RNA isolation, column-based vs bead-based, commercial vs.~open-access).
+DNA extraction involves isolating DNA molecules from the rest of organic materials in the mixture, as well as removing inhibitors such as polysaccharides, proteins and bile salts, which can affect downstream enzymatic reactions, such as adaptor ligation or PCR amplification. Hundreds or (probably) thousands of different protocols and variations exist for extracting and purifying nucleic acids. Protocols can be classified based on methodological (e.g., chemical vs.~physical DNA/RNA isolation, column-based vs bead-based, commercial vs.~open-access).
 
 \hypertarget{sample-preprocessing}{%
 \subsection*{Sample preprocessing}\label{sample-preprocessing}}
@@ -702,7 +702,7 @@ Hundreds or (probably) thousands of different protocols and variations exist for
 \subsubsection*{Bead-beating}\label{bead-beating}}
 \addcontentsline{toc}{subsubsection}{Bead-beating}
 
-Bead-beating is a mechanical disruption method performed before standard DNA extraction, where ceramic or glass beads are added to a tube containing microbial samples. Subsequently, moderate to high-speed shaking is applied to create collisions between the beads and samples. Bead-beating is widely used in microbial metagenomics studies for bacterial cell lysis, and various bead-beating protocols have been utilized to extract microbial DNA from stool samples. Literature has investigated the effects of different bead-beating techniques on downstream analyses \citep[\citet{Fiedorova2019-yk}]{Zhang2021-sn}.
+Bead-beating is a mechanical disruption method performed before standard DNA extraction, where ceramic or glass beads are added to a tube containing microbial samples. Subsequently, moderate to high-speed shaking is applied to create collisions between the beads and samples. Bead-beating is widely used in microbial metagenomics studies for bacterial cell lysis, and various bead-beating protocols have been utilised to extract microbial DNA from stool samples. Literature has investigated the effects of different bead-beating techniques on downstream analyses \citep[\citet{Fiedorova2019-yk}]{Zhang2021-sn}.
 
 \hypertarget{freeze-heat-shock}{%
 \subsubsection*{Freeze-heat shock}\label{freeze-heat-shock}}
@@ -766,7 +766,7 @@ Overall, to ensure the high quality of data for further processing, it is import
 \hypertarget{sequencing-library-preparation}{%
 \chapter{Sequencing library preparation}\label{sequencing-library-preparation}}
 
-Sequencing of DNA and RNA molecules require sequencing libraries to be prepared, which entails modifying original nucleic acid molecules to allow sequencing platforms to identify the target molecules and perform the sequencing.
+Sequencing library preparation is a crucial step in the process of DNA sequencing. It involves the conversion of fragmented DNA molecules into a format that is compatible with the sequencing platform. The goal of library preparation is to create a collection of DNA fragments, each with sequencing adapters attached, which enables high-throughput sequencing of the DNA molecules. This process ensures that the genetic information contained in the DNA sample can be accurately and efficiently read by the sequencing instrument.
 
 \hypertarget{sequencing-strategies-platforms}{%
 \subsection*{Sequencing strategies and platforms}\label{sequencing-strategies-platforms}}
@@ -2480,6 +2480,112 @@ GitHub is a code hosting platform for version control and collaboration. Package
 \end{Shaded}
 
 \normalsize
+
+\hypertarget{github-r}{%
+\section{Create / clone a Github repository}\label{github-r}}
+
+RStudio provides the possibility to work with version-control projects that enable multiple users (e.g., collaborators or supervisor-student) to access and contribute to a project. In order to do so, one needs to first create a code repository in Github, or access an already existing repository, and create a version-control project in RStudio.
+
+\hypertarget{install-git-in-you-local-computer}{%
+\subsection*{Install git in you local computer}\label{install-git-in-you-local-computer}}
+\addcontentsline{toc}{subsection}{Install git in you local computer}
+
+The connection between RStudio and Github is done through the version control system \textbf{\href{https://git-scm.com/}{Git}}. Instructions to download and install the software are available here: \url{https://git-scm.com/downloads}.
+
+\hypertarget{create-a-github-repository}{%
+\subsection*{Create a Github repository}\label{create-a-github-repository}}
+\addcontentsline{toc}{subsection}{Create a Github repository}
+
+If you want to work on a new project, create a new repository in your Github dashboard of repositories or in any of the organisational accounts you belong to. When creating the repository, accept the option for generating a README.md document to serve as index.
+
+\hypertarget{create-a-version-control-project}{%
+\subsection*{Create a version-control project}\label{create-a-version-control-project}}
+\addcontentsline{toc}{subsection}{Create a version-control project}
+
+Once your repository is created, you need to create a version-control R project linked to that repository in your local computer. Follow the following instructions to do so:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open RStudio.
+\item
+  Click \textbf{\emph{New Project}}
+\item
+  Select the \textbf{\emph{Version Control}} option in the first pop-up window, and the option \textbf{\emph{Git}} in the second page.
+\item
+  Go to your repository page at Github and copy the git url after clicking the \textbf{\emph{\textless{} \textgreater{} Code}} green button. The link should look something like this: \url{https://github.com/holo-omics/example.git}
+\item
+  Paste the repository URL you just copied in the \textbf{\emph{Repository URL}} field. Leave the \textbf{\emph{Project directory name}} empty, and select the local directory (folder) where you want to create a local copy of the Github repository.
+\item
+  Click \textbf{\emph{Create Project}}.
+\end{enumerate}
+
+This procedure will generate an R project in the a folder with the name of the Github repository within the desired directory. The main difference of such a version-control project and a regular R project is the connection with Github through Git. If you open the project in RStudio, you will find a new tab called \textbf{\emph{Git}}, which you can use to communicate with Github.
+
+\hypertarget{set-up-rstudio-github-connection}{%
+\subsection*{Set-up RStudio-Github connection}\label{set-up-rstudio-github-connection}}
+\addcontentsline{toc}{subsection}{Set-up RStudio-Github connection}
+
+In order to be able to commit and push changes to Github, you need to configure git and RStudio.
+
+\hypertarget{set-up-git-config}{%
+\subsubsection*{Set-up git config}\label{set-up-git-config}}
+\addcontentsline{toc}{subsubsection}{Set-up git config}
+
+First, set-up git config using the following commands. Make sure you modify `Your Name' and `\href{mailto:your@email.com}{\nolinkurl{your@email.com}}' before running the scripts below in your terminal.
+
+\begin{verbatim}
+git config --global user.name 'Your Name'
+git config --global user.email 'your@email.com'
+\end{verbatim}
+
+\hypertarget{generate-a-github-access-token}{%
+\subsubsection*{Generate a Github access token}\label{generate-a-github-access-token}}
+\addcontentsline{toc}{subsubsection}{Generate a Github access token}
+
+Second, you need to generate a personal access token you will need to use when first pushing changes to Github. To generate the token, access your personal Github account and navigate through \textbf{Settings} (you will find it by clicking your avatar) \textgreater{} \textbf{Developer settings} (you will find it at the very bottom of the left menu) \textgreater{} \textbf{Personal access tokens} \textgreater{} \textbf{Generate new token}.
+
+\hypertarget{connect-rstudio-to-github}{%
+\subsubsection*{Connect RStudio to Github}\label{connect-rstudio-to-github}}
+\addcontentsline{toc}{subsubsection}{Connect RStudio to Github}
+
+Finally, you will need to modify something in your project to push the first change to Github and configure the connection between RStudio and Github.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In RStudio open the README.md file, make any change you wish and save it.
+\item
+  Any file within the project that has been edited will appear in the \textbf{\emph{Git}} tab with a \textbf{M - Modified} status.
+\item
+  Click the checkboxes of the files you want to commit (in this case the README.md file) to stage the file and click \textbf{\emph{Commit}}.
+\item
+  In the pop-up window, add a descriptive short message to the commit, and click \textbf{\emph{Commit}}.
+\item
+  Click Push to upload the changes to Github. The first time you push, RStudio will request your Github username and password. Note that instead of your Github access password, \textbf{you need to use the access token} instead.
+\end{enumerate}
+
+These actions should enable you to connect RStudio to Github and to push changes from your local version of the repository to Github.
+
+\hypertarget{work-with-version-control}{%
+\subsubsection*{Work with version control}\label{work-with-version-control}}
+\addcontentsline{toc}{subsubsection}{Work with version control}
+
+Once the initial commit is pushed, then you are ready to work with your version-control R project. Keep in mind that in a version-control project, the same project might contain multiple versions, including the one in Github and the ones in the local computers of the collaborators.
+
+\begin{itemize}
+\tightlist
+\item
+  To access the latest version available in Github use the \textbf{\emph{Pull}} button.
+\item
+  To update the Github version, use \textbf{\emph{Commit}} followed by \textbf{\emph{Push}}.
+\end{itemize}
+
+To learn more about Git and version control, check the many great tutorials available on the internet, for example:
+- \url{https://ourcodingclub.github.io/tutorials/git/}
+- \url{https://www.freecodecamp.org/news/git-and-github-the-basics/}
 
 \hypertarget{single-omic-analyses}{%
 \chapter{Single omic analyses}\label{single-omic-analyses}}

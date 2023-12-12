@@ -80,3 +80,59 @@ install_github("github_repository_name_of_the_package")
 install_github("anttonalberdi/distillR")
 ```
 \normalsize
+
+## Create / clone a Github repository {#github-r}
+RStudio provides the possibility to work with version-control projects that enable multiple users (e.g., collaborators or supervisor-student) to access and contribute to a project. In order to do so, one needs to first create a code repository in Github, or access an already existing repository, and create a version-control project in RStudio.
+
+### Install git in you local computer {-}
+The connection between RStudio and Github is done through the version control system **[Git](https://git-scm.com/)**. Instructions to download and install the software are available here: https://git-scm.com/downloads.
+
+### Create a Github repository {-}
+If you want to work on a new project, create a new repository in your Github dashboard of repositories or in any of the organisational accounts you belong to. When creating the repository, accept the option for generating a README.md document to serve as index.  
+
+### Create a version-control project {-}
+Once your repository is created, you need to create a version-control R project linked to that repository in your local computer. Follow the following instructions to do so:
+
+1. Open RStudio.
+2. Click ***New Project***
+3. Select the ***Version Control*** option in the first pop-up window, and the option ***Git*** in the second page.
+4. Go to your repository page at Github and copy the git url after clicking the ***< > Code*** green button. The link should look something like this: https://github.com/holo-omics/example.git
+5. Paste the repository URL you just copied in the ***Repository URL*** field. Leave the ***Project directory name*** empty, and select the local directory (folder) where you want to create a local copy of the Github repository.
+6. Click ***Create Project***.
+
+This procedure will generate an R project in the a folder with the name of the Github repository within the desired directory. The main difference of such a version-control project and a regular R project is the connection with Github through Git. If you open the project in RStudio, you will find a new tab called ***Git***, which you can use to communicate with Github.
+
+### Set-up RStudio-Github connection {-}
+In order to be able to commit and push changes to Github, you need to configure git and RStudio.
+
+#### Set-up git config {-}
+First, set-up git config using the following commands. Make sure you modify 'Your Name' and 'your@email.com' before running the scripts below in your terminal.
+
+```
+git config --global user.name 'Your Name'
+git config --global user.email 'your@email.com'
+```
+
+#### Generate a Github access token {-}
+Second, you need to generate a personal access token you will need to use when first pushing changes to Github. To generate the token, access your personal Github account and navigate through **Settings** (you will find it by clicking your avatar) > **Developer settings** (you will find it at the very bottom of the left menu) > **Personal access tokens** > **Generate new token**.
+
+#### Connect RStudio to Github {-}
+Finally, you will need to modify something in your project to push the first change to Github and configure the connection between RStudio and Github.
+
+1. In RStudio open the README.md file, make any change you wish and save it.
+2. Any file within the project that has been edited will appear in the ***Git*** tab with a **M - Modified** status.
+3. Click the checkboxes of the files you want to commit (in this case the README.md file) to stage the file and click ***Commit***.
+4. In the pop-up window, add a descriptive short message to the commit, and click ***Commit***.
+5. Click Push to upload the changes to Github. The first time you push, RStudio will request your Github username and password. Note that instead of your Github access password, **you need to use the access token** instead.
+
+These actions should enable you to connect RStudio to Github and to push changes from your local version of the repository to Github.
+
+#### Work with version control {-}
+Once the initial commit is pushed, then you are ready to work with your version-control R project. Keep in mind that in a version-control project, the same project might contain multiple versions, including the one in Github and the ones in the local computers of the collaborators.
+
+- To access the latest version available in Github use the ***Pull*** button.
+- To update the Github version, use ***Commit*** followed by ***Push***.
+
+To learn more about Git and version control, check the many great tutorials available on the internet, for example:
+- https://ourcodingclub.github.io/tutorials/git/
+- https://www.freecodecamp.org/news/git-and-github-the-basics/

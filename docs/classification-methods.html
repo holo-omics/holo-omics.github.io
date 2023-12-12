@@ -350,6 +350,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prepare-r.html"><a href="prepare-r.html#required-packages"><i class="fa fa-check"></i>Required packages</a></li>
 <li class="chapter" data-level="" data-path="prepare-r.html"><a href="prepare-r.html#package-installation"><i class="fa fa-check"></i>Package installation</a></li>
 </ul></li>
+<li class="chapter" data-level="18.2" data-path="github-r.html"><a href="github-r.html"><i class="fa fa-check"></i><b>18.2</b> Create / clone a Github repository</a>
+<ul>
+<li class="chapter" data-level="" data-path="github-r.html"><a href="github-r.html#install-git-in-you-local-computer"><i class="fa fa-check"></i>Install git in you local computer</a></li>
+<li class="chapter" data-level="" data-path="github-r.html"><a href="github-r.html#create-a-github-repository"><i class="fa fa-check"></i>Create a Github repository</a></li>
+<li class="chapter" data-level="" data-path="github-r.html"><a href="github-r.html#create-a-version-control-project"><i class="fa fa-check"></i>Create a version-control project</a></li>
+<li class="chapter" data-level="" data-path="github-r.html"><a href="github-r.html#set-up-rstudio-github-connection"><i class="fa fa-check"></i>Set-up RStudio-Github connection</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="single-omic-analyses.html"><a href="single-omic-analyses.html"><i class="fa fa-check"></i><b>19</b> Single omic analyses</a></li>
 <li class="chapter" data-level="20" data-path="data-transformations.html"><a href="data-transformations.html"><i class="fa fa-check"></i><b>20</b> Data transformations</a>
@@ -432,29 +439,7 @@ div.csl-indent {
 <div id="random-forests" class="section level3 hasAnchor" number="22.2.1">
 <h3><span class="header-section-number">22.2.1</span> Random Forests (RF)<a href="classification-methods.html#random-forests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Random forests are an ensemble of decision trees that are trained on bootstrapped samples of the data and a random subset of the features, to reduce overfitting and improve accuracy.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="classification-methods.html#cb78-1" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
-<span id="cb78-2"><a href="classification-methods.html#cb78-2" tabindex="-1"></a></span>
-<span id="cb78-3"><a href="classification-methods.html#cb78-3" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
-<span id="cb78-4"><a href="classification-methods.html#cb78-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
-<span id="cb78-5"><a href="classification-methods.html#cb78-5" tabindex="-1"></a></span>
-<span id="cb78-6"><a href="classification-methods.html#cb78-6" tabindex="-1"></a><span class="co"># Split the data into training and test sets</span></span>
-<span id="cb78-7"><a href="classification-methods.html#cb78-7" tabindex="-1"></a>trainIndex <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data), <span class="fl">0.7</span><span class="sc">*</span><span class="fu">nrow</span>(data))</span>
-<span id="cb78-8"><a href="classification-methods.html#cb78-8" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> data[trainIndex, ]</span>
-<span id="cb78-9"><a href="classification-methods.html#cb78-9" tabindex="-1"></a>testData <span class="ot">&lt;-</span> data[<span class="sc">-</span>trainIndex, ]</span>
-<span id="cb78-10"><a href="classification-methods.html#cb78-10" tabindex="-1"></a></span>
-<span id="cb78-11"><a href="classification-methods.html#cb78-11" tabindex="-1"></a><span class="co"># Train the random forest classifier</span></span>
-<span id="cb78-12"><a href="classification-methods.html#cb78-12" tabindex="-1"></a>rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(class <span class="sc">~</span> ., <span class="at">data=</span>trainData, <span class="at">ntree=</span><span class="dv">500</span>, <span class="at">importance=</span><span class="cn">TRUE</span>)</span>
-<span id="cb78-13"><a href="classification-methods.html#cb78-13" tabindex="-1"></a></span>
-<span id="cb78-14"><a href="classification-methods.html#cb78-14" tabindex="-1"></a><span class="co"># Make predictions on the test data</span></span>
-<span id="cb78-15"><a href="classification-methods.html#cb78-15" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, testData)</span>
-<span id="cb78-16"><a href="classification-methods.html#cb78-16" tabindex="-1"></a></span>
-<span id="cb78-17"><a href="classification-methods.html#cb78-17" tabindex="-1"></a><span class="co"># Evaluate the performance of the classifier</span></span>
-<span id="cb78-18"><a href="classification-methods.html#cb78-18" tabindex="-1"></a><span class="fu">confusionMatrix</span>(predictions, testData<span class="sc">$</span>class)</span></code></pre></div>
-</div>
-<div id="support-vector-machines" class="section level3 hasAnchor" number="22.2.2">
-<h3><span class="header-section-number">22.2.2</span> Support Vector Machines (SVM)<a href="classification-methods.html#support-vector-machines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Support vector machines (SVMs) aim to find a hyperplane that maximally separates the samples belonging to different classes in the feature space, and can handle both linear and nonlinear relationships between the features and the response variable.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="classification-methods.html#cb79-1" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="classification-methods.html#cb79-1" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
 <span id="cb79-2"><a href="classification-methods.html#cb79-2" tabindex="-1"></a></span>
 <span id="cb79-3"><a href="classification-methods.html#cb79-3" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
 <span id="cb79-4"><a href="classification-methods.html#cb79-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
@@ -464,14 +449,36 @@ div.csl-indent {
 <span id="cb79-8"><a href="classification-methods.html#cb79-8" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> data[trainIndex, ]</span>
 <span id="cb79-9"><a href="classification-methods.html#cb79-9" tabindex="-1"></a>testData <span class="ot">&lt;-</span> data[<span class="sc">-</span>trainIndex, ]</span>
 <span id="cb79-10"><a href="classification-methods.html#cb79-10" tabindex="-1"></a></span>
-<span id="cb79-11"><a href="classification-methods.html#cb79-11" tabindex="-1"></a><span class="co"># Train the SVM classifier</span></span>
-<span id="cb79-12"><a href="classification-methods.html#cb79-12" tabindex="-1"></a>svm <span class="ot">&lt;-</span> <span class="fu">svm</span>(class <span class="sc">~</span> ., <span class="at">data=</span>trainData, <span class="at">kernel=</span><span class="st">&quot;radial&quot;</span>, <span class="at">cost=</span><span class="dv">1</span>)</span>
+<span id="cb79-11"><a href="classification-methods.html#cb79-11" tabindex="-1"></a><span class="co"># Train the random forest classifier</span></span>
+<span id="cb79-12"><a href="classification-methods.html#cb79-12" tabindex="-1"></a>rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(class <span class="sc">~</span> ., <span class="at">data=</span>trainData, <span class="at">ntree=</span><span class="dv">500</span>, <span class="at">importance=</span><span class="cn">TRUE</span>)</span>
 <span id="cb79-13"><a href="classification-methods.html#cb79-13" tabindex="-1"></a></span>
 <span id="cb79-14"><a href="classification-methods.html#cb79-14" tabindex="-1"></a><span class="co"># Make predictions on the test data</span></span>
-<span id="cb79-15"><a href="classification-methods.html#cb79-15" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm, testData)</span>
+<span id="cb79-15"><a href="classification-methods.html#cb79-15" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf, testData)</span>
 <span id="cb79-16"><a href="classification-methods.html#cb79-16" tabindex="-1"></a></span>
 <span id="cb79-17"><a href="classification-methods.html#cb79-17" tabindex="-1"></a><span class="co"># Evaluate the performance of the classifier</span></span>
 <span id="cb79-18"><a href="classification-methods.html#cb79-18" tabindex="-1"></a><span class="fu">confusionMatrix</span>(predictions, testData<span class="sc">$</span>class)</span></code></pre></div>
+</div>
+<div id="support-vector-machines" class="section level3 hasAnchor" number="22.2.2">
+<h3><span class="header-section-number">22.2.2</span> Support Vector Machines (SVM)<a href="classification-methods.html#support-vector-machines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Support vector machines (SVMs) aim to find a hyperplane that maximally separates the samples belonging to different classes in the feature space, and can handle both linear and nonlinear relationships between the features and the response variable.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="classification-methods.html#cb80-1" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb80-2"><a href="classification-methods.html#cb80-2" tabindex="-1"></a></span>
+<span id="cb80-3"><a href="classification-methods.html#cb80-3" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb80-4"><a href="classification-methods.html#cb80-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;mydata.csv&quot;</span>)</span>
+<span id="cb80-5"><a href="classification-methods.html#cb80-5" tabindex="-1"></a></span>
+<span id="cb80-6"><a href="classification-methods.html#cb80-6" tabindex="-1"></a><span class="co"># Split the data into training and test sets</span></span>
+<span id="cb80-7"><a href="classification-methods.html#cb80-7" tabindex="-1"></a>trainIndex <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(data), <span class="fl">0.7</span><span class="sc">*</span><span class="fu">nrow</span>(data))</span>
+<span id="cb80-8"><a href="classification-methods.html#cb80-8" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> data[trainIndex, ]</span>
+<span id="cb80-9"><a href="classification-methods.html#cb80-9" tabindex="-1"></a>testData <span class="ot">&lt;-</span> data[<span class="sc">-</span>trainIndex, ]</span>
+<span id="cb80-10"><a href="classification-methods.html#cb80-10" tabindex="-1"></a></span>
+<span id="cb80-11"><a href="classification-methods.html#cb80-11" tabindex="-1"></a><span class="co"># Train the SVM classifier</span></span>
+<span id="cb80-12"><a href="classification-methods.html#cb80-12" tabindex="-1"></a>svm <span class="ot">&lt;-</span> <span class="fu">svm</span>(class <span class="sc">~</span> ., <span class="at">data=</span>trainData, <span class="at">kernel=</span><span class="st">&quot;radial&quot;</span>, <span class="at">cost=</span><span class="dv">1</span>)</span>
+<span id="cb80-13"><a href="classification-methods.html#cb80-13" tabindex="-1"></a></span>
+<span id="cb80-14"><a href="classification-methods.html#cb80-14" tabindex="-1"></a><span class="co"># Make predictions on the test data</span></span>
+<span id="cb80-15"><a href="classification-methods.html#cb80-15" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm, testData)</span>
+<span id="cb80-16"><a href="classification-methods.html#cb80-16" tabindex="-1"></a></span>
+<span id="cb80-17"><a href="classification-methods.html#cb80-17" tabindex="-1"></a><span class="co"># Evaluate the performance of the classifier</span></span>
+<span id="cb80-18"><a href="classification-methods.html#cb80-18" tabindex="-1"></a><span class="fu">confusionMatrix</span>(predictions, testData<span class="sc">$</span>class)</span></code></pre></div>
 
 </div>
 </div>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Introduction to holo-omics | A Practical Guide to Holo-Omics</title>
-  <meta name="description" content="1 Introduction to holo-omics | A Practical Guide to Holo-Omics" />
+  <title>18.2 Create / clone a Github repository | A Practical Guide to Holo-Omics</title>
+  <meta name="description" content="18.2 Create / clone a Github repository | A Practical Guide to Holo-Omics" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Introduction to holo-omics | A Practical Guide to Holo-Omics" />
+  <meta property="og:title" content="18.2 Create / clone a Github repository | A Practical Guide to Holo-Omics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Introduction to holo-omics | A Practical Guide to Holo-Omics" />
+  <meta name="twitter:title" content="18.2 Create / clone a Github repository | A Practical Guide to Holo-Omics" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="omic-layers.html"/>
+<link rel="prev" href="prepare-r.html"/>
+<link rel="next" href="single-omic-analyses.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -433,50 +433,77 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="holo-omics" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Introduction to holo-omics<a href="holo-omics.html#holo-omics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="why-holo-omics" class="section level3 unnumbered hasAnchor">
-<h3>Why do we need holo-omics?<a href="holo-omics.html#why-holo-omics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Every multicellular organism is a host ‘environment’ for which microbes pass through, persist, replicate, and/or influence the host phenotype. Evidence, collected from rainforest swamps to research labs, and from farm stables to patient bedsides, has made it clear that no fauna or flora live alone. Although each have their own peculiar characteristics, animals and plants are incontrovertible assemblages of multiple lifeforms. They compositionally form holobionts with their diverse microbial associates, whether they are transient or stably present <span class="citation">[<a href="#ref-Theis2016-dc">3</a>]</span>. Holobionts can thus change in time and space, and the collective gene catalog of a holobiont in turn forms a hologenome, which can yield variation in phenotypes with fitness, performance, or disease consequences. The prefix “holo” derives from the Greek word holos for entire or whole. Holobiont and hologenome are thus structural terms that help us view and study biological systems in an integrated community context, that are subject to diverse ecological and evolutionary forces with harmful, helpful, or harmless consequences <span class="citation">[<a href="#ref-Rosenberg2013-dc">4</a>]</span>. The terms also recognize that hosts often outsource or intertwine metabolism to stable or transient microbial associates, and that hosts have evolved a gradient of dependencies and antagonisms with microorganisms in or on their surfaces and surroundings across the plant and animalia kingdoms.</p>
+<div id="github-r" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Create / clone a Github repository<a href="github-r.html#github-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudio provides the possibility to work with version-control projects that enable multiple users (e.g., collaborators or supervisor-student) to access and contribute to a project. In order to do so, one needs to first create a code repository in Github, or access an already existing repository, and create a version-control project in RStudio.</p>
+<div id="install-git-in-you-local-computer" class="section level3 unnumbered hasAnchor">
+<h3>Install git in you local computer<a href="github-r.html#install-git-in-you-local-computer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The connection between RStudio and Github is done through the version control system <strong><a href="https://git-scm.com/">Git</a></strong>. Instructions to download and install the software are available here: <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a>.</p>
 </div>
-<div id="what-is-holo-omics" class="section level3 unnumbered hasAnchor">
-<h3>What is holo-omics?<a href="holo-omics.html#what-is-holo-omics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Holo-omics refers to the methodological approach that jointly generates and analyses multi-omic data from hosts and associated microbial communities <span class="citation">[<a href="#ref-Nyholm2020-ua">1</a>]</span>. Holo-omics leverage current knowledge and methods in the fields of molecular biology and microbiology into a novel framework integrating molecular data including genomes, transcriptomes, epigenomes, proteomes, and metabolomes for analyzing host organisms and their gut microbiota as interconnected and coregulated systems. The advantage of holo-omics is that it is supposed to overcome the limited functional insights of current analytical strategies by simultaneously considering the holobiont at multiple molecular levels. This involves deciphering interactions between not only the host genome but also its epigenome and transcriptome, as well as its microbial metagenome and metatranscriptome. Studies would ideally also incorporate analyses of the associated proteomes and metabolomes, and metaproteomes and metametabolomes, to fully recover the functional pathways controlling the observable phenotype of a host organism. Successful integration of such data into a holo-omic framework will reveal mechanisms such as how host genomes regulate the composition of the microbial community, or, conversely, how specific microbes interact to control host gene expression patterns. Finally, the holo-omic approach to study host-microbiota interactions relies on three major assumptions of the study system:</p>
+<div id="create-a-github-repository" class="section level3 unnumbered hasAnchor">
+<h3>Create a Github repository<a href="github-r.html#create-a-github-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you want to work on a new project, create a new repository in your Github dashboard of repositories or in any of the organisational accounts you belong to. When creating the repository, accept the option for generating a README.md document to serve as index.</p>
+</div>
+<div id="create-a-version-control-project" class="section level3 unnumbered hasAnchor">
+<h3>Create a version-control project<a href="github-r.html#create-a-version-control-project" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once your repository is created, you need to create a version-control R project linked to that repository in your local computer. Follow the following instructions to do so:</p>
 <ol style="list-style-type: decimal">
-<li>Host-associated microorganisms interact not only with each other but also with their host <span class="citation">[<a href="#ref-Fischer2017-wa">5</a>]</span>.</li>
-<li>These interactions affect, either positively or negatively, central biological processes of hosts and microorganisms <span class="citation">[<a href="#ref-Wu2012-jt">6</a>]</span>.</li>
-<li>The interplay can be traced using biomolecular tools.</li>
+<li>Open RStudio.</li>
+<li>Click <strong><em>New Project</em></strong></li>
+<li>Select the <strong><em>Version Control</em></strong> option in the first pop-up window, and the option <strong><em>Git</em></strong> in the second page.</li>
+<li>Go to your repository page at Github and copy the git url after clicking the <strong><em>&lt; &gt; Code</em></strong> green button. The link should look something like this: <a href="https://github.com/holo-omics/example.git" class="uri">https://github.com/holo-omics/example.git</a></li>
+<li>Paste the repository URL you just copied in the <strong><em>Repository URL</em></strong> field. Leave the <strong><em>Project directory name</em></strong> empty, and select the local directory (folder) where you want to create a local copy of the Github repository.</li>
+<li>Click <strong><em>Create Project</em></strong>.</li>
 </ol>
-<div class="authorbox">
-<p>Contents of this section were created by <a href="index.html#antton-alberdi">Antton Alberdi</a> and <a href="index.html#morten-limborg">Morten Limborg</a>.</p>
+<p>This procedure will generate an R project in the a folder with the name of the Github repository within the desired directory. The main difference of such a version-control project and a regular R project is the connection with Github through Git. If you open the project in RStudio, you will find a new tab called <strong><em>Git</em></strong>, which you can use to communicate with Github.</p>
+</div>
+<div id="set-up-rstudio-github-connection" class="section level3 unnumbered hasAnchor">
+<h3>Set-up RStudio-Github connection<a href="github-r.html#set-up-rstudio-github-connection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In order to be able to commit and push changes to Github, you need to configure git and RStudio.</p>
+<div id="set-up-git-config" class="section level4 unnumbered hasAnchor">
+<h4>Set-up git config<a href="github-r.html#set-up-git-config" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>First, set-up git config using the following commands. Make sure you modify ‘Your Name’ and ‘<a href="mailto:your@email.com" class="email">your@email.com</a>’ before running the scripts below in your terminal.</p>
+<pre><code>git config --global user.name &#39;Your Name&#39;
+git config --global user.email &#39;your@email.com&#39;</code></pre>
+</div>
+<div id="generate-a-github-access-token" class="section level4 unnumbered hasAnchor">
+<h4>Generate a Github access token<a href="github-r.html#generate-a-github-access-token" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Second, you need to generate a personal access token you will need to use when first pushing changes to Github. To generate the token, access your personal Github account and navigate through <strong>Settings</strong> (you will find it by clicking your avatar) &gt; <strong>Developer settings</strong> (you will find it at the very bottom of the left menu) &gt; <strong>Personal access tokens</strong> &gt; <strong>Generate new token</strong>.</p>
+</div>
+<div id="connect-rstudio-to-github" class="section level4 unnumbered hasAnchor">
+<h4>Connect RStudio to Github<a href="github-r.html#connect-rstudio-to-github" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, you will need to modify something in your project to push the first change to Github and configure the connection between RStudio and Github.</p>
+<ol style="list-style-type: decimal">
+<li>In RStudio open the README.md file, make any change you wish and save it.</li>
+<li>Any file within the project that has been edited will appear in the <strong><em>Git</em></strong> tab with a <strong>M - Modified</strong> status.</li>
+<li>Click the checkboxes of the files you want to commit (in this case the README.md file) to stage the file and click <strong><em>Commit</em></strong>.</li>
+<li>In the pop-up window, add a descriptive short message to the commit, and click <strong><em>Commit</em></strong>.</li>
+<li>Click Push to upload the changes to Github. The first time you push, RStudio will request your Github username and password. Note that instead of your Github access password, <strong>you need to use the access token</strong> instead.</li>
+</ol>
+<p>These actions should enable you to connect RStudio to Github and to push changes from your local version of the repository to Github.</p>
+</div>
+<div id="work-with-version-control" class="section level4 unnumbered hasAnchor">
+<h4>Work with version control<a href="github-r.html#work-with-version-control" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Once the initial commit is pushed, then you are ready to work with your version-control R project. Keep in mind that in a version-control project, the same project might contain multiple versions, including the one in Github and the ones in the local computers of the collaborators.</p>
+<ul>
+<li>To access the latest version available in Github use the <strong><em>Pull</em></strong> button.</li>
+<li>To update the Github version, use <strong><em>Commit</em></strong> followed by <strong><em>Push</em></strong>.</li>
+</ul>
+<p>To learn more about Git and version control, check the many great tutorials available on the internet, for example:
+- <a href="https://ourcodingclub.github.io/tutorials/git/" class="uri">https://ourcodingclub.github.io/tutorials/git/</a>
+- <a href="https://www.freecodecamp.org/news/git-and-github-the-basics/" class="uri">https://www.freecodecamp.org/news/git-and-github-the-basics/</a></p>
+
 </div>
 </div>
 </div>
-<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body">
-<div id="ref-Nyholm2020-ua" class="csl-entry">
-1. Nyholm L, Koziol A, Marcos S, Botnen AB, Aizpurua O, Gopalakrishnan S, et al. <span>Holo-Omics</span>: Integrated <span>Host-Microbiota</span> multi-omics for basic and applied biological research. iScience. 2020;23:101414.
-</div>
-<div id="ref-Theis2016-dc" class="csl-entry">
-3. Theis KR, Dheilly NM, Klassen JL, Brucker RM, Baines JF, Bosch TCG, et al. Getting the hologenome concept right: An <span>Eco-Evolutionary</span> framework for hosts and their microbiomes. mSystems. 2016;1.
-</div>
-<div id="ref-Rosenberg2013-dc" class="csl-entry">
-4. Rosenberg E, Zilber-Rosenberg I. The hologenome concept: Human, animal and plant microbiota. Springer, Cham; 2013.
-</div>
-<div id="ref-Fischer2017-wa" class="csl-entry">
-5. Fischer CN, Trautman EP, Crawford JM, Stabb EV, Handelsman J, Broderick NA. Metabolite exchange between microbiome members produces compounds that influence drosophila behavior. Elife. 2017;6.
-</div>
-<div id="ref-Wu2012-jt" class="csl-entry">
-6. Wu H-J, Wu E. The role of gut microbiota in immune homeostasis and autoimmunity. Gut Microbes. 2012;3:4–14.
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="omic-layers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prepare-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="single-omic-analyses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

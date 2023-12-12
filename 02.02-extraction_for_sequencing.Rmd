@@ -1,12 +1,12 @@
 # DNA/RNA extraction {#dna-rna-extraction}
 
-Hundreds or (probably) thousands of different protocols and variations exist for extracting and purifying nucleic acids. Protocols can be classified based on methodological (e.g., chemical vs. physical DNA/RNA isolation, column-based vs bead-based, commercial vs. open-access).
+DNA extraction involves isolating DNA molecules from the rest of organic materials in the mixture, as well as removing inhibitors such as polysaccharides, proteins and bile salts, which can affect downstream enzymatic reactions, such as adaptor ligation or PCR amplification. Hundreds or (probably) thousands of different protocols and variations exist for extracting and purifying nucleic acids. Protocols can be classified based on methodological (e.g., chemical vs. physical DNA/RNA isolation, column-based vs bead-based, commercial vs. open-access).
 
 ### Sample preprocessing {-}
 
 #### Bead-beating {-}
 
-Bead-beating is a mechanical disruption method performed before standard DNA extraction, where ceramic or glass beads are added to a tube containing microbial samples. Subsequently, moderate to high-speed shaking is applied to create collisions between the beads and samples. Bead-beating is widely used in microbial metagenomics studies for bacterial cell lysis, and various bead-beating protocols have been utilized to extract microbial DNA from stool samples. Literature has investigated the effects of different bead-beating techniques on downstream analyses [@Zhang2021-sn, @Fiedorova2019-yk].
+Bead-beating is a mechanical disruption method performed before standard DNA extraction, where ceramic or glass beads are added to a tube containing microbial samples. Subsequently, moderate to high-speed shaking is applied to create collisions between the beads and samples. Bead-beating is widely used in microbial metagenomics studies for bacterial cell lysis, and various bead-beating protocols have been utilised to extract microbial DNA from stool samples. Literature has investigated the effects of different bead-beating techniques on downstream analyses [@Zhang2021-sn, @Fiedorova2019-yk].
 
 #### Freeze-heat shock {-}
 
